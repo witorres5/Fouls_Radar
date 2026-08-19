@@ -23,7 +23,8 @@ TARGET_LEAGUES = {
     73: {"name": "Copa Do Brasil", "country": "Brazil"},
     71: {"name": "Serie A Brazil", "country": "Brazil"},
     239: {"name": "Liga BetPlay", "country": "Colombia"},
-    2: {"name": "UEFA Champions League", "country": "World"}
+    2: {"name": "UEFA Champions League", "country": "World"},
+    103: {"name": "Eliteserien", "country": "Norway"}
 }
 
 # Endpoints relevantes para la métrica de faltas
