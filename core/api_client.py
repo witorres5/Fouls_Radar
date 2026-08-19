@@ -2,20 +2,21 @@
 core/api_client.py
 Cliente HTTP optimizado para API-Football (API-Sports v3).
 Incluye:
-  - Cache manual seguro para evitar re-peticiones y almacenamiento de respuestas vacías.
+  - Cache manual seguro con fallback a tempdir para evitar errores de IO en la nube.
   - Paginación transparente y manejo estricto de errores de la API.
   - Fallbacks por equipo si el endpoint global de liga no devuelve registros.
 """
 
 import os
 import time
+import tempfile
 import logging
 from typing import Dict, Any, List, Optional
 import requests
 import requests_cache
 import streamlit as st
 
-from config.constants import BASE_URL, API_KEY
+from config.constants import BASE_URL
 
 logger = logging.getLogger("FoulsTracker.APIClient")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -29,8 +30,7 @@ class APIFootballClient:
         cache_expire_after: int = 86400,  # 24 horas
         rate_limit_delay: float = 1.5
     ):
-        
-# 1. Obtener la clave desde Streamlit Secrets de forma segura
+        # 1. Obtener la clave desde Streamlit Secrets de forma segura
         api_key_from_secrets = None
         try:
             if "API_FOOTBALL_KEY" in st.secrets:
@@ -56,9 +56,12 @@ class APIFootballClient:
         self.rate_limit_delay = rate_limit_delay
         self.last_request_time = 0.0
 
+        # Ruta segura para SQLite en entornos cloud (e.g. Streamlit Cloud)
+        cache_path = os.path.join(tempfile.gettempdir(), cache_name)
+
         # Inicialización de la sesión con caché
         self.session = requests_cache.CachedSession(
-            cache_name=cache_name,
+            cache_name=cache_path,
             backend="sqlite",
             expire_after=cache_expire_after,
             allowable_codes=[200]
@@ -152,7 +155,6 @@ class APIFootballClient:
         logger.info(f"Iniciando descarga de estadísticas para Liga {league_id}, Temporada {season}")
         results = self.fetch_paginated(endpoint, params)
         
-        # Si la liga completa no trae resultados (p. ej. Brasil 2025/2026), hacemos fallback por equipos
         if not results:
             logger.info("Consulta global por liga sin datos. Intentando extracción por equipos de la liga...")
             results = self.get_players_by_league_teams(league_id, season)
@@ -196,22 +198,16 @@ class APIFootballClient:
         data = self._execute_request(endpoint, params)
         return data.get("response", [])
     
-    def get_next_fixtures(self, league_id: int, next_n: int = 10) -> list:
-        """Obtiene los próximos N partidos de una liga determinada desde la API."""
-        # Detecta si la clase usa BASE_URL (mayúsculas) o base_url
-        base_url = getattr(self, "BASE_URL", getattr(self, "base_url", "https://v3.football.api-sports.io"))
-        url = f"{base_url}/fixtures"
+    def get_next_fixtures(self, league_id: int, next_n: int = 10) -> List[Dict[str, Any]]:
+        """Obtiene los próximos N partidos de una liga determinada pasando por la gestión unificada de peticiones."""
+        endpoint = "/fixtures"
         params = {
             "league": league_id,
             "next": next_n
         }
-        
         try:
-            response = requests.get(url, headers=self.headers, params=params)
-            if response.status_code == 200:
-                return response.json().get("response", [])
-            logger.error(f"Error al obtener partidos: {response.status_code} - {response.text}")
-            return []
+            data = self._execute_request(endpoint, params)
+            return data.get("response", [])
         except Exception as e:
-            logger.error(f"Excepción consultando fixtures: {e}")
+            logger.error(f"Excepción consultando próximos partidos: {e}")
             return []
