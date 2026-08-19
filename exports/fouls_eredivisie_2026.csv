@@ -1,0 +1,435 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+37078,N. Souren,420,Cambuur,88,2026,180,2,3,1,0,1.0
+135748,R. Mulders,420,Cambuur,88,2026,54,0,1,0,0,0.0
+272691,J. Berkhout,420,Cambuur,88,2026,0,0,0,0,0,0.0
+277752,J. Amofa,420,Cambuur,88,2026,172,2,3,0,0,1.05
+289583,T. Jansen,420,Cambuur,88,2026,180,0,1,0,0,0.0
+323581,I. Hamache,420,Cambuur,88,2026,178,0,2,0,0,0.0
+359315,R. El Arguioui,420,Cambuur,88,2026,180,0,2,0,0,0.0
+371515,J. Meijster,420,Cambuur,88,2026,0,0,0,0,0,0.0
+386825,S. Vink,420,Cambuur,88,2026,157,2,2,0,0,1.15
+396198,I. Baouf,420,Cambuur,88,2026,180,0,0,0,0,0.0
+437767,M. Costarelli,420,Cambuur,88,2026,90,2,1,0,0,2.0
+438749,Iwan Henstra,420,Cambuur,88,2026,166,0,2,0,0,0.0
+441265,S. Bouhoudane,420,Cambuur,88,2026,135,2,0,0,0,1.33
+453708,L. Jetten,420,Cambuur,88,2026,156,1,3,1,0,0.58
+492300,R. van de Pavert,420,Cambuur,88,2026,45,1,1,0,0,2.0
+524669,M. Kalisvaart,420,Cambuur,88,2026,0,0,0,0,0,0.0
+584121,B. Vogelzang,420,Cambuur,88,2026,0,0,0,0,0,0.0
+628510,Wiebe van der Heide,420,Cambuur,88,2026,0,0,0,0,0,0.0
+633612,Ethan Apkakou,420,Cambuur,88,2026,24,1,0,0,0,3.75
+656187,Wessel van der Goot,420,Cambuur,88,2026,17,0,0,0,0,0.0
+37571,S. van Gassel,196,Excelsior,88,2026,180,0,0,0,0,0.0
+37780,S. Janssen,196,Excelsior,88,2026,161,2,1,0,0,1.12
+153324,Celton Biai,196,Excelsior,88,2026,0,0,0,0,0,0.0
+169446,N. Binder,420,Cambuur,88,2026,14,0,0,0,0,0.0
+263735,C. Widell,196,Excelsior,88,2026,106,1,1,0,0,0.85
+272091,R. Meissen,196,Excelsior,88,2026,180,0,0,0,0,0.0
+319518,L. Hartjes,196,Excelsior,88,2026,164,1,1,0,0,0.55
+321632,N. Naujoks,196,Excelsior,88,2026,90,3,0,0,0,3.0
+339130,D. van Vianen,196,Excelsior,88,2026,170,0,1,0,0,0.0
+339167,D. Garden,196,Excelsior,88,2026,142,1,1,0,0,0.63
+342946,N. Martens,196,Excelsior,88,2026,119,0,0,0,0,0.0
+349595,G. de Regt,196,Excelsior,88,2026,85,1,0,0,0,1.06
+367596,I. Silva Timas,196,Excelsior,88,2026,54,2,0,0,0,3.33
+371231,I. Yegoian,196,Excelsior,88,2026,165,3,2,0,0,1.64
+372230,N. Groen,196,Excelsior,88,2026,38,2,0,0,0,4.74
+412873,A. Sliti,196,Excelsior,88,2026,60,0,2,0,0,0.0
+441221,J. Plug,196,Excelsior,88,2026,180,1,0,1,0,0.5
+480789,O. Turay,196,Excelsior,88,2026,54,1,0,0,0,1.67
+516008,F. Kvam,420,Cambuur,88,2026,14,0,0,0,0,0.0
+666945,D. Westerhof,420,Cambuur,88,2026,0,0,0,0,0,0.0
+554,D. Tadić,413,NEC Nijmegen,88,2026,180,0,4,0,0,0.0
+625,P. Sandler,413,NEC Nijmegen,88,2026,26,0,2,0,0,0.0
+2320,W. Willumsson,413,NEC Nijmegen,88,2026,26,0,1,0,0,0.0
+14343,D. Nejašmić,413,NEC Nijmegen,88,2026,110,0,1,0,0,0.0
+37134,B. Linssen,413,NEC Nijmegen,88,2026,92,5,0,0,0,4.89
+38132,K. Sierhuis,413,NEC Nijmegen,88,2026,69,0,0,0,0,0.0
+50120,T. Chery,413,NEC Nijmegen,88,2026,154,0,1,0,0,0.0
+50745,Jamiro Monteiro,413,NEC Nijmegen,88,2026,154,4,1,0,0,2.34
+129054,G. Crettaz,413,NEC Nijmegen,88,2026,180,0,0,0,0,0.0
+216770,I. Hansen-Aarøen,413,NEC Nijmegen,88,2026,90,3,0,1,0,3.0
+274275,B. Pereira,413,NEC Nijmegen,88,2026,180,3,2,1,0,1.5
+325850,S. Henderikx,196,Excelsior,88,2026,0,0,0,0,0,0.0
+330315,N. Lebreton,413,NEC Nijmegen,88,2026,89,2,2,0,0,2.02
+353808,Deveron Fonville,413,NEC Nijmegen,88,2026,166,3,1,0,0,1.63
+364320,V. Sulzbacher,196,Excelsior,88,2026,0,0,0,0,0,0.0
+378864,S. Ouaissa,413,NEC Nijmegen,88,2026,79,1,2,0,0,1.14
+441958,Clement Bischoff,413,NEC Nijmegen,88,2026,156,2,4,0,0,1.15
+457653,Y. Finey,196,Excelsior,88,2026,10,1,0,0,0,9.0
+480304,Giulliano Cairo,196,Excelsior,88,2026,0,0,0,0,0,0.0
+584938,N. El Hamdaoui,196,Excelsior,88,2026,0,0,0,0,0,0.0
+36888,T. Ouwejan,413,NEC Nijmegen,88,2026,0,0,0,0,0,0.0
+37252,J. Hardeveld,427,Telstar,88,2026,154,1,1,0,0,0.58
+37817,R. Koeman,427,Telstar,88,2026,180,0,0,1,0,0.0
+47446,E. Mor,413,NEC Nijmegen,88,2026,35,0,0,0,0,0.0
+93060,M. Peersman,427,Telstar,88,2026,180,2,8,0,0,1.0
+149225,T. Owusu,427,Telstar,88,2026,160,1,2,0,0,0.56
+178168,Rui Mendes,427,Telstar,88,2026,112,0,0,0,0,0.0
+193428,A. Soualhia,427,Telstar,88,2026,180,4,3,1,0,2.0
+194815,P. Brouwer,427,Telstar,88,2026,180,3,3,0,0,1.5
+332759,T. Storm,413,NEC Nijmegen,88,2026,90,0,2,0,0,0.0
+349560,N. Rossen,427,Telstar,88,2026,154,3,2,0,0,1.75
+379487,S. Hetli,427,Telstar,88,2026,153,2,5,0,0,1.18
+391283,E. Demircan,427,Telstar,88,2026,68,2,1,0,0,2.65
+393191,Gerald Alders,427,Telstar,88,2026,64,1,1,0,0,1.41
+480306,Adam Tahaui,413,NEC Nijmegen,88,2026,89,1,1,0,0,1.01
+491801,Joep Geneste,413,NEC Nijmegen,88,2026,0,0,0,0,0,0.0
+492120,Freek Entius,413,NEC Nijmegen,88,2026,0,0,0,0,0,0.0
+502436,Jelani Seedorf,427,Telstar,88,2026,154,2,0,0,0,1.17
+551117,M. van de Wiel,413,NEC Nijmegen,88,2026,0,0,0,0,0,0.0
+635838,Kevin Kers,413,NEC Nijmegen,88,2026,0,0,0,0,0,0.0
+36865,M. Meulensteen,410,GO Ahead Eagles,88,2026,75,0,1,0,0,0.0
+36887,J. Kramer,410,GO Ahead Eagles,88,2026,185,2,0,0,0,0.97
+37781,E. Linthorst,410,GO Ahead Eagles,88,2026,170,0,0,0,0,0.0
+38731,D. Reiziger,427,Telstar,88,2026,0,0,0,0,0,0.0
+39104,K. Haug,410,GO Ahead Eagles,88,2026,185,0,0,0,0,0.0
+48190,A. Sampsted,410,GO Ahead Eagles,88,2026,185,0,2,0,0,0.0
+128765,S. Tengstedt,410,GO Ahead Eagles,88,2026,170,1,5,0,0,0.53
+137837,V. Edvardsen,410,GO Ahead Eagles,88,2026,185,1,0,0,0,0.49
+162200,J. Dirksen,410,GO Ahead Eagles,88,2026,75,1,0,1,0,1.2
+194810,G. Caschili,427,Telstar,88,2026,77,1,0,0,0,1.17
+203755,D. James,410,GO Ahead Eagles,88,2026,155,2,2,1,0,1.16
+336583,P. Aning,427,Telstar,88,2026,53,3,3,0,0,5.09
+371917,F. Rust,427,Telstar,88,2026,0,0,0,0,0,0.0
+390028,N. Ogidi Nwankwo,427,Telstar,88,2026,0,0,0,0,0,0.0
+407644,R. Oudsten,427,Telstar,88,2026,33,1,0,0,0,2.73
+420932,F. Turay,427,Telstar,88,2026,0,0,0,0,0,0.0
+428077,H. Kuster,427,Telstar,88,2026,0,0,0,0,0,0.0
+480854,Isaiah Ahmed,427,Telstar,88,2026,26,1,0,1,0,3.46
+506472,Finn Mulder,427,Telstar,88,2026,0,0,0,0,0,0.0
+538665,N. Shenkman,427,Telstar,88,2026,52,0,0,0,0,0.0
+1405,T. Didillon,195,Willem II,88,2026,68,0,0,0,0,0.0
+24924,J. Hoogma,195,Willem II,88,2026,180,1,1,0,0,0.5
+37124,R. Margaret,410,GO Ahead Eagles,88,2026,28,0,0,0,0,0.0
+37165,N. Marsman,410,GO Ahead Eagles,88,2026,0,0,0,0,0,0.0
+129066,N. Tjoe-A-On,195,Willem II,88,2026,159,5,0,1,0,2.83
+133602,S. Sigurðarson,410,GO Ahead Eagles,88,2026,77,0,1,0,0,0.0
+162143,T. Baeten,410,GO Ahead Eagles,88,2026,42,2,0,0,0,4.29
+162762,M. Suray,410,GO Ahead Eagles,88,2026,178,1,3,0,0,0.51
+216756,O. Sivertsen,410,GO Ahead Eagles,88,2026,22,1,0,0,0,4.09
+277922,C. Twigt,410,GO Ahead Eagles,88,2026,30,0,0,0,0,0.0
+312903,G. van Zwam,410,GO Ahead Eagles,88,2026,110,1,1,0,0,0.82
+314291,E. Flataker,410,GO Ahead Eagles,88,2026,101,2,2,0,0,1.78
+319915,F. Stam,195,Willem II,88,2026,180,0,0,0,0,0.0
+352225,N. Verdoni,410,GO Ahead Eagles,88,2026,0,0,0,0,0,0.0
+412869,E. Waayers,410,GO Ahead Eagles,88,2026,0,0,0,0,0,0.0
+453717,E. Gürbüz,195,Willem II,88,2026,145,0,3,0,0,0.0
+480393,Per van Loon,195,Willem II,88,2026,158,4,0,0,0,2.28
+511370,O. Boakye,410,GO Ahead Eagles,88,2026,0,0,0,0,0,0.0
+524315,Y. Rahmouni,410,GO Ahead Eagles,88,2026,68,0,0,0,0,0.0
+626330,Dani Tijman,410,GO Ahead Eagles,88,2026,0,0,0,0,0,0.0
+207,I. Perišić,197,PSV Eindhoven,88,2026,162,1,0,0,0,0.56
+228,A. Obispo,197,PSV Eindhoven,88,2026,180,2,3,0,0,1.0
+36998,A. Ciranni,195,Willem II,88,2026,159,2,2,0,0,1.13
+37449,W. van der Steen,195,Willem II,88,2026,22,0,0,0,0,0.0
+37627,T. Verheydt,195,Willem II,88,2026,21,0,1,0,0,0.0
+138804,M. Kovář,197,PSV Eindhoven,88,2026,180,0,0,0,0,0.0
+162463,A. Et-Taïbi,195,Willem II,88,2026,22,0,0,0,0,0.0
+306701,D. Haen,195,Willem II,88,2026,180,3,2,0,0,1.5
+341917,M. Lemmens,195,Willem II,88,2026,35,0,0,0,0,0.0
+342054,R. Flamingo,197,PSV Eindhoven,88,2026,180,2,0,0,0,1.0
+361487,J. Slory,195,Willem II,88,2026,179,2,6,0,0,1.01
+446288,K. Boogaard,195,Willem II,88,2026,178,5,2,0,0,2.53
+480392,Jens Mathijsen,195,Willem II,88,2026,0,0,0,0,0,0.0
+502512,Uriel van Aalst,195,Willem II,88,2026,180,0,0,0,0,0.0
+504060,K. de Leeuw,195,Willem II,88,2026,90,0,0,0,0,0.0
+584127,J. van Esdonk,195,Willem II,88,2026,1,0,0,0,0,0.0
+672882,I. Mouhoul,195,Willem II,88,2026,1,2,0,1,0,180.0
+673001,S. Wermenbol,195,Willem II,88,2026,0,0,0,0,0,0.0
+673002,D. Iglesias,195,Willem II,88,2026,1,0,0,0,0,0.0
+673003,L. Maal,195,Willem II,88,2026,0,0,0,0,0,0.0
+233,Mauro Júnior,197,PSV Eindhoven,88,2026,180,0,2,0,0,0.0
+25646,A. Pléa,197,PSV Eindhoven,88,2026,22,0,0,0,0,0.0
+36905,G. Til,197,PSV Eindhoven,88,2026,158,1,1,0,0,0.57
+37359,M. Branderhorst,205,Fortuna Sittard,88,2026,180,0,0,0,0,0.0
+37438,S. Mijnans,197,PSV Eindhoven,88,2026,81,0,0,0,0,0.0
+37818,N. Olij,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
+43036,D. Man,197,PSV Eindhoven,88,2026,39,2,0,1,0,4.62
+73868,R. Pepi,197,PSV Eindhoven,88,2026,164,0,0,0,0,0.0
+191233,K. Sildillia,197,PSV Eindhoven,88,2026,11,0,0,0,0,0.0
+327895,P. Wanner,197,PSV Eindhoven,88,2026,153,2,2,0,0,1.18
+329409,E. Bajraktarevic,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
+339169,S. Wylin,205,Fortuna Sittard,88,2026,135,2,2,0,0,1.33
+361385,Yarek Gasiorowski,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
+365018,R. van Bommel,197,PSV Eindhoven,88,2026,108,0,0,0,0,0.0
+371523,T. Smolenaars,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
+427050,E. Bassey,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
+434623,J. van den Berg,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
+474550,N. Fernandez,197,PSV Eindhoven,88,2026,90,0,1,0,0,0.0
+474551,F. Merién,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
+610507,A. Bouhamdi,197,PSV Eindhoven,88,2026,72,1,0,0,0,1.25
+236,M. Ihattaren,205,Fortuna Sittard,88,2026,162,2,0,0,0,1.11
+8470,J. De Busser,201,AZ Alkmaar,88,2026,180,0,0,0,0,0.0
+37383,O. Romeny,205,Fortuna Sittard,88,2026,162,0,3,0,0,0.0
+38759,L. Koopmans,205,Fortuna Sittard,88,2026,0,0,0,0,0,0.0
+180466,A. Descotte,205,Fortuna Sittard,88,2026,30,1,0,0,0,3.0
+203786,J. Dahlhaus,205,Fortuna Sittard,88,2026,159,2,1,0,0,1.13
+268572,É. Michut,205,Fortuna Sittard,88,2026,74,0,3,0,0,0.0
+273361,S. van Ottele,205,Fortuna Sittard,88,2026,168,0,1,0,0,0.0
+284359,Justin Quincy Hubner,205,Fortuna Sittard,88,2026,180,0,0,0,0,0.0
+287941,K. Reitmaier,205,Fortuna Sittard,88,2026,0,0,0,0,0,0.0
+312837,L. Zeefuik,205,Fortuna Sittard,88,2026,150,4,3,1,0,2.4
+325797,N. de Groot,205,Fortuna Sittard,88,2026,29,0,2,0,0,0.0
+326029,P. Brittijn,205,Fortuna Sittard,88,2026,169,1,0,0,0,0.53
+338839,W. Goes,201,AZ Alkmaar,88,2026,180,1,2,0,0,0.5
+340596,L. Schouten,201,AZ Alkmaar,88,2026,180,2,1,0,0,1.0
+370475,E. Dijkstra,201,AZ Alkmaar,88,2026,180,0,2,0,0,0.0
+390002,M. Chávez,201,AZ Alkmaar,88,2026,163,4,3,1,0,2.21
+525846,Moussa Gbemou,205,Fortuna Sittard,88,2026,9,0,0,0,0,0.0
+660777,Ganni Buyukhan,205,Fortuna Sittard,88,2026,8,1,0,0,0,11.25
+668641,K. van Burgsteden,205,Fortuna Sittard,88,2026,0,0,0,0,0,0.0
+36910,C. Stengs,201,AZ Alkmaar,88,2026,57,3,0,0,0,4.74
+38820,P. Koopmeiners,201,AZ Alkmaar,88,2026,175,3,4,0,0,1.54
+93064,M. de Wit,201,AZ Alkmaar,88,2026,17,1,0,0,0,5.29
+140946,K. Nikiéma,198,ADO Den Haag,88,2026,180,0,0,0,0,0.0
+149551,T. Parrott,201,AZ Alkmaar,88,2026,33,0,0,0,0,0.0
+199793,S. Maikuma,201,AZ Alkmaar,88,2026,9,1,0,0,0,10.0
+289670,I. Jensen,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+335633,Weslley Patati,201,AZ Alkmaar,88,2026,123,3,4,1,0,2.2
+338840,R. Daal,201,AZ Alkmaar,88,2026,162,0,4,0,0,0.0
+340597,D. Kwakman,201,AZ Alkmaar,88,2026,180,0,7,0,0,0.0
+340711,R. Owusu-Oduro,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+342954,M. Meerdink,201,AZ Alkmaar,88,2026,147,3,4,0,0,1.84
+361886,M. Hokke,198,ADO Den Haag,88,2026,180,1,1,0,0,0.5
+364184,B. van Duijl,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+379882,J. Oerip,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+388786,K. Smit,201,AZ Alkmaar,88,2026,152,2,2,0,0,1.18
+422581,R. Ichihara,201,AZ Alkmaar,88,2026,10,0,0,0,0,0.0
+444790,A. Oufkir,201,AZ Alkmaar,88,2026,18,0,2,0,0,0.0
+496879,H. de Wit,201,AZ Alkmaar,88,2026,18,0,0,0,0,0.0
+581945,B. Kovacs,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+19360,J. Žambůrek,198,ADO Den Haag,88,2026,45,2,0,0,0,4.0
+36964,F. Bednarek,426,Sparta Rotterdam,88,2026,180,0,0,0,0,0.0
+37245,D. van Mieghem,198,ADO Den Haag,88,2026,154,0,4,0,0,0.0
+37960,S. Sylla,198,ADO Den Haag,88,2026,180,3,2,0,0,1.5
+202529,J. Kilo,198,ADO Den Haag,88,2026,180,3,1,1,0,1.5
+202745,J. Hawkins,198,ADO Den Haag,88,2026,57,1,1,0,0,1.58
+271562,L. Reischl,198,ADO Den Haag,88,2026,31,0,1,0,0,0.0
+272857,P. Mulder,198,ADO Den Haag,88,2026,163,3,4,0,0,1.66
+275581,M. Waem,198,ADO Den Haag,88,2026,135,2,0,0,0,1.33
+277753,E. Rottier,198,ADO Den Haag,88,2026,85,2,1,0,0,2.12
+281926,L. Wilhelm,198,ADO Den Haag,88,2026,20,0,0,0,0,0.0
+309764,M. Jiménez,198,ADO Den Haag,88,2026,33,3,0,0,0,8.18
+404133,Y. Eduardo,198,ADO Den Haag,88,2026,149,1,2,0,0,0.6
+407553,S. Puljhun,198,ADO Den Haag,88,2026,0,0,0,0,0,0.0
+412880,J. Bal,198,ADO Den Haag,88,2026,95,3,1,0,0,2.84
+452387,Sem Eekhout,198,ADO Den Haag,88,2026,0,0,0,0,0,0.0
+452643,Finn de Bruin,198,ADO Den Haag,88,2026,102,0,0,0,0,0.0
+497112,Illaijh de Ruijter,198,ADO Den Haag,88,2026,123,1,2,0,0,0.73
+526725,Richard Vogt,198,ADO Den Haag,88,2026,0,0,0,0,0,0.0
+629314,D. van Loenen,198,ADO Den Haag,88,2026,0,0,0,0,0,0.0
+28786,N. Þórisson,426,Sparta Rotterdam,88,2026,147,7,2,0,0,4.29
+36989,M. van Bergen,426,Sparta Rotterdam,88,2026,41,1,1,1,0,2.2
+37156,J. Toornstra,426,Sparta Rotterdam,88,2026,138,1,0,0,0,0.65
+135379,B. Reith,426,Sparta Rotterdam,88,2026,0,0,0,0,0,0.0
+148128,Teo Quintero,426,Sparta Rotterdam,88,2026,13,1,0,0,0,6.92
+156618,C. Terho,426,Sparta Rotterdam,88,2026,119,1,1,1,0,0.76
+203380,T. Ernst,209,Feyenoord,88,2026,185,0,0,0,0,0.0
+237131,S. Mito,426,Sparta Rotterdam,88,2026,153,0,4,0,0,0.0
+270660,Joel Ideho,426,Sparta Rotterdam,88,2026,13,0,0,0,0,0.0
+283439,M. Zonneveld,426,Sparta Rotterdam,88,2026,41,3,0,0,0,6.59
+336648,A. Roaldsøy,426,Sparta Rotterdam,88,2026,42,1,0,0,0,2.14
+405379,M. Young,426,Sparta Rotterdam,88,2026,180,1,1,0,0,0.5
+434028,N. Verschuren,426,Sparta Rotterdam,88,2026,180,2,4,0,0,1.0
+435739,A. Santos,426,Sparta Rotterdam,88,2026,167,2,2,0,0,1.08
+451592,G. Vianello,426,Sparta Rotterdam,88,2026,0,0,0,0,0,0.0
+528294,R. van Cruijsen,426,Sparta Rotterdam,88,2026,47,0,0,0,0,0.0
+538666,Y. Jaber el Maftahi,426,Sparta Rotterdam,88,2026,0,0,0,0,0,0.0
+538667,L. Martes,426,Sparta Rotterdam,88,2026,180,3,2,1,0,1.5
+538731,R. Suur,426,Sparta Rotterdam,88,2026,0,0,0,0,0,0.0
+636620,D. Lindhout,426,Sparta Rotterdam,88,2026,0,0,0,0,0,0.0
+945,J. Lotomba,209,Feyenoord,88,2026,30,0,1,0,0,0.0
+8680,C. Vanhoutte,209,Feyenoord,88,2026,157,1,1,1,0,0.57
+37451,M. Deijl,209,Feyenoord,88,2026,0,0,0,0,0,0.0
+72155,A. Ueda,209,Feyenoord,88,2026,166,1,3,0,0,0.54
+128385,Gonçalo Borges,209,Feyenoord,88,2026,31,0,0,0,0,0.0
+134756,N. Kasanwirjo,209,Feyenoord,88,2026,0,0,0,0,0,0.0
+162475,Mika Màrmol,209,Feyenoord,88,2026,185,0,2,0,0,0.0
+198483,L. Bossin,209,Feyenoord,88,2026,0,0,0,0,0,0.0
+284071,O. Targhalline,209,Feyenoord,88,2026,14,0,0,0,0,0.0
+314266,L. Valente,209,Feyenoord,88,2026,177,0,3,0,0,0.0
+326067,A. Hadj-Moussa,209,Feyenoord,88,2026,177,2,0,0,0,1.02
+353943,Nacho Ferri,209,Feyenoord,88,2026,19,1,1,0,0,4.74
+359390,G. Read,209,Feyenoord,88,2026,155,1,3,0,0,0.58
+371228,T. Kraaijeveld,209,Feyenoord,88,2026,103,1,0,0,0,0.87
+425819,G. Zechiël,209,Feyenoord,88,2026,185,0,2,0,0,0.0
+458540,G. Diarra,209,Feyenoord,88,2026,135,1,1,0,0,0.67
+491239,T. van den Elshout,209,Feyenoord,88,2026,0,0,0,0,0,0.0
+584888,J. Zinhagel,209,Feyenoord,88,2026,19,0,0,0,0,0.0
+624605,S. van Persie,209,Feyenoord,88,2026,16,0,0,0,0,0.0
+666811,T. Wessels,209,Feyenoord,88,2026,18,1,0,0,0,5.0
+28733,B. Willumsson,202,Groningen,88,2026,161,1,2,0,0,0.56
+36854,E. Vaessen,202,Groningen,88,2026,180,0,0,0,0,0.0
+36925,P. Clement,202,Groningen,88,2026,171,1,3,0,0,0.53
+37784,S. Steijn,209,Feyenoord,88,2026,23,0,0,0,0,0.0
+90957,M. Rente,202,Groningen,88,2026,30,0,1,0,0,0.0
+162245,L. Štubljar,202,Groningen,88,2026,0,0,0,0,0,0.0
+203769,R. Janse,202,Groningen,88,2026,0,0,0,0,0,0.0
+314264,T. Blokzijl,202,Groningen,88,2026,180,2,0,0,0,1.0
+314267,T. de Jonge,202,Groningen,88,2026,177,1,1,0,0,0.51
+361643,M. Brandis,202,Groningen,88,2026,3,0,0,0,0,0.0
+384585,T. Hernes,202,Groningen,88,2026,12,1,1,0,0,7.5
+392044,T. van Bergen,202,Groningen,88,2026,180,4,7,0,0,2.0
+394608,J. Schreuders,202,Groningen,88,2026,180,7,1,0,0,3.5
+402272,T. Land,202,Groningen,88,2026,177,0,3,0,0,0.0
+439830,Wouter Prins,202,Groningen,88,2026,158,3,2,0,0,1.71
+446871,Tyrique Mercera,202,Groningen,88,2026,19,1,0,0,0,4.74
+473416,D. van der Werff,202,Groningen,88,2026,180,1,3,1,0,0.5
+497022,E. van der Laan,202,Groningen,88,2026,119,0,4,0,0,0.0
+631615,R. Metu,202,Groningen,88,2026,9,1,0,0,0,10.0
+664419,J. Mosselaar,202,Groningen,88,2026,0,0,0,0,0,0.0
+265,A. Zagré,207,Utrecht,88,2026,170,6,2,1,0,3.18
+539,D. de Wit,207,Utrecht,88,2026,145,4,0,1,0,2.48
+37183,J. van Overeem,207,Utrecht,88,2026,90,2,1,1,0,2.0
+37247,M. Brouwer,207,Utrecht,88,2026,90,0,0,0,0,0.0
+37735,M. Eerdhuijzen,207,Utrecht,88,2026,135,3,0,0,0,2.0
+37874,S. Horemans,207,Utrecht,88,2026,160,1,0,0,0,0.56
+47814,N. Vesterlund,207,Utrecht,88,2026,180,3,2,0,0,1.5
+93007,D. Min,207,Utrecht,88,2026,62,3,0,0,0,4.35
+149557,K. Paredes,207,Utrecht,88,2026,48,1,6,0,0,1.88
+156998,D. van den Berg,207,Utrecht,88,2026,56,1,1,0,0,1.61
+266814,Y. Cathline,207,Utrecht,88,2026,124,1,5,0,0,0.73
+272539,G. Offerhaus,207,Utrecht,88,2026,110,3,0,1,0,2.45
+284295,Zidane Iqbal,207,Utrecht,88,2026,28,0,0,0,0,0.0
+299817,K. Gadellaa,207,Utrecht,88,2026,0,0,0,0,0,0.0
+367472,A. Blake,207,Utrecht,88,2026,56,1,2,0,0,1.61
+452390,Nils Eggens,202,Groningen,88,2026,10,0,0,0,0,0.0
+483758,A. Nordin,202,Groningen,88,2026,0,0,0,0,0,0.0
+526554,Besnik Mashuku,202,Groningen,88,2026,0,0,0,0,0,0.0
+568380,F. Pohl,207,Utrecht,88,2026,124,3,1,1,0,2.18
+664422,J. Hall,202,Groningen,88,2026,0,0,0,0,0,0.0
+232,N. Viergever,193,PEC Zwolle,88,2026,180,1,0,0,0,0.5
+242,R. Thomas,193,PEC Zwolle,88,2026,163,2,4,0,0,1.1
+8764,D. Mbayo,193,PEC Zwolle,88,2026,127,0,1,0,0,0.0
+15690,S. Graves,193,PEC Zwolle,88,2026,180,2,0,0,0,1.0
+36881,J. Schendelaar,193,PEC Zwolle,88,2026,180,0,0,0,0,0.0
+36970,S. Floranus,193,PEC Zwolle,88,2026,57,1,0,0,1,1.58
+37588,O. Velanas,193,PEC Zwolle,88,2026,35,0,1,0,0,0.0
+38780,K. Kostons,193,PEC Zwolle,88,2026,180,5,1,1,0,2.5
+38822,T. Oosting,193,PEC Zwolle,88,2026,139,5,3,0,0,3.24
+133246,E. Sørensen,193,PEC Zwolle,88,2026,77,1,1,0,0,1.17
+145548,T. Velthuis,193,PEC Zwolle,88,2026,26,0,0,0,0,0.0
+262846,T. Sommer,193,PEC Zwolle,88,2026,175,0,3,0,0,0.0
+271581,O. Aertssen,193,PEC Zwolle,88,2026,180,0,0,0,0,0.0
+319928,D. Verduin,193,PEC Zwolle,88,2026,0,0,0,0,0,0.0
+322929,I. Cissoko,193,PEC Zwolle,88,2026,84,0,5,0,0,0.0
+338499,T. de Graaff,193,PEC Zwolle,88,2026,0,0,0,0,0,0.0
+351240,D. van der Haar,193,PEC Zwolle,88,2026,114,0,0,0,0,0.0
+427257,P. Kloosterboer,207,Utrecht,88,2026,0,0,0,0,0,0.0
+474376,G. Reiziger,193,PEC Zwolle,88,2026,54,1,1,1,0,1.67
+567959,E. C. Owen,207,Utrecht,88,2026,0,0,0,0,0,0.0
+127,M. ter Stegen,194,Ajax,88,2026,180,0,0,0,0,0.0
+550,K. Dolberg,194,Ajax,88,2026,132,0,1,0,0,0.0
+984,J. Brandt,194,Ajax,88,2026,54,0,0,0,0,0.0
+10316,Caio Henrique,194,Ajax,88,2026,180,2,2,0,0,1.0
+25321,D. Klaassen,194,Ajax,88,2026,163,2,2,1,0,1.1
+37160,S. Berghuis,194,Ajax,88,2026,147,1,2,0,0,0.61
+56283,Lucas Rosa,194,Ajax,88,2026,180,4,3,1,0,2.0
+110153,T. Arokodare,194,Ajax,88,2026,25,1,0,0,0,3.6
+161883,Y. Regeer,194,Ajax,88,2026,151,5,0,1,0,2.98
+294684,Y. Baas,194,Ajax,88,2026,180,0,4,0,0,0.0
+329715,O. Gloukh,194,Ajax,88,2026,126,0,3,0,0,0.0
+340153,M. Godts,194,Ajax,88,2026,29,0,1,0,0,0.0
+425821,N. Fichtinger,193,PEC Zwolle,88,2026,12,0,0,0,0,0.0
+443829,J. Mokio,194,Ajax,88,2026,46,0,0,0,0,0.0
+453706,A. Bouwman,194,Ajax,88,2026,180,2,1,1,0,1.0
+453956,Dylan Ruward,193,PEC Zwolle,88,2026,0,0,0,0,0,0.0
+494137,G. Rahajaän,193,PEC Zwolle,88,2026,0,0,0,0,0,0.0
+515967,A. Ouazane,194,Ajax,88,2026,160,1,3,1,0,0.56
+525900,Jadiel Pereira da Gama,193,PEC Zwolle,88,2026,0,0,0,0,0,0.0
+626651,Gilles van der Wal,193,PEC Zwolle,88,2026,0,0,0,0,0,0.0
+531,D. Blind,194,Ajax,88,2026,0,0,0,0,0,0.0
+36893,O. Wijndal,194,Ajax,88,2026,0,0,0,0,0,0.0
+37163,D. Vente,210,Heerenveen,88,2026,180,2,2,0,0,1.0
+37167,M. Paes,194,Ajax,88,2026,0,0,0,0,0,0.0
+37453,S. Kersten,210,Heerenveen,88,2026,173,1,0,0,0,0.52
+128311,R. Meerveld,210,Heerenveen,88,2026,128,0,2,0,0,0.0
+135841,V. Zagaritis,210,Heerenveen,88,2026,180,1,0,0,0,0.5
+138753,O. Edvardsen,194,Ajax,88,2026,9,0,0,0,0,0.0
+152850,D. Proper,210,Heerenveen,88,2026,180,5,1,1,0,2.5
+162088,L. Oyen,210,Heerenveen,88,2026,103,0,4,1,0,0.0
+281662,J. Trenskow,210,Heerenveen,88,2026,173,1,2,1,0,0.52
+310037,M. Linday,210,Heerenveen,88,2026,180,1,1,0,0,0.5
+313941,A. Gaaei,194,Ajax,88,2026,0,0,0,0,0,0.0
+327347,M. Willemsen,210,Heerenveen,88,2026,180,1,1,0,0,0.5
+361500,B. Klaverboer,210,Heerenveen,88,2026,180,0,0,0,0,0.0
+394700,J. Heerkens,194,Ajax,88,2026,0,0,0,0,0,0.0
+396217,N. Courtens,210,Heerenveen,88,2026,35,1,0,0,0,2.57
+403277,L. Machine,210,Heerenveen,88,2026,62,0,1,0,0,0.0
+431651,M. Egbring,210,Heerenveen,88,2026,68,0,1,0,0,0.0
+449247,M. Carrizo,194,Ajax,88,2026,0,0,0,0,0,0.0
+30413,M. Pjaca,415,Twente,88,2026,137,0,0,0,0,0.0
+31632,A. Noppert,210,Heerenveen,88,2026,0,0,0,0,0,0.0
+36934,T. van den Belt,415,Twente,88,2026,78,1,0,0,0,1.15
+37254,R. Pröpper,415,Twente,88,2026,180,0,3,0,0,0.0
+37370,B. van Rooij,415,Twente,88,2026,159,0,2,0,0,0.0
+37460,L. Brouwers,210,Heerenveen,88,2026,0,0,0,0,0,0.0
+37765,L. Unnerstall,415,Twente,88,2026,180,0,0,0,0,0.0
+129047,R. Zerrouki,415,Twente,88,2026,167,3,1,0,0,1.62
+174797,M. Rivera,210,Heerenveen,88,2026,32,0,0,0,0,0.0
+200078,H. Petrov,210,Heerenveen,88,2026,30,1,0,0,0,3.0
+272726,D. Rots,415,Twente,88,2026,180,3,3,1,0,1.5
+289554,D. Bladi,210,Heerenveen,88,2026,13,0,0,0,0,0.0
+291994,M. Bruns,415,Twente,88,2026,90,0,0,0,0,0.0
+314285,N. Hopland,210,Heerenveen,88,2026,13,0,0,0,0,0.0
+325845,L. Smans,210,Heerenveen,88,2026,0,0,0,0,0,0.0
+352730,S. Ørjasæter,415,Twente,88,2026,137,0,0,0,0,0.0
+378966,A. Adelgaard,415,Twente,88,2026,167,3,2,0,0,1.62
+584893,T. Schreuder,210,Heerenveen,88,2026,0,0,0,0,0,0.0
+625628,Kirayno Schaken,210,Heerenveen,88,2026,0,0,0,0,0,0.0
+666918,J. Scholten,210,Heerenveen,88,2026,0,0,0,0,0,0.0
+584,V. Barkas,207,Utrecht,88,2026,90,0,0,0,0,0.0
+25416,W. Weghorst,415,Twente,88,2026,172,3,0,0,0,1.57
+30797,B. Nuytinck,413,NEC Nijmegen,88,2026,1,0,0,0,0,0.0
+30798,H. ter Avest,195,Willem II,88,2026,21,0,0,0,0,0.0
+36828,J. Drommel,415,Twente,88,2026,0,0,0,0,0,0.0
+36987,S. Lammers,415,Twente,88,2026,21,0,0,0,0,0.0
+37113,R. Pasveer,415,Twente,88,2026,0,0,0,0,0,0.0
+137209,M. Kjølø,415,Twente,88,2026,22,0,0,0,0,0.0
+161894,N. Ünüvar,415,Twente,88,2026,0,0,0,0,0,0.0
+169349,N. Polster,413,NEC Nijmegen,88,2026,0,0,0,0,0,0.0
+191879,K. Hlynsson,415,Twente,88,2026,34,0,1,0,0,0.0
+272454,J. Baas,426,Sparta Rotterdam,88,2026,85,2,1,0,0,2.12
+328670,Y. Taha,415,Twente,88,2026,33,0,0,0,0,0.0
+336683,Gabriel Brás,413,NEC Nijmegen,88,2026,0,0,0,0,0,0.0
+394667,Almugera Raouf Mohammed Kabar,413,NEC Nijmegen,88,2026,14,2,0,0,0,12.86
+409360,K. Kurowski,415,Twente,88,2026,0,0,0,0,0,0.0
+453794,Guilherme Martinho Peixoto,415,Twente,88,2026,21,2,0,0,0,8.57
+455252,Lucas Vennegoor of Hesselink,415,Twente,88,2026,22,0,0,0,0,0.0
+494106,R. Nijstad,415,Twente,88,2026,90,0,0,0,0,0.0
+621140,Tygo Kotte,195,Willem II,88,2026,0,0,0,0,0,0.0
+2700,A. Jahanbakhsh,196,Excelsior,88,2026,16,1,0,0,0,5.62
+32858,T. Watanabe,209,Feyenoord,88,2026,64,0,0,0,0,0.0
+37602,H. Verhulst,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+37749,J. Veerman,197,PSV Eindhoven,88,2026,90,0,0,0,0,0.0
+38735,S. Dest,197,PSV Eindhoven,88,2026,89,1,6,0,0,1.01
+70442,N. Nwankwo,207,Utrecht,88,2026,10,0,0,0,0,0.0
+127929,N. Thiede,198,ADO Den Haag,88,2026,0,0,0,0,0,0.0
+161898,M. Didden,207,Utrecht,88,2026,45,1,0,0,0,2.0
+191979,J. Ondrejka,202,Groningen,88,2026,3,0,0,0,0,0.0
+330261,S. van Duijn,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+341983,M. Csinger,202,Groningen,88,2026,31,0,0,0,0,0.0
+353898,M. Šín,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+354506,K. Sano,197,PSV Eindhoven,88,2026,27,0,0,0,0,0.0
+361888,Shiloh Kiesar ’t Zand,205,Fortuna Sittard,88,2026,18,0,0,0,0,0.0
+364414,Mario Domínguez,196,Excelsior,88,2026,10,0,0,0,0,0.0
+419627,O. Raterink,198,ADO Den Haag,88,2026,45,0,0,0,0,0.0
+426428,W. Kooistra,420,Cambuur,88,2026,45,2,0,0,0,4.0
+480858,Khadim Ngom,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
+550823,A. Stepanov,207,Utrecht,88,2026,90,3,1,1,0,3.0
+668662,A. Veselov,198,ADO Den Haag,88,2026,0,0,0,0,0,0.0
+19065,Ivo Pinto,205,Fortuna Sittard,88,2026,90,0,0,0,0,0.0
+19497,B. Martins Indi,426,Sparta Rotterdam,88,2026,90,3,0,0,0,3.0
+37148,J. St. Juste,209,Feyenoord,88,2026,90,1,2,0,0,1.0
+38114,K. Itakura,194,Ajax,88,2026,0,0,0,0,0,0.0
+38730,N. Thomas,198,ADO Den Haag,88,2026,26,0,0,0,0,0.0
+43076,B. Kuipers,426,Sparta Rotterdam,88,2026,180,0,3,1,0,0.0
+181865,Y. Oukili,205,Fortuna Sittard,88,2026,87,0,2,0,0,0.0
+267771,Marcos Leonardo,194,Ajax,88,2026,23,0,0,0,0,0.0
+294797,Ángel Alarcón,207,Utrecht,88,2026,84,2,0,0,0,2.14
+336562,D. Weidmann,415,Twente,88,2026,80,3,1,0,0,3.38
+412872,D. Janse,194,Ajax,88,2026,0,0,0,0,0,0.0
+425585,O. Braude,210,Heerenveen,88,2026,87,3,0,0,0,3.1
+444960,Jan Bürger,193,PEC Zwolle,88,2026,0,0,0,0,0,0.0
+544477,F. Thorvaldsen,415,Twente,88,2026,10,0,0,0,0,0.0

@@ -1,0 +1,920 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+1290,G. Varela,127,Flamengo,71,2025,1372,9,11,1,0,0.59
+1771,Ayrton Lucas,127,Flamengo,71,2025,1245,23,20,5,0,1.66
+5995,N. de la Cruz,127,Flamengo,71,2025,1035,17,33,4,0,1.48
+9458,Léo Ortiz,127,Flamengo,71,2025,2230,19,5,4,0,0.77
+9909,Vitão,119,Internacional,71,2025,2741,22,1,5,0,0.72
+9912,Juninho,119,Internacional,71,2025,1529,14,11,5,0,0.82
+10124,Léo Pereira,127,Flamengo,71,2025,2993,23,13,6,0,0.69
+10180,Bruno Henrique,127,Flamengo,71,2025,1831,44,39,6,0,2.16
+10319,Allan,127,Flamengo,71,2025,694,18,7,2,0,2.33
+10364,Michael,127,Flamengo,71,2025,645,3,6,0,0,0.42
+11756,A. Rossi,127,Flamengo,71,2025,3367,0,10,2,0,0.0
+22238,Luiz Araújo,127,Flamengo,71,2025,1802,33,24,2,0,1.65
+288720,B. Aguirre,119,Internacional,71,2025,2419,44,6,4,0,1.64
+306210,Matheus Cunha,127,Flamengo,71,2025,0,0,0,0,0,0.0
+332654,Evertton Araújo,127,Flamengo,71,2025,1022,17,12,2,1,1.5
+340067,Cleiton,127,Flamengo,71,2025,82,1,2,0,0,1.1
+349001,Wesley,127,Flamengo,71,2025,989,16,23,4,0,1.46
+352372,Matheus Gonçalves,127,Flamengo,71,2025,65,1,2,0,0,1.38
+405160,Wallace,127,Flamengo,71,2025,478,11,22,4,0,2.07
+449253,João Victor Cunha,127,Flamengo,71,2025,199,3,1,1,0,1.36
+147,Philippe Coutinho,133,Vasco DA Gama,71,2025,2425,22,40,3,1,0.82
+692,Alan Patrick,119,Internacional,71,2025,2532,26,44,6,0,0.92
+5804,P. Vegetti,133,Vasco DA Gama,71,2025,2376,31,43,3,0,1.17
+6011,R. Borré,119,Internacional,71,2025,1836,39,21,3,1,1.91
+9921,Bruno Henrique,119,Internacional,71,2025,1416,36,15,2,0,2.29
+9990,Kaique Rocha,119,Internacional,71,2025,0,0,0,0,0,0.0
+10147,Vitinho,119,Internacional,71,2025,1662,42,35,4,0,2.27
+10167,Ronaldo,119,Internacional,71,2025,776,20,3,4,1,2.32
+10170,Hugo Moura,133,Vasco DA Gama,71,2025,2443,46,14,6,2,1.69
+10234,Lucas Piton,133,Vasco DA Gama,71,2025,2583,46,12,5,0,1.6
+13691,J. Carbonero,119,Internacional,71,2025,1470,32,60,6,1,1.96
+22231,Thiago Maia,119,Internacional,71,2025,2001,24,11,3,0,1.08
+53678,A. Rogel,119,Internacional,71,2025,459,6,1,0,0,1.18
+67944,Ramon,119,Internacional,71,2025,344,5,3,1,0,1.31
+67944,Ramon,136,Vitoria,71,2025,1638,34,17,4,0,1.87
+70314,Wesley,119,Internacional,71,2025,1256,20,35,2,0,1.43
+129902,A. Bernabéi,119,Internacional,71,2025,2601,61,34,9,0,2.11
+133910,Paulo Henrique,133,Vasco DA Gama,71,2025,2533,57,29,10,0,2.03
+144743,B. Garré,133,Vasco DA Gama,71,2025,315,7,3,1,0,2.0
+306552,Anthoni,119,Internacional,71,2025,1560,0,2,0,0,0.0
+415051,Gustavo Prado,119,Internacional,71,2025,567,6,13,2,0,0.95
+1912,D. Payet,133,Vasco DA Gama,71,2025,195,2,7,0,0,0.92
+6052,Á. Barreal,128,Santos,71,2025,2266,27,22,2,0,1.07
+6637,G. Escobar,128,Santos,71,2025,2052,36,20,6,0,1.58
+9588,Guilherme,128,Santos,71,2025,2269,15,61,1,0,0.59
+9890,Jair,133,Vasco DA Gama,71,2025,579,13,11,3,0,2.02
+9907,Victor Luís,133,Vasco DA Gama,71,2025,286,4,5,0,0,1.26
+9958,Tchê Tchê,133,Vasco DA Gama,71,2025,2016,26,41,3,0,1.16
+9987,Diego Pituca,128,Santos,71,2025,402,6,7,2,0,1.34
+10114,Zé Ivaldo,128,Santos,71,2025,1830,23,16,7,0,1.13
+12744,Gil,128,Santos,71,2025,734,7,1,2,0,0.86
+31007,Gabriel Brazão,128,Santos,71,2025,3435,1,13,2,0,0.03
+51426,J. Rodríguez,133,Vasco DA Gama,71,2025,1470,10,8,0,0,0.61
+280739,Mateus Cocão,133,Vasco DA Gama,71,2025,617,15,5,1,0,2.19
+286962,Lucas Freitas,133,Vasco DA Gama,71,2025,1573,18,12,3,0,1.03
+306261,Adson,133,Vasco DA Gama,71,2025,224,2,3,0,0,0.8
+407806,Rayan,133,Vasco DA Gama,71,2025,2875,26,51,4,0,0.81
+414394,JoÃ£o Pedro Chermont,128,Santos,71,2025,261,9,1,3,0,3.1
+415001,Deivid Washington,128,Santos,71,2025,562,7,13,0,0,1.12
+500094,Luca Meirelles,128,Santos,71,2025,96,1,1,0,0,0.94
+506275,Gabriel Bontempo,128,Santos,71,2025,1020,10,20,1,0,0.88
+2410,Weverton,121,Palmeiras,71,2025,2355,0,9,2,0,0.0
+2452,T. Rincón,128,Santos,71,2025,935,25,7,4,1,2.41
+6228,L. Godoy,128,Santos,71,2025,416,8,5,1,0,1.73
+9917,Mayke,121,Palmeiras,71,2025,213,10,2,1,0,4.23
+9917,Mayke,128,Santos,71,2025,824,12,6,3,0,1.31
+9920,Raphael Veiga,121,Palmeiras,71,2025,1087,26,30,3,0,2.15
+9979,João Paulo,128,Santos,71,2025,0,0,0,2,0,0.0
+9979,João Paulo,118,Bahia,71,2025,0,0,0,0,0,0.0
+10083,Murilo,121,Palmeiras,71,2025,1673,29,5,6,0,1.56
+10372,Marcelo Lomba,121,Palmeiras,71,2025,274,0,0,0,0,0.0
+10379,Bruno Fuchs,121,Palmeiras,71,2025,1752,26,17,5,0,1.34
+51466,J. Piquerez,121,Palmeiras,71,2025,2481,12,19,2,2,0.44
+51620,F. Torres,121,Palmeiras,71,2025,1670,16,39,3,0,0.86
+153083,E. Martínez,121,Palmeiras,71,2025,1535,23,12,3,0,1.35
+295513,J. López,121,Palmeiras,71,2025,2011,53,55,5,0,2.37
+305799,Micael,121,Palmeiras,71,2025,1295,27,2,4,0,1.88
+306706,A. Giay,121,Palmeiras,71,2025,2005,37,35,1,1,1.66
+340279,Vitor Roque,121,Palmeiras,71,2025,2144,35,91,4,0,1.47
+374004,Kevyson,128,Santos,71,2025,21,0,1,0,0,0.0
+374004,Kevyson,123,Sport Recife,71,2025,283,8,1,3,0,2.54
+404380,Luis Fellipe,128,Santos,71,2025,439,3,4,2,0,0.62
+415068,Benedetti,121,Palmeiras,71,2025,385,3,2,0,0,0.7
+425733,Estêvão,121,Palmeiras,71,2025,837,13,22,3,0,1.4
+5933,A. Barboza,120,Botafogo,71,2025,2196,50,3,14,0,2.05
+8661,Vitinho,120,Botafogo,71,2025,2875,29,18,3,0,0.91
+9218,Marlon Freitas,120,Botafogo,71,2025,2981,41,9,8,0,1.24
+9366,Igor Jesus,120,Botafogo,71,2025,901,9,26,0,0,0.9
+10031,Gregore,120,Botafogo,71,2025,989,45,8,3,0,4.1
+10040,Artur,120,Botafogo,71,2025,1948,19,30,3,0,0.88
+51214,J. Savarino,120,Botafogo,71,2025,1945,10,18,1,0,0.46
+51581,S. Rodríguez,120,Botafogo,71,2025,1330,22,41,5,0,1.49
+70366,John,120,Botafogo,71,2025,1554,1,3,2,0,0.06
+238391,Jeffinho,120,Botafogo,71,2025,710,13,9,0,1,1.65
+277169,Newton,120,Botafogo,71,2025,1545,43,8,5,0,2.5
+279800,Vanderlan,121,Palmeiras,71,2025,199,5,3,0,0,2.26
+279800,Vanderlan,794,RB Bragantino,71,2025,1074,21,9,4,0,1.76
+297687,M. Ponte,120,Botafogo,71,2025,705,13,7,3,0,1.66
+305821,Matheus Martins,120,Botafogo,71,2025,665,11,15,3,0,1.49
+305976,David Ricardo,120,Botafogo,71,2025,1853,24,17,3,2,1.17
+353034,Cuiabano,120,Botafogo,71,2025,1577,33,19,4,0,1.88
+362711,Jair,120,Botafogo,71,2025,1014,4,8,0,0,0.36
+363315,Serafim,120,Botafogo,71,2025,0,0,0,0,0,0.0
+425714,Allan,121,Palmeiras,71,2025,943,14,12,0,1,1.34
+449244,Luighi Hanri,121,Palmeiras,71,2025,351,10,9,1,0,2.56
+326,Allan,120,Botafogo,71,2025,977,28,11,8,0,2.58
+696,Marcos Antônio,126,Sao Paulo,71,2025,1936,29,27,4,0,1.35
+2571,R. Arboleda,126,Sao Paulo,71,2025,2125,20,16,4,0,0.85
+6083,A. Franco,126,Sao Paulo,71,2025,2361,32,12,7,0,1.22
+6237,E. Díaz,126,Sao Paulo,71,2025,1967,54,37,10,0,2.47
+9340,Sabino,126,Sao Paulo,71,2025,2358,36,16,3,0,1.37
+9949,Igor Vinicius,126,Sao Paulo,71,2025,184,2,2,1,0,0.98
+9949,Igor Vinicius,128,Santos,71,2025,1333,27,19,4,0,1.82
+10081,Rafael,126,Sao Paulo,71,2025,3258,0,7,3,0,0.0
+10323,Luciano,126,Sao Paulo,71,2025,2164,32,43,10,0,1.33
+10501,Alisson,126,Sao Paulo,71,2025,2031,20,33,6,0,0.89
+30763,Jandrei,126,Sao Paulo,71,2025,0,0,0,0,0,0.0
+30763,Jandrei,152,Juventude,71,2025,1731,0,3,3,0,0.0
+47368,J. Calleri,126,Sao Paulo,71,2025,123,2,2,0,1,1.46
+106510,Ferreira,126,Sao Paulo,71,2025,1627,16,48,4,0,0.89
+152857,Ruan Tressoldi,126,Sao Paulo,71,2025,392,5,2,1,0,1.15
+152857,Ruan Tressoldi,1062,Atletico-MG,71,2025,832,12,7,4,0,1.3
+195107,D. Bobadilla,126,Sao Paulo,71,2025,2166,35,12,6,0,1.45
+415147,Felipe Negrucci,126,Sao Paulo,71,2025,2166,35,12,0,0,1.45
+455093,Kauan Lindes,120,Botafogo,71,2025,30,1,1,0,0,3.0
+465196,Ryan Francisco,126,Sao Paulo,71,2025,225,4,6,0,0,1.6
+465199,Lucas Ferreira,126,Sao Paulo,71,2025,808,11,19,1,0,1.23
+465200,Matheus Alves,126,Sao Paulo,71,2025,409,9,6,3,0,1.98
+9558,Chico,123,Sport Recife,71,2025,1101,9,5,1,0,0.74
+9709,Matheus Alexandre,123,Sport Recife,71,2025,1805,29,14,8,0,1.45
+9789,Igor Cariús,123,Sport Recife,71,2025,1771,29,29,3,0,1.47
+9908,Antônio Carlos,123,Sport Recife,71,2025,280,3,1,0,0,0.96
+9918,Lucas Lima,123,Sport Recife,71,2025,2602,31,50,11,0,1.07
+9923,Hyoran,123,Sport Recife,71,2025,412,15,7,2,0,3.28
+9976,Pablo,123,Sport Recife,71,2025,1092,17,19,1,0,1.4
+10228,Caíque França,123,Sport Recife,71,2025,1396,0,1,2,0,0.0
+10438,Romarinho,123,Sport Recife,71,2025,938,2,28,0,0,0.19
+13404,C. Rivera,123,Sport Recife,71,2025,2772,74,31,9,0,2.4
+54695,Hereda,123,Sport Recife,71,2025,880,12,18,1,0,1.23
+126868,F. Domínguez,123,Sport Recife,71,2025,115,2,5,1,0,1.57
+180917,Thiago Couto,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+180917,Thiago Couto,136,Vitoria,71,2025,793,1,1,0,0,0.11
+191872,Carlos Alberto,123,Sport Recife,71,2025,367,7,0,1,0,1.72
+207921,Gustavo Maia,123,Sport Recife,71,2025,24,0,0,0,0,0.0
+237706,Chrystian Barletta,123,Sport Recife,71,2025,1545,15,35,2,0,0.87
+292170,Lenny Lobato,123,Sport Recife,71,2025,281,3,2,0,0,0.96
+321432,Du Queiroz,123,Sport Recife,71,2025,634,12,0,0,0,1.7
+392104,Arthur Sousa,123,Sport Recife,71,2025,223,3,7,0,0,1.21
+504960,Davi,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+9862,Cleiton,794,RB Bragantino,71,2025,3116,0,9,6,0,0.0
+9925,Matheus Fernandes,794,RB Bragantino,71,2025,694,19,4,3,0,2.46
+10004,Eduardo Sasha,794,RB Bragantino,71,2025,2277,12,39,8,1,0.47
+10027,Eric Ramires,794,RB Bragantino,71,2025,1813,33,34,3,0,1.64
+10235,Pedro Henrique,794,RB Bragantino,71,2025,2745,23,20,5,0,0.75
+10247,Gabriel,794,RB Bragantino,71,2025,2670,45,30,11,0,1.52
+10481,Juninho Capixaba,794,RB Bragantino,71,2025,2015,33,41,4,0,1.47
+41544,Eduardo Santos,794,RB Bragantino,71,2025,333,2,2,0,0,0.54
+51464,I. Laquintana,794,RB Bragantino,71,2025,1053,8,10,1,0,0.68
+68113,J. Hurtado,794,RB Bragantino,71,2025,1913,28,9,2,1,1.32
+152410,Guzmán Rodríguez,794,RB Bragantino,71,2025,2084,20,12,5,0,0.86
+195976,Guilherme Lopes,794,RB Bragantino,71,2025,648,7,4,2,0,0.97
+197513,T. Borbas,794,RB Bragantino,71,2025,604,17,7,4,0,2.53
+279805,Fabinho,794,RB Bragantino,71,2025,1288,31,15,3,0,2.17
+279811,Lucas Barbosa,794,RB Bragantino,71,2025,2356,66,41,9,0,2.52
+306800,Jhon Jhon,794,RB Bragantino,71,2025,2886,44,64,11,0,1.37
+327635,Douglas Mendes,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+350927,Henry Mosquera,794,RB Bragantino,71,2025,778,14,8,0,0,1.62
+403951,Gustavinho,794,RB Bragantino,71,2025,757,12,2,2,0,1.43
+431417,Vinicius,794,RB Bragantino,71,2025,1057,16,39,2,0,1.36
+9316,Nicolas,129,Ceara,71,2025,601,10,9,1,0,1.5
+9329,Pedro Raul,129,Ceara,71,2025,2922,56,42,6,0,1.72
+9684,Lucas Lima,129,Ceara,71,2025,169,1,3,0,0,0.53
+10118,Éder,129,Ceara,71,2025,283,3,1,0,0,0.95
+10223,Aylon,129,Ceara,71,2025,819,24,22,4,0,2.64
+10232,Marllon,129,Ceara,71,2025,2127,18,12,3,0,0.76
+10544,Lourenço,129,Ceara,71,2025,1422,31,22,4,0,1.96
+10547,Fernando Miguel,129,Ceara,71,2025,673,0,6,0,0,0.0
+59070,A. Martínez,129,Ceara,71,2025,56,2,1,0,0,3.21
+70670,I. Pitta,794,RB Bragantino,71,2025,1113,21,14,6,0,1.7
+77680,Fernandinho,129,Ceara,71,2025,1028,20,25,3,0,1.75
+80187,Fernando Sobral,129,Ceara,71,2025,1549,38,17,8,0,2.21
+80654,Willian Machado,129,Ceara,71,2025,3272,25,18,7,0,0.69
+95392,A. Galeano,129,Ceara,71,2025,3170,26,72,2,0,0.74
+159920,Dieguinho,129,Ceara,71,2025,2690,26,66,5,0,0.87
+197051,Matheus Bahia,129,Ceara,71,2025,2513,25,33,6,0,0.9
+237102,Matheus Araújo,129,Ceara,71,2025,295,3,3,0,0,0.92
+290868,Romulo,129,Ceara,71,2025,150,6,2,0,0,3.6
+350808,Marcos Victor,129,Ceara,71,2025,1373,7,7,0,0,0.46
+428989,Athyrson,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+2083,Wanderson,135,Cruzeiro,71,2025,1811,25,15,2,0,1.24
+2411,Fágner,135,Cruzeiro,71,2025,841,12,8,1,0,1.28
+6268,L. Villalba,135,Cruzeiro,71,2025,2892,29,22,10,0,0.9
+9337,Alex Muralha,7848,Mirassol,71,2025,653,0,1,2,0,0.0
+9451,Lucas Ramon,7848,Mirassol,71,2025,2664,29,53,9,0,0.98
+9939,Dudu,135,Cruzeiro,71,2025,222,4,7,0,0,1.62
+9939,Dudu,1062,Atletico-MG,71,2025,1082,5,20,1,0,0.42
+10008,Kaio Jorge,135,Cruzeiro,71,2025,2613,37,47,4,1,1.27
+10089,Fabrício Bruno,135,Cruzeiro,71,2025,2986,25,20,8,0,0.75
+10100,L. Romero,135,Cruzeiro,71,2025,2868,36,50,12,0,1.13
+10102,Lucas Silva,135,Cruzeiro,71,2025,2770,56,24,8,0,1.82
+10229,Cássio,135,Cruzeiro,71,2025,3122,0,9,6,0,0.0
+10494,Matheus Henrique,135,Cruzeiro,71,2025,753,13,13,3,0,1.55
+25387,Walace,135,Cruzeiro,71,2025,427,10,3,4,0,2.11
+25398,William,135,Cruzeiro,71,2025,2307,40,18,3,0,1.56
+64172,L. Díaz,135,Cruzeiro,71,2025,91,0,0,0,0,0.0
+64172,L. Díaz,128,Santos,71,2025,1033,17,9,2,0,1.48
+69142,M. Gamarra,135,Cruzeiro,71,2025,161,2,0,0,0,1.12
+306178,Leo Aragão,135,Cruzeiro,71,2025,336,0,1,1,0,0.0
+309792,Kaiki,135,Cruzeiro,71,2025,3027,64,32,10,0,1.9
+311520,Marquinhos,135,Cruzeiro,71,2025,396,4,8,1,0,0.91
+352376,Rodriguinho,135,Cruzeiro,71,2025,14,2,0,0,0,12.86
+352376,Rodriguinho,129,Ceara,71,2025,41,3,1,0,1,6.59
+96,Jemerson,130,Gremio,71,2025,801,14,3,3,0,1.57
+9613,Neto Moura,7848,Mirassol,71,2025,2441,38,24,9,0,1.4
+9771,Daniel Borges,7848,Mirassol,71,2025,914,17,10,3,0,1.67
+9944,Tiago Volpi,130,Gremio,71,2025,2950,1,10,2,0,0.03
+9946,Reinaldo,7848,Mirassol,71,2025,2956,26,32,6,0,0.79
+10258,Clayson,7848,Mirassol,71,2025,256,3,8,2,0,1.05
+54238,Edson,7848,Mirassol,71,2025,1201,30,14,1,0,2.25
+64359,Matheus Davó,7848,Mirassol,71,2025,50,0,1,0,0,0.0
+77754,Danielzinho,7848,Mirassol,71,2025,3324,34,74,4,0,0.92
+77966,Thomazella,7848,Mirassol,71,2025,0,0,0,0,0,0.0
+80474,Chico,7848,Mirassol,71,2025,355,8,15,1,0,2.03
+106464,Fabrício Daniel,7848,Mirassol,71,2025,308,4,5,0,0,1.17
+115525,João Victor,7848,Mirassol,71,2025,3129,28,22,8,1,0.81
+133183,José Aldo,7848,Mirassol,71,2025,1398,31,16,6,0,2.0
+282692,Jemmes,7848,Mirassol,71,2025,3337,34,12,3,0,0.92
+291768,Luiz Filipe,7848,Mirassol,71,2025,21,2,0,0,0,8.57
+316917,Gustavo Lacerda,7848,Mirassol,71,2025,0,0,0,0,0,0.0
+374398,Everton,7848,Mirassol,71,2025,158,3,3,0,0,1.71
+407660,Wesley Santos,7848,Mirassol,71,2025,0,0,0,0,0,0.0
+457507,Igor,130,Gremio,71,2025,525,7,10,2,0,1.2
+374,João Pedro,130,Gremio,71,2025,465,8,1,0,0,1.55
+1431,F. Amuzu,130,Gremio,71,2025,1188,10,22,4,0,0.76
+5981,C. Pavón,130,Gremio,71,2025,1396,12,17,6,0,0.77
+6546,F. Cristaldo,130,Gremio,71,2025,1290,10,31,1,0,0.7
+9911,Lucas Esteves,130,Gremio,71,2025,671,9,4,1,0,1.21
+9978,Everson,1062,Atletico-MG,71,2025,3355,0,6,7,0,0.0
+10314,Dodi,130,Gremio,71,2025,2399,43,37,9,1,1.61
+10387,Edenílson,130,Gremio,71,2025,1821,19,34,6,0,0.94
+47356,Rodrigo Ely,130,Gremio,71,2025,40,1,0,0,0,2.25
+51756,M. Arezo,130,Gremio,71,2025,287,5,2,1,0,1.57
+63998,Camilo,130,Gremio,71,2025,760,20,1,2,0,2.37
+67902,C. Olivera,130,Gremio,71,2025,1309,25,33,3,0,1.72
+70368,João Lucas,130,Gremio,71,2025,529,11,8,1,0,1.87
+70566,M. Villasanti,130,Gremio,71,2025,1160,27,13,5,0,2.09
+201908,A. Aravena,130,Gremio,71,2025,610,6,11,1,0,0.89
+237847,André Henrique,130,Gremio,71,2025,822,13,14,3,0,1.42
+277771,M. Monsalve,130,Gremio,71,2025,310,9,8,2,0,2.61
+304867,Gustavo Martins,130,Gremio,71,2025,1352,22,2,4,0,1.46
+309634,Gabriel Grando,130,Gremio,71,2025,544,0,3,1,0,0.0
+424277,Viery,130,Gremio,71,2025,53,1,0,0,0,1.7
+2038,Guilherme Arana,1062,Atletico-MG,71,2025,1831,20,17,7,0,0.98
+2499,J. Alonso,1062,Atletico-MG,71,2025,2684,23,11,5,2,0.77
+6031,T. Cuello,1062,Atletico-MG,71,2025,1242,18,28,3,1,1.3
+6725,F. Vera,1062,Atletico-MG,71,2025,1157,24,5,3,0,1.87
+9512,Ronaldo,118,Bahia,71,2025,2485,1,7,1,0,0.04
+9872,Igor Rabello,1062,Atletico-MG,71,2025,204,4,0,0,0,1.76
+9872,Igor Rabello,124,Fluminense,71,2025,160,5,0,1,0,2.81
+9926,Gustavo Scarpa,1062,Atletico-MG,71,2025,2376,20,43,3,0,0.76
+9967,Igor Gomes,1062,Atletico-MG,71,2025,1916,21,24,3,1,0.99
+10143,Rony,1062,Atletico-MG,71,2025,2557,52,57,4,1,1.83
+10432,Júnior Santos,1062,Atletico-MG,71,2025,410,9,14,1,0,1.98
+10527,Caio Paulista,1062,Atletico-MG,71,2025,908,13,7,2,0,1.29
+16360,A. Franco,1062,Atletico-MG,71,2025,2701,43,19,4,0,1.43
+18761,Bernard,1062,Atletico-MG,71,2025,1293,25,13,4,0,1.74
+30476,Lyanco,1062,Atletico-MG,71,2025,1446,29,21,8,0,1.8
+195111,Gabriel Menino,1062,Atletico-MG,71,2025,930,14,15,1,0,1.35
+197450,Natanael,1062,Atletico-MG,71,2025,2198,23,23,2,0,0.94
+294593,Rubens,1062,Atletico-MG,71,2025,1071,17,10,2,0,1.43
+311275,Gabriel Delfim,1062,Atletico-MG,71,2025,180,0,0,0,0,0.0
+415069,Patrick Silva,1062,Atletico-MG,71,2025,234,3,3,0,0,1.15
+500093,João Marcelo,1062,Atletico-MG,71,2025,100,3,0,0,0,2.7
+9854,Ademir,118,Bahia,71,2025,2010,27,52,7,0,1.21
+9954,Rodrigo Nestor,118,Bahia,71,2025,895,17,17,5,0,1.71
+9994,Jean Lucas,118,Bahia,71,2025,2711,43,29,3,2,1.43
+10059,Kanu,118,Bahia,71,2025,525,4,6,0,1,0.69
+10130,Erick,118,Bahia,71,2025,714,17,5,3,0,2.14
+10168,Éverton Ribeiro,118,Bahia,71,2025,1973,21,49,4,0,0.96
+10351,David Duarte,118,Bahia,71,2025,2242,20,8,4,0,0.8
+10375,Iago,118,Bahia,71,2025,656,9,3,2,0,1.23
+25272,Cauly,118,Bahia,71,2025,953,11,9,2,0,1.04
+47319,Willian José,118,Bahia,71,2025,2182,12,21,3,0,0.49
+51545,N. Acevedo,118,Bahia,71,2025,1763,45,28,6,0,2.3
+129880,S. Ramos,118,Bahia,71,2025,2981,32,24,8,0,0.97
+157359,Rezende,118,Bahia,71,2025,603,10,9,0,0,1.49
+180236,Caio Alexandre,118,Bahia,71,2025,1332,32,30,4,0,2.16
+195499,Matheus Donelli,131,Corinthians,71,2025,456,0,1,1,0,0.0
+197383,Luciano Juba,118,Bahia,71,2025,2932,22,17,3,0,0.68
+297749,L. Rodríguez,118,Bahia,71,2025,790,12,13,1,0,1.37
+303127,Erick Pulga,118,Bahia,71,2025,1733,23,47,3,0,1.19
+353728,Gabriel Xavier,118,Bahia,71,2025,988,24,8,4,0,2.19
+361665,Léo Mana,131,Corinthians,71,2025,231,1,0,0,0,0.39
+687,Maycon,131,Corinthians,71,2025,1516,14,6,4,0,0.83
+1085,André Ramalho,131,Corinthians,71,2025,1790,19,10,4,0,0.96
+2521,Á. Romero,131,Corinthians,71,2025,1105,12,24,4,1,0.98
+5987,F. Angileri,131,Corinthians,71,2025,1687,19,5,4,0,1.01
+9577,Charles,131,Corinthians,71,2025,626,23,3,3,1,3.31
+10007,Yuri Alberto,131,Corinthians,71,2025,2044,24,43,3,0,1.06
+10067,Alex Santana,131,Corinthians,71,2025,111,2,2,0,0,1.62
+10067,Alex Santana,130,Gremio,71,2025,404,10,9,5,0,2.23
+10085,Cacá,131,Corinthians,71,2025,1426,20,17,4,0,1.26
+10161,Matheuzinho,131,Corinthians,71,2025,2675,30,27,12,0,1.01
+10186,João Ricardo,154,Fortaleza EC,71,2025,1269,1,2,1,0,0.07
+50268,Igor Coronado,131,Corinthians,71,2025,341,7,5,1,0,1.85
+53148,J. Martínez,131,Corinthians,71,2025,1407,21,28,10,1,1.34
+54093,Hugo,131,Corinthians,71,2025,472,7,9,1,0,1.33
+63964,F. Torres,131,Corinthians,71,2025,673,14,3,1,0,1.87
+70299,Talles Magno,131,Corinthians,71,2025,975,22,37,2,0,2.03
+160436,Raniele,131,Corinthians,71,2025,2057,39,51,7,0,1.71
+363693,Breno,131,Corinthians,71,2025,2567,65,83,9,0,2.28
+403953,Ryan Gustavo,131,Corinthians,71,2025,555,13,14,1,0,2.11
+415084,Felipe Longo,131,Corinthians,71,2025,560,0,1,0,0,0.0
+415085,João Pedro,131,Corinthians,71,2025,1283,17,5,4,0,1.19
+1069,Lucas Sasha,154,Fortaleza EC,71,2025,2652,54,25,3,0,1.83
+5916,G. Fernández,154,Fortaleza EC,71,2025,293,6,2,1,0,1.84
+6242,T. Pochettino,154,Fortaleza EC,71,2025,1553,11,13,3,0,0.64
+6326,J. Lucero,154,Fortaleza EC,71,2025,1423,41,17,6,0,2.59
+9882,José Welison,154,Fortaleza EC,71,2025,443,7,5,3,0,1.42
+9905,Diogo Barbosa,154,Fortaleza EC,71,2025,1257,8,14,2,0,0.57
+10080,Fábio,124,Fluminense,71,2025,3457,0,4,2,0,0.0
+10138,Matheus Rossetto,154,Fortaleza EC,71,2025,971,6,5,1,0,0.56
+10192,Bruno Pacheco,154,Fortaleza EC,71,2025,1295,16,27,5,0,1.11
+10413,Tinga,154,Fortaleza EC,71,2025,751,6,4,1,0,0.72
+10479,Brenno,154,Fortaleza EC,71,2025,1397,0,4,2,1,0.0
+10506,Marinho,154,Fortaleza EC,71,2025,710,25,24,3,1,3.17
+10581,Yago Pikachu,154,Fortaleza EC,71,2025,1431,16,21,2,0,1.01
+11365,B. Kuscevic,154,Fortaleza EC,71,2025,1731,23,4,3,1,1.2
+13771,D. Borrero,154,Fortaleza EC,71,2025,0,0,0,0,0,0.0
+16637,E. Martínez,154,Fortaleza EC,71,2025,747,18,13,6,0,2.17
+119779,Allanzinho,154,Fortaleza EC,71,2025,311,6,11,1,0,1.74
+153454,Moisés,154,Fortaleza EC,71,2025,412,2,2,1,0,0.44
+266658,Calebe,154,Fortaleza EC,71,2025,228,2,5,2,0,0.79
+311070,E. Mancuso,154,Fortaleza EC,71,2025,2429,32,29,6,0,1.19
+6337,J. Freytes,124,Fluminense,71,2025,2962,22,18,8,1,0.67
+9874,Guga,124,Fluminense,71,2025,997,6,12,1,0,0.54
+9924,Thiago Santos,124,Fluminense,71,2025,309,10,3,2,0,2.91
+10017,Ignacio,124,Fluminense,71,2025,1186,24,17,2,1,1.82
+10079,Vitor Eudes,124,Fluminense,71,2025,0,0,0,0,0,0.0
+10163,Renê,124,Fluminense,71,2025,2393,22,28,3,0,0.83
+10222,Everaldo,124,Fluminense,71,2025,1378,31,27,2,0,2.02
+10267,Samuel Xavier,124,Fluminense,71,2025,2418,32,34,5,0,1.19
+10396,Nonato,124,Fluminense,71,2025,934,19,15,4,0,1.83
+13523,G. Cano,124,Fluminense,71,2025,1526,9,25,1,0,0.53
+13708,J. Arias,124,Fluminense,71,2025,1098,14,33,1,0,1.15
+16847,Keno,124,Fluminense,71,2025,530,6,21,1,0,1.02
+50532,Lima,124,Fluminense,71,2025,1119,20,31,3,0,1.61
+51603,A. Canobbio,124,Fluminense,71,2025,2130,44,53,6,0,1.86
+70849,K. Serna,124,Fluminense,71,2025,2112,24,30,3,0,1.02
+266267,Hércules,124,Fluminense,71,2025,2182,37,18,1,0,1.53
+280245,Martinelli,124,Fluminense,71,2025,2750,58,37,6,0,1.9
+315569,J. Lavega,124,Fluminense,71,2025,72,0,4,0,0,0.0
+316519,F. Bernal,124,Fluminense,71,2025,1075,17,13,8,0,1.42
+377174,R. Lezcano,124,Fluminense,71,2025,54,0,4,0,0,0.0
+9313,Reginaldo Lopes,152,Juventude,71,2025,1195,7,11,1,0,0.53
+9970,Nenê,152,Juventude,71,2025,1037,10,35,3,0,0.87
+10091,Jádson,152,Juventude,71,2025,2888,44,52,9,0,1.37
+10196,Alan Ruschel,152,Juventude,71,2025,1249,18,28,6,1,1.3
+13436,D. Giraldo,152,Juventude,71,2025,694,18,3,4,0,2.33
+31384,Gabriel Vasconcelos,136,Vitoria,71,2025,90,0,1,0,0,0.0
+31384,Gabriel Vasconcelos,123,Sport Recife,71,2025,2094,0,4,3,0,0.0
+63478,Pernambuco,152,Juventude,71,2025,62,0,1,0,0,0.0
+77799,Jean Carlos,152,Juventude,71,2025,214,3,2,1,0,1.26
+78037,Ruan Carneiro,152,Juventude,71,2025,374,0,0,0,0,0.0
+80273,Gabriel Taliari,152,Juventude,71,2025,2348,57,68,7,0,2.18
+137606,Ewerthon,152,Juventude,71,2025,1188,8,12,2,0,0.61
+196887,Adriano Martins,152,Juventude,71,2025,369,3,1,1,0,0.73
+197276,Felipinho,152,Juventude,71,2025,310,11,1,1,0,3.19
+197324,Ênio,152,Juventude,71,2025,1153,8,34,3,0,0.62
+201201,Garcez,152,Juventude,71,2025,88,1,2,0,0,1.02
+207224,E. Batalla,152,Juventude,71,2025,1338,18,31,3,0,1.21
+237674,Mandaca,152,Juventude,71,2025,2479,61,49,6,0,2.21
+351487,Marcos Paulo,152,Juventude,71,2025,1395,27,5,7,0,1.74
+406569,Abner,152,Juventude,71,2025,1353,16,5,3,0,1.06
+461690,Davi Goes,152,Juventude,71,2025,73,0,0,0,0,0.0
+9208,Willian Oliveira,136,Vitoria,71,2025,1427,35,14,8,0,2.21
+9510,Lucas Arcanjo,136,Vitoria,71,2025,2578,0,3,3,0,0.0
+9620,Gustavo Silva,136,Vitoria,71,2025,488,9,4,0,0,1.66
+9742,Matheus Bidu,131,Corinthians,71,2025,2004,22,66,8,0,0.99
+9823,Fabrício,136,Vitoria,71,2025,411,19,9,0,0,4.16
+10120,Lucas Halter,136,Vitoria,71,2025,2941,24,9,7,0,0.73
+10311,PH Ganso,124,Fluminense,71,2025,648,7,16,2,0,0.97
+10360,Giovanny,152,Juventude,71,2025,681,7,15,3,0,0.93
+10551,R. Cáceres,136,Vitoria,71,2025,1695,22,5,6,0,1.17
+16669,G. Mastriani,120,Botafogo,71,2025,317,7,3,1,0,1.99
+54061,Lucas Braga,136,Vitoria,71,2025,986,13,25,1,0,1.19
+63984,Thiaguinho,136,Vitoria,71,2025,0,0,0,0,0,0.0
+64363,Ronald,136,Vitoria,71,2025,1906,39,23,7,0,1.84
+66899,Zé Marcos,136,Vitoria,71,2025,2440,23,19,6,0,0.85
+135136,Claudinho,136,Vitoria,71,2025,912,10,8,5,0,0.99
+136124,Edu,136,Vitoria,71,2025,1097,11,7,2,0,0.9
+157150,Wellington Rato,136,Vitoria,71,2025,217,3,3,0,0,1.24
+197317,Hugo,136,Vitoria,71,2025,0,0,0,0,0,0.0
+331725,Émerson Galego,152,Juventude,71,2025,23,0,1,0,0,0.0
+452869,Felipe Cardoso,136,Vitoria,71,2025,77,1,1,0,0,1.17
+667,M. Depay,131,Corinthians,71,2025,1571,20,31,4,0,1.15
+2454,Y. Soteldo,128,Santos,71,2025,334,2,6,1,0,0.54
+2454,Y. Soteldo,124,Fluminense,71,2025,496,2,17,0,0,0.36
+9460,Gabriel Baralhas,136,Vitoria,71,2025,2291,42,30,10,0,1.65
+9692,Ivan,119,Internacional,71,2025,585,0,1,2,0,0.0
+9935,Carlos Eduardo,7848,Mirassol,71,2025,757,19,24,2,0,2.26
+9935,Carlos Eduardo,136,Vitoria,71,2025,215,8,8,1,0,3.35
+10226,Walter,7848,Mirassol,71,2025,2836,0,5,5,0,0.0
+10374,Danilo Fernandes,118,Bahia,71,2025,0,0,0,1,0,0.0
+33617,Gabriel,7848,Mirassol,71,2025,1624,8,30,2,0,0.44
+114436,Matheuzinho,136,Vitoria,71,2025,1798,17,62,5,1,0.85
+197031,Fintelman,136,Vitoria,71,2025,0,0,0,0,0,0.0
+237089,J. Sforza,133,Vasco DA Gama,71,2025,78,1,1,0,0,1.15
+237089,J. Sforza,152,Juventude,71,2025,279,4,3,0,0,1.29
+299138,Cristian,7848,Mirassol,71,2025,1373,23,14,2,0,1.51
+311785,K. Andrade,154,Fortaleza EC,71,2025,160,6,5,3,0,3.38
+354012,Lucca,119,Internacional,71,2025,175,3,6,0,0,1.54
+354012,Lucca,129,Ceara,71,2025,11,0,1,0,0,0.0
+357888,Gabriel,7848,Mirassol,71,2025,360,1,3,0,0,0.25
+403049,Bruno César,154,Fortaleza EC,71,2025,69,0,2,0,0,0.0
+407262,Tiago,118,Bahia,71,2025,933,18,28,2,0,1.74
+418845,Leandro Mathias,126,Sao Paulo,71,2025,0,0,0,0,0,0.0
+422150,Jonathan,135,Cruzeiro,71,2025,810,17,3,1,1,1.89
+465169,Murilo Rhikman,135,Cruzeiro,71,2025,10,0,0,0,0,0.0
+276,Neymar,128,Santos,71,2025,1535,22,69,6,0,1.29
+987,Paulinho,121,Palmeiras,71,2025,220,1,2,0,0,0.41
+2502,G. Gómez,121,Palmeiras,71,2025,2337,33,15,8,0,1.27
+2612,G. de Arrascaeta,127,Flamengo,71,2025,2383,13,53,3,0,0.49
+6347,A. Moreno,121,Palmeiras,71,2025,1806,22,10,9,0,1.1
+9916,Marcos Rocha,121,Palmeiras,71,2025,90,2,1,0,0,2.0
+9916,Marcos Rocha,130,Gremio,71,2025,976,7,15,1,0,0.65
+30408,Gerson,127,Flamengo,71,2025,718,9,20,0,1,1.13
+39797,C. Ortíz,123,Sport Recife,71,2025,197,4,2,0,0,1.83
+67204,Christian,135,Cruzeiro,71,2025,2374,45,48,9,0,1.71
+106485,Maurício,121,Palmeiras,71,2025,1634,14,23,1,0,0.77
+180921,Patryck,126,Sao Paulo,71,2025,309,4,3,1,0,1.17
+305036,Renzo,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+362740,R. Atencio,123,Sport Recife,71,2025,565,4,7,1,0,0.64
+363689,Rodriguinho,126,Sao Paulo,71,2025,766,15,4,3,0,1.76
+404575,Ronald,130,Gremio,71,2025,253,1,2,0,0,0.36
+404797,Marcelinho Braz,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+405061,Chumbinho,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+454562,Luiz Gustavo,133,Vasco DA Gama,71,2025,288,4,2,3,0,1.25
+454562,Luiz Gustavo,118,Bahia,71,2025,0,0,0,0,0,0.0
+460230,Henrique,126,Sao Paulo,71,2025,49,1,2,0,0,1.84
+518560,Léo Jance,124,Fluminense,71,2025,0,0,0,0,0,0.0
+2488,G. Cuéllar,130,Gremio,71,2025,900,16,14,3,0,1.6
+2737,M. Braithwaite,130,Gremio,71,2025,1490,23,27,3,0,1.39
+9278,Matheus Bianqui,7848,Mirassol,71,2025,178,7,1,1,0,3.54
+9303,Gustavo,152,Juventude,71,2025,870,0,0,1,0,0.0
+9525,Ramon Menezes,129,Ceara,71,2025,0,0,0,0,0,0.0
+9525,Ramon Menezes,123,Sport Recife,71,2025,1889,19,9,5,0,0.91
+10321,Pedro,127,Flamengo,71,2025,1080,14,18,3,0,1.17
+10370,Keiller,129,Ceara,71,2025,0,0,0,0,0,0.0
+70297,Carlinhos,136,Vitoria,71,2025,172,9,1,2,1,4.71
+80188,Raul,120,Botafogo,71,2025,180,0,0,0,0,0.0
+307834,João Victor,129,Ceara,71,2025,14,0,0,0,0,0.0
+317636,Natã,152,Juventude,71,2025,94,1,0,0,0,0.96
+321663,Rwan Cruz,120,Botafogo,71,2025,193,1,2,0,0,0.47
+350153,Lelê,129,Ceara,71,2025,135,5,4,0,0,3.33
+363316,Jota,118,Bahia,71,2025,0,0,0,0,0,0.0
+403671,Kauê,120,Botafogo,71,2025,0,0,0,0,0,0.0
+404640,I. Román,1062,Atletico-MG,71,2025,726,8,9,4,0,0.99
+415049,Gabriel Carvalho,119,Internacional,71,2025,78,1,1,0,0,1.15
+463959,Luis Otávio,119,Internacional,71,2025,782,7,18,2,0,0.81
+464004,Alysson Edward,130,Gremio,71,2025,1752,27,64,6,0,1.39
+465184,Robert,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+2466,W. Kannemann,130,Gremio,71,2025,1775,24,13,8,1,1.22
+2563,J. Meneses,133,Vasco DA Gama,71,2025,7,0,0,0,0,0.0
+6201,L. Di Plácido,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+10348,Yago Felipe,7848,Mirassol,71,2025,663,15,25,3,0,2.04
+13409,J. Dinenno,135,Cruzeiro,71,2025,11,0,0,0,0,0.0
+13409,J. Dinenno,126,Sao Paulo,71,2025,268,6,3,2,0,2.01
+51571,A. Sant&apos;Anna,794,RB Bragantino,71,2025,541,10,3,3,0,1.66
+153458,Negueba,7848,Mirassol,71,2025,2183,17,54,3,0,0.7
+237890,Leonan,7848,Mirassol,71,2025,0,0,0,0,0,0.0
+237920,Paulo Baya,124,Fluminense,71,2025,54,0,0,0,0,0.0
+237920,Paulo Baya,129,Ceara,71,2025,464,2,5,0,0,0.39
+403306,Paulinho,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+415067,David Kauã,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+454147,Ruan Pablo,118,Bahia,71,2025,53,1,1,1,0,1.7
+454458,Lukas Zuccarello,133,Vasco DA Gama,71,2025,28,1,0,0,0,3.21
+463975,Dieguinho,131,Corinthians,71,2025,485,2,10,0,0,0.37
+463987,Wallace II,124,Fluminense,71,2025,0,0,0,0,0,0.0
+465180,Zé Phelipe,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+504950,Zé Lucas,123,Sport Recife,71,2025,1624,29,23,4,0,1.61
+505398,Davi Schuindt,124,Fluminense,71,2025,180,1,2,0,0,0.5
+505598,Fred,118,Bahia,71,2025,90,1,1,0,0,1.0
+506034,Índio,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+9308,Lucas Oliveira,133,Vasco DA Gama,71,2025,270,3,1,1,0,1.0
+13572,G. Fuentes,124,Fluminense,71,2025,832,14,5,2,0,1.51
+51701,M. Araújo,118,Bahia,71,2025,872,16,17,3,0,1.65
+77843,Rodrigo Sam,152,Juventude,71,2025,1485,32,21,8,0,1.94
+266856,Fabrício,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+305042,Victor Gabriel,119,Internacional,71,2025,1113,21,4,1,0,1.7
+362718,Lucca,154,Fortaleza EC,71,2025,657,16,14,2,0,2.19
+408638,Fernando Costa,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+414449,Phillipe Oliveira,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+415087,Gabriel Caipira,131,Corinthians,71,2025,0,0,0,0,0,0.0
+415114,Pedro Ataíde,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+435569,S. Palacios,794,RB Bragantino,71,2025,70,3,1,1,0,3.86
+454142,KauÃ£,118,Bahia,71,2025,0,0,0,0,0,0.0
+459836,Hyan,128,Santos,71,2025,27,2,1,0,0,6.67
+463979,Guilherme Inácio,131,Corinthians,71,2025,996,27,23,3,0,2.44
+465165,Kenji,135,Cruzeiro,71,2025,44,0,3,0,0,0.0
+474261,Mateus Xavier,128,Santos,71,2025,48,0,0,0,0,0.0
+505408,Avellar,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+505994,Lucca Marques Alencar,126,Sao Paulo,71,2025,331,10,11,1,0,2.72
+506480,Gustavo Henrique Pereira,128,Santos,71,2025,0,0,0,0,0,0.0
+178,Lucas Moura,126,Sao Paulo,71,2025,451,6,14,0,0,1.2
+5962,G. Ávila,154,Fortaleza EC,71,2025,2362,24,25,4,0,0.91
+9394,Bruno Xavier,136,Vitoria,71,2025,0,0,0,0,0,0.0
+9468,Bruno Tubarão,129,Ceara,71,2025,99,1,0,0,0,0.91
+12666,Renato Augusto,124,Fluminense,71,2025,25,0,0,0,0,0.0
+12692,Oscar,126,Sao Paulo,71,2025,359,3,4,1,0,0.75
+53966,Breno Lopes,154,Fortaleza EC,71,2025,2305,13,53,5,0,0.51
+54806,Jorge,130,Gremio,71,2025,0,0,0,0,0,0.0
+159653,Caíque,152,Juventude,71,2025,2088,53,36,10,0,2.28
+196596,Kelvi,152,Juventude,71,2025,0,0,0,0,0,0.0
+306726,B. Palacios,1062,Atletico-MG,71,2025,17,0,0,0,0,0.0
+311517,Young,126,Sao Paulo,71,2025,271,0,0,0,0,0.0
+407264,Vitinho,118,Bahia,71,2025,0,0,0,0,0,0.0
+414395,Ricardo Mathias,119,Internacional,71,2025,817,20,9,1,0,2.2
+415046,Kauan,119,Internacional,71,2025,0,0,0,0,0,0.0
+419936,Nathan Fernandes,120,Botafogo,71,2025,343,4,5,1,0,1.05
+505150,Pablo,119,Internacional,71,2025,19,2,1,0,0,9.47
+507692,Kauã Prates,135,Cruzeiro,71,2025,356,5,1,1,0,1.26
+511757,Caio Andrade,127,Flamengo,71,2025,33,0,1,0,0,0.0
+520576,Raykkonen Pereira Soares,119,Internacional,71,2025,147,3,1,0,0,1.84
+6078,E. Brítez,154,Fortaleza EC,71,2025,1626,19,18,9,0,1.05
+9560,Rafael Thyere,123,Sport Recife,71,2025,2135,15,9,2,0,0.63
+9726,Renato Kayzer,136,Vitoria,71,2025,2109,38,54,3,0,1.62
+9906,Luan Cândido,130,Gremio,71,2025,0,0,0,0,0,0.0
+9906,Luan Cândido,123,Sport Recife,71,2025,1341,20,7,2,0,1.34
+9932,Zé Rafael,128,Santos,71,2025,1895,40,52,6,0,1.9
+36784,D. Palacios,131,Corinthians,71,2025,0,0,0,0,0,0.0
+160222,Peixoto,152,Juventude,71,2025,741,22,9,1,0,2.67
+313732,Pablo Maia,126,Sao Paulo,71,2025,1509,31,28,4,0,1.85
+403300,Lorran,127,Flamengo,71,2025,0,0,0,0,0,0.0
+409398,Gabriel,152,Juventude,71,2025,0,0,0,0,0,0.0
+414455,Souza,128,Santos,71,2025,1664,22,20,4,0,1.19
+415090,Kayke,131,Corinthians,71,2025,379,5,4,0,0,1.19
+443088,Julio Fidelis,124,Fluminense,71,2025,176,3,7,0,0,1.53
+455276,Marlon,152,Juventude,71,2025,8,1,0,0,0,11.25
+460436,João Alves,127,Flamengo,71,2025,0,0,0,0,0,0.0
+460496,Kayke,120,Botafogo,71,2025,0,0,0,0,0,0.0
+460496,Kayke,154,Fortaleza EC,71,2025,29,2,1,0,0,6.21
+463962,Yago,119,Internacional,71,2025,82,1,0,0,0,1.1
+463988,Isaque,124,Fluminense,71,2025,21,0,1,0,0,0.0
+465183,Maykon,136,Vitoria,71,2025,765,16,9,1,0,1.88
+502726,Riquelme,124,Fluminense,71,2025,104,2,3,1,0,1.73
+1262,Otávio,124,Fluminense,71,2025,231,5,8,0,0,1.95
+5794,R. Garro,131,Corinthians,71,2025,1437,21,60,6,0,1.32
+9198,Luiz Otávio,7848,Mirassol,71,2025,174,3,0,1,0,1.55
+50763,L. Acosta,124,Fluminense,71,2025,1219,27,25,5,0,1.99
+51572,M. Viña,127,Flamengo,71,2025,286,5,3,1,0,1.57
+197533,Praxedes,794,RB Bragantino,71,2025,415,10,14,3,0,2.17
+266568,Rodrigo,154,Fortaleza EC,71,2025,221,9,3,1,0,3.67
+288230,Zé Vitor,7848,Mirassol,71,2025,29,2,0,1,0,6.21
+297522,John Kennedy,124,Fluminense,71,2025,634,9,12,1,0,1.28
+311518,Nathan,794,RB Bragantino,71,2025,1166,12,20,3,0,0.93
+351890,Jardiel Maciel Libertino da Silva,130,Gremio,71,2025,57,0,1,0,0,0.0
+405224,Adriano,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+457508,Riquelme Freitas,130,Gremio,71,2025,397,3,11,0,0,0.68
+465195,Paulo Sérgio,126,Sao Paulo,71,2025,37,0,0,0,0,0.0
+505531,Lucio,127,Flamengo,71,2025,69,1,0,0,0,1.3
+505991,Maik,126,Sao Paulo,71,2025,608,10,7,3,0,1.48
+507322,Kauan,136,Vitoria,71,2025,0,0,0,0,0,0.0
+507604,Davi Barbosa,136,Vitoria,71,2025,0,0,0,0,0,0.0
+516180,Lucas Emanoel,154,Fortaleza EC,71,2025,0,0,0,0,0,0.0
+522702,João Alencar,128,Santos,71,2025,0,0,0,0,0,0.0
+899,Andreas Pereira,121,Palmeiras,71,2025,1013,17,14,4,1,1.51
+1854,J. Correa,120,Botafogo,71,2025,912,12,20,2,0,1.18
+9429,Alesson,7848,Mirassol,71,2025,1472,31,22,1,0,1.9
+9886,Vina,129,Ceara,71,2025,585,8,8,2,1,1.23
+10025,Shaylon,7848,Mirassol,71,2025,472,5,1,1,0,0.95
+10276,Richardson,129,Ceara,71,2025,824,11,9,4,0,1.2
+10373,Carlos Miguel,121,Palmeiras,71,2025,821,0,5,1,0,0.0
+36312,Francisco da Costa,7848,Mirassol,71,2025,1217,15,18,3,0,1.11
+54582,Gabriel Bahia,120,Botafogo,71,2025,235,2,1,0,0,0.77
+80184,Richard,129,Ceara,71,2025,0,0,0,1,0,0.0
+80535,Rafael Bilu,152,Juventude,71,2025,691,20,24,1,0,2.6
+104792,Chris Ramos,120,Botafogo,71,2025,732,18,17,1,1,2.21
+198140,Gabriel Lacerda,129,Ceara,71,2025,0,0,0,0,0,0.0
+281082,Edison Negueba,152,Juventude,71,2025,116,1,1,0,0,0.78
+311384,Jefté,121,Palmeiras,71,2025,772,8,3,0,0,0.93
+414357,Riquelme Fillipi,121,Palmeiras,71,2025,26,0,0,0,0,0.0
+415066,Gilberto,121,Palmeiras,71,2025,0,0,0,0,0,0.0
+455130,Álvaro Montoro,120,Botafogo,71,2025,946,10,12,3,0,0.95
+512522,Erick Machado,121,Palmeiras,71,2025,26,0,1,0,0,0.0
+544696,Bernardo,152,Juventude,71,2025,45,1,0,0,0,2.0
+48,Saúl,127,Flamengo,71,2025,1173,30,5,3,0,2.3
+871,Matheus Pereira,154,Fortaleza EC,71,2025,1302,20,9,4,1,1.38
+1566,Emerson Royal,127,Flamengo,71,2025,1257,18,25,1,0,1.29
+2289,Jorginho,127,Flamengo,71,2025,1360,22,11,5,0,1.46
+5872,A. Frías,128,Santos,71,2025,1144,18,6,2,0,1.42
+9957,Luan,126,Sao Paulo,71,2025,179,6,3,0,0,3.02
+10105,David,133,Vasco DA Gama,71,2025,778,13,5,2,1,1.5
+51560,I. Ramírez,123,Sport Recife,71,2025,297,7,2,1,0,2.12
+316950,Hudson,152,Juventude,71,2025,235,6,0,2,1,2.3
+321454,Diógenes,128,Santos,71,2025,38,0,0,0,0,0.0
+366780,Iago,127,Flamengo,71,2025,96,1,0,1,0,0.94
+403299,Daniel Sales,127,Flamengo,71,2025,69,0,0,0,0,0.0
+404752,GB,133,Vasco DA Gama,71,2025,147,3,1,0,0,1.84
+414353,Luiz Gustavo,131,Corinthians,71,2025,54,0,1,0,0,0.0
+454555,Guilherme,127,Flamengo,71,2025,63,1,0,0,0,1.43
+454657,Bruno Xavier,127,Flamengo,71,2025,0,0,0,0,0,0.0
+456004,Edenilson,136,Vitoria,71,2025,0,0,0,0,0,0.0
+504971,Adriel,123,Sport Recife,71,2025,159,7,0,1,0,3.96
+505685,Riquelme Felipe da Silva de Oliveira,123,Sport Recife,71,2025,25,0,0,1,0,0.0
+586025,Douglas Telles,127,Flamengo,71,2025,88,0,1,0,0,0.0
+2044,G. Mercado,119,Internacional,71,2025,1201,15,9,4,0,1.12
+9989,Felipe Jonatan,7848,Mirassol,71,2025,445,7,2,0,0,1.42
+10125,Khellven,121,Palmeiras,71,2025,988,26,9,1,0,2.37
+11490,R. López,136,Vitoria,71,2025,656,28,21,4,0,3.84
+38575,Ruben Rodrigues,136,Vitoria,71,2025,46,0,1,0,0,0.0
+70723,A. Benítez,119,Internacional,71,2025,564,5,0,0,0,0.8
+115532,S. Moreno,124,Fluminense,71,2025,163,6,2,2,0,3.31
+197500,Nikita Solodchenko,128,Santos,71,2025,382,3,5,0,0,0.71
+354791,J. Herrera,154,Fortaleza EC,71,2025,1067,23,11,3,0,1.94
+360303,Renato Marques,7848,Mirassol,71,2025,206,1,3,1,0,0.44
+405353,Japa,135,Cruzeiro,71,2025,156,6,1,0,0,3.46
+411433,Zé Guilherme,118,Bahia,71,2025,84,1,2,0,0,1.07
+454293,Felype Gabriel,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+464019,Aranha,121,Palmeiras,71,2025,0,0,0,0,0,0.0
+504951,Luiz Henrique,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+504956,Rafinha,123,Sport Recife,71,2025,45,1,0,0,0,2.0
+504969,Jefinho,123,Sport Recife,71,2025,22,0,1,0,0,0.0
+507885,Josenildo José dos Santos Neto,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+515580,Kauan Vitor,136,Vitoria,71,2025,0,0,0,0,0,0.0
+575323,Larson,121,Palmeiras,71,2025,78,5,2,1,0,5.77
+6133,G. Guruceaga,152,Juventude,71,2025,0,0,0,0,0,0.0
+10166,Reinier,1062,Atletico-MG,71,2025,426,6,4,2,0,1.27
+22232,Thiago Mendes,133,Vasco DA Gama,71,2025,301,5,4,1,0,1.5
+143368,Bruno Gomes,119,Internacional,71,2025,986,18,14,2,0,1.64
+180866,Marcelo,124,Fluminense,71,2025,0,0,0,1,0,0.0
+196298,R. Sosa,121,Palmeiras,71,2025,883,10,15,0,0,1.02
+201909,G. Tapia,126,Sao Paulo,71,2025,1146,25,41,4,0,1.96
+306063,Ryan Guilherme,154,Fortaleza EC,71,2025,0,0,0,0,0,0.0
+306063,Ryan Guilherme,135,Cruzeiro,71,2025,53,1,3,0,0,1.7
+355253,M. Sanabria,118,Bahia,71,2025,578,9,21,2,0,1.4
+360306,Otávio Eleodoro Rezende Costa,135,Cruzeiro,71,2025,0,0,0,0,0,0.0
+363698,Cadu,1062,Atletico-MG,71,2025,10,0,0,0,0,0.0
+404753,Cauan Barros,133,Vasco DA Gama,71,2025,1362,32,28,5,0,2.11
+454136,Pablo,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+454627,Pinna,152,Juventude,71,2025,0,0,0,0,0,0.0
+455053,Guilherme Estrella,133,Vasco DA Gama,71,2025,18,0,1,0,0,0.0
+460435,S. Ogundana,127,Flamengo,71,2025,0,0,0,0,0,0.0
+516810,Breno Vereza,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+525667,Çağatay Yılmaz,131,Corinthians,71,2025,0,0,0,0,0,0.0
+525667,Çağatay Yılmaz,118,Bahia,71,2025,8,1,2,0,0,11.25
+527153,Bernardo Tichz Toffolo,152,Juventude,71,2025,0,0,0,0,0,0.0
+577746,Alisson,119,Internacional,71,2025,27,2,0,0,1,6.67
+2294,Willian,130,Gremio,71,2025,312,2,8,0,0,0.58
+9747,Lucas Crispim,154,Fortaleza EC,71,2025,427,8,15,0,0,1.69
+13491,Y. Guzmán,154,Fortaleza EC,71,2025,196,2,4,0,0,0.92
+129772,João Neto,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+195358,Lucas Gazal,154,Fortaleza EC,71,2025,569,9,1,2,0,1.42
+199141,E. Noriega,130,Gremio,71,2025,1208,16,10,3,0,1.19
+223253,Pierre,154,Fortaleza EC,71,2025,862,13,8,2,0,1.36
+311157,Matheus França,133,Vasco DA Gama,71,2025,399,9,3,1,0,2.03
+345748,A. Gómez,133,Vasco DA Gama,71,2025,1041,17,18,1,0,1.47
+363323,Alexsander,1062,Atletico-MG,71,2025,855,18,18,3,0,1.89
+363707,Guilherme,154,Fortaleza EC,71,2025,0,0,0,0,0,0.0
+413140,Kauan Toledo,120,Botafogo,71,2025,19,1,2,1,0,4.74
+425715,Arthur,121,Palmeiras,71,2025,0,0,0,0,0,0.0
+452887,Euder Galdino da Silva,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+458374,Rhyan,120,Botafogo,71,2025,0,0,0,0,0,0.0
+468162,Davi Gomes,794,RB Bragantino,71,2025,232,3,4,0,0,1.16
+505409,Huguinho,120,Botafogo,71,2025,24,1,0,0,0,3.75
+506277,Cauã Zappelini Joaquim,120,Botafogo,71,2025,0,0,0,0,0,0.0
+507527,Gabriel Mec,130,Gremio,71,2025,0,0,0,0,0,0.0
+525527,Cauê Nascimento Santos,794,RB Bragantino,71,2025,41,0,0,0,0,0.0
+5994,J. Carrascal,127,Flamengo,71,2025,829,21,20,4,0,2.28
+36848,Aitor Cantalapiedra,136,Vitoria,71,2025,1288,5,16,2,0,0.35
+44609,Romarinho,136,Vitoria,71,2025,131,0,4,0,0,0.0
+51468,A. Rodríguez,119,Internacional,71,2025,954,12,12,2,0,1.13
+119128,G. Caballero,128,Santos,71,2025,352,8,10,1,0,2.05
+153837,D. Capewell,136,Vitoria,71,2025,0,0,0,0,0,0.0
+301196,Da Silva,7848,Mirassol,71,2025,0,0,0,0,0,0.0
+305812,Cipriano,152,Juventude,71,2025,197,3,0,1,1,1.37
+372083,Dyogo,127,Flamengo,71,2025,96,0,1,0,0,0.0
+410843,J. Barrera,120,Botafogo,71,2025,320,3,8,1,0,0.84
+415083,Kauê Camargo,131,Corinthians,71,2025,94,0,0,0,0,0.0
+425125,Gustavo,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+456321,S. Boateng,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+464021,Rafael Coutinho,121,Palmeiras,71,2025,0,0,0,0,0,0.0
+507663,Leonardo Lopes,127,Flamengo,71,2025,0,0,0,0,0,0.0
+510552,Luis Eduardo,130,Gremio,71,2025,0,0,0,0,0,0.0
+510677,Dell,118,Bahia,71,2025,0,0,0,0,0,0.0
+519811,Vagno,124,Fluminense,71,2025,0,0,0,0,0,0.0
+525646,Cauã Berrio,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+543555,Henrique Carmo,126,Sao Paulo,71,2025,0,0,0,0,0,0.0
+912,Neto,120,Botafogo,71,2025,224,0,0,0,0,0.0
+2500,F. Balbuena,130,Gremio,71,2025,234,0,3,0,0,0.0
+10177,Vitinho,131,Corinthians,71,2025,482,6,11,0,0,1.12
+415052,Allex,119,Internacional,71,2025,0,0,0,0,0,0.0
+454453,Leandrinho,133,Vasco DA Gama,71,2025,56,0,2,0,0,0.0
+457557,Andrei,136,Vitoria,71,2025,0,0,0,0,0,0.0
+463956,Pedro Kauã,119,Internacional,71,2025,0,0,0,0,0,0.0
+463986,João Loiola,124,Fluminense,71,2025,0,0,0,0,0,0.0
+464022,Wendell Sacramento,136,Vitoria,71,2025,67,0,2,0,0,0.0
+465175,Bruno Alves,135,Cruzeiro,71,2025,0,0,0,0,0,0.0
+465181,Mateus Iseppe,1062,Atletico-MG,71,2025,8,0,1,0,0,0.0
+468222,Paulo Roberto,136,Vitoria,71,2025,97,7,0,0,0,6.49
+473413,Igão,126,Sao Paulo,71,2025,0,0,0,0,0,0.0
+474102,Kauã Branco,120,Botafogo,71,2025,0,0,0,0,0,0.0
+505992,Pedro Ferreira,126,Sao Paulo,71,2025,29,0,0,0,0,0.0
+515668,Vitão,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+516821,Nicolas,126,Sao Paulo,71,2025,46,0,2,0,0,0.0
+527152,Cristovam,154,Fortaleza EC,71,2025,0,0,0,0,0,0.0
+527683,João Paulo Ananias,128,Santos,71,2025,0,0,0,0,0,0.0
+527956,André,131,Corinthians,71,2025,45,2,1,0,0,4.0
+150,Arthur,130,Gremio,71,2025,1105,17,40,3,1,1.38
+688,Fernando,794,RB Bragantino,71,2025,330,5,4,0,0,1.36
+1218,E. Rigoni,126,Sao Paulo,71,2025,315,8,3,1,1,2.29
+9483,Maílton,126,Sao Paulo,71,2025,398,9,10,1,0,2.04
+30429,R. Tolói,126,Sao Paulo,71,2025,507,3,3,0,0,0.53
+37161,L. Sinisterra,135,Cruzeiro,71,2025,338,5,8,0,0,1.33
+54692,Camutanga,136,Vitoria,71,2025,1252,19,9,7,0,1.37
+70422,Luan,152,Juventude,71,2025,1131,12,3,0,0,0.95
+156942,Dudu,136,Vitoria,71,2025,341,12,6,5,0,3.17
+297893,Alix,794,RB Bragantino,71,2025,882,16,7,4,0,1.63
+359372,Robert Renan,133,Vasco DA Gama,71,2025,1314,17,6,2,0,1.16
+409288,João Coni,118,Bahia,71,2025,0,0,0,0,0,0.0
+409289,Roger,118,Bahia,71,2025,0,0,0,0,0,0.0
+414662,J. Arroyo,135,Cruzeiro,71,2025,18,0,0,0,0,0.0
+428027,Kevyn,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+454135,Thiago Beltrame,130,Gremio,71,2025,0,0,0,0,0,0.0
+507379,Vinicius Lira,128,Santos,71,2025,0,0,0,0,0,0.0
+507381,Jacaré,131,Corinthians,71,2025,0,0,0,0,0,0.0
+510204,David Martins,118,Bahia,71,2025,0,0,0,0,0,0.0
+522246,Kauã Moraes,135,Cruzeiro,71,2025,215,5,6,0,0,2.09
+70549,A. Duarte,128,Santos,71,2025,405,7,4,1,0,1.56
+163436,K. Saverio,136,Vitoria,71,2025,32,1,1,0,0,2.81
+356757,Enzo,130,Gremio,71,2025,0,0,0,0,0,0.0
+404637,Yan Henrique,119,Internacional,71,2025,0,0,0,0,0,0.0
+407265,Sidney,118,Bahia,71,2025,0,0,0,0,0,0.0
+410134,C. Loor,120,Botafogo,71,2025,0,0,0,0,0,0.0
+414456,Isac,126,Sao Paulo,71,2025,0,0,0,0,0,0.0
+457510,Felipe Preis,126,Sao Paulo,71,2025,0,0,0,0,0,0.0
+522974,Vitor Lamounier,135,Cruzeiro,71,2025,0,0,0,0,0,0.0
+529406,Victor Hugo,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+544679,Andre,131,Corinthians,71,2025,285,6,8,0,0,1.89
+544681,K. Barria,120,Botafogo,71,2025,185,2,3,1,0,0.97
+544697,V. Hugo,123,Sport Recife,71,2025,0,0,0,0,0,0.0
+544705,Marquinhos,120,Botafogo,71,2025,1,0,0,0,0,0.0
+544706,Bernardo Jacob,119,Internacional,71,2025,0,0,0,0,0,0.0
+544707,G. Justino,120,Botafogo,71,2025,0,0,0,0,0,0.0
+561346,Gabriel Abdias,120,Botafogo,71,2025,0,0,0,0,0,0.0
+570429,G. Veneno,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+575325,J. Scatolin,152,Juventude,71,2025,24,0,0,0,0,0.0
+597321,B. Arhin,119,Internacional,71,2025,0,0,0,0,0,0.0
+10052,Marcelo Benevenuto,154,Fortaleza EC,71,2025,0,0,0,0,0,0.0
+197356,Yuri Sena,136,Vitoria,71,2025,0,0,0,0,0,0.0
+403590,Lucas Balotelli,127,Flamengo,71,2025,27,0,0,0,0,0.0
+454137,Allan,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+460490,Yuri Leles,794,RB Bragantino,71,2025,0,0,0,0,0,0.0
+511612,Wanderson,127,Flamengo,71,2025,27,0,0,0,0,0.0
+512740,Johnny Góes,127,Flamengo,71,2025,96,3,1,0,0,2.81
+544699,Renato Marques,7848,Mirassol,71,2025,58,1,1,0,0,1.55
+544704,D. Minete,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+574837,Luis Felipe,121,Palmeiras,71,2025,16,2,0,1,0,11.25
+580796,K. Lima,121,Palmeiras,71,2025,0,0,0,0,0,0.0
+589368,Camargo Joao,127,Flamengo,71,2025,23,2,0,0,0,7.83
+599009,Mosquito,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+603822,R. Lelis,135,Cruzeiro,71,2025,0,0,0,0,0,0.0
+609468,G. Amorim,131,Corinthians,71,2025,0,0,0,0,0,0.0
+610495,B. Arhin,119,Internacional,71,2025,0,0,0,0,0,0.0
+610497,R. Lelis,135,Cruzeiro,71,2025,65,2,0,1,0,2.77
+624986,Diego Esser,119,Internacional,71,2025,0,0,0,0,0,0.0
+627200,Ramires,7848,Mirassol,71,2025,0,0,0,0,0,0.0
+627201,Werneck,127,Flamengo,71,2025,0,0,0,0,0,0.0
+2382,Pedro Henrique,129,Ceara,71,2025,1334,31,27,8,0,2.09
+2560,E. Pulgar,127,Flamengo,71,2025,1244,24,12,7,0,1.74
+9992,Gustavo Henrique,131,Corinthians,71,2025,2070,22,8,5,0,0.96
+10237,Manoel,124,Fluminense,71,2025,346,1,2,0,0,0.26
+10240,Richard,119,Internacional,71,2025,282,5,5,0,0,1.6
+10298,Marcos Felipe,118,Bahia,71,2025,971,1,3,0,0,0.09
+10492,Thaciano,128,Santos,71,2025,626,5,9,2,0,0.72
+30398,Vitor Hugo,1062,Atletico-MG,71,2025,1639,18,3,3,1,0.99
+65837,L. Mugni,129,Ceara,71,2025,1662,33,17,5,0,1.79
+289306,Loide Augusto,133,Vasco DA Gama,71,2025,202,9,4,1,0,4.01
+353394,Janderson,136,Vitoria,71,2025,740,16,6,3,0,1.95
+372605,Luis Fernando Santos Oliveira,135,Cruzeiro,71,2025,0,0,0,0,0,0.0
+414405,K. Arroyo,135,Cruzeiro,71,2025,631,6,18,4,0,0.86
+415071,Thalys,121,Palmeiras,71,2025,64,0,0,0,0,0.0
+502998,Tiago,130,Gremio,71,2025,0,0,0,0,0,0.0
+507389,Guilherme Luiz,129,Ceara,71,2025,154,5,7,1,0,2.92
+554485,Rhuan Gabriel,135,Cruzeiro,71,2025,0,0,0,0,0,0.0
+589365,Melo Yago,127,Flamengo,71,2025,0,0,0,0,0,0.0
+619034,Pedro Fachinetti,127,Flamengo,71,2025,0,0,0,0,0,0.0
+620819,B. Xavier,127,Flamengo,71,2025,0,0,0,0,0,0.0
+71,Luan Peres,128,Santos,71,2025,1961,26,12,5,0,1.19
+1830,Gonçalo Paciência,123,Sport Recife,71,2025,192,2,3,0,0,0.94
+1909,Luiz Gustavo,126,Sao Paulo,71,2025,781,17,12,0,0,1.96
+2515,Ó. Romero,119,Internacional,71,2025,514,9,18,3,0,1.58
+10041,Gilberto,152,Juventude,71,2025,985,24,15,4,0,2.19
+10173,Willian Arão,128,Santos,71,2025,788,11,11,0,0,1.26
+12797,Alex Teixeira,133,Vasco DA Gama,71,2025,130,2,1,1,0,1.38
+13283,C. Cuesta,133,Vasco DA Gama,71,2025,1002,15,2,3,0,1.35
+30524,M. Lemos,133,Vasco DA Gama,71,2025,244,1,0,0,0,0.37
+35533,E. Valencia,119,Internacional,71,2025,613,16,14,2,0,2.35
+35551,A. Bareiro,154,Fortaleza EC,71,2025,901,32,23,7,1,3.2
+50077,S. Rochet,119,Internacional,71,2025,1215,0,3,0,0,0.0
+50166,Titi,154,Fortaleza EC,71,2025,270,4,1,2,1,1.33
+53539,W. Ángel,152,Juventude,71,2025,1345,25,4,5,0,1.67
+140450,Lucão,794,RB Bragantino,71,2025,360,0,0,1,0,0.0
+196101,Weverson,154,Fortaleza EC,71,2025,218,6,2,0,0,2.48
+275170,Danilo Santos,120,Botafogo,71,2025,741,6,5,2,0,0.73
+352371,Victor Hugo,128,Santos,71,2025,11,0,0,0,0,0.0
+352371,Victor Hugo,127,Flamengo,71,2025,11,0,0,0,0,0.0
+369890,Léo Jacó,133,Vasco DA Gama,71,2025,20,4,1,0,0,18.0
+544678,M. J. Iseppe,1062,Atletico-MG,71,2025,0,0,0,0,0,0.0
+860,Alex Sandro,127,Flamengo,71,2025,1524,43,16,4,0,2.54
+2414,Everton,127,Flamengo,71,2025,880,13,6,0,0,1.33
+9445,Bruno Rodrigues,121,Palmeiras,71,2025,272,4,7,0,0,1.32
+9623,Juninho,127,Flamengo,71,2025,388,8,4,0,0,1.86
+10174,Gabriel Barbosa,135,Cruzeiro,71,2025,1099,9,14,7,0,0.74
+16369,G. Plata,127,Flamengo,71,2025,1301,19,16,0,1,1.31
+21095,Lucas Evangelista,121,Palmeiras,71,2025,1047,19,20,2,0,1.63
+41362,Lucas Fernandes,152,Juventude,71,2025,401,5,5,0,0,1.12
+41609,João Basso,128,Santos,71,2025,430,8,5,1,0,1.67
+44348,Eduardo,135,Cruzeiro,71,2025,937,21,15,1,1,2.02
+44675,Iury Castilho,7848,Mirassol,71,2025,501,7,18,2,0,1.26
+47116,Héctor Hernández,131,Corinthians,71,2025,251,4,3,0,0,1.43
+54866,João Marcelo,135,Cruzeiro,71,2025,224,3,1,0,0,1.21
+163260,Nuno Moreira,133,Vasco DA Gama,71,2025,2495,18,43,4,0,0.65
+187920,Fabiano,129,Ceara,71,2025,2823,48,42,8,0,1.53
+195104,R. Rios,121,Palmeiras,71,2025,741,23,23,4,0,2.79
+292166,Léo Linck,120,Botafogo,71,2025,1396,0,2,1,0,0.0
+406617,Zé Henrique,152,Juventude,71,2025,0,0,0,0,0,0.0
+409849,José,135,Cruzeiro,71,2025,1,0,0,0,0,0.0
+506308,Gustavo Mancha,154,Fortaleza EC,71,2025,1032,5,8,2,1,0.44
+390,Tiquinho Soares,128,Santos,71,2025,1250,29,38,3,0,2.09
+2440,N. Ferraresi,126,Sao Paulo,71,2025,1710,34,29,3,0,1.79
+2470,R. Saravia,1062,Atletico-MG,71,2025,1064,22,12,2,0,1.86
+9453,Aderlan,123,Sport Recife,71,2025,920,16,11,5,0,1.57
+9453,Aderlan,128,Santos,71,2025,87,1,2,0,0,1.03
+9549,Erick,136,Vitoria,71,2025,1948,24,67,7,0,1.11
+9714,Vinicius Zanocelo,129,Ceara,71,2025,1089,27,7,2,0,2.23
+9883,Nathan,130,Gremio,71,2025,90,2,1,0,0,2.0
+9993,Wagner Leonardo,130,Gremio,71,2025,2368,21,6,3,0,0.8
+10305,Gilberto,118,Bahia,71,2025,1738,18,11,5,0,0.93
+22167,Danilo Barbosa,120,Botafogo,71,2025,23,1,0,1,0,3.91
+32901,João Schmidt,128,Santos,71,2025,2074,41,12,6,0,1.78
+41092,Lucas Cunha,123,Sport Recife,71,2025,430,5,2,2,0,1.05
+41188,André Silva,126,Sao Paulo,71,2025,1284,21,21,4,0,1.47
+54689,Bruno Ferreira,129,Ceara,71,2025,2764,1,11,2,0,0.03
+119485,B. Rollheiser,128,Santos,71,2025,2155,34,36,7,0,1.42
+123759,Hugo Souza,131,Corinthians,71,2025,2340,0,2,3,0,0.0
+180235,Gabriel Veron,152,Juventude,71,2025,574,9,7,0,0,1.41
+180235,Gabriel Veron,128,Santos,71,2025,128,1,3,0,0,0.7
+197035,Nathan,119,Internacional,71,2025,90,3,0,0,0,3.0
+279579,Clayton,119,Internacional,71,2025,762,14,1,2,0,1.65
+305817,Biel,1062,Atletico-MG,71,2025,593,5,16,1,0,0.76
+192,Dalbert Henrique,123,Sport Recife,71,2025,124,8,1,2,0,5.81
+763,Daniel Fuzato,133,Vasco DA Gama,71,2025,190,0,0,0,0,0.0
+10225,João Victor,133,Vasco DA Gama,71,2025,1436,11,11,3,0,0.69
+10340,Marcelo Hermes,152,Juventude,71,2025,1679,20,12,3,0,1.07
+10434,Osvaldo,136,Vitoria,71,2025,981,6,20,3,0,0.55
+12705,Hulk,1062,Atletico-MG,71,2025,2442,40,66,9,0,1.47
+41106,Ricardo Ryller,136,Vitoria,71,2025,861,28,11,3,0,2.93
+41169,Léo Jardim,133,Vasco DA Gama,71,2025,3146,0,9,2,1,0.0
+41299,Neris,136,Vitoria,71,2025,536,14,4,1,1,2.35
+41357,Jamerson,136,Vitoria,71,2025,1028,10,7,0,0,0.88
+41369,Pepê,136,Vitoria,71,2025,567,21,17,3,1,3.33
+80330,Pedro Augusto,123,Sport Recife,71,2025,524,11,11,5,0,1.89
+80330,Pedro Augusto,154,Fortaleza EC,71,2025,38,3,0,2,1,7.11
+96353,Paulinho,133,Vasco DA Gama,71,2025,331,13,11,2,0,3.53
+141294,Rúben Ismael,136,Vitoria,71,2025,18,0,0,0,0,0.0
+156191,Igor Formiga,152,Juventude,71,2025,1335,24,14,1,1,1.62
+159718,Matheus Babi,152,Juventude,71,2025,451,14,15,4,0,2.79
+159774,Léo Pereira,123,Sport Recife,71,2025,1124,17,28,0,0,1.36
+159774,Léo Pereira,136,Vitoria,71,2025,161,5,9,0,0,2.8
+286927,Magrão,154,Fortaleza EC,71,2025,270,2,0,1,0,0.67
+352374,Petterson,152,Juventude,71,2025,80,0,0,0,0,0.0
+414281,Isaac,1062,Atletico-MG,71,2025,14,0,1,0,0,0.0
+30,S. Arias,118,Bahia,71,2025,1393,10,18,3,0,0.65
+190,Cédric Soares,126,Sao Paulo,71,2025,1840,16,9,2,0,0.78
+970,Wendell,126,Sao Paulo,71,2025,762,11,14,0,0,1.3
+9764,Vinícius Silvestre,154,Fortaleza EC,71,2025,180,0,1,0,0,0.0
+9849,Matheusinho,123,Sport Recife,71,2025,1625,15,33,1,1,0.83
+9934,Deyverson,154,Fortaleza EC,71,2025,1209,19,25,4,0,1.41
+9938,Arthur Cabral,120,Botafogo,71,2025,1267,27,23,1,0,1.92
+9952,Lucas Kal,123,Sport Recife,71,2025,866,11,2,1,0,1.14
+10309,Marlon,130,Gremio,71,2025,2676,34,43,8,0,1.14
+10309,Marlon,135,Cruzeiro,71,2025,8,0,0,0,0,0.0
+41210,Kaio Pantaleão,120,Botafogo,71,2025,755,11,8,0,0,1.31
+41293,Helton Leite,154,Fortaleza EC,71,2025,360,0,1,0,0,0.0
+49908,Guilherme Marques,7848,Mirassol,71,2025,547,12,11,2,0,1.97
+80670,Pablo Roberto,154,Fortaleza EC,71,2025,112,6,0,0,0,4.82
+126936,Samuel Lino,127,Flamengo,71,2025,1343,13,19,1,0,0.87
+145501,Derik Lacerda,123,Sport Recife,71,2025,1360,26,25,7,0,1.72
+163482,João Silva,123,Sport Recife,71,2025,991,11,3,1,0,1.0
+304827,Gustavo Marques,794,RB Bragantino,71,2025,799,12,7,2,0,1.35
+305819,Kayky,118,Bahia,71,2025,883,7,13,2,0,0.71
+454501,Rafael Venâncio,129,Ceara,71,2025,0,0,0,3,0,0.0
+465173,Henrique Silva,135,Cruzeiro,71,2025,0,0,0,0,0,0.0
+104,Carlos Vinícius,130,Gremio,71,2025,950,21,26,3,1,1.99
+259,Thiago Silva,124,Fluminense,71,2025,2158,11,9,1,0,0.46
+378,Alex Telles,120,Botafogo,71,2025,1594,21,10,3,0,1.19
+452,Fernando,119,Internacional,71,2025,414,1,3,0,0,0.22
+618,Danilo,127,Flamengo,71,2025,1409,15,6,2,1,0.96
+652,Marçal,120,Botafogo,71,2025,917,16,11,4,0,1.57
+1432,Y. Bolasie,135,Cruzeiro,71,2025,181,11,4,1,0,5.47
+2283,David Luiz,154,Fortaleza EC,71,2025,397,7,2,2,0,1.59
+2375,Sérgio Oliveira,123,Sport Recife,71,2025,999,16,12,5,0,1.44
+2412,Felipe Anderson,121,Palmeiras,71,2025,1706,13,18,0,0,0.69
+2426,A. Carrillo,131,Corinthians,71,2025,1285,31,14,3,0,2.17
+19250,B. Brahimi,128,Santos,71,2025,20,0,0,0,0,0.0
+25618,Matheus Pereira,135,Cruzeiro,71,2025,2808,35,112,7,0,1.12
+44436,Souza,133,Vasco DA Gama,71,2025,0,0,0,0,0,0.0
+195109,Patrick de Paula,120,Botafogo,71,2025,286,4,5,0,0,1.26
+267770,Roni,7848,Mirassol,71,2025,156,1,0,1,0,0.58
+278350,Elias Manoel,120,Botafogo,71,2025,25,1,0,0,0,3.6
+311277,Rômulo,1062,Atletico-MG,71,2025,210,5,0,1,0,2.14
+348896,Kaiky Naves,121,Palmeiras,71,2025,18,1,0,0,0,5.0
+428990,Felipe Lima,127,Flamengo,71,2025,0,0,0,0,0,0.0
+9800,Marcão,152,Juventude,71,2025,495,1,0,0,0,0.18
+36832,Rafael Ramos,129,Ceara,71,2025,504,14,3,2,0,2.5
+41368,Tabata,119,Internacional,71,2025,1052,21,19,4,1,1.8
+237076,Diego Rosa,119,Internacional,71,2025,180,4,2,0,0,2.0
+405161,Lucas Furtado,127,Flamengo,71,2025,0,0,0,0,0,0.0

@@ -1,0 +1,89 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+119,R. Falcao,728,Rayo Vallecano,140,2024,0,0,0,0,0,0.0
+583,João Félix,529,Barcelona,140,2024,0,0,0,0,0,0.0
+583,João Félix,530,Atletico Madrid,140,2024,0,0,0,0,0,0.0
+619,Eric García,547,Girona,140,2024,0,0,0,0,0,0.0
+619,Eric García,529,Barcelona,140,2024,1555,17,8,4,0,0.98
+855,João Cancelo,529,Barcelona,140,2024,0,0,0,0,0,0.0
+915,Gabriel Paulista,530,Atletico Madrid,140,2024,0,0,0,0,0,0.0
+2273,Kepa,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+2824,N. Maksimović,546,Getafe,140,2024,0,0,0,0,0,0.0
+18907,Joselu,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+47516,Aleix García,547,Girona,140,2024,0,0,0,0,0,0.0
+64268,J. Mojica,727,Osasuna,140,2024,0,0,0,0,0,0.0
+64268,J. Mojica,533,Villarreal,140,2024,0,0,0,0,0,0.0
+64268,J. Mojica,798,Mallorca,140,2024,2753,18,24,5,0,0.59
+162547,T. Zidane,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+189997,Mario de Luis,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+197448,Yan Couto,547,Girona,140,2024,0,0,0,0,0,0.0
+206260,Lucas Cañizares,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+237174,Álvaro Carrillo,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+266657,Sávio,547,Girona,140,2024,0,0,0,0,0,0.0
+279792,Vinícius Tobias,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+285909,Pablo Torre,547,Girona,140,2024,0,0,0,0,0,0.0
+285909,Pablo Torre,529,Barcelona,140,2024,308,4,7,0,0,1.17
+330438,Edgar Pujol,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+334575,Diego Piñeiro,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+176,E. Lamela,536,Sevilla,140,2024,0,0,0,0,0,0.0
+385,Óliver Torres,536,Sevilla,140,2024,0,0,0,0,0,0.0
+738,Sergio Ramos,536,Sevilla,140,2024,0,0,0,0,0,0.0
+897,M. Greenwood,546,Getafe,140,2024,0,0,0,0,0,0.0
+1920,N. Radonjić,798,Mallorca,140,2024,0,0,0,0,0,0.0
+2671,Jaime Mata,546,Getafe,140,2024,0,0,0,0,0,0.0
+2671,Jaime Mata,534,Las Palmas,140,2024,637,20,14,9,0,2.83
+22233,B. Soumaré,536,Sevilla,140,2024,0,0,0,0,0,0.0
+41973,Miguel Crespo,728,Rayo Vallecano,140,2024,0,0,0,0,0,0.0
+46657,Nacho Vidal,798,Mallorca,140,2024,0,0,0,0,0,0.0
+46657,Nacho Vidal,727,Osasuna,140,2024,120,2,1,0,0,1.5
+47416,Óscar Rodríguez,546,Getafe,140,2024,0,0,0,0,0,0.0
+47416,Óscar Rodríguez,537,Leganes,140,2024,1319,19,25,6,1,1.3
+47416,Óscar Rodríguez,536,Sevilla,140,2024,0,19,25,0,0,0.0
+47527,S. Dimitrievski,728,Rayo Vallecano,140,2024,0,0,0,0,0,0.0
+47527,S. Dimitrievski,532,Valencia,140,2024,360,0,0,1,0,0.0
+51051,J. Araujo,534,Las Palmas,140,2024,0,0,0,0,0,0.0
+51051,J. Araujo,529,Barcelona,140,2024,0,0,0,0,0,0.0
+107153,Kike Pérez,728,Rayo Vallecano,140,2024,0,0,0,0,0,0.0
+107153,Kike Pérez,720,Valladolid,140,2024,1198,32,21,6,0,2.4
+162028,Juanmi Latasa,546,Getafe,140,2024,0,0,0,0,0,0.0
+162028,Juanmi Latasa,720,Valladolid,140,2024,1393,40,36,6,1,2.58
+162028,Juanmi Latasa,541,Real Madrid,140,2024,0,40,36,0,0,0.0
+162123,I. Moriba,546,Getafe,140,2024,0,0,0,0,0,0.0
+162123,I. Moriba,538,Celta Vigo,140,2024,2129,32,58,8,0,1.35
+180560,H. Mejbri,536,Sevilla,140,2024,0,0,0,0,0,0.0
+195923,José Ángel Carmona,546,Getafe,140,2024,0,0,0,0,0,0.0
+195923,José Ángel Carmona,536,Sevilla,140,2024,2954,49,43,11,0,1.49
+288699,M. Perrone,534,Las Palmas,140,2024,0,0,0,0,0,0.0
+311344,A. Véliz,536,Sevilla,140,2024,0,0,0,0,0,0.0
+311344,A. Véliz,540,Espanyol,140,2024,1118,20,33,3,0,1.61
+350073,Marcos Fernández,798,Mallorca,140,2024,0,0,0,0,0,0.0
+614,C. Bravo,543,Real Betis,140,2024,0,0,0,0,0,0.0
+763,Daniel Fuzato,546,Getafe,140,2024,0,0,0,0,0,0.0
+925,Gonçalo Guedes,533,Villarreal,140,2024,0,0,0,0,0,0.0
+1117,K. Tierney,548,Real Sociedad,140,2024,0,0,0,0,0,0.0
+2063,André Silva,548,Real Sociedad,140,2024,0,0,0,0,0,0.0
+8493,R. Yaremchuk,532,Valencia,140,2024,0,0,0,0,0,0.0
+8587,S. Amallah,532,Valencia,140,2024,0,0,0,0,0,0.0
+8587,S. Amallah,720,Valladolid,140,2024,1387,32,28,6,0,2.08
+43084,I. Hagi,542,Alaves,140,2024,0,0,0,0,0,0.0
+47299,Gorosabel,542,Alaves,140,2024,0,0,0,0,0,0.0
+47299,Gorosabel,531,Athletic Club,140,2024,1490,24,4,5,0,1.45
+47306,Álex Sola,542,Alaves,140,2024,0,0,0,0,0,0.0
+47306,Álex Sola,548,Real Sociedad,140,2024,0,24,26,0,0,0.0
+47306,Álex Sola,546,Getafe,140,2024,1036,24,26,4,0,2.08
+47529,Miguel Ángel Morro,533,Villarreal,140,2024,0,0,0,0,0,0.0
+47529,Miguel Ángel Morro,728,Rayo Vallecano,140,2024,0,0,0,0,0,0.0
+47566,Javi Galán,548,Real Sociedad,140,2024,0,0,0,0,0,0.0
+47566,Javi Galán,530,Atletico Madrid,140,2024,1791,38,35,8,0,1.91
+161877,Pablo Gozálbez,532,Valencia,140,2024,0,0,0,0,0,0.0
+182685,Diego Collado,533,Villarreal,140,2024,0,0,0,0,0,0.0
+195717,Y. Mosquera,533,Villarreal,140,2024,0,0,0,0,0,0.0
+197800,Unai Ropero,542,Alaves,140,2024,0,0,0,0,0,0.0
+237066,Rafa Marín,542,Alaves,140,2024,0,0,0,0,0,0.0
+237066,Rafa Marín,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+270516,Peter,532,Valencia,140,2024,0,0,0,0,0,0.0
+270516,Peter,541,Real Madrid,140,2024,0,0,0,0,0,0.0
+270516,Peter,546,Getafe,140,2024,466,9,10,1,0,1.74
+323935,G. Simeone,542,Alaves,140,2024,0,0,0,0,0,0.0
+323935,G. Simeone,530,Atletico Madrid,140,2024,1942,23,42,3,0,1.07
+358628,Samu,542,Alaves,140,2024,0,0,0,0,0,0.0
+358628,Samu,530,Atletico Madrid,140,2024,0,0,0,0,0,0.0

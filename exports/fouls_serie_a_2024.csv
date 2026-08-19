@@ -1,0 +1,79 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+105,F. Ballo-Touré,489,AC Milan,135,2024,0,0,0,0,0,0.0
+305,D. Origi,489,AC Milan,135,2024,0,0,0,0,0,0.0
+319,S. Luperto,511,Empoli,135,2024,0,0,0,0,0,0.0
+319,S. Luperto,490,Cagliari,135,2024,3240,23,20,4,0,0.64
+1863,C. Immobile,487,Lazio,135,2024,0,0,0,0,0,0.0
+2475,R. Pereyra,494,Udinese,135,2024,0,0,0,0,0,0.0
+2495,D. Zapata,499,Atalanta,135,2024,0,0,0,0,0,0.0
+2495,D. Zapata,503,Torino,135,2024,589,10,8,1,0,1.53
+25387,Walace,494,Udinese,135,2024,0,0,0,0,0,0.0
+30427,C. Okoli,499,Atalanta,135,2024,0,0,0,0,0,0.0
+30438,N. Cambiaghi,499,Atalanta,135,2024,0,0,0,0,0,0.0
+30438,N. Cambiaghi,500,Bologna,135,2024,614,9,34,0,0,1.32
+30635,M. Coda,495,Genoa,135,2024,0,0,0,0,0,0.0
+31226,A. Buongiorno,503,Torino,135,2024,0,0,0,0,0,0.0
+31226,A. Buongiorno,492,Napoli,135,2024,1926,17,21,2,0,0.79
+31503,L. Mancuso,1579,Monza,135,2024,0,0,0,0,0,0.0
+46988,Josep Martínez,495,Genoa,135,2024,0,0,0,0,0,0.0
+46988,Josep Martínez,505,Inter,135,2024,450,0,1,0,0,0.0
+61808,M. Çetin,504,Hellas Verona,135,2024,0,0,0,0,0,0.0
+128498,C. Travaglini,490,Cagliari,135,2024,0,0,0,0,0,0.0
+162570,G. Cittadini,499,Atalanta,135,2024,0,0,0,0,0,0.0
+162907,A. Zanoli,492,Napoli,135,2024,0,0,0,0,0,0.0
+162907,A. Zanoli,495,Genoa,135,2024,1714,17,19,3,0,0.89
+196843,C. Dalle Mura,502,Fiorentina,135,2024,0,0,0,0,0,0.0
+288777,M. Bertini,487,Lazio,135,2024,0,0,0,0,0,0.0
+402326,M. Tremolada,895,Como,135,2024,0,0,0,0,0,0.0
+877,M. Kean,496,Juventus,135,2024,0,0,0,0,0,0.0
+877,M. Kean,502,Fiorentina,135,2024,2710,41,52,6,0,1.36
+2107,Z. Vanheusden,505,Inter,135,2024,0,0,0,0,0,0.0
+10238,Carlos Augusto,1579,Monza,135,2024,0,0,0,0,0,0.0
+10238,Carlos Augusto,505,Inter,135,2024,1680,10,12,1,0,0.54
+30440,R. Piccoli,499,Atalanta,135,2024,0,0,0,0,0,0.0
+30440,R. Piccoli,490,Cagliari,135,2024,3143,60,54,6,0,1.72
+30509,A. Belotti,497,AS Roma,135,2024,0,0,0,0,0,0.0
+30509,A. Belotti,895,Como,135,2024,611,9,19,1,0,1.33
+30815,K. Lasagna,504,Hellas Verona,135,2024,0,0,0,0,0,0.0
+32194,A. Sersanti,496,Juventus,135,2024,0,0,0,0,0,0.0
+32196,M. Aramu,495,Genoa,135,2024,0,0,0,0,0,0.0
+37250,L. Czyborra,495,Genoa,135,2024,0,0,0,0,0,0.0
+81012,D. Vásquez,489,AC Milan,135,2024,0,0,0,0,0,0.0
+81012,D. Vásquez,511,Empoli,135,2024,2880,1,4,2,0,0.03
+81012,D. Vásquez,497,AS Roma,135,2024,2880,1,4,2,0,0.03
+126766,N. Rauti,503,Torino,135,2024,0,0,0,0,0,0.0
+154799,L. Binks,500,Bologna,135,2024,0,0,0,0,0,0.0
+161852,A. Cioffi,492,Napoli,135,2024,0,0,0,0,0,0.0
+161859,G. Oristanio,505,Inter,135,2024,0,0,0,0,0,0.0
+161859,G. Oristanio,517,Venezia,135,2024,2333,50,71,3,0,1.93
+266185,M. Compagnon,496,Juventus,135,2024,0,0,0,0,0,0.0
+303678,G. D&apos;Agostino,492,Napoli,135,2024,0,0,0,0,0,0.0
+322626,M. Zanotti,505,Inter,135,2024,0,0,0,0,0,0.0
+341823,A. Silvestro,505,Inter,135,2024,0,0,0,0,0,0.0
+341912,G. Ambrosino,492,Napoli,135,2024,0,0,0,0,0,0.0
+342433,A. Tikvić,494,Udinese,135,2024,0,0,0,0,0,0.0
+787,G. Cangiano,500,Bologna,135,2024,0,0,0,0,0,0.0
+18830,M. Arnautović,500,Bologna,135,2024,0,0,0,0,0,0.0
+18830,M. Arnautović,505,Inter,135,2024,541,4,6,2,0,0.67
+30392,S. Ghidotti,895,Como,135,2024,0,0,0,0,0,0.0
+30418,P. Gollini,499,Atalanta,135,2024,0,0,0,0,0,0.0
+30418,P. Gollini,497,AS Roma,135,2024,0,0,0,0,0,0.0
+30418,P. Gollini,495,Genoa,135,2024,630,0,0,1,0,0.0
+30988,F. Valietti,495,Genoa,135,2024,0,0,0,0,0,0.0
+31031,R. Inglese,523,Parma,135,2024,0,0,0,0,0,0.0
+31517,G. Frabotta,496,Juventus,135,2024,0,0,0,0,0,0.0
+31717,M. Bleve,867,Lecce,135,2024,0,0,0,0,0,0.0
+43096,L. Munteanu,502,Fiorentina,135,2024,0,0,0,0,0,0.0
+134926,D. Maldini,489,AC Milan,135,2024,0,0,0,0,0,0.0
+134926,D. Maldini,1579,Monza,135,2024,1315,3,7,5,0,0.21
+134926,D. Maldini,499,Atalanta,135,2024,257,3,7,0,0,1.05
+162029,Pablo Rodríguez,867,Lecce,135,2024,0,0,0,0,0,0.0
+237268,F. Rinaldi,523,Parma,135,2024,0,0,0,0,0,0.0
+264474,S. Boccia,490,Cagliari,135,2024,0,0,0,0,0,0.0
+305821,Matheus Martins,494,Udinese,135,2024,0,0,0,0,0,0.0
+330405,G. Vaglica,523,Parma,135,2024,0,0,0,0,0,0.0
+336640,A. Oliveri,499,Atalanta,135,2024,0,0,0,0,0,0.0
+340699,D. Degli Innocenti,511,Empoli,135,2024,0,0,0,0,0,0.0
+341996,A. Renzi,511,Empoli,135,2024,0,0,0,0,0,0.0
+342067,F. Distefano,502,Fiorentina,135,2024,0,0,0,0,0,0.0
+342071,D. Mastrantonio,497,AS Roma,135,2024,0,0,0,0,0,0.0

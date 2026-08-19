@@ -1,0 +1,78 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+124,J. Cillessen,413,NEC Nijmegen,88,2024,0,0,0,0,0,0.0
+539,D. de Wit,201,AZ Alkmaar,88,2024,0,0,0,0,0,0.0
+1085,André Ramalho,197,PSV Eindhoven,88,2024,0,0,0,0,0,0.0
+2741,M. Ryan,201,AZ Alkmaar,88,2024,0,0,0,0,0,0.0
+15717,M. Ross,413,NEC Nijmegen,88,2024,0,0,0,0,0,0.0
+30798,H. ter Avest,207,Utrecht,88,2024,0,0,0,0,0,0.0
+36987,S. Lammers,207,Utrecht,88,2024,0,0,0,0,0,0.0
+36987,S. Lammers,415,Twente,88,2024,1509,14,8,0,0,0.83
+37174,M. van der Maarel,207,Utrecht,88,2024,0,0,0,0,0,0.0
+37185,O. Boussaid,207,Utrecht,88,2024,0,0,0,0,0,0.0
+37435,Deroy Duarte,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+38113,T. Handwerker,207,Utrecht,88,2024,0,0,0,0,0,0.0
+40322,M. Vejinović,206,Heracles,88,2024,0,0,0,0,0,0.0
+41582,Tiago Dantas,201,AZ Alkmaar,88,2024,0,0,0,0,0,0.0
+158567,I. Griffith,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+272540,D. Nunumete,210,Heerenveen,88,2024,0,0,0,0,0,0.0
+294684,Y. Baas,413,NEC Nijmegen,88,2024,0,0,0,0,0,0.0
+294684,Y. Baas,194,Ajax,88,2024,2041,16,24,2,0,0.71
+318531,Y. Borges Sanches,413,NEC Nijmegen,88,2024,0,0,0,0,0,0.0
+322862,D. Remie,207,Utrecht,88,2024,0,0,0,0,0,0.0
+325052,Gonçalo Esteves,201,AZ Alkmaar,88,2024,0,0,0,0,0,0.0
+383685,Y. Minteh,209,Feyenoord,88,2024,0,0,0,0,0,0.0
+525,K. Lamprou,209,Feyenoord,88,2024,0,0,0,0,0,0.0
+525,K. Lamprou,203,NAC Breda,88,2024,90,0,0,0,0,0.0
+2700,A. Jahanbakhsh,209,Feyenoord,88,2024,0,0,0,0,0,0.0
+2700,A. Jahanbakhsh,210,Heerenveen,88,2024,1456,20,21,3,0,1.24
+18845,P. van Aanholt,197,PSV Eindhoven,88,2024,0,0,0,0,0,0.0
+18845,P. van Aanholt,426,Sparta Rotterdam,88,2024,1679,14,4,4,0,0.75
+25061,A. Bella-Kotchap,197,PSV Eindhoven,88,2024,0,0,0,0,0,0.0
+31735,T. Haye,210,Heerenveen,88,2024,0,0,0,0,0,0.0
+31735,T. Haye,419,Almere City FC,88,2024,2048,17,10,7,0,0.75
+36876,A. Tahiri,210,Heerenveen,88,2024,0,0,0,0,0,0.0
+36876,A. Tahiri,419,Almere City FC,88,2024,1784,5,4,1,0,0.25
+36907,M. Boadu,415,Twente,88,2024,0,0,0,0,0,0.0
+36923,B. van Polen,193,PEC Zwolle,88,2024,0,0,0,0,0,0.0
+37250,L. Czyborra,193,PEC Zwolle,88,2024,0,0,0,0,0,0.0
+37274,S. van der Water,193,PEC Zwolle,88,2024,0,0,0,0,0,0.0
+37274,S. van der Water,417,Waalwijk,88,2024,627,5,6,0,0,0.72
+37377,F. Druijf,193,PEC Zwolle,88,2024,0,0,0,0,0,0.0
+57448,S. Haugen,203,NAC Breda,88,2024,0,0,0,0,0,0.0
+68106,L. Loizou,210,Heerenveen,88,2024,0,0,0,0,0,0.0
+129066,N. Tjoe-A-On,210,Heerenveen,88,2024,0,0,0,0,0,0.0
+161176,P. Wålemark,210,Heerenveen,88,2024,0,0,0,0,0,0.0
+161176,P. Wålemark,209,Feyenoord,88,2024,0,0,0,0,0,0.0
+181827,C. Egan-Riley,197,PSV Eindhoven,88,2024,0,0,0,0,0,0.0
+194645,S. Sambo,197,PSV Eindhoven,88,2024,0,0,0,0,0,0.0
+196347,P. Sejdiu,203,NAC Breda,88,2024,0,0,0,0,0,0.0
+272695,Z. Buurmeester,193,PEC Zwolle,88,2024,0,0,0,0,0,0.0
+272695,Z. Buurmeester,201,AZ Alkmaar,88,2024,1215,18,7,0,0,1.33
+273361,S. van Ottele,210,Heerenveen,88,2024,0,0,0,0,0,0.0
+273361,S. van Ottele,205,Fortuna Sittard,88,2024,1875,24,20,3,0,1.15
+1421,Z. Bakkali,417,Waalwijk,88,2024,0,0,0,0,0,0.0
+19246,R. van La Parra,419,Almere City FC,88,2024,0,0,0,0,0,0.0
+36854,E. Vaessen,417,Waalwijk,88,2024,0,0,0,0,0,0.0
+36854,E. Vaessen,202,Groningen,88,2024,2880,0,9,5,0,0.0
+36857,J. Gaari,417,Waalwijk,88,2024,0,0,0,0,0,0.0
+36903,M. Seuntjens,417,Waalwijk,88,2024,0,0,0,0,0,0.0
+36903,M. Seuntjens,202,Groningen,88,2024,668,9,4,1,0,1.21
+36992,T. Hendriks,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+37783,D. Post,419,Almere City FC,88,2024,0,0,0,0,0,0.0
+37839,R. Oratmangoen,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+37839,R. Oratmangoen,202,Groningen,88,2024,0,0,0,0,0,0.0
+38725,J. Lonwijk,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+45843,F. Stevanović,417,Waalwijk,88,2024,0,0,0,0,0,0.0
+46717,Álvaro Peña,419,Almere City FC,88,2024,0,0,0,0,0,0.0
+129125,S. Adewoye,417,Waalwijk,88,2024,0,0,0,0,0,0.0
+129125,S. Adewoye,205,Fortuna Sittard,88,2024,1753,29,13,3,0,1.49
+137471,S. Voet,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+138847,N. Markelo,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+143830,Y. Kitala,419,Almere City FC,88,2024,0,0,0,0,0,0.0
+144735,J. Braaf,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+162045,M. Lazetić,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+266814,Y. Cathline,419,Almere City FC,88,2024,0,0,0,0,0,0.0
+266814,Y. Cathline,207,Utrecht,88,2024,1957,14,31,1,0,0.64
+280431,S. Fofana,205,Fortuna Sittard,88,2024,0,0,0,0,0,0.0
+361481,J. van Duiven,419,Almere City FC,88,2024,0,0,0,0,0,0.0
+361481,J. van Duiven,197,PSV Eindhoven,88,2024,0,0,0,0,0,0.0

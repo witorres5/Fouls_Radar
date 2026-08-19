@@ -1,0 +1,94 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+10285,J. Reina,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+10285,J. Reina,1127,Deportivo Cali,239,2024,1755,23,34,2,1,1.18
+13152,J. Ríos,1142,Deportes Tolima,239,2024,0,0,0,0,0,0.0
+13152,J. Ríos,1462,Deportivo Pereira,239,2024,3053,75,31,15,0,2.21
+13157,J. Vásquez,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+13157,J. Vásquez,1128,Independiente Medellin,239,2024,1384,25,40,7,0,1.63
+13157,J. Vásquez,1131,Bucaramanga,239,2024,1296,25,40,5,0,1.74
+13378,M. Pérez,1144,Águilas Doradas,239,2024,0,0,0,0,0,0.0
+13378,M. Pérez,1135,Junior,239,2024,878,7,9,3,0,0.72
+13386,E. Caicedo,1126,Deportivo Pasto,239,2024,0,0,0,0,0,0.0
+13386,E. Caicedo,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+13498,J. Marulanda,1128,Independiente Medellin,239,2024,0,0,0,0,0,0.0
+13498,J. Marulanda,1127,Deportivo Cali,239,2024,2346,23,21,8,0,0.88
+13498,J. Marulanda,1147,Fortaleza FC,239,2024,2308,23,21,7,0,0.9
+36385,G. Ramírez,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+36385,G. Ramírez,1142,Deportes Tolima,239,2024,704,13,7,5,0,1.66
+52787,V. Mejía,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+52787,V. Mejía,1127,Deportivo Cali,239,2024,0,47,27,0,0,0.0
+52787,V. Mejía,1126,Deportivo Pasto,239,2024,3276,47,27,8,1,1.29
+52787,V. Mejía,1462,Deportivo Pereira,239,2024,2698,47,27,8,2,1.57
+59563,D. Pino,1126,Deportivo Pasto,239,2024,0,0,0,0,0,0.0
+59563,D. Pino,1138,America de Cali,239,2024,0,12,17,0,0,0.0
+59563,D. Pino,1133,Jaguares,239,2024,1111,12,17,8,0,0.97
+59642,A. Parra,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+59642,A. Parra,1147,Fortaleza FC,239,2024,2297,49,37,5,0,1.92
+59906,K. Salazar,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+59906,K. Salazar,1134,Internacional de Bogota,239,2024,1169,22,14,3,0,1.69
+59906,K. Salazar,1140,Patriotas,239,2024,1185,22,14,3,0,1.67
+169878,D. Chávez,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+169878,D. Chávez,1126,Deportivo Pasto,239,2024,3013,32,42,10,0,0.96
+197549,S. Cortes,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+300885,N. Deossa,1137,Atletico Nacional,239,2024,0,0,0,0,0,0.0
+307876,D. Mina,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+310208,J. Lasso,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+365201,O. Vallecilla,1126,Deportivo Pasto,239,2024,0,0,0,0,0,0.0
+375858,S. Cuero,1147,Fortaleza FC,239,2024,0,0,0,0,0,0.0
+375858,S. Cuero,1139,Santa Fe,239,2024,593,10,3,2,0,1.52
+414429,N. Profeta,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+449003,J. Osorno,1126,Deportivo Pasto,239,2024,0,0,0,0,0,0.0
+1634,C. Zapata,1137,Atletico Nacional,239,2024,0,0,0,0,0,0.0
+1634,C. Zapata,1131,Bucaramanga,239,2024,308,3,3,0,0,0.88
+2392,L. Haquín,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+6295,A. Aleo,1132,Chico,239,2024,0,0,0,0,0,0.0
+8930,G. Mera,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+13138,E. Arango,1142,Deportes Tolima,239,2024,0,0,0,0,0,0.0
+13138,E. Arango,1131,Bucaramanga,239,2024,465,11,14,1,0,2.13
+13279,C. Vargas,1142,Deportes Tolima,239,2024,0,0,0,0,0,0.0
+13356,J. Arboleda,1142,Deportes Tolima,239,2024,0,0,0,0,0,0.0
+13382,J. Wallens,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+26921,F. Castro,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+26921,F. Castro,1131,Bucaramanga,239,2024,3014,53,25,5,1,1.58
+52815,G. Del Castillo,1132,Chico,239,2024,0,0,0,0,0,0.0
+59421,D. Mosquera,1138,America de Cali,239,2024,0,0,0,0,0,0.0
+59421,D. Mosquera,1131,Bucaramanga,239,2024,1876,41,23,4,0,1.97
+59887,A. Gutiérrez,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+59887,A. Gutiérrez,1131,Bucaramanga,239,2024,2458,38,20,9,1,1.39
+80989,H. Acevedo,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+179667,Jairo David Fuentes Gómez,1132,Chico,239,2024,0,0,0,0,0,0.0
+297577,T. Ángel,1137,Atletico Nacional,239,2024,0,0,0,0,0,0.0
+306642,N. Sánchez,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+306729,J. Zabala,1137,Atletico Nacional,239,2024,0,0,0,0,0,0.0
+313659,K. Saucedo,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+321647,Jader,1137,Atletico Nacional,239,2024,0,0,0,0,0,0.0
+451362,J. Barreiro,1127,Deportivo Cali,239,2024,0,0,0,0,0,0.0
+13199,J. Aguirre,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+13199,J. Aguirre,1136,Once Caldas,239,2024,3364,0,9,6,0,0.0
+13218,J. Pérez,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+13218,J. Pérez,1141,Alianza Valledupar,239,2024,529,3,6,1,1,0.51
+13338,C. Mosquera,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+13338,C. Mosquera,1140,Patriotas,239,2024,617,5,13,1,0,0.73
+13460,C. Arrieta,1138,America de Cali,239,2024,0,0,0,0,0,0.0
+13460,C. Arrieta,1126,Deportivo Pasto,239,2024,2239,29,38,11,0,1.17
+13583,F. Hinestroza,1135,Junior,239,2024,0,0,0,0,0,0.0
+13583,F. Hinestroza,1131,Bucaramanga,239,2024,2587,27,23,12,3,0.94
+13598,D. Novoa,1138,America de Cali,239,2024,0,0,0,0,0,0.0
+13598,D. Novoa,1125,Millonarios,239,2024,527,1,0,0,0,0.17
+13670,D. Gómez,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+13745,F. Rodríguez,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+51164,D. Quintero,1138,America de Cali,239,2024,0,0,0,0,0,0.0
+51164,D. Quintero,1462,Deportivo Pereira,239,2024,2930,13,55,5,0,0.4
+52732,C. Varela,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+58808,F. Suárez,1138,America de Cali,239,2024,0,0,0,0,0,0.0
+59432,A. Cantillo,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+59623,W. Arango,1141,Alianza Valledupar,239,2024,0,0,0,0,0,0.0
+59623,W. Arango,1132,Chico,239,2024,0,0,0,0,0,0.0
+59843,J. Sarmiento,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+70370,P. Bueno,1141,Alianza Valledupar,239,2024,0,0,0,0,0,0.0
+292586,S. Jérez,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+324729,J. Marcelin,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+404182,A. Galeano,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0
+415285,J. Arenas,1141,Alianza Valledupar,239,2024,0,0,0,0,0,0.0
+415285,J. Arenas,1133,Jaguares,239,2024,0,0,0,0,0,0.0
+441049,S. Ahumada,1131,Bucaramanga,239,2024,0,0,0,0,0,0.0

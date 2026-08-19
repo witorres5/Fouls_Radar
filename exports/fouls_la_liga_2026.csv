@@ -1,0 +1,226 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+143,Carles Aleñá,542,Alaves,140,2026,1,0,0,0,0,0.0
+760,M. Díaz,542,Alaves,140,2026,33,0,0,1,0,0.0
+1461,Denis Suárez,542,Alaves,140,2026,57,3,0,1,0,4.74
+6233,N. Tenaglia,542,Alaves,140,2026,90,1,2,0,0,1.0
+18740,Jonny,542,Alaves,140,2026,90,1,1,0,0,1.0
+47181,Toni Martínez,542,Alaves,140,2026,90,0,2,0,0,0.0
+47309,Guevara,542,Alaves,140,2026,1,0,0,0,0,0.0
+47353,Sivera,542,Alaves,140,2026,90,0,0,0,0,0.0
+70476,M. Diarra,542,Alaves,140,2026,0,0,0,0,0,0.0
+106759,V. Koski,542,Alaves,140,2026,90,0,0,0,0,0.0
+139001,Pablo Ibáñez,542,Alaves,140,2026,90,3,1,0,0,3.0
+162170,Hugo Novoa,542,Alaves,140,2026,0,0,0,0,0,0.0
+162686,Antonio Blanco,542,Alaves,140,2026,89,5,1,1,0,5.06
+163060,A. Giménez,542,Alaves,140,2026,0,0,0,0,0,0.0
+183751,A. Rebbach,542,Alaves,140,2026,89,1,1,1,0,1.01
+330440,Aitor Mañas,542,Alaves,140,2026,57,1,2,0,0,1.58
+331369,Angel Pérez,542,Alaves,140,2026,65,1,1,0,0,1.38
+361384,Yusi,542,Alaves,140,2026,25,0,0,0,0,0.0
+377215,G. Swiderski,542,Alaves,140,2026,0,0,0,0,0,0.0
+389022,Mikel Rodriguez,542,Alaves,140,2026,33,0,1,0,0,0.0
+6085,C. Benavídez,542,Alaves,140,2026,0,0,0,0,0,0.0
+18794,Kiko Femenía,546,Getafe,140,2026,42,1,0,0,1,2.14
+24882,O. Mangala,546,Getafe,140,2026,90,2,0,0,0,2.0
+46813,A. Abqar,546,Getafe,140,2026,90,1,1,0,0,1.0
+47247,David Soria,546,Getafe,140,2026,90,0,0,0,0,0.0
+47250,D. Dakonam,546,Getafe,140,2026,81,1,0,1,0,1.11
+47499,E. Ünal,546,Getafe,140,2026,45,0,0,0,0,0.0
+66491,J. Letáček,546,Getafe,140,2026,0,0,0,0,0,0.0
+180927,Z. Romero,546,Getafe,140,2026,90,1,2,0,0,1.0
+187987,Ramón Terrats,546,Getafe,140,2026,90,1,5,0,0,1.0
+192434,Miguel Rodríguez,542,Alaves,140,2026,0,0,0,0,0,0.0
+195512,M. Satriano,546,Getafe,140,2026,73,2,3,0,0,2.47
+268728,S. Sazonov,546,Getafe,140,2026,9,0,0,0,0,0.0
+316516,S. Boselli,546,Getafe,140,2026,9,0,0,0,0,0.0
+343205,Mario Martín,546,Getafe,140,2026,66,2,4,1,0,2.73
+388013,Andrés García,546,Getafe,140,2026,81,0,0,0,0,0.0
+471478,Davinchi,546,Getafe,140,2026,45,1,0,1,0,2.0
+484474,J. Valou,546,Getafe,140,2026,17,1,0,0,0,5.29
+551460,A. R. Alcantara,546,Getafe,140,2026,24,0,1,0,0,0.0
+626494,X. Olaiz,542,Alaves,140,2026,0,0,0,0,0,0.0
+1465,P. Aubameyang,544,Deportivo La Coruna,140,2026,85,2,1,0,0,2.12
+37616,Z. Eddahchouri,544,Deportivo La Coruna,140,2026,37,1,1,0,0,2.43
+47360,Ximo Navarro,544,Deportivo La Coruna,140,2026,97,1,1,1,0,0.93
+47472,Borja Mayoral,546,Getafe,140,2026,0,0,0,0,0,0.0
+64268,J. Mojica,546,Getafe,140,2026,0,0,0,0,0,0.0
+127025,G. Quagliata,544,Deportivo La Coruna,140,2026,97,2,2,0,0,1.86
+161965,Mario Soriano,544,Deportivo La Coruna,140,2026,71,0,2,0,0,0.0
+162122,Adrià Alti,544,Deportivo La Coruna,140,2026,71,1,1,0,0,1.27
+179139,Leo Román,544,Deportivo La Coruna,140,2026,97,0,0,0,0,0.0
+182988,Diego Villares,544,Deportivo La Coruna,140,2026,37,1,0,0,0,2.43
+188445,Luismi Cruz,544,Deportivo La Coruna,140,2026,26,0,1,0,0,0.0
+319512,L. Noubi,544,Deportivo La Coruna,140,2026,97,1,1,0,0,0.93
+335720,David Mella,544,Deportivo La Coruna,140,2026,26,1,0,0,0,3.46
+346865,L. Amatucci,544,Deportivo La Coruna,140,2026,97,4,1,1,0,3.71
+354754,Jonathan Asp Jensen,544,Deportivo La Coruna,140,2026,60,1,0,0,0,1.5
+400904,Kevin Sánchez,544,Deportivo La Coruna,140,2026,12,1,0,0,0,7.5
+482071,Diego Ferrer,546,Getafe,140,2026,0,0,0,0,0,0.0
+497393,B. Ede,544,Deportivo La Coruna,140,2026,97,0,0,0,0,0.0
+574733,B. Nsongo,544,Deportivo La Coruna,140,2026,60,1,1,0,0,1.5
+671518,Ebrahima Drammeh,546,Getafe,140,2026,0,0,0,0,0,0.0
+227,Angeliño,544,Deportivo La Coruna,140,2026,0,0,0,0,0,0.0
+11346,M. Dituro,797,Elche,140,2026,97,0,0,0,0,0.0
+46982,Gonzalo Villar,797,Elche,140,2026,97,2,6,1,0,1.86
+47016,Álvaro Fernández,544,Deportivo La Coruna,140,2026,0,0,0,0,0,0.0
+47182,Tete Morente,797,Elche,140,2026,37,1,2,0,0,2.43
+47190,Miguel Loureiro,544,Deportivo La Coruna,140,2026,0,0,0,0,0,0.0
+105015,Germán Parreño,544,Deportivo La Coruna,140,2026,0,0,0,0,0,0.0
+107210,Riki Rodríguez,544,Deportivo La Coruna,140,2026,0,0,0,0,0,0.0
+126640,D. Affengruber,797,Elche,140,2026,97,1,2,0,0,0.93
+161963,Germán Valera,797,Elche,140,2026,81,1,4,0,0,1.11
+162058,Víctor Chust,797,Elche,140,2026,97,0,0,0,0,0.0
+162695,Arnau Comas,544,Deportivo La Coruna,140,2026,0,0,0,0,0,0.0
+184277,Fer Niño,797,Elche,140,2026,69,0,1,0,0,0.0
+187318,Marc Aguado,797,Elche,140,2026,97,1,1,0,0,0.93
+271580,Martim Neto,797,Elche,140,2026,60,1,1,0,0,1.5
+311345,F. Redondo,797,Elche,140,2026,60,1,0,0,0,1.5
+318592,L. Cepeda,797,Elche,140,2026,37,0,0,0,0,0.0
+392417,T. Gijselhart,544,Deportivo La Coruna,140,2026,0,0,0,0,0,0.0
+446067,Buba Sangaré,797,Elche,140,2026,97,2,0,0,0,1.86
+448243,Ali Houary,797,Elche,140,2026,81,0,0,0,0,0.0
+612,E. Ponce,797,Elche,140,2026,0,0,0,0,0,0.0
+2813,M. Dmitrović,540,Espanyol,140,2026,90,0,0,0,0,0.0
+46799,Edu Expósito,540,Espanyol,140,2026,86,0,1,0,0,0.0
+46973,Josan,797,Elche,140,2026,0,0,0,0,0,0.0
+47277,Unai Núñez,540,Espanyol,140,2026,90,0,1,0,0,0.0
+47378,Bigas,797,Elche,140,2026,0,0,0,0,0,0.0
+183699,Urko González,540,Espanyol,140,2026,72,1,1,1,0,1.25
+273732,T. Dolan,540,Espanyol,140,2026,81,2,0,0,0,2.22
+282054,C. Riedel,540,Espanyol,140,2026,90,3,0,0,0,3.0
+286038,Álex Calatrava,540,Espanyol,140,2026,72,3,0,1,0,3.75
+286601,O. El Hilali,540,Espanyol,140,2026,90,2,0,0,0,2.0
+311334,F. Buonanotte,797,Elche,140,2026,0,0,0,0,0,0.0
+315604,Alejandro Iturbe,797,Elche,140,2026,0,0,0,0,0,0.0
+388495,Javier Hernandez,540,Espanyol,140,2026,82,4,2,1,0,4.39
+436785,Matia Barzic Gutiérrez,797,Elche,140,2026,0,0,0,0,0,0.0
+450716,Roger Hinojo,540,Espanyol,140,2026,90,1,1,0,0,1.0
+548704,J. Morcillo,797,Elche,140,2026,16,0,0,0,0,0.0
+575377,M. Nordin,797,Elche,140,2026,0,0,0,0,0,0.0
+629240,U. Konare,797,Elche,140,2026,28,2,0,1,0,6.43
+669866,Alvaro Padilla,797,Elche,140,2026,16,0,0,0,0,0.0
+734,Dela,539,Levante,140,2026,90,1,2,0,0,1.0
+1567,A. Mandi,539,Levante,140,2026,90,0,0,0,0,0.0
+2741,M. Ryan,539,Levante,140,2026,90,0,0,0,0,0.0
+36983,V. Drkušić,540,Espanyol,140,2026,0,0,0,0,0,0.0
+47398,Pere Milla,540,Espanyol,140,2026,8,0,0,0,0,0.0
+64309,Manu Sánchez,539,Levante,140,2026,90,1,1,0,0,1.0
+106727,Oriol Rey,539,Levante,140,2026,90,1,1,0,0,1.0
+127426,Pol Lozano,540,Espanyol,140,2026,18,1,0,0,0,5.0
+182603,Jon Ander Olasagasti,539,Levante,140,2026,90,0,1,0,0,0.0
+182674,Jofre Carreras,540,Espanyol,140,2026,9,0,0,0,0,0.0
+182735,Ángel Fortuño,540,Espanyol,140,2026,0,0,0,0,0,0.0
+312990,Roberto Fernández,540,Espanyol,140,2026,90,0,1,0,0,0.0
+347885,Marcos Fernández,540,Espanyol,140,2026,9,0,0,0,0,0.0
+375915,Q. Hartman,540,Espanyol,140,2026,0,0,0,0,0,0.0
+415089,Gabriel Moscardo,540,Espanyol,140,2026,0,0,0,0,0,0.0
+438284,Rafel Bauzà,540,Espanyol,140,2026,18,0,0,0,0,0.0
+461502,Llorenç Serred,540,Espanyol,140,2026,0,0,0,0,0,0.0
+504605,Nacho Pérez,539,Levante,140,2026,76,0,3,0,0,0.0
+585288,J. A. Lopez,540,Espanyol,140,2026,0,0,0,0,0,0.0
+647193,Adama Timera,540,Espanyol,140,2026,0,0,0,0,0,0.0
+1118,J. Toljan,539,Levante,140,2026,14,0,0,0,0,0.0
+46734,Pablo Ramón,4665,Racing Santander,140,2026,77,1,1,1,0,1.17
+46790,Víctor García,539,Levante,140,2026,76,1,1,0,0,1.18
+161893,E. Bardeli,539,Levante,140,2026,45,1,1,0,0,2.0
+181685,Álvaro Mantilla,4665,Racing Santander,140,2026,90,1,0,0,0,1.0
+182770,Carlos Álvarez,539,Levante,140,2026,45,1,2,0,0,2.0
+183848,Julen Agirrezabala,4665,Racing Santander,140,2026,90,0,0,0,0,0.0
+192032,Iván Romero,539,Levante,140,2026,64,0,1,0,0,0.0
+286611,Pablo Cuñat,539,Levante,140,2026,0,0,0,0,0,0.0
+324034,G. Puerta,4665,Racing Santander,140,2026,90,2,0,1,0,2.0
+378284,Etta Eyong,539,Levante,140,2026,45,1,1,0,0,2.0
+408320,Jorge Cabello,539,Levante,140,2026,0,0,0,0,0,0.0
+415064,Pedro Felipe,4665,Racing Santander,140,2026,16,0,0,0,0,0.0
+463279,Paco Cortés,539,Levante,140,2026,45,0,0,0,0,0.0
+482469,Jorge Salinas,4665,Racing Santander,140,2026,90,0,1,0,0,0.0
+579287,K. Tunde,539,Levante,140,2026,14,0,0,0,0,0.0
+649677,M. Usedo Domingo,539,Levante,140,2026,0,0,0,0,0,0.0
+653144,A. Calatrava,539,Levante,140,2026,0,0,0,0,0,0.0
+668134,M. Santos,539,Levante,140,2026,26,0,2,0,0,0.0
+674241,I. Galdin,539,Levante,140,2026,0,0,0,0,0,0.0
+166,J. Foyth,533,Villarreal,140,2026,90,0,0,1,0,0.0
+1570,Sergio Canales,4665,Racing Santander,140,2026,77,1,1,0,0,1.17
+47209,Andrés Martín,4665,Racing Santander,140,2026,90,2,3,0,0,2.0
+47293,Iñigo Vicente,4665,Racing Santander,140,2026,90,1,3,0,0,1.0
+104853,Asier Villalibre,4665,Racing Santander,140,2026,69,0,2,0,0,0.0
+165713,Manu Hernando,4665,Racing Santander,140,2026,74,0,1,0,0,0.0
+183683,Íñigo Sainz-Maza,4665,Racing Santander,140,2026,0,0,0,0,0,0.0
+184193,Juan Carlos Arana,4665,Racing Santander,140,2026,0,0,0,0,0,0.0
+278619,Luíz Júnior,533,Villarreal,140,2026,90,0,0,0,0,0.0
+286595,Facundo González,4665,Racing Santander,140,2026,13,0,0,0,0,0.0
+311773,S. Mouriño,533,Villarreal,140,2026,88,3,1,1,0,3.07
+334014,M. Gueye,4665,Racing Santander,140,2026,21,2,1,0,0,8.57
+408875,S. Eriksson,4665,Racing Santander,140,2026,0,0,0,0,0,0.0
+457101,M. Zabiri,4665,Racing Santander,140,2026,21,1,0,0,0,4.29
+518384,Sergio Martínez,4665,Racing Santander,140,2026,69,3,0,0,0,3.91
+551395,D. Diaz,4665,Racing Santander,140,2026,13,0,0,0,0,0.0
+584463,C. Sanchez,4665,Racing Santander,140,2026,0,0,0,0,0,0.0
+609875,A. Vallecillo,4665,Racing Santander,140,2026,0,0,0,0,0,0.0
+611835,J. Castellanos,4665,Racing Santander,140,2026,0,0,0,0,0,0.0
+630685,Hugo Martín,4665,Racing Santander,140,2026,0,0,0,0,0,0.0
+1139,P. Gulácsi,533,Villarreal,140,2026,0,0,0,0,0,0.0
+1707,Gerard Moreno,533,Villarreal,140,2026,34,0,0,0,0,0.0
+3246,N. Pépé,533,Villarreal,140,2026,77,0,1,0,0,0.0
+18906,Ayoze Pérez,533,Villarreal,140,2026,56,2,3,0,0,3.21
+20696,P. Gueye,533,Villarreal,140,2026,90,1,2,1,0,1.0
+21997,Logan Costa,533,Villarreal,140,2026,0,0,0,0,0,0.0
+47541,Santi Comesaña,533,Villarreal,140,2026,56,1,0,0,0,1.61
+51016,T. Buchanan,533,Villarreal,140,2026,34,1,0,0,0,2.65
+70500,Sergi Cardona,533,Villarreal,140,2026,0,0,0,0,0,0.0
+180496,G. Mikautadze,533,Villarreal,140,2026,90,2,1,0,0,2.0
+182519,Alberto Moleiro,533,Villarreal,140,2026,56,0,0,0,0,0.0
+184420,Carlos Romero,533,Villarreal,140,2026,90,2,5,1,0,2.0
+288112,Willy Kambwala Ndengushi,533,Villarreal,140,2026,0,0,0,0,0,0.0
+290740,Ilias Akhomach,533,Villarreal,140,2026,13,0,0,0,0,0.0
+336671,Renato Veiga,533,Villarreal,140,2026,90,1,1,0,0,1.0
+351587,T. Oluwaseyi,533,Villarreal,140,2026,0,0,0,0,0,0.0
+355994,A. Freeman,533,Villarreal,140,2026,2,0,0,0,0,0.0
+435552,Pau Navarro,533,Villarreal,140,2026,0,0,0,0,0,0.0
+548734,C. Macia,533,Villarreal,140,2026,34,1,0,0,0,2.65
+548735,C. Tidiane Thiam,533,Villarreal,140,2026,0,0,0,0,0,0.0
+557,O. Vlachodimos,536,Sevilla,140,2026,90,0,0,0,0,0.0
+11421,G. Suazo,536,Sevilla,140,2026,90,4,2,1,0,4.0
+21004,L. Agoumé,536,Sevilla,140,2026,90,3,3,1,0,3.0
+39121,C. Ejuke,536,Sevilla,140,2026,12,0,0,0,0,0.0
+48471,R. Vargas,536,Sevilla,140,2026,20,0,0,0,0,0.0
+104821,Jon Guridi,536,Sevilla,140,2026,82,1,0,1,0,1.1
+119742,Juan Iglesias,536,Sevilla,140,2026,90,1,3,0,0,1.0
+162126,Peque Fernández,536,Sevilla,140,2026,45,2,2,0,0,4.0
+174927,A. Sangante,536,Sevilla,140,2026,90,1,0,0,0,1.0
+185398,Isaac,536,Sevilla,140,2026,45,2,0,1,0,4.0
+195923,José Ángel Carmona,536,Sevilla,140,2026,0,0,0,0,0,0.0
+297311,Kike Salas,536,Sevilla,140,2026,88,1,1,0,1,1.02
+327536,R. Ure,536,Sevilla,140,2026,45,0,3,0,0,0.0
+331607,Manu Bueno,536,Sevilla,140,2026,8,0,0,0,0,0.0
+338902,Andrés Castrín,536,Sevilla,140,2026,0,0,0,0,0,0.0
+341453,Oso,536,Sevilla,140,2026,78,1,0,0,0,1.15
+386870,Julio Díaz del Romo,536,Sevilla,140,2026,0,0,0,0,0,0.0
+396475,Fran González,536,Sevilla,140,2026,0,0,0,0,0,0.0
+546798,M. Sierra,536,Sevilla,140,2026,70,1,2,0,0,1.29
+546882,N. Guillen,536,Sevilla,140,2026,45,1,2,0,0,2.0
+52,Sergio Camello,728,Rayo Vallecano,140,2026,26,0,3,0,0,0.0
+1703,A. Rațiu,728,Rayo Vallecano,140,2026,90,0,1,0,0,0.0
+11379,A. Batalla,728,Rayo Vallecano,140,2026,90,0,0,0,0,0.0
+18895,F. Lejeune,728,Rayo Vallecano,140,2026,90,1,1,0,0,1.0
+20520,I. Balliu,728,Rayo Vallecano,140,2026,90,1,2,0,0,1.0
+41552,P. Ciss,728,Rayo Vallecano,140,2026,90,0,3,1,0,0.0
+46887,Pedro Díaz,728,Rayo Vallecano,140,2026,12,0,0,0,0,0.0
+47109,Óscar Valentín,728,Rayo Vallecano,140,2026,78,2,1,0,0,2.31
+47285,Unai López,728,Rayo Vallecano,140,2026,78,3,1,1,0,3.46
+47543,Álvaro García,728,Rayo Vallecano,140,2026,70,2,0,1,0,2.57
+91745,Alemão,728,Rayo Vallecano,140,2026,25,2,1,0,0,7.2
+122657,R. Nteka,728,Rayo Vallecano,140,2026,65,3,1,0,0,4.15
+128582,Jorge de Frutos,728,Rayo Vallecano,140,2026,90,1,2,0,0,1.0
+131546,Isi Palazón,728,Rayo Vallecano,140,2026,64,1,1,0,0,1.41
+156488,Dani Cárdenas,728,Rayo Vallecano,140,2026,0,0,0,0,0,0.0
+162931,Fran Pérez,728,Rayo Vallecano,140,2026,20,2,1,1,0,9.0
+333292,Pelayo Fernández,728,Rayo Vallecano,140,2026,12,0,0,0,0,0.0
+386270,Ibrahima Sow,536,Sevilla,140,2026,0,0,0,0,0,0.0
+443593,Eduardo Altozano Agudo,536,Sevilla,140,2026,0,0,0,0,0,0.0
+546857,I. Munoz,536,Sevilla,140,2026,0,0,0,0,0,0.0
+314006,J. Vertrouwd,728,Rayo Vallecano,140,2026,0,0,0,0,0,0.0
+469405,Sergio Lozano,728,Rayo Vallecano,140,2026,0,0,0,0,0,0.0
+478243,Marco de las Sías,728,Rayo Vallecano,140,2026,0,0,0,0,0,0.0
+619508,I. Alonso Martin,728,Rayo Vallecano,140,2026,0,0,0,0,0,0.0
+626805,M. Roman,728,Rayo Vallecano,140,2026,0,0,0,0,0,0.0

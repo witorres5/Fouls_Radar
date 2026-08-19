@@ -1,0 +1,770 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+2459,D. Machís,1138,America de Cali,239,2026,633,9,8,2,1,1.28
+9942,Jean,1138,America de Cali,239,2026,1447,0,5,4,0,0.0
+13177,M. Torres,1138,America de Cali,239,2026,1305,12,11,5,1,0.83
+13286,N. Hernández,1138,America de Cali,239,2026,823,10,3,2,1,1.09
+13363,R. Carrascal,1138,America de Cali,239,2026,2029,41,26,8,0,1.82
+13392,D. Rosero,1138,America de Cali,239,2026,523,5,4,4,0,0.86
+13491,Y. Guzmán,1138,America de Cali,239,2026,179,1,8,0,0,0.5
+13634,O. Bertel,1138,America de Cali,239,2026,2035,16,6,1,0,0.71
+13771,D. Borrero,1138,America de Cali,239,2026,463,6,6,0,0,1.17
+35483,A. Mosquera,1138,America de Cali,239,2026,1164,11,7,2,0,0.85
+35483,A. Mosquera,1144,Águilas Doradas,239,2026,180,3,1,0,0,1.5
+79249,J. Soto,1138,America de Cali,239,2026,726,0,0,1,0,0.0
+79249,J. Soto,1144,Águilas Doradas,239,2026,180,0,0,1,0,0.0
+375842,M. Castillo,1138,America de Cali,239,2026,1271,11,27,2,0,0.78
+434034,J. Escobar,1138,America de Cali,239,2026,1800,30,19,13,0,1.5
+439969,B. Correa,1138,America de Cali,239,2026,197,3,2,1,0,1.37
+451945,Y. Garcés,1138,America de Cali,239,2026,179,13,4,3,0,6.54
+451945,Y. Garcés,1134,Internacional de Bogota,239,2026,36,2,0,0,0,5.0
+506562,Joel Romero,1138,America de Cali,239,2026,443,8,1,1,0,1.63
+515517,K. Angulo,1138,America de Cali,239,2026,118,3,1,0,0,2.29
+538160,J. Cavadia,1138,America de Cali,239,2026,390,3,7,2,0,0.69
+538255,T. Palacios,1138,America de Cali,239,2026,1271,24,19,5,0,1.7
+638481,Jorge Mosquera,1462,Deportivo Pereira,239,2026,0,0,0,0,0,0.0
+313,D. Ospina,1137,Atletico Nacional,239,2026,1086,0,4,0,0,0.0
+2437,W. Fariñez,1134,Internacional de Bogota,239,2026,1786,0,5,2,0,0.0
+9606,F. Boné,1134,Internacional de Bogota,239,2026,1684,21,28,3,0,1.12
+13190,C. Sierra,1138,America de Cali,239,2026,180,3,1,0,0,1.5
+13226,J. Caballero,1134,Internacional de Bogota,239,2026,587,8,6,3,0,1.23
+13373,L. Vásquez,1134,Internacional de Bogota,239,2026,2046,21,13,3,0,0.92
+13642,A. Román,1137,Atletico Nacional,239,2026,2129,22,10,6,1,0.93
+13801,Yulián Gómez,1134,Internacional de Bogota,239,2026,1227,23,2,7,0,1.69
+51923,F. Sanguinetti,1134,Internacional de Bogota,239,2026,1792,13,8,1,0,0.65
+52744,C. Vivas,1134,Internacional de Bogota,239,2026,1898,12,3,7,0,0.57
+59410,R. Manjarrés,1134,Internacional de Bogota,239,2026,506,11,5,3,0,1.96
+59810,D. Rodas,1134,Internacional de Bogota,239,2026,687,16,6,4,0,2.1
+198228,K. Suárez,1134,Internacional de Bogota,239,2026,801,3,14,0,0,0.34
+198228,K. Suárez,1127,Deportivo Cali,239,2026,103,2,2,0,0,1.75
+297717,D. Quiñonez,1134,Internacional de Bogota,239,2026,1713,33,30,9,0,1.73
+346883,A. Irazoque,1134,Internacional de Bogota,239,2026,1808,5,10,3,0,0.25
+356517,K. Parra,1134,Internacional de Bogota,239,2026,1556,4,33,1,0,0.23
+356517,K. Parra,1137,Atletico Nacional,239,2026,9,0,0,0,0,0.0
+411170,S. Mayo,1134,Internacional de Bogota,239,2026,150,4,1,2,0,2.4
+411170,S. Mayo,1470,Cucuta,239,2026,85,2,1,0,0,2.12
+428788,R. Julio,1134,Internacional de Bogota,239,2026,149,5,1,1,0,3.02
+449116,S. Garcia,1137,Atletico Nacional,239,2026,1543,13,1,3,0,0.76
+538252,J. Valencia,1134,Internacional de Bogota,239,2026,519,12,6,3,0,2.08
+2487,W. Tesillo,1137,Atletico Nacional,239,2026,1666,17,6,3,0,0.92
+5352,Juan Francisco Bauza,1137,Atletico Nacional,239,2026,104,0,2,0,0,0.0
+5988,M. Casco,1137,Atletico Nacional,239,2026,1738,22,18,6,0,1.14
+13305,A. Sarmiento,1137,Atletico Nacional,239,2026,1450,26,36,0,0,1.61
+13469,J. Zapata,1137,Atletico Nacional,239,2026,852,15,5,5,1,1.58
+13575,C. Haydar,1137,Atletico Nacional,239,2026,1402,10,15,2,0,0.64
+13685,S. Palma,1132,Chico,239,2026,180,1,3,0,0,0.5
+35655,E. Cardona,1137,Atletico Nacional,239,2026,1045,14,16,7,0,1.21
+35794,M. Moreno,1137,Atletico Nacional,239,2026,873,15,20,4,0,1.55
+51240,D. Asprilla,1137,Atletico Nacional,239,2026,569,15,4,1,0,2.37
+51475,D. Denis,1132,Chico,239,2026,1268,0,4,2,0,0.0
+324615,N. Rodríguez,1137,Atletico Nacional,239,2026,1117,20,15,3,0,1.61
+352297,Jaime Diaz,1132,Chico,239,2026,96,1,2,0,0,0.94
+356518,S. Velásquez,1137,Atletico Nacional,239,2026,696,11,1,1,0,1.42
+373770,J. Rengifo,1137,Atletico Nacional,239,2026,1731,28,17,5,1,1.46
+491334,E. Rivero,1137,Atletico Nacional,239,2026,34,1,0,0,0,2.65
+506657,J. Rosa,1137,Atletico Nacional,239,2026,15,0,0,0,0,0.0
+506660,C. Uribe,1137,Atletico Nacional,239,2026,0,0,0,0,0,0.0
+555297,K. Catano,1137,Atletico Nacional,239,2026,90,0,0,1,0,0.0
+555297,K. Catano,1134,Internacional de Bogota,239,2026,90,1,1,1,0,1.0
+606735,M. Lozano,1137,Atletico Nacional,239,2026,80,1,1,0,0,1.12
+6264,J. Mena,1131,Bucaramanga,239,2026,1323,21,4,4,0,1.43
+6264,J. Mena,1132,Chico,239,2026,180,1,0,0,0,0.5
+9873,M. Rea,1131,Bucaramanga,239,2026,732,10,1,2,0,1.23
+13235,A. Quintana,1131,Bucaramanga,239,2026,810,0,1,0,0,0.0
+13583,F. Hinestroza,1131,Bucaramanga,239,2026,1343,17,12,10,0,1.14
+13783,S. Salazar,1132,Chico,239,2026,828,17,11,2,0,1.85
+59466,R. Caicedo,1132,Chico,239,2026,450,0,1,1,0,0.0
+59607,J. Molina,1132,Chico,239,2026,1450,20,29,6,0,1.24
+59887,A. Gutiérrez,1131,Bucaramanga,239,2026,1447,14,15,3,0,0.87
+64156,A. Banguero,1132,Chico,239,2026,1351,19,8,6,0,1.27
+119584,Í. Montaño,1132,Chico,239,2026,90,0,1,0,0,0.0
+125678,J. Díaz,1132,Chico,239,2026,1741,22,19,4,0,1.14
+137128,D. Ramírez,1132,Chico,239,2026,1299,18,33,5,0,1.25
+195988,J. Pimentel,1132,Chico,239,2026,79,1,1,0,0,1.14
+396505,A. Aedo,1132,Chico,239,2026,997,14,6,1,0,1.26
+466962,Juan Quiceno,1132,Chico,239,2026,1717,16,16,2,0,0.84
+471469,J. Medina,1132,Chico,239,2026,135,0,5,0,0,0.0
+555102,A. Saldana,1132,Chico,239,2026,921,16,6,7,0,1.56
+614671,Nicolas Valencia,1132,Chico,239,2026,838,19,19,3,0,2.04
+634653,J. Romana,1132,Chico,239,2026,160,4,4,2,0,2.25
+634654,J. Castillo,1132,Chico,239,2026,140,4,6,0,0,2.57
+6695,L. Pons,1131,Bucaramanga,239,2026,1794,19,26,4,0,0.95
+11805,R. Ureña,1125,Millonarios,239,2026,1611,12,14,10,0,0.67
+13281,B. Caicedo,1131,Bucaramanga,239,2026,418,9,3,3,0,1.94
+13294,F. Charrupí,1131,Bucaramanga,239,2026,1443,34,12,3,0,2.12
+13359,S. Mosquera,1125,Millonarios,239,2026,1095,12,6,2,0,0.99
+13362,D. Banguero,1125,Millonarios,239,2026,557,8,1,2,0,1.29
+13589,F. Sambueza,1131,Bucaramanga,239,2026,1584,31,51,7,1,1.76
+13598,D. Novoa,1125,Millonarios,239,2026,1350,0,1,4,0,0.0
+13598,D. Novoa,1131,Bucaramanga,239,2026,0,0,0,0,0,0.0
+13643,S. Vega,1125,Millonarios,239,2026,652,10,5,1,0,1.38
+13681,K. Londoño,1131,Bucaramanga,239,2026,1287,11,11,3,0,0.77
+13725,F. Salazar,1131,Bucaramanga,239,2026,930,5,21,1,0,0.48
+52584,L. Flores,1131,Bucaramanga,239,2026,1076,13,12,1,0,1.09
+57718,F. Gil,1131,Bucaramanga,239,2026,100,0,2,0,0,0.0
+57718,F. Gil,1133,Jaguares,239,2026,15,1,2,0,0,6.0
+59463,A. Zárate,1131,Bucaramanga,239,2026,919,8,6,2,0,0.78
+59475,C. Romaña,1131,Bucaramanga,239,2026,900,16,6,3,0,1.6
+59882,L. Vásquez,1131,Bucaramanga,239,2026,918,0,3,0,0,0.0
+265959,A. Moreno,1125,Millonarios,239,2026,195,3,0,1,0,1.38
+326883,J. Mosquera,1131,Bucaramanga,239,2026,671,4,9,2,0,0.54
+353407,J. García,1131,Bucaramanga,239,2026,1392,23,6,2,0,1.49
+474833,C. Sarabia,1125,Millonarios,239,2026,1188,12,2,0,0,0.91
+10297,G. de Amores,1125,Millonarios,239,2026,360,0,0,0,0,0.0
+13323,M. Duarte,1470,Cucuta,239,2026,1247,19,8,4,1,1.37
+13656,D. Silva,1125,Millonarios,239,2026,895,9,9,3,0,0.91
+13738,S. Rodríguez,1470,Cucuta,239,2026,511,3,1,0,1,0.53
+13738,S. Rodríguez,1144,Águilas Doradas,239,2026,1,0,0,0,0,0.0
+35637,R. Contreras,1125,Millonarios,239,2026,1469,23,37,4,1,1.41
+51164,D. Quintero,1125,Millonarios,239,2026,553,4,10,1,0,0.65
+59660,M. García,1125,Millonarios,239,2026,1591,30,29,5,1,1.7
+59664,S. Orozco,1470,Cucuta,239,2026,529,13,9,3,0,2.21
+126093,J. Ceballos,1470,Cucuta,239,2026,460,3,5,0,0,0.59
+265960,D. Victoria,1125,Millonarios,239,2026,20,0,0,0,0,0.0
+303134,J. Angulo,1125,Millonarios,239,2026,116,2,0,0,0,1.55
+308161,J. Cabezas,1125,Millonarios,239,2026,149,2,1,1,0,1.21
+308161,J. Cabezas,1142,Deportes Tolima,239,2026,204,6,2,2,0,2.65
+351925,B. Castro,1125,Millonarios,239,2026,475,2,6,3,0,0.38
+356058,Sebastián Valencia Isaza,1125,Millonarios,239,2026,1494,21,14,5,0,1.27
+419766,J. Quiñónes,1470,Cucuta,239,2026,1025,8,1,1,0,0.7
+514629,Sebastián Mosquera,1125,Millonarios,239,2026,0,0,0,0,0,0.0
+538273,M. Diaz Samuel,1125,Millonarios,239,2026,304,6,2,1,0,1.78
+538279,S. Viveros,1125,Millonarios,239,2026,599,10,13,1,0,1.5
+554915,A. Ballesteros,1470,Cucuta,239,2026,153,4,0,1,0,2.35
+566614,F. Abadia,1470,Cucuta,239,2026,1425,1,1,2,1,0.06
+6124,L. Ríos,1470,Cucuta,239,2026,393,6,6,2,1,1.37
+13344,J. Agudelo,1470,Cucuta,239,2026,395,9,10,1,1,2.05
+16349,S. Támara,1470,Cucuta,239,2026,436,8,4,2,0,1.65
+51131,M. Barrios,1136,Once Caldas,239,2026,991,8,17,2,0,0.73
+52787,V. Mejía,1470,Cucuta,239,2026,1413,20,19,2,0,1.27
+59615,J. Cuesta,1136,Once Caldas,239,2026,2241,15,18,2,0,0.6
+81333,J. Cardona,1136,Once Caldas,239,2026,1808,15,3,4,0,0.75
+128779,E. Beltrán,1136,Once Caldas,239,2026,203,2,3,1,0,0.89
+128779,E. Beltrán,1133,Jaguares,239,2026,39,1,2,2,0,2.31
+159163,B. Montaño,1470,Cucuta,239,2026,788,6,4,2,0,0.69
+181420,J. Alvarado,1136,Once Caldas,239,2026,926,11,8,5,0,1.07
+195721,J. Parra,1136,Once Caldas,239,2026,2250,0,11,3,0,0.0
+200154,K. Cuesta,1136,Once Caldas,239,2026,642,12,5,2,0,1.68
+306733,L. Berdugo,1470,Cucuta,239,2026,1535,15,54,3,0,0.88
+406432,K. Tamayo,1136,Once Caldas,239,2026,1312,16,5,3,0,1.1
+408371,E. Arízalas,1470,Cucuta,239,2026,1175,12,21,2,0,0.92
+408371,E. Arízalas,1144,Águilas Doradas,239,2026,117,0,1,0,0,0.0
+427330,J. Peralta,1470,Cucuta,239,2026,860,13,16,5,0,1.36
+554913,A. Cano,1470,Cucuta,239,2026,209,4,3,0,0,1.72
+555080,J. Valencia,1470,Cucuta,239,2026,265,2,4,0,0,0.68
+555163,D. Gelvez,1470,Cucuta,239,2026,58,0,0,0,0,0.0
+555307,J. Ramirez,1470,Cucuta,239,2026,486,0,3,1,0,0.0
+6250,D. Moreno,1136,Once Caldas,239,2026,1868,2,15,3,0,0.1
+13189,L. Sánchez,1136,Once Caldas,239,2026,1566,13,38,3,0,0.75
+13189,L. Sánchez,1142,Deportes Tolima,239,2026,178,0,1,0,0,0.0
+13199,J. Aguirre,1136,Once Caldas,239,2026,0,0,0,0,0,0.0
+13199,J. Aguirre,1125,Millonarios,239,2026,0,0,0,0,0,0.0
+13207,E. Navarro,1136,Once Caldas,239,2026,93,3,2,0,0,2.9
+13334,H. Mancilla,1126,Deportivo Pasto,239,2026,818,17,6,2,0,1.87
+13482,I. Rojas,1136,Once Caldas,239,2026,420,5,2,3,0,1.07
+13482,I. Rojas,1144,Águilas Doradas,239,2026,53,0,1,0,0,0.0
+13676,E. Velasco,1126,Deportivo Pasto,239,2026,1728,20,8,3,0,1.04
+13676,E. Velasco,1127,Deportivo Cali,239,2026,194,6,4,1,0,2.78
+13757,G. Banguera,1126,Deportivo Pasto,239,2026,1132,0,4,2,0,0.0
+13769,F. Torijano,1126,Deportivo Pasto,239,2026,1602,16,4,0,0,0.9
+13775,N. Gil,1126,Deportivo Pasto,239,2026,1927,18,9,3,0,0.84
+35787,D. Quiñónes,1136,Once Caldas,239,2026,63,0,1,0,0,0.0
+59549,M. Garavito,1126,Deportivo Pasto,239,2026,1633,15,21,8,0,0.83
+59637,J. Zapata,1136,Once Caldas,239,2026,1517,24,15,4,1,1.42
+64215,S. Córdoba,1126,Deportivo Pasto,239,2026,143,0,1,0,0,0.0
+126094,Pipe Gómez,1136,Once Caldas,239,2026,1374,17,17,4,0,1.11
+169878,D. Chávez,1126,Deportivo Pasto,239,2026,1043,16,17,7,0,1.38
+352072,J. Micolta,1126,Deportivo Pasto,239,2026,734,8,16,3,0,0.98
+355086,J. Caicedo,1126,Deportivo Pasto,239,2026,1317,32,15,7,0,2.19
+406057,Y. Valencia,1136,Once Caldas,239,2026,0,0,0,0,0,0.0
+406431,M. Zuleta,1136,Once Caldas,239,2026,870,17,29,6,0,1.76
+6282,M. Pisano,1126,Deportivo Pasto,239,2026,1071,16,23,6,0,1.34
+6661,W. Morelo,1126,Deportivo Pasto,239,2026,618,4,8,1,0,0.58
+13155,A. Serna,1128,Independiente Medellin,239,2026,1106,19,18,5,0,1.55
+13295,Y. Góez,1126,Deportivo Pasto,239,2026,1596,9,36,2,0,0.51
+13435,A. Estupiñán,1126,Deportivo Pasto,239,2026,1559,27,59,6,2,1.56
+13435,A. Estupiñán,1125,Millonarios,239,2026,38,1,1,0,0,2.37
+13439,J. Ortiz,1128,Independiente Medellin,239,2026,1284,6,10,2,1,0.42
+13439,J. Ortiz,1131,Bucaramanga,239,2026,360,4,1,0,0,1.0
+13590,E. Serje,1126,Deportivo Pasto,239,2026,1363,27,33,9,0,1.78
+13613,F. Chaverra,1128,Independiente Medellin,239,2026,1327,15,32,5,1,1.02
+13613,F. Chaverra,1125,Millonarios,239,2026,233,2,2,1,0,0.77
+30493,S. Ichazo,1128,Independiente Medellin,239,2026,1177,0,1,2,0,0.0
+36374,E. Mena,1128,Independiente Medellin,239,2026,1457,6,13,1,0,0.37
+59546,L. Chaverra,1128,Independiente Medellin,239,2026,1219,12,2,3,0,0.89
+59546,L. Chaverra,1127,Deportivo Cali,239,2026,139,1,1,0,0,0.65
+59779,L. Berrío,1128,Independiente Medellin,239,2026,372,10,10,3,0,2.42
+81033,D. Londoño,1128,Independiente Medellin,239,2026,893,7,9,3,0,0.71
+81033,D. Londoño,1136,Once Caldas,239,2026,315,2,1,1,0,0.57
+197066,M. Gil,1126,Deportivo Pasto,239,2026,854,8,13,1,0,0.84
+306717,L. Marquinez,1126,Deportivo Pasto,239,2026,0,0,0,0,0,0.0
+306717,L. Marquinez,1142,Deportes Tolima,239,2026,630,0,0,0,0,0.0
+306717,L. Marquinez,1137,Atletico Nacional,239,2026,0,0,0,0,0,0.0
+311419,K. Mantilla,1128,Independiente Medellin,239,2026,900,6,5,1,0,0.6
+351561,J. Perlaza,1126,Deportivo Pasto,239,2026,44,1,0,1,0,2.05
+485676,L. Rueda,1126,Deportivo Pasto,239,2026,0,0,0,0,0,0.0
+521710,H. Loboa,1128,Independiente Medellin,239,2026,1048,9,20,2,0,0.77
+538261,H. Goyes,1126,Deportivo Pasto,239,2026,1001,4,12,1,0,0.36
+6358,F. Fydriszewski,1128,Independiente Medellin,239,2026,1226,32,14,5,0,2.35
+6358,F. Fydriszewski,1135,Junior,239,2026,60,0,0,0,0,0.0
+10328,Y. González,1128,Independiente Medellin,239,2026,570,6,12,2,1,0.95
+13393,A. Arroyo,1147,Fortaleza FC,239,2026,1661,20,30,2,0,1.08
+13498,J. Marulanda,1147,Fortaleza FC,239,2026,426,8,4,2,0,1.69
+13515,Y. Díaz,1147,Fortaleza FC,239,2026,2024,8,7,5,0,0.36
+13586,L. Pico,1147,Fortaleza FC,239,2026,2082,16,28,5,0,0.69
+13638,S. Navarro,1147,Fortaleza FC,239,2026,1188,5,17,1,0,0.38
+13696,E. Chaux,1128,Independiente Medellin,239,2026,827,0,2,2,0,0.0
+46804,D. Moreno,1128,Independiente Medellin,239,2026,1092,28,15,5,0,2.31
+52704,M. Pernía,1147,Fortaleza FC,239,2026,457,6,2,0,1,1.18
+52704,M. Pernía,1134,Internacional de Bogota,239,2026,26,0,0,0,0,0.0
+52915,M. Silva,1147,Fortaleza FC,239,2026,1370,2,1,2,0,0.13
+59535,J. Herrera,1147,Fortaleza FC,239,2026,12,0,1,0,0,0.0
+59553,J. Balanta,1147,Fortaleza FC,239,2026,1691,15,16,5,0,0.8
+199065,E. Larrosa,1128,Independiente Medellin,239,2026,630,7,11,2,0,1.0
+369699,K. Balanta,1147,Fortaleza FC,239,2026,1356,31,20,4,0,2.06
+375854,M. Palacios,1128,Independiente Medellin,239,2026,281,3,3,0,0,0.96
+414333,J. Montaño,1128,Independiente Medellin,239,2026,1208,10,27,1,0,0.75
+493680,J. Mancilla,1128,Independiente Medellin,239,2026,29,0,2,0,0,0.0
+542239,J. Viveros,1128,Independiente Medellin,239,2026,21,1,0,0,0,4.29
+616947,L. Maturana,1128,Independiente Medellin,239,2026,0,0,0,0,0,0.0
+13168,P. Franco,1141,Alianza Valledupar,239,2026,1846,13,6,3,0,0.63
+13247,A. Amaya,1147,Fortaleza FC,239,2026,443,5,16,2,0,1.02
+13316,J. Chaverra,1141,Alianza Valledupar,239,2026,540,0,0,0,0,0.0
+13336,E. Meza,1141,Alianza Valledupar,239,2026,320,12,4,5,0,3.38
+35722,F. Pardo,1141,Alianza Valledupar,239,2026,1180,17,15,3,0,1.3
+51339,W. Fernández,1141,Alianza Valledupar,239,2026,1081,21,19,5,1,1.75
+59406,C. Esparragoza,1141,Alianza Valledupar,239,2026,1229,25,13,9,0,1.83
+81410,E. Banguero,1141,Alianza Valledupar,239,2026,716,4,8,2,0,0.5
+157248,Y. Rosales,1141,Alianza Valledupar,239,2026,1572,12,17,3,0,0.69
+288238,C. Lucumi,1141,Alianza Valledupar,239,2026,1078,14,15,1,0,1.17
+288238,C. Lucumi,1128,Independiente Medellin,239,2026,0,0,0,0,0,0.0
+311423,D. Ramírez,1147,Fortaleza FC,239,2026,310,7,1,3,0,2.03
+342048,T. Wilke Braams,1147,Fortaleza FC,239,2026,845,13,9,1,0,1.38
+352514,Yeiner Stiwar Londoño Rentería,1141,Alianza Valledupar,239,2026,751,8,24,1,0,0.96
+375858,S. Cuero,1147,Fortaleza FC,239,2026,1236,13,6,1,0,0.95
+410104,M. Barragán,1147,Fortaleza FC,239,2026,180,0,0,0,0,0.0
+415272,J. Salas,1147,Fortaleza FC,239,2026,339,6,7,1,0,1.59
+415284,S. Aponzá,1141,Alianza Valledupar,239,2026,87,0,1,0,0,0.0
+465668,S. Ramíirez,1147,Fortaleza FC,239,2026,222,2,3,1,0,0.81
+511692,Charly Villegas,1141,Alianza Valledupar,239,2026,44,3,0,0,0,6.14
+612959,S. Vivas,1147,Fortaleza FC,239,2026,271,9,2,0,0,2.99
+6632,A. Rentería,1133,Jaguares,239,2026,1422,14,24,4,0,0.89
+13171,L. Jiménez,1133,Jaguares,239,2026,90,0,1,0,0,0.0
+13178,C. Álvarez,1133,Jaguares,239,2026,985,10,14,1,0,0.91
+13191,J. Viveros,1133,Jaguares,239,2026,467,6,33,1,0,1.16
+13382,J. Wallens,1141,Alianza Valledupar,239,2026,1440,0,1,3,0,0.0
+13466,C. Ordóñez,1133,Jaguares,239,2026,763,8,2,5,0,0.94
+13488,W. De La Rosa,1133,Jaguares,239,2026,737,14,17,4,0,1.71
+13553,F. Mosquera,1133,Jaguares,239,2026,1005,11,16,2,0,0.99
+13760,D. Martínez,1133,Jaguares,239,2026,1019,0,0,4,0,0.0
+13765,C. Henao,1133,Jaguares,239,2026,1795,9,9,6,0,0.45
+53113,J. Maza,1133,Jaguares,239,2026,980,12,4,3,0,1.1
+57703,M. Castaño,1133,Jaguares,239,2026,927,21,5,4,0,2.04
+129954,D. Rodríguez,1133,Jaguares,239,2026,876,4,26,1,0,0.41
+137406,J. Altamiranda,1133,Jaguares,239,2026,761,8,0,3,0,0.95
+284859,S. Cubides,1133,Jaguares,239,2026,315,8,0,1,0,2.29
+306722,J. Hinestroza,1133,Jaguares,239,2026,1471,27,15,8,0,1.65
+339193,B. Angulo,1133,Jaguares,239,2026,12,0,0,0,0,0.0
+521869,J. Osorio,1141,Alianza Valledupar,239,2026,8,0,0,0,0,0.0
+522699,Jhon Valoyes,1141,Alianza Valledupar,239,2026,54,0,2,0,0,0.0
+538322,E. Perez,1141,Alianza Valledupar,239,2026,343,7,6,0,1,1.84
+2417,P. Gallese,1127,Deportivo Cali,239,2026,1804,0,2,2,0,0.0
+5977,E. Reynoso,1127,Deportivo Cali,239,2026,660,17,23,6,0,2.32
+13397,A. Colorado,1127,Deportivo Cali,239,2026,601,14,7,2,0,2.1
+13397,A. Colorado,1136,Once Caldas,239,2026,301,3,2,1,0,0.9
+13409,J. Dinenno,1127,Deportivo Cali,239,2026,1367,16,16,4,0,1.05
+13429,F. Viáfara,1127,Deportivo Cali,239,2026,1569,17,9,4,0,0.98
+13436,D. Giraldo,1127,Deportivo Cali,239,2026,721,23,9,1,0,2.87
+13530,S. Rodríguez,1127,Deportivo Cali,239,2026,1532,20,21,5,0,1.17
+13604,A. Correa,1127,Deportivo Cali,239,2026,1578,31,13,4,0,1.77
+13604,A. Correa,1136,Once Caldas,239,2026,345,5,2,1,0,1.3
+35554,A. Hurtado,1127,Deportivo Cali,239,2026,1089,22,23,4,0,1.82
+59863,Y. Quintero,1127,Deportivo Cali,239,2026,397,8,2,2,0,1.81
+59863,Y. Quintero,1138,America de Cali,239,2026,114,3,0,0,0,2.37
+80987,D. López,1133,Jaguares,239,2026,531,6,12,3,0,1.02
+197543,R. Pájaro,1127,Deportivo Cali,239,2026,1206,31,12,4,0,2.31
+200150,J. Caldera,1127,Deportivo Cali,239,2026,679,4,8,2,0,0.53
+323586,Fernando Antonio Álvarez Amador,1127,Deportivo Cali,239,2026,1368,15,7,1,1,0.99
+355906,F. Mosquera,1133,Jaguares,239,2026,989,0,5,0,0,0.0
+383800,J. Martínez,1127,Deportivo Cali,239,2026,1475,13,27,1,0,0.79
+437742,M. Aponza,1127,Deportivo Cali,239,2026,43,2,0,1,0,4.19
+451605,J. Arango,1127,Deportivo Cali,239,2026,110,3,0,0,0,2.45
+454720,Alejandro Rojo,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
+555225,K. Mosquera,1133,Jaguares,239,2026,0,0,0,0,0,0.0
+2485,L. Orejuela,1127,Deportivo Cali,239,2026,307,6,4,0,0,1.76
+2492,Y. Chará,1135,Junior,239,2026,975,6,11,0,0,0.55
+2493,L. Muriel,1135,Junior,239,2026,1300,17,19,5,0,1.18
+6648,G. Celis,1135,Junior,239,2026,879,11,17,3,0,1.13
+9980,F. Aguilar,1127,Deportivo Cali,239,2026,1441,19,8,7,0,1.19
+13152,J. Ríos,1135,Junior,239,2026,1648,51,26,8,0,2.79
+13261,J. Pestaña,1135,Junior,239,2026,1091,17,5,5,0,1.4
+13457,J. Martínez,1135,Junior,239,2026,373,1,0,1,0,0.24
+13524,B. Castrillón,1135,Junior,239,2026,973,6,8,2,0,0.55
+13592,T. Gutiérrez,1135,Junior,239,2026,670,7,10,6,0,0.94
+13709,C. Barrios,1135,Junior,239,2026,1565,17,34,2,0,0.98
+13756,Jesús Rivas,1135,Junior,239,2026,1225,21,20,3,1,1.54
+13803,J. Peña,1135,Junior,239,2026,180,5,0,1,0,2.5
+51764,M. Silveira,1135,Junior,239,2026,1992,2,3,6,0,0.09
+59441,Y. Súarez,1135,Junior,239,2026,1849,24,10,4,0,1.17
+153065,K.  Pérez,1135,Junior,239,2026,477,6,0,1,0,1.13
+153065,K.  Pérez,1137,Atletico Nacional,239,2026,8,0,0,0,0,0.0
+207918,J. Tello,1127,Deportivo Cali,239,2026,142,6,2,1,0,3.8
+265954,L. Monzón,1135,Junior,239,2026,1002,8,2,5,0,0.72
+353428,J. Guerrero,1135,Junior,239,2026,1257,22,16,7,0,1.58
+353428,J. Guerrero,1125,Millonarios,239,2026,270,2,3,1,0,0.67
+405127,J. Sarmiento,1135,Junior,239,2026,837,4,9,2,0,0.43
+6417,E. López,1142,Deportes Tolima,239,2026,1263,11,13,3,0,0.78
+13145,Y. Hurtado,1142,Deportes Tolima,239,2026,215,1,2,1,1,0.42
+13145,Y. Hurtado,1138,America de Cali,239,2026,176,1,4,0,0,0.51
+13372,C. Trujillo,1142,Deportes Tolima,239,2026,920,18,17,1,1,1.76
+13417,Neto Volpi,1142,Deportes Tolima,239,2026,1440,0,2,0,0,0.0
+13460,C. Arrieta,1142,Deportes Tolima,239,2026,1312,14,17,2,0,0.96
+13522,E. Valencia,1142,Deportes Tolima,239,2026,664,4,7,1,0,0.54
+13682,J. Nieto,1142,Deportes Tolima,239,2026,620,8,4,2,0,1.16
+13682,J. Nieto,1136,Once Caldas,239,2026,45,1,1,0,0,2.0
+13787,E. Herrera,1135,Junior,239,2026,1375,19,4,1,0,1.24
+59414,L. Sandoval,1142,Deportes Tolima,239,2026,1421,25,22,7,1,1.58
+79170,A. Angulo,1142,Deportes Tolima,239,2026,1041,6,7,1,0,0.52
+127601,J. Hernández,1142,Deportes Tolima,239,2026,1178,16,5,0,2,1.22
+207764,J. González,1142,Deportes Tolima,239,2026,1097,10,17,2,0,0.82
+356516,J. Torres,1142,Deportes Tolima,239,2026,1301,12,19,5,0,0.83
+362868,G. Balanta,1142,Deportes Tolima,239,2026,0,0,0,0,0,0.0
+364816,É. Ricardo,1142,Deportes Tolima,239,2026,268,5,5,1,1,1.68
+371249,J. Angulo,1142,Deportes Tolima,239,2026,2066,19,14,2,1,0.83
+373765,K. Flórez,1142,Deportes Tolima,239,2026,1029,12,9,0,0,1.05
+491473,V. Reyes,1142,Deportes Tolima,239,2026,44,2,0,0,0,4.09
+538318,M. Martinez,1142,Deportes Tolima,239,2026,173,5,0,1,0,2.6
+555289,D. Villarreal,1135,Junior,239,2026,53,2,1,0,0,3.4
+6591,G. Lencina,1142,Deportes Tolima,239,2026,0,0,0,0,0,0.0
+6626,G. Torres,1462,Deportivo Pereira,239,2026,352,6,3,1,1,1.53
+6626,G. Torres,1470,Cucuta,239,2026,117,2,3,2,0,1.54
+13378,M. Pérez,1462,Deportivo Pereira,239,2026,766,3,6,5,0,0.35
+13430,S. Acosta,1462,Deportivo Pereira,239,2026,761,14,16,1,1,1.66
+13438,Ederson Moreno,1462,Deportivo Pereira,239,2026,433,10,3,1,0,2.08
+13607,W. Pacheco,1462,Deportivo Pereira,239,2026,1360,18,42,7,1,1.19
+59471,J. Monroy,1462,Deportivo Pereira,239,2026,1249,8,4,2,0,0.58
+59593,J. Bermúdez,1462,Deportivo Pereira,239,2026,1853,32,19,3,0,1.55
+59798,R. Romaña,1464,Llaneros,239,2026,360,0,1,0,0,0.0
+133128,S. Aguilar,1462,Deportivo Pereira,239,2026,554,11,2,2,0,1.79
+306783,Eber Moreno,1462,Deportivo Pereira,239,2026,1155,9,6,4,0,0.7
+407909,J. Bazán,1462,Deportivo Pereira,239,2026,630,9,7,1,0,1.29
+538281,Y. Moreno,1142,Deportes Tolima,239,2026,390,2,4,1,0,0.46
+538329,J. Mosquera,1462,Deportivo Pereira,239,2026,180,0,0,0,0,0.0
+569006,A. Calderon,1462,Deportivo Pereira,239,2026,41,0,0,0,0,0.0
+612949,S. Alzate Uribe,1462,Deportivo Pereira,239,2026,61,1,2,0,0,1.48
+612950,M. Lopez,1462,Deportivo Pereira,239,2026,0,0,0,0,0,0.0
+612952,J. Mosquera,1462,Deportivo Pereira,239,2026,14,0,0,0,0,0.0
+612960,S. Zuluaga,1462,Deportivo Pereira,239,2026,0,0,0,0,0,0.0
+612961,J. Rodriguez,1462,Deportivo Pereira,239,2026,19,0,0,0,0,0.0
+2486,H. Palacios,1139,Santa Fe,239,2026,1796,17,20,2,0,0.85
+5270,B. Benítez,1464,Llaneros,239,2026,263,5,4,1,0,1.71
+6639,E. Olivera,1139,Santa Fe,239,2026,1992,12,10,6,0,0.54
+13157,J. Vásquez,1464,Llaneros,239,2026,1724,29,65,9,0,1.51
+13287,C. Mafla,1139,Santa Fe,239,2026,1691,15,13,4,0,0.8
+13496,A. Mosquera,1139,Santa Fe,239,2026,2055,1,1,2,0,0.04
+13714,D. Mantilla,1464,Llaneros,239,2026,409,6,2,4,0,1.32
+13716,K. Osorio,1464,Llaneros,239,2026,1177,15,7,1,0,1.15
+16569,D. Quintero,1464,Llaneros,239,2026,745,6,5,1,2,0.72
+35513,F. Meza,1464,Llaneros,239,2026,1827,15,13,6,1,0.74
+51253,J. Medranda,1464,Llaneros,239,2026,939,6,5,0,0,0.58
+59416,I. Scarpeta,1139,Santa Fe,239,2026,711,3,2,2,0,0.38
+59504,J. Loaiza,1464,Llaneros,239,2026,0,0,0,0,0,0.0
+59523,E. Laszo,1464,Llaneros,239,2026,128,0,0,0,0,0.0
+207225,C. Cortés,1464,Llaneros,239,2026,1270,12,23,2,0,0.85
+283830,L. Riascos,1464,Llaneros,239,2026,719,10,11,4,0,1.25
+301275,J. Blanco,1464,Llaneros,239,2026,480,5,2,1,0,0.94
+301275,J. Blanco,1147,Fortaleza FC,239,2026,43,2,1,0,0,4.19
+371252,E. Restrepo,1464,Llaneros,239,2026,237,5,2,2,1,1.9
+440683,J. RamÃ­rez,1464,Llaneros,239,2026,873,6,13,2,0,0.62
+565607,J. Castro,1464,Llaneros,239,2026,86,1,1,0,0,1.05
+2480,I. Arboleda,1144,Águilas Doradas,239,2026,1094,0,4,4,0,0.0
+13169,D. Hernández,1144,Águilas Doradas,239,2026,1454,15,7,5,0,0.93
+13258,V. Moreno,1139,Santa Fe,239,2026,1825,18,6,7,0,0.89
+13485,A. Zapata,1139,Santa Fe,239,2026,558,4,15,2,0,0.65
+13494,W. Asprilla,1139,Santa Fe,239,2026,0,0,0,0,0,0.0
+13528,E. Mosquera,1139,Santa Fe,239,2026,672,12,14,2,0,1.61
+35667,N. Bustos,1139,Santa Fe,239,2026,867,13,14,3,0,1.35
+35751,O. Fernández,1139,Santa Fe,239,2026,1709,5,17,1,0,0.26
+46720,D. Torres,1139,Santa Fe,239,2026,1731,23,29,3,1,1.2
+49892,H. Rodallega,1139,Santa Fe,239,2026,2143,26,20,1,0,1.09
+70581,H. Lópes,1144,Águilas Doradas,239,2026,1201,17,10,5,0,1.27
+70581,H. Lópes,1470,Cucuta,239,2026,90,0,0,0,0,0.0
+281743,F. Fagúndez,1139,Santa Fe,239,2026,632,5,18,3,0,0.71
+306718,Y. Perlaza,1139,Santa Fe,239,2026,538,4,10,1,0,0.67
+306718,Y. Perlaza,1137,Atletico Nacional,239,2026,64,1,0,0,0,1.41
+323288,L. Palacios,1139,Santa Fe,239,2026,1372,17,6,2,0,1.12
+344164,D. Lozano,1144,Águilas Doradas,239,2026,1524,19,16,2,0,1.12
+356522,K. Toscano,1139,Santa Fe,239,2026,1056,21,12,3,0,1.79
+379104,J. Torres,1139,Santa Fe,239,2026,99,1,1,0,0,0.91
+441050,J. Mena,1144,Águilas Doradas,239,2026,1713,20,19,2,0,1.05
+522700,Jhon Rentería,1139,Santa Fe,239,2026,0,0,0,0,0,0.0
+538244,M. Palacios,1139,Santa Fe,239,2026,22,1,1,2,0,4.09
+13179,A. Álvarez,1144,Águilas Doradas,239,2026,25,0,0,0,0,0.0
+13492,C. Rojas,1144,Águilas Doradas,239,2026,0,0,0,0,0,0.0
+13520,A. Ricaurte,1144,Águilas Doradas,239,2026,902,11,26,4,0,1.1
+13554,J. Obregón,1144,Águilas Doradas,239,2026,803,15,17,1,0,1.68
+13554,J. Obregón,1126,Deportivo Pasto,239,2026,173,3,5,1,0,1.56
+52430,L. Hernández,1470,Cucuta,239,2026,1242,13,13,2,0,0.94
+59469,F. Lozano,1144,Águilas Doradas,239,2026,1894,15,27,4,0,0.71
+59526,J. Roa,1144,Águilas Doradas,239,2026,1015,31,7,3,0,2.75
+59642,A. Parra,1142,Deportes Tolima,239,2026,1604,22,16,2,0,1.23
+59762,J. Pineda,1144,Águilas Doradas,239,2026,870,17,9,5,0,1.76
+79590,B. Urueña,1144,Águilas Doradas,239,2026,854,7,13,2,0,0.74
+330300,N. Lara,1144,Águilas Doradas,239,2026,471,10,4,2,0,1.91
+373771,F. Suárez,1144,Águilas Doradas,239,2026,1041,8,31,2,0,0.69
+393877,Jorge Luis Rivaldo Pinto,1144,Águilas Doradas,239,2026,1376,14,12,3,0,0.92
+405536,R. Benítez,1144,Águilas Doradas,239,2026,246,8,7,1,0,2.93
+454964,D. Moncada,1134,Internacional de Bogota,239,2026,996,15,17,2,0,1.36
+505532,M. Santamaria,1134,Internacional de Bogota,239,2026,12,1,0,0,0,7.5
+522248,Yeider García,1134,Internacional de Bogota,239,2026,0,0,0,0,0,0.0
+538196,B. Caicedo,1134,Internacional de Bogota,239,2026,62,2,0,0,0,2.9
+635148,J. Carrasco,1134,Internacional de Bogota,239,2026,0,0,0,0,0,0.0
+635782,Breiner Rodriguez,1470,Cucuta,239,2026,32,2,0,1,0,5.62
+13679,S. Guzmán,1142,Deportes Tolima,239,2026,1769,10,30,4,0,0.51
+13785,J. Velásquez,1147,Fortaleza FC,239,2026,809,12,15,4,0,1.33
+35508,M. Ortega,1464,Llaneros,239,2026,1316,0,2,1,0,0.0
+35508,M. Ortega,1142,Deportes Tolima,239,2026,360,0,0,0,0,0.0
+36269,Marlon Ricardo Sierra Zamora,1464,Llaneros,239,2026,1062,10,8,2,0,0.85
+59781,J. Castillo,1141,Alianza Valledupar,239,2026,1239,21,20,7,0,1.53
+126748,A. Moralez,1464,Llaneros,239,2026,1346,12,6,1,0,0.8
+301592,H. Mena,1464,Llaneros,239,2026,658,16,5,2,0,2.19
+309389,J. Quiñones,1462,Deportivo Pereira,239,2026,1178,9,24,4,0,0.69
+454488,N. Rengifo,1462,Deportivo Pereira,239,2026,1077,11,1,2,0,0.92
+460753,M. Palacios,1462,Deportivo Pereira,239,2026,23,0,1,0,0,0.0
+538269,J. E. Perez Balcazar,1141,Alianza Valledupar,239,2026,90,1,1,0,0,1.0
+538269,J. E. Perez Balcazar,1133,Jaguares,239,2026,76,2,0,1,0,2.37
+555100,J. Viveros,1141,Alianza Valledupar,239,2026,1547,11,16,1,0,0.64
+555101,J. Cajares,1147,Fortaleza FC,239,2026,1288,19,9,4,0,1.33
+582224,F. Fiorelli,1141,Alianza Valledupar,239,2026,187,3,3,0,0,1.44
+606946,C. Orozco,1147,Fortaleza FC,239,2026,130,0,1,0,0,0.0
+612965,M. Aguirre,1462,Deportivo Pereira,239,2026,967,11,19,0,0,1.02
+634557,K. Caicedo,1464,Llaneros,239,2026,21,0,0,0,0,0.0
+634558,R. D. Rivas Torres,1147,Fortaleza FC,239,2026,1043,12,3,2,0,1.04
+634649,L. Moreno,1462,Deportivo Pereira,239,2026,282,3,2,0,0,0.96
+636712,J. Sinisterra,1147,Fortaleza FC,239,2026,152,4,2,1,0,2.37
+13259,D. Moreno,1128,Independiente Medellin,239,2026,562,3,12,1,0,0.48
+13290,Y. Velásquez,1139,Santa Fe,239,2026,823,14,8,4,0,1.53
+13462,S. Jiménez,1126,Deportivo Pasto,239,2026,790,12,13,6,1,1.37
+13608,J. Riquett,1136,Once Caldas,239,2026,645,9,6,1,0,1.26
+47267,Iago Herrerín,1126,Deportivo Pasto,239,2026,810,1,2,0,0,0.11
+59403,F. Ángel,1135,Junior,239,2026,823,14,3,4,0,1.53
+59564,J. Quiñónes,1136,Once Caldas,239,2026,1113,18,6,5,0,1.46
+59634,D. Rivera,1135,Junior,239,2026,1061,8,2,2,0,0.68
+70753,J. Arias,1125,Millonarios,239,2026,1800,24,9,7,0,1.2
+190475,C. Cañozales,1144,Águilas Doradas,239,2026,209,8,2,1,1,3.44
+288239,E. Murillo,1139,Santa Fe,239,2026,431,15,6,2,0,3.13
+321660,J. Navia,1135,Junior,239,2026,257,8,4,1,0,2.8
+351926,J. Ávalo,1144,Águilas Doradas,239,2026,797,12,9,3,1,1.36
+353530,J. Bernal,1126,Deportivo Pasto,239,2026,48,3,3,0,0,5.62
+431436,J. Canchimbo,1135,Junior,239,2026,970,18,23,3,0,1.67
+454541,J. Castaño,1136,Once Caldas,239,2026,1170,10,3,5,1,0.77
+506392,T. García,1136,Once Caldas,239,2026,104,2,0,1,0,1.73
+511691,Hian Rincon,1136,Once Caldas,239,2026,0,0,0,0,0,0.0
+577878,A. Salazar,1144,Águilas Doradas,239,2026,622,0,1,1,0,0.0
+636713,V. Mesalles Vidal,1464,Llaneros,239,2026,0,0,0,0,0,0.0
+1761,A. Morelos,1137,Atletico Nacional,239,2026,1825,14,34,9,0,0.69
+2491,M. Uribe,1137,Atletico Nacional,239,2026,1575,15,7,2,0,0.86
+5972,J. Campuzano,1137,Atletico Nacional,239,2026,1685,18,22,4,1,0.96
+11765,E. Bello,1137,Atletico Nacional,239,2026,957,11,8,2,1,1.03
+11765,E. Bello,1127,Deportivo Cali,239,2026,35,0,0,0,0,0.0
+35494,Y. Moreno,1133,Jaguares,239,2026,822,5,28,0,0,0.55
+41450,C. Arango,1137,Atletico Nacional,239,2026,543,11,6,2,1,1.82
+59405,R. Colpa,1133,Jaguares,239,2026,1392,22,14,4,0,1.42
+59574,H. Castillo,1137,Atletico Nacional,239,2026,1087,0,2,0,0,0.0
+125220,R. Bustamante,1133,Jaguares,239,2026,480,8,14,1,0,1.5
+207224,E. Batalla,1131,Bucaramanga,239,2026,1263,12,29,2,0,0.86
+295512,D. Calcaterra,1470,Cucuta,239,2026,1496,12,6,6,0,0.72
+324035,J. Mejia,1133,Jaguares,239,2026,618,9,4,3,0,1.31
+538171,C. Uribe,1137,Atletico Nacional,239,2026,106,1,0,0,0,0.85
+538335,M. Marin,1137,Atletico Nacional,239,2026,40,0,0,0,0,0.0
+554910,B. Angulo Castro,1133,Jaguares,239,2026,99,1,0,0,0,0.91
+555164,H. Beltran,1470,Cucuta,239,2026,31,1,0,0,0,2.9
+555189,J. Lovera,1133,Jaguares,239,2026,367,11,2,5,1,2.7
+555255,N. Parra,1137,Atletico Nacional,239,2026,386,6,3,1,0,1.4
+555275,L. Jimenez,1133,Jaguares,239,2026,707,1,0,1,0,0.13
+566360,F. Pulicastro,1147,Fortaleza FC,239,2026,242,7,5,0,0,2.6
+13366,D. Cataño,1128,Independiente Medellin,239,2026,572,6,9,1,0,0.94
+59548,J. Figueroa,1141,Alianza Valledupar,239,2026,914,8,4,3,0,0.79
+311433,Y. Martínez,1132,Chico,239,2026,303,8,3,0,1,2.38
+324894,J. Díaz,1132,Chico,239,2026,96,6,3,1,0,5.62
+339312,C. Santander,1147,Fortaleza FC,239,2026,360,0,1,0,0,0.0
+358460,J. Muñoz,1141,Alianza Valledupar,239,2026,1232,13,41,1,0,0.95
+375826,J. Pertúz,1464,Llaneros,239,2026,879,13,17,2,0,1.33
+437770,Andrés Felipe Dávila Mosquera,1128,Independiente Medellin,239,2026,42,1,0,0,0,2.14
+538184,C. Villegas,1141,Alianza Valledupar,239,2026,293,4,8,0,0,1.23
+538228,J. Valoyes,1141,Alianza Valledupar,239,2026,17,2,0,0,1,10.59
+538242,G. Mancilla,1128,Independiente Medellin,239,2026,211,3,0,1,0,1.28
+538280,L. Valencia,1141,Alianza Valledupar,239,2026,131,1,2,0,0,0.69
+538305,W. Asprilla,1139,Santa Fe,239,2026,302,0,2,0,0,0.0
+538319,J. Mena,1132,Chico,239,2026,482,8,14,2,0,1.49
+554917,K. Caicedo,1464,Llaneros,239,2026,884,9,6,2,0,0.92
+555009,M. Balanta,1128,Independiente Medellin,239,2026,126,2,0,1,0,1.43
+577041,J. Palma,1132,Chico,239,2026,1482,18,11,5,0,1.09
+608593,J. Torres,1139,Santa Fe,239,2026,985,14,19,4,0,1.28
+620466,J. Martinez,1462,Deportivo Pereira,239,2026,1107,0,4,1,0,0.0
+636468,Oscar Caicedo,1132,Chico,239,2026,560,15,5,1,0,2.41
+119,R. Falcao,1125,Millonarios,239,2026,227,2,4,1,0,0.79
+13365,Á. Castro,1125,Millonarios,239,2026,168,3,3,0,0,1.61
+13525,L. Castro,1125,Millonarios,239,2026,1414,13,18,5,0,0.83
+13605,J. García,1144,Águilas Doradas,239,2026,492,2,2,0,0,0.37
+13659,A. Llinás,1125,Millonarios,239,2026,1509,23,10,6,0,1.37
+353424,A. Higgins,1144,Águilas Doradas,239,2026,78,1,0,0,0,1.15
+411975,J. Mena,1127,Deportivo Cali,239,2026,23,2,0,0,0,7.83
+538162,S. Cordoba,1126,Deportivo Pasto,239,2026,896,2,7,0,1,0.2
+538170,J. Angulo,1125,Millonarios,239,2026,363,5,5,2,0,1.24
+538201,R. Julio,1134,Internacional de Bogota,239,2026,281,2,6,0,0,0.64
+538240,J. Aponza,1127,Deportivo Cali,239,2026,54,3,1,1,0,5.0
+538275,M. Orozco,1127,Deportivo Cali,239,2026,929,26,13,3,0,2.52
+538304,A. Rojo,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
+555015,A. Alvarez,1144,Águilas Doradas,239,2026,391,4,0,3,0,0.92
+555029,Y. Mosquera,1133,Jaguares,239,2026,1018,14,8,2,1,1.24
+606951,D. Rodriguez,1125,Millonarios,239,2026,0,0,0,0,0,0.0
+635418,Jonathan Perlaza,1126,Deportivo Pasto,239,2026,793,13,6,3,0,1.48
+636711,M. Palacios,1462,Deportivo Pereira,239,2026,50,1,0,0,0,1.8
+637071,T. Blandon,1144,Águilas Doradas,239,2026,0,0,0,0,0,0.0
+637072,F. Martinez,1126,Deportivo Pasto,239,2026,51,0,4,0,0,0.0
+1706,C. Bacca,1135,Junior,239,2026,234,1,0,1,0,0.38
+13153,H. Rivera,1135,Junior,239,2026,203,3,4,0,0,1.33
+13180,Y. Cabrera,1132,Chico,239,2026,935,7,15,0,0,0.67
+53128,G. Paiva,1135,Junior,239,2026,1173,12,20,5,0,0.92
+61363,F. Castañeda,1470,Cucuta,239,2026,522,2,13,0,0,0.34
+61363,F. Castañeda,1464,Llaneros,239,2026,0,0,0,0,0,0.0
+303136,J. Lucumí,1138,America de Cali,239,2026,1011,31,18,3,0,2.76
+414334,A. Batioja,1147,Fortaleza FC,239,2026,81,2,3,1,0,2.22
+531423,Y. Guzman,1138,America de Cali,239,2026,1708,13,30,4,0,0.69
+538169,D. Quinones,1136,Once Caldas,239,2026,206,3,2,0,0,1.31
+538169,D. Quinones,1141,Alianza Valledupar,239,2026,174,1,5,0,0,0.52
+538207,K. Angulo,1138,America de Cali,239,2026,278,7,3,1,0,2.27
+538232,H. Rincon Jacome,1136,Once Caldas,239,2026,0,0,0,0,0,0.0
+538301,J. Pena,1135,Junior,239,2026,1472,8,14,2,1,0.49
+555128,A. Shmalbach,1135,Junior,239,2026,38,3,0,0,0,7.11
+576369,S. Palacio,1134,Internacional de Bogota,239,2026,202,1,1,0,0,0.45
+633610,Italo Montano,1132,Chico,239,2026,711,8,15,3,0,1.01
+633610,Italo Montano,1147,Fortaleza FC,239,2026,200,3,1,2,0,1.35
+636714,J. A. Campo Chara,1132,Chico,239,2026,105,4,0,1,1,3.43
+638083,R. Correa,1137,Atletico Nacional,239,2026,1,0,0,0,0,0.0
+638246,F. Arroyo,1132,Chico,239,2026,117,2,1,0,1,1.54
+638247,M. Gomez,1132,Chico,239,2026,8,0,0,0,0,0.0
+642908,Daniel Socarras,1135,Junior,239,2026,12,0,0,0,0,0.0
+13389,K. Moreno,1141,Alianza Valledupar,239,2026,388,3,0,1,0,0.7
+59395,J. Castro,1134,Internacional de Bogota,239,2026,1416,25,14,2,1,1.59
+59802,C. De Las Salas,1131,Bucaramanga,239,2026,546,7,4,1,0,1.15
+306716,A. Rodríguez,1127,Deportivo Cali,239,2026,180,0,0,1,0,0.0
+336526,K. Lenis,1133,Jaguares,239,2026,408,6,9,3,1,1.32
+348333,J. Largacha,1462,Deportivo Pereira,239,2026,847,7,13,4,0,0.74
+352334,L. Mosquera,1462,Deportivo Pereira,239,2026,232,2,6,1,0,0.78
+362869,S. Barbosa,1142,Deportes Tolima,239,2026,279,2,1,1,0,0.65
+367815,S. Urrea,1462,Deportivo Pereira,239,2026,1135,11,7,3,0,0.87
+427527,G. CharrupÃ­,1131,Bucaramanga,239,2026,516,2,6,2,0,0.35
+496090,j. Galindo,1127,Deportivo Cali,239,2026,8,0,0,1,0,0.0
+510224,Miguel Amaya,1134,Internacional de Bogota,239,2026,107,1,0,1,0,0.84
+538186,L. Marimon,1464,Llaneros,239,2026,323,7,10,1,0,1.95
+538191,D. S. Victoria Palacios,1125,Millonarios,239,2026,59,2,1,1,0,3.05
+538218,Y. Garcia,1134,Internacional de Bogota,239,2026,18,2,0,0,0,10.0
+538222,J. Mera,1142,Deportes Tolima,239,2026,879,11,6,2,0,1.13
+538259,G. Medina,1131,Bucaramanga,239,2026,87,3,1,1,0,3.1
+555282,C. Perez,1135,Junior,239,2026,0,0,0,0,0,0.0
+574172,X. Rios,1137,Atletico Nacional,239,2026,3,0,0,0,0,0.0
+614028,J. Loaiza,1464,Llaneros,239,2026,320,0,0,1,0,0.0
+2451,J. Murillo,1138,America de Cali,239,2026,395,3,7,1,0,0.68
+10420,J. Quintero,1139,Santa Fe,239,2026,133,0,0,0,0,0.0
+13348,L. Miranda,1464,Llaneros,239,2026,986,8,15,4,0,0.73
+16790,J. Valencia,1138,America de Cali,239,2026,742,7,13,1,1,0.85
+35902,Jeison Angulo,1139,Santa Fe,239,2026,511,6,1,1,0,1.06
+46695,A. Ramos,1138,America de Cali,239,2026,473,4,4,1,0,0.76
+81631,C. Tovar,1138,America de Cali,239,2026,784,6,2,2,1,0.69
+200156,D. Pedrozo,1142,Deportes Tolima,239,2026,540,13,1,3,1,2.17
+297345,K. Londoño,1470,Cucuta,239,2026,1092,10,13,4,0,0.82
+297577,T. Ángel,1138,America de Cali,239,2026,789,6,5,1,0,0.68
+299728,Y. Abonía,1470,Cucuta,239,2026,1160,11,14,3,0,0.85
+356972,Jordan García,1147,Fortaleza FC,239,2026,0,0,0,0,0,0.0
+442023,J. Martínez,1147,Fortaleza FC,239,2026,284,4,3,1,0,1.27
+475282,L. Mina,1138,America de Cali,239,2026,409,9,4,5,0,1.98
+538298,Jhon Renteria,1139,Santa Fe,239,2026,0,0,0,0,0,0.0
+538312,J. Medina Obando,1147,Fortaleza FC,239,2026,124,1,0,0,0,0.73
+540816,J. Herrera,1147,Fortaleza FC,239,2026,970,25,16,5,0,2.32
+554949,C. Caicedo,1144,Águilas Doradas,239,2026,22,0,1,0,0,0.0
+555182,L. Ochoa,1470,Cucuta,239,2026,195,4,1,1,0,1.85
+637681,C. Londono,1144,Águilas Doradas,239,2026,10,0,1,0,0,0.0
+13361,J. Quiñónes,1127,Deportivo Cali,239,2026,704,6,4,2,0,0.77
+13361,J. Quiñónes,1126,Deportivo Pasto,239,2026,291,2,0,1,0,0.62
+13391,R. Rentería,1462,Deportivo Pereira,239,2026,840,5,3,1,0,0.54
+13798,F. Cantillo,1141,Alianza Valledupar,239,2026,872,19,8,6,0,1.96
+59400,D. Mendoza,1462,Deportivo Pereira,239,2026,13,1,0,0,0,6.92
+59507,F. Delgado,1462,Deportivo Pereira,239,2026,971,12,4,1,0,1.11
+59678,M. Martínez,1141,Alianza Valledupar,239,2026,357,8,6,1,0,2.02
+70726,D. Ortiz,1462,Deportivo Pereira,239,2026,695,7,2,1,0,0.91
+81034,Yimy Gómez,1462,Deportivo Pereira,239,2026,603,0,0,0,0,0.0
+294466,T. Bovone,1462,Deportivo Pereira,239,2026,652,8,1,1,0,1.1
+310208,J. Lasso,1141,Alianza Valledupar,239,2026,1360,13,12,2,0,0.86
+415105,J. Betancourth,1462,Deportivo Pereira,239,2026,0,0,0,0,0,0.0
+455897,Kevin Villada,1136,Once Caldas,239,2026,0,0,0,0,0,0.0
+531388,Mathias Gonzalez,1136,Once Caldas,239,2026,0,0,0,0,0,0.0
+538165,E. Beltran,1141,Alianza Valledupar,239,2026,0,0,0,0,0,0.0
+538248,J. Montoya,1127,Deportivo Cali,239,2026,208,3,6,0,0,1.3
+638479,Eudy Perez,1141,Alianza Valledupar,239,2026,0,0,0,0,0,0.0
+647408,J. Mosquera,1141,Alianza Valledupar,239,2026,10,1,0,0,0,9.0
+651181,J. Urrea,1462,Deportivo Pereira,239,2026,70,3,0,1,0,3.86
+651182,J. Morales,1462,Deportivo Pereira,239,2026,23,0,3,0,0,0.0
+653080,M. Diaz,1462,Deportivo Pereira,239,2026,311,4,2,1,0,1.16
+5963,F. Fabra,1128,Independiente Medellin,239,2026,910,10,11,2,0,0.99
+13304,B. Rovira,1142,Deportes Tolima,239,2026,1127,11,6,6,0,0.88
+13313,H. Palacios,1128,Independiente Medellin,239,2026,591,9,5,2,0,1.37
+13663,J. Valencia,1142,Deportes Tolima,239,2026,381,6,10,4,0,1.42
+31482,E. Elizalde,1125,Millonarios,239,2026,587,4,2,2,0,0.61
+51483,J. Varela,1144,Águilas Doradas,239,2026,472,1,1,0,0,0.19
+51483,J. Varela,1128,Independiente Medellin,239,2026,150,2,2,1,1,1.2
+301369,J. Escobar,1464,Llaneros,239,2026,574,11,7,3,0,1.72
+363371,N. Ospina,1464,Llaneros,239,2026,1171,5,7,1,0,0.38
+508992,E. Zea,1137,Atletico Nacional,239,2026,0,0,0,0,0,0.0
+524433,Sebastian Palacios,1147,Fortaleza FC,239,2026,20,0,1,0,0,0.0
+538215,J. Rosa,1137,Atletico Nacional,239,2026,31,0,2,0,0,0.0
+538257,J. Osorio,1141,Alianza Valledupar,239,2026,111,2,1,0,0,1.62
+538327,L. Matheus,1131,Bucaramanga,239,2026,0,0,0,0,0,0.0
+538333,Y. A. Parra,1142,Deportes Tolima,239,2026,59,2,0,0,0,3.05
+612951,J. Montoya,1462,Deportivo Pereira,239,2026,166,1,4,0,0,0.54
+633969,R. Acuna,1136,Once Caldas,239,2026,9,1,0,0,0,10.0
+636715,J. A. Camacho Anchico,1138,America de Cali,239,2026,19,1,1,0,0,4.74
+638681,Neifer Sanchez,1142,Deportes Tolima,239,2026,221,5,9,0,0,2.04
+640411,D. Munoz,1470,Cucuta,239,2026,0,0,0,0,0,0.0
+648737,Juan Hurtado,1144,Águilas Doradas,239,2026,0,0,0,0,0,0.0
+6184,A. Roa,1136,Once Caldas,239,2026,631,11,11,4,0,1.57
+10148,Á. Plata,1462,Deportivo Pereira,239,2026,71,1,2,0,0,1.27
+13282,B. Córdoba,1470,Cucuta,239,2026,733,5,4,1,0,0.61
+13282,B. Córdoba,1138,America de Cali,239,2026,117,2,1,0,0,1.54
+13413,Y. Tolosa,1126,Deportivo Pasto,239,2026,20,0,0,0,0,0.0
+13699,I. Alba,1131,Bucaramanga,239,2026,323,3,0,1,0,0.84
+13699,I. Alba,1141,Alianza Valledupar,239,2026,93,0,2,0,0,0.0
+13821,D. Ruíz,1132,Chico,239,2026,428,10,2,2,1,2.1
+59588,J. Mosquera,1142,Deportes Tolima,239,2026,876,10,9,2,0,1.03
+59860,R. Mejía,1136,Once Caldas,239,2026,1104,11,20,6,0,0.9
+305596,Krisztian Paraszhidisz,1126,Deportivo Pasto,239,2026,18,0,1,0,0,0.0
+348906,L. Escorcia,1128,Independiente Medellin,239,2026,319,2,3,1,0,0.56
+456741,Jhonny Jordán,1132,Chico,239,2026,98,3,1,1,0,2.76
+498256,Antonio Simancas,1141,Alianza Valledupar,239,2026,0,0,0,0,0,0.0
+538216,N. Segura,1128,Independiente Medellin,239,2026,1,1,0,0,0,90.0
+538302,M. Benitez,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
+538332,K. Rincon,1464,Llaneros,239,2026,746,15,5,3,0,1.81
+538336,A. Murrilo,1131,Bucaramanga,239,2026,21,0,1,0,0,0.0
+538343,G. Cadavi,1144,Águilas Doradas,239,2026,0,0,0,0,0,0.0
+612966,B. Zapata,1132,Chico,239,2026,180,0,0,0,0,0.0
+620465,L. Mosquera,1134,Internacional de Bogota,239,2026,0,0,0,0,0,0.0
+642536,J. Urrutia,1128,Independiente Medellin,239,2026,0,0,0,0,0,0.0
+638,I. Poveda,1134,Internacional de Bogota,239,2026,331,4,6,1,0,1.09
+2488,G. Cuéllar,1127,Deportivo Cali,239,2026,429,9,7,3,0,1.89
+6523,M. Lovera,1139,Santa Fe,239,2026,351,6,7,2,0,1.54
+13355,O. Albornoz,1470,Cucuta,239,2026,328,2,2,2,0,0.55
+13355,O. Albornoz,1131,Bucaramanga,239,2026,98,0,0,0,0,0.0
+13755,J. Obrian,1139,Santa Fe,239,2026,434,8,6,1,0,1.66
+13779,B. Perlaza,1128,Independiente Medellin,239,2026,496,5,7,2,0,0.91
+59514,M. Puerta,1139,Santa Fe,239,2026,379,6,2,1,0,1.42
+363885,S. Mera,1132,Chico,239,2026,592,11,2,0,0,1.67
+407900,K. Sandoval,1127,Deportivo Cali,239,2026,544,8,4,2,0,1.32
+467182,Y. Valois,1126,Deportivo Pasto,239,2026,0,0,0,0,0,0.0
+522698,Carlos Nemocón,1139,Santa Fe,239,2026,0,0,0,0,0,0.0
+538339,S. Romero,1128,Independiente Medellin,239,2026,0,0,0,0,0,0.0
+573843,C. Amu,1138,America de Cali,239,2026,70,3,0,0,0,3.86
+642394,A. Ortega,1128,Independiente Medellin,239,2026,0,0,0,0,0,0.0
+647142,H. Valencia,1126,Deportivo Pasto,239,2026,0,0,0,0,0,0.0
+647225,Nilder Zapata,1142,Deportes Tolima,239,2026,0,0,0,0,0,0.0
+647407,Y. Cordoba,1132,Chico,239,2026,0,0,0,0,0,0.0
+647783,Joven Santiago,1142,Deportes Tolima,239,2026,103,2,2,0,0,1.75
+647815,F. Gracia,1133,Jaguares,239,2026,0,0,0,0,0,0.0
+647816,D. Zuluaga,1133,Jaguares,239,2026,11,0,1,0,0,0.0
+2443,Y. Osorio,1142,Deportes Tolima,239,2026,297,2,1,0,0,0.61
+13368,J. Patiño,1136,Once Caldas,239,2026,450,6,3,1,0,1.2
+59849,M. Mina,1138,America de Cali,239,2026,136,2,1,0,0,1.32
+384570,J. Valencia,1141,Alianza Valledupar,239,2026,18,0,0,0,0,0.0
+521170,J. Aponzá,1138,America de Cali,239,2026,10,0,0,0,0,0.0
+538179,S. A. Aponza Cantonil,1141,Alianza Valledupar,239,2026,0,0,0,0,0,0.0
+538299,J. Mena,1128,Independiente Medellin,239,2026,270,6,2,0,0,2.0
+538337,D. Guerrero,1126,Deportivo Pasto,239,2026,0,0,0,0,0,0.0
+542124,B. Campaz,1125,Millonarios,239,2026,11,1,0,0,0,8.18
+555096,S. P. Barbosa Gomez,1142,Deportes Tolima,239,2026,257,2,0,1,0,0.7
+633970,H. Guzman,1136,Once Caldas,239,2026,56,1,4,0,0,1.61
+637640,S. Cabezas,1142,Deportes Tolima,239,2026,0,0,0,0,0,0.0
+643428,E. Alvarez,1142,Deportes Tolima,239,2026,15,1,0,0,0,6.0
+648738,Juan Quintero,1144,Águilas Doradas,239,2026,7,0,1,0,0,0.0
+650008,M. Patino,1462,Deportivo Pereira,239,2026,1,0,0,0,0,0.0
+651606,S. Mondragon,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
+651607,J. Murillo,1462,Deportivo Pereira,239,2026,0,0,0,0,0,0.0
+656520,Juan Camargo,1133,Jaguares,239,2026,14,0,0,0,0,0.0
+659299,A. Toro,1138,America de Cali,239,2026,0,0,0,0,0,0.0
+659300,J. Balanta,1138,America de Cali,239,2026,0,0,0,0,0,0.0
+5451,M. Ramírez,1144,Águilas Doradas,239,2026,63,3,1,1,0,4.29
+13827,R. Márquez,1144,Águilas Doradas,239,2026,41,2,0,1,0,4.39
+35589,N. Benedetti,1127,Deportivo Cali,239,2026,67,2,4,0,0,2.69
+35676,K. Balanta,1139,Santa Fe,239,2026,109,1,0,0,0,0.83
+59617,J. Melendez,1144,Águilas Doradas,239,2026,179,2,0,0,0,1.01
+119811,J. Ontaneda,1144,Águilas Doradas,239,2026,180,1,2,1,0,0.5
+237159,Junior Alexander Noguera Machuca,1144,Águilas Doradas,239,2026,152,1,5,0,0,0.59
+265945,J. Castillo,1147,Fortaleza FC,239,2026,340,7,1,0,0,1.85
+289461,W. Barlasina,1147,Fortaleza FC,239,2026,180,0,0,0,0,0.0
+330400,A. Vásquez,1144,Águilas Doradas,239,2026,139,0,1,0,0,0.0
+352298,E. Martínez,1133,Jaguares,239,2026,190,1,0,0,0,0.47
+374003,H. Arango,1144,Águilas Doradas,239,2026,0,0,0,0,0,0.0
+385694,C. Vergara,1141,Alianza Valledupar,239,2026,253,10,5,1,0,3.56
+538249,E. Cabezas,1147,Fortaleza FC,239,2026,0,0,0,0,0,0.0
+538256,J. Solis,1147,Fortaleza FC,239,2026,343,4,14,0,0,1.05
+554971,L. Palacios,1141,Alianza Valledupar,239,2026,23,0,0,0,0,0.0
+611149,L. Rueda,1126,Deportivo Pasto,239,2026,10,0,0,0,0,0.0
+641004,Andres Mosquera,1147,Fortaleza FC,239,2026,190,1,0,0,0,0.47
+654072,S. Vallecilla,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
+654076,J. Rojas,1141,Alianza Valledupar,239,2026,0,0,0,0,0,0.0
+13196,J. Medina,1128,Independiente Medellin,239,2026,225,2,4,1,0,0.8
+13408,D. Caicedo,1135,Junior,239,2026,18,0,0,0,0,0.0
+13472,N. Giraldo,1133,Jaguares,239,2026,40,0,1,0,0,0.0
+13584,H. Martínez,1142,Deportes Tolima,239,2026,255,10,6,2,0,3.53
+13734,J. Malagón,1133,Jaguares,239,2026,207,1,0,0,0,0.43
+16376,C. Dájome,1134,Internacional de Bogota,239,2026,158,2,3,0,0,1.14
+35531,L. Quiñones,1138,America de Cali,239,2026,222,3,4,1,0,1.22
+35601,A. Ibargüen,1126,Deportivo Pasto,239,2026,83,3,2,1,0,3.25
+59402,A. Simarra,1128,Independiente Medellin,239,2026,117,0,0,0,0,0.0
+68013,A. Martegani,1128,Independiente Medellin,239,2026,192,3,5,2,0,1.41
+141305,J. Ossa,1126,Deportivo Pasto,239,2026,180,6,1,0,0,3.0
+198349,J. Acosta,1135,Junior,239,2026,0,0,0,0,0,0.0
+200157,S. Girado,1134,Internacional de Bogota,239,2026,0,0,0,0,0,0.0
+237085,D. Duarte,1134,Internacional de Bogota,239,2026,122,1,2,0,0,0.74
+346893,J. Córdoba,1128,Independiente Medellin,239,2026,151,7,4,0,0,4.17
+352338,A. Alfonso,1133,Jaguares,239,2026,15,2,0,0,0,12.0
+554986,J. Mendez,1126,Deportivo Pasto,239,2026,26,1,1,0,0,3.46
+575524,E. A. Cabezas Quinonez,1126,Deportivo Pasto,239,2026,319,1,0,1,0,0.28
+646304,N. Erazo,1128,Independiente Medellin,239,2026,0,0,0,0,0,0.0
+646328,K. Klinger,1128,Independiente Medellin,239,2026,46,2,0,0,0,3.91
+13156,E. Torres,1136,Once Caldas,239,2026,167,3,0,0,0,1.62
+13228,J. Contreras,1464,Llaneros,239,2026,54,1,3,1,0,1.67
+13276,D. Agudelo,1132,Chico,239,2026,0,0,0,0,0,0.0
+13527,Y. Mena,1464,Llaneros,239,2026,125,1,0,0,0,0.72
+16408,J. Burrai,1125,Millonarios,239,2026,270,0,1,0,0,0.0
+26921,F. Castro,1131,Bucaramanga,239,2026,268,6,0,1,0,2.01
+51822,C. Fiermarín,1131,Bucaramanga,239,2026,360,0,2,0,0,0.0
+52552,E. Tortolero,1138,America de Cali,239,2026,164,3,4,0,0,1.65
+59430,J. Alomía,1132,Chico,239,2026,0,0,0,0,0,0.0
+59461,C. Mosquera,1132,Chico,239,2026,135,4,1,0,0,2.67
+59635,D. Ruiz,1125,Millonarios,239,2026,149,2,3,0,0,1.21
+126096,J. Montoya,1138,America de Cali,239,2026,90,0,0,0,0,0.0
+262840,J. Castilla,1464,Llaneros,239,2026,169,2,2,2,0,1.07
+306641,I. Camargo,1132,Chico,239,2026,99,0,1,0,0,0.0
+350809,D. Polanco,1132,Chico,239,2026,90,2,0,1,0,2.0
+362476,F. Cifuentes,1132,Chico,239,2026,108,1,2,0,0,0.83
+373754,J. Muñoz,1136,Once Caldas,239,2026,0,0,0,0,0,0.0
+426552,S. Navarro,1132,Chico,239,2026,80,0,3,0,0,0.0
+538341,C. Uparela,1125,Millonarios,239,2026,0,0,0,0,0,0.0
+642714,S. Velasquez,1131,Bucaramanga,239,2026,0,0,0,0,0,0.0
+2463,F. Armani,1137,Atletico Nacional,239,2026,180,0,2,0,0,0.0
+13364,N. Castrillón,1131,Bucaramanga,239,2026,76,0,0,0,0,0.0
+13369,Neneco,1470,Cucuta,239,2026,45,0,0,0,0,0.0
+13580,V. Cantillo,1131,Bucaramanga,239,2026,0,0,0,0,0,0.0
+13766,J. Moya,1127,Deportivo Cali,239,2026,61,0,1,0,0,0.0
+35654,S. Barreiro,1125,Millonarios,239,2026,10,0,0,0,0,0.0
+200142,E. Sarria,1132,Chico,239,2026,12,1,0,0,0,7.5
+200144,C. Cantillo,1133,Jaguares,239,2026,38,0,1,0,0,0.0
+301781,J. Franco,1133,Jaguares,239,2026,180,3,2,0,0,1.5
+425364,J. Manyoma,1470,Cucuta,239,2026,26,0,2,0,0,0.0
+475702,Sebastián Viveros,1132,Chico,239,2026,1,0,0,0,0,0.0
+538245,C. Blanco Betancur,1132,Chico,239,2026,90,1,0,0,0,1.0
+554937,M. B. Carabali Lopez,1470,Cucuta,239,2026,64,0,3,1,0,0.0
+575893,G. Ramirez,1133,Jaguares,239,2026,0,0,0,0,0,0.0
+663260,Santiago Martinez,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
+669649,J. Caicedo,1139,Santa Fe,239,2026,0,0,0,0,0,0.0
+669669,Emilio Pardo,1464,Llaneros,239,2026,0,0,0,0,0,0.0
+670237,Juan Gomez,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0

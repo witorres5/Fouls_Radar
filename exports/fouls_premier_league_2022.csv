@@ -1,0 +1,71 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+623,B. Mendy,50,Manchester City,39,2022,0,0,0,0,0,0.0
+630,F. Delph,45,Everton,39,2022,0,0,0,0,0,0.0
+883,Lee Grant,33,Manchester United,39,2022,0,0,0,0,0,0.0
+2281,Gary Cahill,35,Bournemouth,39,2022,0,0,0,0,0,0.0
+2288,Daniel Noel Drinkwater,49,Chelsea,39,2022,0,0,0,0,0,0.0
+18826,Mark Noble,48,West Ham,39,2022,0,0,0,0,0,0.0
+158696,F. Burns,50,Manchester City,39,2022,0,0,0,0,0,0.0
+162517,L. Dendoncker,51,Brighton,39,2022,0,0,0,0,0,0.0
+283289,A. Raikhy,66,Aston Villa,39,2022,0,0,0,0,0,0.0
+284247,H. Blair,40,Liverpool,39,2022,0,0,0,0,0,0.0
+284464,M. Cadogan,52,Crystal Palace,39,2022,0,0,0,0,0,0.0
+288115,James Storer,39,Wolves,39,2022,0,0,0,0,0,0.0
+291022,Joshua Keeley,47,Tottenham,39,2022,0,0,0,0,0,0.0
+293162,J. Raymond,52,Crystal Palace,39,2022,0,0,0,0,0,0.0
+293167,J. Sheridan,52,Crystal Palace,39,2022,0,0,0,0,0,0.0
+305732,T. Wilson-Brown,46,Leicester,39,2022,0,0,0,0,0,0.0
+328101,T. Fredricson,33,Manchester United,39,2022,0,0,0,0,0,0.0
+344908,M. Vigor,52,Crystal Palace,39,2022,0,0,0,0,0,0.0
+350590,T. Gidaree,35,Bournemouth,39,2022,0,0,0,0,0,0.0
+350627,J. Addae,52,Crystal Palace,39,2022,0,0,0,0,0,0.0
+18739,W. Boly,39,Wolves,39,2022,0,5,5,0,0,0.0
+18739,W. Boly,65,Nottingham Forest,39,2022,687,5,5,2,0,0.66
+18746,M. Gibbs-White,39,Wolves,39,2022,180,32,28,1,0,16.0
+18746,M. Gibbs-White,65,Nottingham Forest,39,2022,2977,32,28,5,0,0.97
+18996,H. Arter,65,Nottingham Forest,39,2022,0,0,0,0,0,0.0
+130423,B. Gilmour,49,Chelsea,39,2022,0,8,3,0,0,0.0
+130423,B. Gilmour,51,Brighton,39,2022,521,8,3,1,0,1.38
+162114,D. Rankine,49,Chelsea,39,2022,0,0,0,0,0,0.0
+180866,Marcelo,40,Liverpool,39,2022,0,0,0,0,0,0.0
+181796,J. Brooking,49,Chelsea,39,2022,0,0,0,0,0,0.0
+196000,B. Genesini,35,Bournemouth,39,2022,0,0,0,0,0,0.0
+284253,D. Corness,40,Liverpool,39,2022,0,0,0,0,0,0.0
+284324,A. Garnacho,33,Manchester United,39,2022,562,8,8,3,0,1.28
+284324,A. Garnacho,49,Chelsea,39,2022,560,8,8,3,0,1.29
+284362,B. Hardley,33,Manchester United,39,2022,0,0,0,0,0,0.0
+284391,S. Murray,33,Manchester United,39,2022,0,0,0,0,0,0.0
+284405,B. Elliott,49,Chelsea,39,2022,0,0,0,0,0,0.0
+284459,M. Mothersille,49,Chelsea,39,2022,0,0,0,0,0,0.0
+284539,H. Graczyk,42,Arsenal,39,2022,0,0,0,0,0,0.0
+284557,Z. Monlouis,42,Arsenal,39,2022,0,0,0,0,0,0.0
+284797,D. Ouattara,35,Bournemouth,39,2022,1245,6,15,1,0,0.43
+284797,D. Ouattara,55,Brentford,39,2022,1244,6,15,1,0,0.43
+286764,Kaide Gordon,40,Liverpool,39,2022,0,0,0,0,0,0.0
+313245,M. Lewis-Skelly,42,Arsenal,39,2022,0,0,0,0,0,0.0
+342054,R. Flamingo,200,Vitesse,39,2022,0,0,0,0,0,0.0
+641,O. Zinchenko,42,Arsenal,39,2022,2135,6,11,3,0,0.25
+643,Gabriel Jesus,42,Arsenal,39,2022,2075,43,56,6,0,1.87
+727,R. Nelson,42,Arsenal,39,2022,225,8,4,0,0,3.2
+1427,A. Sambi Lokonga,52,Crystal Palace,39,2022,536,1,5,2,0,0.17
+1427,A. Sambi Lokonga,42,Arsenal,39,2022,195,1,5,0,0,0.46
+1460,B. Saka,42,Arsenal,39,2022,3194,43,65,6,0,1.21
+2273,Kepa,49,Chelsea,39,2022,2566,0,8,1,0,0.0
+2937,D. Rice,48,West Ham,39,2022,3272,23,11,5,0,0.63
+19088,D. Henderson,65,Nottingham Forest,39,2022,1620,1,1,2,0,0.06
+19088,D. Henderson,52,Crystal Palace,39,2022,1620,1,1,2,0,0.06
+19465,David Raya,55,Brentford,39,2022,3420,0,6,1,0,0.0
+19586,E. Eze,52,Crystal Palace,39,2022,2643,27,57,3,0,0.92
+19959,B. White,42,Arsenal,39,2022,3067,28,30,5,0,0.82
+22090,W. Saliba,42,Arsenal,39,2022,2416,19,13,4,0,0.71
+22094,W. Fofana,46,Leicester,39,2022,180,11,22,1,0,5.5
+22094,W. Fofana,49,Chelsea,39,2022,1187,11,22,3,0,0.83
+22224,Gabriel Magalhães,42,Arsenal,39,2022,3411,25,40,5,0,0.66
+30407,C. Nørgaard,55,Brentford,39,2022,1770,35,20,6,0,1.78
+37127,M. Ødegaard,42,Arsenal,39,2022,3149,30,26,4,0,0.86
+153430,A. Elanga,33,Manchester United,39,2022,420,3,7,0,0,0.64
+153430,A. Elanga,34,Newcastle,39,2022,437,3,7,0,0,0.62
+158694,T. Livramento,41,Southampton,39,2022,26,0,2,0,0,0.0
+158694,T. Livramento,34,Newcastle,39,2022,26,0,2,0,0,0.0
+169295,K. Hein,42,Arsenal,39,2022,0,0,0,0,0,0.0
+313236,E. Nwaneri,42,Arsenal,39,2022,1,0,0,0,0,0.0

@@ -1,0 +1,76 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+83,A. Danjuma,45,Everton,39,2024,0,0,0,0,0,0.0
+105,F. Ballo-Touré,36,Fulham,39,2024,0,0,0,0,0,0.0
+172,D. Alli,45,Everton,39,2024,0,0,0,0,0,0.0
+2699,S. Ghoddos,55,Brentford,39,2024,0,0,0,0,0,0.0
+18765,André Gomes,45,Everton,39,2024,0,0,0,0,0,0.0
+18853,J. Riedewald,52,Crystal Palace,39,2024,0,0,0,0,0,0.0
+19073,B. Godfrey,45,Everton,39,2024,0,0,0,0,0,0.0
+19073,B. Godfrey,57,Ipswich,39,2024,159,1,0,1,0,0.57
+19145,T. Adarabioyo,36,Fulham,39,2024,0,0,0,0,0,0.0
+19145,T. Adarabioyo,49,Chelsea,39,2024,1403,8,9,4,0,0.51
+19364,N. Maupay,55,Brentford,39,2024,0,0,0,0,0,0.0
+19364,N. Maupay,45,Everton,39,2024,0,0,0,0,0,0.0
+19657,M. Rodák,36,Fulham,39,2024,0,0,0,0,0,0.0
+19744,K. Jackson,57,Ipswich,39,2024,0,0,0,0,0,0.0
+20224,A. Lonergan,45,Everton,39,2024,0,0,0,0,0,0.0
+44803,D. Ball,57,Ipswich,39,2024,0,0,0,0,0,0.0
+127605,N. Ferguson,52,Crystal Palace,39,2024,0,0,0,0,0,0.0
+135775,Ansu Fati,51,Brighton,39,2024,0,0,0,0,0,0.0
+138822,A. Broja,36,Fulham,39,2024,0,0,0,0,0,0.0
+138822,A. Broja,45,Everton,39,2024,331,6,4,1,0,1.63
+138822,A. Broja,49,Chelsea,39,2024,0,6,4,0,0,0.0
+153422,E. Brierley,55,Brentford,39,2024,0,0,0,0,0,0.0
+153425,L. Dobbin,45,Everton,39,2024,0,0,0,0,0,0.0
+153425,L. Dobbin,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+284500,T. Iroegbunam,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+284500,T. Iroegbunam,45,Everton,39,2024,563,15,12,4,0,2.4
+348263,C. Stewart,57,Ipswich,39,2024,0,0,0,0,0,0.0
+133,C. Lenglet,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+190,Cédric Soares,42,Arsenal,39,2024,0,0,0,0,0,0.0
+786,N. Zaniolo,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+1452,Mohamed Elneny,42,Arsenal,39,2024,0,0,0,0,0,0.0
+19263,L. Kelly,35,Bournemouth,39,2024,0,0,0,0,0,0.0
+19263,L. Kelly,34,Newcastle,39,2024,300,5,5,2,0,1.5
+19356,E. Marcondes,35,Bournemouth,39,2024,0,0,0,0,0,0.0
+19804,K. Moore,35,Bournemouth,39,2024,0,0,0,0,0,0.0
+20110,S. Baptiste,55,Brentford,39,2024,0,0,0,0,0,0.0
+30765,I. Radu,35,Bournemouth,39,2024,0,0,0,0,0,0.0
+138937,F. Marschall,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+278123,S. Revan,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+281975,Val Adedokun,55,Brentford,39,2024,0,0,0,0,0,0.0
+284502,James Lannin-Sweet,42,Arsenal,39,2024,0,0,0,0,0,0.0
+284540,Mauro Bandeira,42,Arsenal,39,2024,0,0,0,0,0,0.0
+294638,Finley Munroe,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+309501,A. Cozier-Duberry,42,Arsenal,39,2024,0,0,0,0,0,0.0
+309501,A. Cozier-Duberry,51,Brighton,39,2024,0,0,0,0,0,0.0
+309505,R. Walters,42,Arsenal,39,2024,0,0,0,0,0,0.0
+329347,O. Kellyman,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+329347,O. Kellyman,49,Chelsea,39,2024,0,0,0,0,0,0.0
+349288,Vincent Angelini,55,Brentford,39,2024,0,0,0,0,0,0.0
+455010,L. Emery,66,Aston Villa,39,2024,0,0,0,0,0,0.0
+305,D. Origi,65,Nottingham Forest,39,2024,0,0,0,0,0,0.0
+371,Felipe,65,Nottingham Forest,39,2024,0,0,0,0,0,0.0
+454,Y. Akgün,46,Leicester,39,2024,0,0,0,0,0,0.0
+908,A. Martial,33,Manchester United,39,2024,0,0,0,0,0,0.0
+1972,L. Karius,34,Newcastle,39,2024,0,0,0,0,0,0.0
+2468,G. Montiel,65,Nottingham Forest,39,2024,0,0,0,0,0,0.0
+2925,D. Praet,46,Leicester,39,2024,0,0,0,0,0,0.0
+18817,A. Ogbonna,48,West Ham,39,2024,0,0,0,0,0,0.0
+18892,P. Dummett,34,Newcastle,39,2024,0,0,0,0,0,0.0
+18903,M. Ritchie,34,Newcastle,39,2024,0,0,0,0,0,0.0
+19032,R. Sessegnon,47,Tottenham,39,2024,0,0,0,0,0,0.0
+19032,R. Sessegnon,36,Fulham,39,2024,578,20,4,1,0,3.11
+19130,K. Phillips,48,West Ham,39,2024,0,0,0,0,0,0.0
+19130,K. Phillips,57,Ipswich,39,2024,1239,28,20,5,0,2.03
+19130,K. Phillips,50,Manchester City,39,2024,0,28,20,0,0,0.0
+19482,J. Rothwell,41,Southampton,39,2024,0,0,0,0,0,0.0
+19482,J. Rothwell,35,Bournemouth,39,2024,0,0,0,0,0,0.0
+41577,Nuno Tavares,65,Nottingham Forest,39,2024,0,0,0,0,0,0.0
+41577,Nuno Tavares,42,Arsenal,39,2024,0,0,0,0,0,0.0
+144709,J. Anang,48,West Ham,39,2024,0,0,0,0,0,0.0
+161921,G. Reyna,65,Nottingham Forest,39,2024,0,0,0,0,0,0.0
+284242,O. Forson,33,Manchester United,39,2024,0,0,0,0,0,0.0
+284536,J. Knightbridge,48,West Ham,39,2024,0,0,0,0,0,0.0
+338856,N. Lemina,39,Wolves,39,2024,0,0,0,0,0,0.0
+341641,Rodrigo Ribeiro,65,Nottingham Forest,39,2024,0,0,0,0,0,0.0

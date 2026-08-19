@@ -1,0 +1,80 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+91300,G. Galeotafiore,514,Salernitana,135,2022,0,0,0,0,0,0.0
+194670,E. Toçi,502,Fiorentina,135,2022,0,0,0,0,0,0.0
+289515,B. Bartha,500,Bologna,135,2022,0,0,0,0,0,0.0
+297579,C. Traorè,489,AC Milan,135,2022,0,0,0,0,0,0.0
+335060,K. Mercier,500,Bologna,135,2022,0,0,0,0,0,0.0
+336562,D. Weidmann,503,Torino,135,2022,0,0,0,0,0,0.0
+336689,Y. El Hilali,489,AC Milan,135,2022,0,0,0,0,0,0.0
+341821,J. Boli,511,Empoli,135,2022,0,0,0,0,0,0.0
+341918,E. Hasić,867,Lecce,135,2022,0,0,0,0,0,0.0
+341924,B. Barba,492,Napoli,135,2022,0,0,0,0,0,0.0
+342060,A. Milan,503,Torino,135,2022,0,0,0,0,0,0.0
+342061,A. Anton,503,Torino,135,2022,0,0,0,0,0,0.0
+342064,Mattia Florio,504,Hellas Verona,135,2022,0,0,0,0,0,0.0
+342222,M. Ivković,497,AS Roma,135,2022,0,0,0,0,0,0.0
+344336,Davide Franzini,500,Bologna,135,2022,0,0,0,0,0,0.0
+345475,J. Antollini,503,Torino,135,2022,0,0,0,0,0,0.0
+354531,C. Cassano,497,AS Roma,135,2022,0,0,0,0,0,0.0
+362756,Elia Boseggia,504,Hellas Verona,135,2022,0,0,0,0,0,0.0
+374359,D. Bartesaghi,489,AC Milan,135,2022,0,0,0,0,0,0.0
+394436,S. Kassama,1579,Monza,135,2022,0,0,0,0,0,0.0
+214,F. Colidio,505,Inter,135,2022,0,0,0,0,0,0.0
+162522,J. Da Riva,499,Atalanta,135,2022,0,0,0,0,0,0.0
+199707,J. Ryan,488,Sassuolo,135,2022,0,0,0,0,0,0.0
+295770,M. Carnelos,494,Udinese,135,2022,0,0,0,0,0,0.0
+308673,Andrea Sergio Mazza,1579,Monza,135,2022,0,0,0,0,0,0.0
+325142,V. Boffelli,492,Napoli,135,2022,0,0,0,0,0,0.0
+328711,Leo Dos Reis,1579,Monza,135,2022,0,0,0,0,0,0.0
+330720,Alberto Dima,867,Lecce,135,2022,0,0,0,0,0,0.0
+336605,C. Foglio,489,AC Milan,135,2022,0,0,0,0,0,0.0
+336610,A. Gala,489,AC Milan,135,2022,0,0,0,0,0,0.0
+336687,A. Coubiș,489,AC Milan,135,2022,0,0,0,0,0,0.0
+346866,S. Mbangula,496,Juventus,135,2022,0,0,0,0,0,0.0
+350609,L. Codutti,494,Udinese,135,2022,0,0,0,0,0,0.0
+352228,Angelo Guida,514,Salernitana,135,2022,0,0,0,0,0,0.0
+364512,Federico Agazzi,520,Cremonese,135,2022,0,0,0,0,0,0.0
+371910,J. Šimić,489,AC Milan,135,2022,0,0,0,0,0,0.0
+383000,I. Kamate,505,Inter,135,2022,0,0,0,0,0,0.0
+384423,A. Bakoune,489,AC Milan,135,2022,0,0,0,0,0,0.0
+392377,F. Mangiameli,489,AC Milan,135,2022,0,0,0,0,0,0.0
+393946,B. Maliszewski,487,Lazio,135,2022,0,0,0,0,0,0.0
+272,A. Rabiot,496,Juventus,135,2022,2751,45,42,9,0,1.47
+272,A. Rabiot,489,AC Milan,135,2022,2751,45,42,9,0,1.47
+484,A. Miranchuk,499,Atalanta,135,2022,0,9,22,0,0,0.0
+484,A. Miranchuk,503,Torino,135,2022,2097,9,22,0,0,0.39
+777,A. Ćorić,497,AS Roma,135,2022,0,0,0,0,0,0.0
+877,M. Kean,496,Juventus,135,2022,990,15,18,5,1,1.36
+877,M. Kean,502,Fiorentina,135,2022,1006,15,18,5,1,1.34
+1748,L. Coulibaly,514,Salernitana,135,2022,2901,53,49,12,0,1.64
+1748,L. Coulibaly,867,Lecce,135,2022,2909,53,49,12,0,1.64
+30624,F. Bandinelli,511,Empoli,135,2022,2284,53,37,10,0,2.09
+30624,F. Bandinelli,515,Spezia,135,2022,2284,53,37,10,0,2.09
+30755,E. Vignato,500,Bologna,135,2022,238,3,1,1,0,1.13
+30755,E. Vignato,511,Empoli,135,2022,245,3,1,1,0,1.1
+30845,E. Gyasi,515,Spezia,135,2022,2838,47,37,10,0,1.49
+30845,E. Gyasi,511,Empoli,135,2022,2834,47,37,10,0,1.49
+31084,P. Ghiglione,520,Cremonese,135,2022,709,16,7,4,0,2.03
+31084,P. Ghiglione,514,Salernitana,135,2022,716,16,7,4,0,2.01
+31318,M&apos;Bala Nzola,515,Spezia,135,2022,2744,60,43,8,0,1.97
+31318,M&apos;Bala Nzola,502,Fiorentina,135,2022,2743,60,43,8,0,1.97
+31678,J. Akpa Akpro,511,Empoli,135,2022,1363,31,18,8,1,2.05
+31678,J. Akpa Akpro,487,Lazio,135,2022,1367,31,18,9,2,2.04
+31730,L. Venuti,502,Fiorentina,135,2022,922,7,9,2,0,0.68
+31730,L. Venuti,498,Sampdoria,135,2022,922,7,9,2,0,0.68
+36987,S. Lammers,511,Empoli,135,2022,885,6,8,0,0,0.61
+36987,S. Lammers,498,Sampdoria,135,2022,883,6,8,0,0,0.61
+37437,A. Harroui,488,Sassuolo,135,2022,634,13,3,2,0,1.85
+37437,A. Harroui,504,Hellas Verona,135,2022,646,13,3,2,0,1.81
+136087,F. Parisi,511,Empoli,135,2022,2835,34,74,10,1,1.08
+136087,F. Parisi,502,Fiorentina,135,2022,2836,34,74,10,1,1.08
+193870,J. Antiste,515,Spezia,135,2022,0,4,0,0,0,0.0
+193870,J. Antiste,488,Sassuolo,135,2022,50,4,0,0,0,7.2
+263481,L. Colombo,867,Lecce,135,2022,1516,36,16,4,0,2.14
+263481,L. Colombo,489,AC Milan,135,2022,1541,36,16,4,0,2.1
+340700,J. Fazzini,511,Empoli,135,2022,818,20,13,4,0,2.2
+340700,J. Fazzini,502,Fiorentina,135,2022,845,20,13,4,0,2.13
+342038,F. Afena-Gyan,497,AS Roma,135,2022,0,18,11,0,0,0.0
+342038,F. Afena-Gyan,520,Cremonese,135,2022,805,18,11,4,0,2.01
+342653,F. Missori,497,AS Roma,135,2022,180,4,0,1,0,2.0
+342653,F. Missori,488,Sassuolo,135,2022,181,4,0,1,0,1.99

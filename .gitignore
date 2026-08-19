@@ -1,0 +1,34 @@
+# --- CREDENCIALES Y SECRETOS ---
+# Evita subir tu API Key o tokens de Turso/GitHub
+.env
+.secrets.toml
+.streamlit
+.streamlit/secrets.toml
+
+# --- BASES DE DATOS LOCALES ---
+# Ya migraste a Turso, no subas la DB local
+*.db
+*.sqlite
+*.sqlite3
+fouls_tracker.db
+
+# --- ARCHIVOS TEMPORALES Y CACHÉ DE PYTHON ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# --- ENTORNOS VIRTUALES ---
+env/
+venv/
+.venv/
+ENV/
+
+# --- CONFIGURACIONES DE IDEs Y SISTEMA ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- SCRIPTS TEMPORALES DE MIGRACIÓN (OPCIONAL) ---
+migrate_to_turso.py
