@@ -6,3 +6,4 @@ libsql
 libsql-experimental
 sqlalchemy
 python-dotenv
+requests-cache
