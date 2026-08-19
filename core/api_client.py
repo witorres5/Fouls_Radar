@@ -30,21 +30,24 @@ class APIFootballClient:
         rate_limit_delay: float = 1.5
     ):
         
-        # 1. Priorizar el argumento directo
-        # 2. Buscar en Streamlit Secrets
-        # 3. Buscar en variables de entorno (.env)
+# 1. Obtener la clave desde Streamlit Secrets de forma segura
+        api_key_from_secrets = None
+        try:
+            if "API_FOOTBALL_KEY" in st.secrets:
+                api_key_from_secrets = st.secrets["API_FOOTBALL_KEY"]
+        except Exception:
+            pass
+
+        # 2. Asignar prioridad: Argumento > Secrets > Variables de entorno (.env)
         self.api_key = (
             api_key 
-            or st.secrets.get("API_FOOTBALL_KEY") 
+            or api_key_from_secrets 
             or os.getenv("API_FOOTBALL_KEY")
         )
         
         if not self.api_key:
             raise ValueError("API Key no proporcionada. Configura API_FOOTBALL_KEY en Secrets o .env")
-        self.api_key = api_key or API_KEY
-        if not self.api_key:
-            raise ValueError("API Key no proporcionada. Configura API_FOOTBALL_KEY en .env o constants.py")
-
+        
         self.headers = {
             "x-apisports-key": self.api_key,
             "Accept": "application/json"
