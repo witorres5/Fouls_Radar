@@ -5,3 +5,4 @@ requests
 libsql
 libsql-experimental
 sqlalchemy
+python-dotenv
