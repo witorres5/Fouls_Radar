@@ -4,3 +4,4 @@ plotly
 requests
 libsql
 libsql-experimental
+sqlalchemy
