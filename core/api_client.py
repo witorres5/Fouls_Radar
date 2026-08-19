@@ -13,6 +13,7 @@ import logging
 from typing import Dict, Any, List, Optional
 import requests
 import requests_cache
+import streamlit as st
 
 from config.constants import BASE_URL, API_KEY
 
@@ -28,6 +29,18 @@ class APIFootballClient:
         cache_expire_after: int = 86400,  # 24 horas
         rate_limit_delay: float = 1.5
     ):
+        
+        # 1. Priorizar el argumento directo
+        # 2. Buscar en Streamlit Secrets
+        # 3. Buscar en variables de entorno (.env)
+        self.api_key = (
+            api_key 
+            or st.secrets.get("API_FOOTBALL_KEY") 
+            or os.getenv("API_FOOTBALL_KEY")
+        )
+        
+        if not self.api_key:
+            raise ValueError("API Key no proporcionada. Configura API_FOOTBALL_KEY en Secrets o .env")
         self.api_key = api_key or API_KEY
         if not self.api_key:
             raise ValueError("API Key no proporcionada. Configura API_FOOTBALL_KEY en .env o constants.py")
