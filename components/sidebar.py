@@ -105,4 +105,4 @@ def render_sidebar(df: pd.DataFrame):
             except Exception as e:
                 st.sidebar.error(f"Error en sincronización: {e}")
 
-    return filtered_df, selected_season, selected_league
+    return filtered_df, selected_season, selected_league, min_edge_threshold

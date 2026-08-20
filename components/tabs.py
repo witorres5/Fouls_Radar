@@ -2,7 +2,7 @@ import plotly.express as px
 import streamlit as st
 from core.math_utils import prob_at_least
 
-def render_analysis_tabs(filtered_df, selected_league: str):
+def render_analysis_tabs(filtered_df, selected_league: str, min_edge: float = 1.5):
     tab1, tab2, tab3 = st.tabs([
         "🔥 Top Probabilidades por Liga", 
         "🎲 Calculadora Individual", 
@@ -57,26 +57,30 @@ def render_analysis_tabs(filtered_df, selected_league: str):
         st.subheader(f"📋 Ranking Predictivo - {selected_league}")
         if not filtered_df.empty:
             display_df = filtered_df.copy()
+            league_mean = display_df["fouls_per_90"].mean()
+            
+            # Lógica de ventaja según el margen seleccionado en el slider
+            display_df["Ventaja vs Liga"] = display_df["fouls_per_90"] - league_mean
+            display_df["Sugerencia Auto"] = display_df["Ventaja vs Liga"].apply(
+                lambda edge: "🔥 Alta Ventaja" if edge >= min_edge else ("⚡ Destacado" if edge >= (min_edge / 2) else "Normal")
+            )
+
             display_df["P(1+ Falta)"] = display_df["fouls_per_90"].apply(lambda l: f"{prob_at_least(1, l)*100:.1f}%")
             display_df["P(2+ Faltas)"] = display_df["fouls_per_90"].apply(lambda l: f"{prob_at_least(2, l)*100:.1f}%")
             display_df["P(3+ Faltas)"] = display_df["fouls_per_90"].apply(lambda l: f"{prob_at_least(3, l)*100:.1f}%")
 
-            columns_to_show = ["player_name", "team_name", "minutes_played", "fouls_committed", "fouls_per_90", "P(1+ Falta)", "P(2+ Faltas)", "P(3+ Faltas)"]
-            if "league_name" in display_df.columns:
-                columns_to_show.insert(2, "league_name")
+            columns_to_show = ["player_name", "team_name", "fouls_per_90", "Sugerencia Auto", "P(1+ Falta)", "P(2+ Faltas)", "P(3+ Faltas)"]
 
             st.dataframe(
                 display_df.sort_values(by="fouls_per_90", ascending=False),
                 column_config={
                     "player_name": "Jugador",
                     "team_name": "Equipo",
-                    "league_name": "Liga",
-                    "minutes_played": "Min. Jugados",
-                    "fouls_committed": "Faltas Totales",
                     "fouls_per_90": st.column_config.NumberColumn("Faltas/90m", format="%.2f"),
-                    "P(1+ Falta)": "Prob. 1+ Falta",
-                    "P(2+ Faltas)": "Prob. 2+ Faltas",
-                    "P(3+ Faltas)": "Prob. 3+ Faltas"
+                    "Sugerencia Auto": "Auto-Simulador",
+                    "P(1+ Falta)": "Prob. 1+",
+                    "P(2+ Faltas)": "Prob. 2+",
+                    "P(3+ Faltas)": "Prob. 3+"
                 },
                 column_order=columns_to_show,
                 use_container_width=True,
