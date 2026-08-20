@@ -20,7 +20,8 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pandas libsql-experimental streamlit
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install requests-cache libsql-experimental
 
       - name: Run Reconciliation Script
         env:
