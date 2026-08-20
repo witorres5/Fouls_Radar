@@ -2,9 +2,8 @@ name: Daily Bets Reconciliation Cron
 
 on:
   schedule:
-    # Se ejecuta todos los días a las 23:00 UTC (6:00 PM Colombia)
     - cron: '0 23 * * *'
-  workflow_dispatch: # Permite ejecución manual desde GitHub
+  workflow_dispatch:
 
 jobs:
   reconcile:
@@ -33,18 +32,10 @@ jobs:
         run: |
           python -c "
           import os
-          import streamlit as st
-
-          # Inyectar variables de entorno de GitHub Secrets en st.secrets
-          st.secrets['TURSO_DATABASE_URL'] = os.getenv('TURSO_DATABASE_URL', '')
-          st.secrets['TURSO_AUTH_TOKEN'] = os.getenv('TURSO_AUTH_TOKEN', '')
-          st.secrets['TELEGRAM_BOT_TOKEN'] = os.getenv('TELEGRAM_BOT_TOKEN', '')
-          st.secrets['TELEGRAM_CHAT_ID'] = os.getenv('TELEGRAM_CHAT_ID', '')
-
           from core.api_client import APIFootballClient
           from core.reconciliation import reconcile_daily_bets
 
-          client = APIFootballClient(api_key=os.environ['API_FOOTBALL_KEY'])
+          client = APIFootballClient(api_key=os.environ.get('API_FOOTBALL_KEY', ''))
           result = reconcile_daily_bets(client)
           print(result)
           "
