@@ -80,3 +80,707 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 324957,T. Rothe,165,Borussia Dortmund,78,2024,0,25,11,0,0,0.0
 324957,T. Rothe,182,Union Berlin,78,2024,1672,25,11,4,1,1.35
 511930,S. Rapsch,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+972,J. Tah,168,Bayer Leverkusen,78,2024,2970,16,5,3,0,0.48
+972,J. Tah,157,Bayern München,78,2024,2970,16,5,3,0,0.48
+1610,G. Masouras,176,VfL Bochum,78,2024,1063,12,10,1,0,1.02
+177613,D. Deger,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+325975,T. Bischof,157,Bayern München,78,2024,0,45,33,0,0,0.0
+325975,T. Bischof,167,1899 Hoffenheim,78,2024,2567,45,33,5,0,1.58
+327802,D. Lelle,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+327837,Joel Victor Imasuen,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+327874,R. Paula,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+328227,T. Müller,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+342981,S. Angelidis,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+353948,Tim Schleinitz,182,Union Berlin,78,2024,0,0,0,0,0,0.0
+354754,Jonathan Asp Jensen,157,Bayern München,78,2024,0,0,0,0,0,0.0
+362619,Yann Sturm,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+382490,Yurij Alexandrovych Obert,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+386818,Anas Alaoui,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+400751,Eliot Bujupi,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+411755,A. Pavlešić,157,Bayern München,78,2024,0,0,0,0,0,0.0
+420351,Elias  Benkara,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+440139,Michael Scott,157,Bayern München,78,2024,0,0,0,0,0,0.0
+455286,J. Yanda,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+478663,E. İş,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+1672,D. Sinani,186,FC St. Pauli,78,2024,1275,25,14,3,0,1.76
+2749,J. Irvine,186,FC St. Pauli,78,2024,2610,38,16,2,0,1.31
+15573,K. Grabara,161,VfL Wolfsburg,78,2024,2586,0,3,2,0,0.0
+17756,O. Afolayan,186,FC St. Pauli,78,2024,1634,21,42,3,0,1.16
+25464,M. Ducksch,162,Werder Bremen,78,2024,2438,6,17,3,0,0.22
+37639,S. Van der Heyden,186,FC St. Pauli,78,2024,876,16,9,3,0,1.64
+80219,J. Medić,176,VfL Bochum,78,2024,1611,10,7,2,0,0.56
+162145,A. Kamara,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+283323,Léo Scienza,180,1. FC Heidenheim,78,2024,1153,16,72,1,0,1.25
+328037,L. Morrison,157,Bayern München,78,2024,0,0,0,0,0,0.0
+336031,P. Hennrich,167,1899 Hoffenheim,78,2024,11,0,0,0,0,0.0
+338014,N. Irankunda,157,Bayern München,78,2024,0,0,0,0,0,0.0
+342277,Samuele Di Benedetto,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+343569,A. Milani,487,Lazio,78,2024,0,0,0,0,0,0.0
+358589,A. Børset,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+369768,K. Sato,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+380604,Tim Philipp,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+400750,Christopher Olivier,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+432555,Efe Korkut Martin,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+456187,Luca Erlein,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+16,M. Götze,169,Eintracht Frankfurt,78,2024,1548,15,15,1,0,0.87
+1803,T. Chandler,169,Eintracht Frankfurt,78,2024,21,0,2,0,0,0.0
+8451,Aurélio Buta,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+19068,F. Passlack,176,VfL Bochum,78,2024,2345,29,21,4,0,1.11
+21587,E. Skhiri,169,Eintracht Frankfurt,78,2024,2240,21,19,6,0,0.84
+26287,P. Hofmann,176,VfL Bochum,78,2024,2286,36,31,4,0,1.42
+26291,J. Grahl,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+33019,K. Miyoshi,176,VfL Bochum,78,2024,466,10,4,0,1,1.93
+90594,J. Dina Ebimbe,169,Eintracht Frankfurt,78,2024,290,10,4,0,0,3.1
+162414,A. Amenda,169,Eintracht Frankfurt,78,2024,91,3,2,1,0,2.97
+162707,E. Wahi,169,Eintracht Frankfurt,78,2024,207,2,3,1,0,0.87
+204043,A. Theate,169,Eintracht Frankfurt,78,2024,2709,14,23,4,0,0.47
+269531,N. Collins,169,Eintracht Frankfurt,78,2024,1489,26,22,4,0,1.57
+276670,F. Chaïbi,169,Eintracht Frankfurt,78,2024,1019,5,7,2,0,0.44
+280074,N. Brown,169,Eintracht Frankfurt,78,2024,1952,15,22,2,0,0.69
+335094,H. Larsson,169,Eintracht Frankfurt,78,2024,2402,21,5,2,0,0.79
+339874,O. HÃ¸jlund,169,Eintracht Frankfurt,78,2024,714,12,3,0,0,1.51
+339887,C. Uzun,169,Eintracht Frankfurt,78,2024,674,8,16,1,0,1.07
+362884,Kauã Santos,169,Eintracht Frankfurt,78,2024,765,0,2,0,0,0.0
+387534,Noah Dávid Gabriel Fenyö,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+506,N. Süle,165,Borussia Dortmund,78,2024,1058,5,2,1,0,0.43
+984,J. Brandt,165,Borussia Dortmund,78,2024,2318,8,9,1,0,0.31
+1141,M. Müller,161,VfL Wolfsburg,78,2024,474,0,0,0,0,0.0
+2194,R. Bensebaïni,165,Borussia Dortmund,78,2024,2035,28,24,6,0,1.24
+7334,K. Adeyemi,165,Borussia Dortmund,78,2024,1446,27,18,4,0,1.68
+24807,S. Özcan,161,VfL Wolfsburg,78,2024,346,11,7,0,0,2.86
+24807,S. Özcan,165,Borussia Dortmund,78,2024,0,11,7,0,0,0.0
+24845,J. Ryerson,165,Borussia Dortmund,78,2024,2270,31,23,6,1,1.23
+25282,G. Kobel,165,Borussia Dortmund,78,2024,2880,0,2,1,0,0.0
+25368,W. Anton,165,Borussia Dortmund,78,2024,1948,20,20,4,0,0.92
+25926,J. Burkardt,164,FSV Mainz 05,78,2024,2120,23,24,0,0,0.98
+26243,N. Schlotterbeck,165,Borussia Dortmund,78,2024,1984,18,19,7,2,0.82
+26292,A. Meyer,165,Borussia Dortmund,78,2024,180,0,0,0,0,0.0
+161922,A. Knauff,169,Eintracht Frankfurt,78,2024,1601,27,28,3,0,1.52
+198654,D. Svensson,165,Borussia Dortmund,78,2024,779,4,7,0,0,0.46
+203269,Y. Lührs,165,Borussia Dortmund,78,2024,130,2,0,0,0,1.38
+280463,S. Ostrzinski,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+341839,F. Mané,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+368230,J. Duranville,165,Borussia Dortmund,78,2024,286,10,7,3,0,3.15
+369674,J. Bahoya,169,Eintracht Frankfurt,78,2024,925,9,7,3,0,0.88
+394667,Almugera Raouf Mohammed Kabar,165,Borussia Dortmund,78,2024,144,2,2,2,1,1.25
+549,V. Černý,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+1291,D. Vavro,161,VfL Wolfsburg,78,2024,2461,7,5,4,0,0.26
+1321,L. Majer,161,VfL Wolfsburg,78,2024,310,6,6,1,0,1.74
+1930,J. Mæhle,161,VfL Wolfsburg,78,2024,2190,9,16,5,0,0.37
+15916,A. Skov Olsen,161,VfL Wolfsburg,78,2024,532,2,3,0,0,0.34
+24952,T. Weiner,191,Holstein Kiel,78,2024,2250,1,3,4,0,0.04
+25396,P. Pervan,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+25400,Y. Gerhardt,161,VfL Wolfsburg,78,2024,1515,20,13,5,1,1.19
+25408,M. Arnold,161,VfL Wolfsburg,78,2024,2359,30,52,7,1,1.14
+30484,M. Svanberg,161,VfL Wolfsburg,78,2024,1221,16,22,4,0,1.18
+30527,Rogério,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+126642,P. Wimmer,161,VfL Wolfsburg,78,2024,1789,35,40,4,1,1.76
+149557,K. Paredes,161,VfL Wolfsburg,78,2024,125,1,4,1,0,0.72
+162409,K. Koulierakis,161,VfL Wolfsburg,78,2024,2476,24,13,4,0,0.87
+177618,K. Fischer,161,VfL Wolfsburg,78,2024,2306,34,7,6,0,1.33
+231032,M. Jenz,164,FSV Mainz 05,78,2024,1602,27,6,4,0,1.52
+231032,M. Jenz,161,VfL Wolfsburg,78,2024,0,27,6,0,0,0.0
+342188,D. Pejčinović,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+380503,Bence Dárdai,161,VfL Wolfsburg,78,2024,1312,9,16,0,0,0.62
+394740,D. Odogu,161,VfL Wolfsburg,78,2024,194,2,0,0,0,0.93
+449714,M. Angely,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+14445,I. Nekić,191,Holstein Kiel,78,2024,72,1,0,0,0,1.25
+25609,P. Erras,191,Holstein Kiel,78,2024,833,11,0,2,0,1.19
+26263,M. Engelhardt,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+26453,M. Komenda,191,Holstein Kiel,78,2024,1319,16,13,3,0,1.09
+26525,F. Porath,191,Holstein Kiel,78,2024,1972,31,37,3,0,1.41
+39315,M. Knudsen,191,Holstein Kiel,78,2024,1866,28,10,7,0,1.35
+41578,D. Zec,191,Holstein Kiel,78,2024,1545,21,7,5,0,1.22
+47696,A. Bernhardsson,191,Holstein Kiel,78,2024,1271,21,15,3,0,1.49
+48345,C. Johansson,191,Holstein Kiel,78,2024,578,5,4,0,1,0.78
+70514,A. Gigović,191,Holstein Kiel,78,2024,1906,22,28,5,0,1.04
+119002,J. Tolkin,191,Holstein Kiel,78,2024,739,2,9,0,0,0.24
+162720,M. Geschwill,191,Holstein Kiel,78,2024,1284,13,8,2,0,0.91
+201351,A. Kelati,191,Holstein Kiel,78,2024,291,4,5,2,1,1.24
+202580,L. Rosenboom,191,Holstein Kiel,78,2024,1747,19,12,3,0,0.98
+280024,R. Wagner,186,FC St. Pauli,78,2024,419,6,5,1,0,1.29
+280389,M. Cvjetinović,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+306338,M. Ivezić,191,Holstein Kiel,78,2024,1657,27,5,5,0,1.47
+371637,J. Therkelsen,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+392134,T. Doğan,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+419805,Lio Mark Rothenhagen,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+424,S. Skrzybski,191,Holstein Kiel,78,2024,1331,16,22,0,0,1.08
+8959,A. Beck,180,1. FC Heidenheim,78,2024,1656,17,14,2,0,0.92
+15732,M. Kaufmann,180,1. FC Heidenheim,78,2024,367,5,14,2,0,1.23
+24893,K. Müller,180,1. FC Heidenheim,78,2024,3120,0,3,0,0,0.0
+24897,M. Busch,180,1. FC Heidenheim,78,2024,1577,9,7,1,0,0.51
+24899,P. Mainka,180,1. FC Heidenheim,78,2024,3240,17,21,4,0,0.47
+24904,N. Dorsch,180,1. FC Heidenheim,78,2024,1350,0,2,5,1,0.0
+24904,N. Dorsch,170,FC Augsburg,78,2024,31,0,2,0,0,0.0
+24979,J. Föhrenbach,180,1. FC Heidenheim,78,2024,1833,15,4,3,0,0.74
+25203,B. Gimber,180,1. FC Heidenheim,78,2024,2678,62,49,9,0,2.08
+25502,O. Traoré,180,1. FC Heidenheim,78,2024,2801,24,41,7,0,0.77
+125723,T. Keller,180,1. FC Heidenheim,78,2024,146,6,4,2,0,3.7
+127619,J. Schöppner,180,1. FC Heidenheim,78,2024,2866,35,23,8,0,1.1
+177815,T. Siersleben,180,1. FC Heidenheim,78,2024,1185,21,8,4,0,1.59
+202514,P. Harres,191,Holstein Kiel,78,2024,1545,35,20,3,0,2.04
+202804,M. Müller,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+203011,J. Niehues,180,1. FC Heidenheim,78,2024,149,1,2,1,0,0.6
+280055,L. Kerber,180,1. FC Heidenheim,78,2024,862,23,9,5,0,2.4
+327887,Luka Janes,180,1. FC Heidenheim,78,2024,0,0,0,0,0,0.0
+327897,A. Ibrahimović,157,Bayern München,78,2024,1,0,0,0,0,0.0
+328008,Frank  Feller,180,1. FC Heidenheim,78,2024,120,0,0,0,0,0.0
+98,B. Henrichs,173,RB Leipzig,78,2024,934,13,9,3,0,1.25
+1148,W. Orbán,173,RB Leipzig,78,2024,2224,23,14,4,2,0.93
+1167,Y. Poulsen,173,RB Leipzig,78,2024,382,8,14,1,0,1.88
+1924,M. Vandevoordt,173,RB Leipzig,78,2024,428,0,0,0,0,0.0
+3013,D. Kownacki,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+24641,B. Zivzivadze,180,1. FC Heidenheim,78,2024,1079,10,15,0,0,0.83
+24814,L. Zingerle,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+24955,M. Honsak,180,1. FC Heidenheim,78,2024,1338,15,14,1,0,1.01
+26342,L. Pfeiffer,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+26530,S. Schimmer,180,1. FC Heidenheim,78,2024,255,2,1,1,0,0.71
+125720,S. Conteh,180,1. FC Heidenheim,78,2024,912,9,11,2,0,0.89
+126530,Daniel Peretz,157,Bayern München,78,2024,270,0,2,1,0,0.0
+128849,M. Breunig,180,1. FC Heidenheim,78,2024,348,8,5,0,0,2.07
+177452,L. Petkov,170,FC Augsburg,78,2024,0,3,1,0,0,0.0
+178106,M. Pieringer,180,1. FC Heidenheim,78,2024,2291,50,46,7,0,1.96
+260898,N. Remberg,191,Holstein Kiel,78,2024,2420,43,46,11,0,1.6
+268571,E. Bitshiabu,173,RB Leipzig,78,2024,1130,8,2,2,1,0.64
+342170,M. Krattenmacher,157,Bayern München,78,2024,0,0,0,0,0,0.0
+394665,Jarzinho Ataide Adriano de Nascimento Malanga,172,VfB Stuttgart,78,2024,1,0,0,0,0,0.0
+416268,Fernando Dickes,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+86,L. Openda,173,RB Leipzig,78,2024,2463,29,77,5,1,1.06
+715,C. Baumgartner,173,RB Leipzig,78,2024,1623,44,29,5,0,2.44
+1095,X. Schlager,173,RB Leipzig,78,2024,181,4,3,1,0,1.99
+1144,L. Klostermann,173,RB Leipzig,78,2024,1837,13,7,5,0,0.64
+1153,A. Haidara,173,RB Leipzig,78,2024,1334,23,8,7,0,1.55
+1155,K. Kampl,173,RB Leipzig,78,2024,1596,20,7,5,0,1.13
+2801,J. Omlin,163,Borussia Mönchengladbach,78,2024,979,1,1,0,1,0.09
+7328,N. Seiwald,173,RB Leipzig,78,2024,2080,27,2,2,0,1.17
+25158,D. Raum,173,RB Leipzig,78,2024,1788,23,10,5,0,1.16
+25626,M. Nicolas,163,Borussia Mönchengladbach,78,2024,1640,0,0,0,0,0.0
+25627,T. Sippel,163,Borussia Mönchengladbach,78,2024,58,0,0,0,0,0.0
+162761,C. Lukeba,173,RB Leipzig,78,2024,1578,12,15,2,0,0.68
+314511,A. Nusa,173,RB Leipzig,78,2024,1564,14,28,0,0,0.81
+340154,A. Vermeeren,173,RB Leipzig,78,2024,1585,22,1,7,0,1.25
+340155,T. Pereira Cardoso,163,Borussia Mönchengladbach,78,2024,379,0,0,0,0,0.0
+343286,E. Banzuzi,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+380978,A. Ouédraogo,173,RB Leipzig,78,2024,47,1,3,0,0,1.91
+383665,T. Gomis,173,RB Leipzig,78,2024,153,3,2,2,0,1.76
+394666,Robert Ramsak,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+469695,V. Gebel,173,RB Leipzig,78,2024,13,0,1,0,0,0.0
+725,R. Hack,163,Borussia Mönchengladbach,78,2024,2189,19,21,4,0,0.78
+2803,N. Elvedi,163,Borussia Mönchengladbach,78,2024,2136,9,14,1,0,0.38
+20784,F. Honorat,163,Borussia Mönchengladbach,78,2024,1453,7,5,0,0,0.43
+22148,N. Ngoumou,163,Borussia Mönchengladbach,78,2024,848,7,12,0,0,0.74
+24839,M. Friedrich,163,Borussia Mönchengladbach,78,2024,991,5,4,0,0,0.45
+24969,P. Sander,163,Borussia Mönchengladbach,78,2024,1407,16,7,2,0,1.02
+25461,K. Stöger,163,Borussia Mönchengladbach,78,2024,1553,22,40,3,0,1.27
+25638,F. Neuhaus,163,Borussia Mönchengladbach,78,2024,366,4,7,1,0,0.98
+26256,T. Kleindienst,163,Borussia Mönchengladbach,78,2024,2743,75,25,5,1,2.46
+28382,H. Tabaković,167,1899 Hoffenheim,78,2024,818,15,8,0,0,1.65
+50852,J. Scally,163,Borussia Mönchengladbach,78,2024,2586,23,48,6,0,0.8
+163069,L. Netz,163,Borussia Mönchengladbach,78,2024,962,8,6,2,0,0.75
+180298,O. Fraulo,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+203007,R. Reitz,163,Borussia Mönchengladbach,78,2024,1841,20,38,1,0,0.98
+280358,J. Castrop,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+280427,G. Ranos,163,Borussia Mönchengladbach,78,2024,18,1,0,1,0,5.0
+322627,F. Chiarodia,163,Borussia Mönchengladbach,78,2024,385,7,0,0,0,1.64
+327646,L. Ullrich,163,Borussia Mönchengladbach,78,2024,1916,22,17,4,0,1.03
+412705,Charles Herrmann,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+442151,Niklas Swider,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+14395,K. Jakić,170,FC Augsburg,78,2024,2310,23,28,2,0,0.9
+14553,N. Labrović,170,FC Augsburg,78,2024,1350,0,2,0,0,0.0
+15901,M. Pedersen,170,FC Augsburg,78,2024,231,5,1,0,0,1.95
+20634,A. Claude-Maurice,170,FC Augsburg,78,2024,2125,26,42,4,0,1.1
+25144,M. Bauer,170,FC Augsburg,78,2024,657,7,13,1,0,0.96
+25290,J. Gouweleeuw,170,FC Augsburg,78,2024,2945,22,13,9,0,0.67
+25355,A. Maier,170,FC Augsburg,78,2024,924,9,7,0,1,0.88
+25903,F. Dahmen,170,FC Augsburg,78,2024,1710,0,1,0,0,0.0
+26242,K. Schlotterbeck,170,FC Augsburg,78,2024,1298,10,11,4,1,0.69
+48574,C. Zesiger,170,FC Augsburg,78,2024,1228,15,7,6,0,1.1
+48574,C. Zesiger,161,VfL Wolfsburg,78,2024,520,15,7,4,0,2.6
+163032,F. Rieder,172,VfB Stuttgart,78,2024,864,14,11,1,0,1.46
+163039,C. Matsima,170,FC Augsburg,78,2024,2551,10,10,4,0,0.35
+163064,D. Klein,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+202755,T. Breithaupt,170,FC Augsburg,78,2024,122,2,3,0,0,1.48
+328019,M. Kücüksahin,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+348888,M. Kömür,170,FC Augsburg,78,2024,646,7,12,1,0,0.98
+363638,L. Opitz,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+405112,S. Fukuda,163,Borussia Mönchengladbach,78,2024,61,2,0,0,0,2.95
+413065,Noahkai Kai Daniel Banks,170,FC Augsburg,78,2024,281,2,1,2,0,0.64
+468698,Felix Meiser,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+26,M. Wolf,170,FC Augsburg,78,2024,2168,19,14,2,0,0.79
+713,K. Vogt,182,Union Berlin,78,2024,1371,10,7,6,0,0.66
+9026,N. Vasilj,186,FC St. Pauli,78,2024,2970,1,1,2,1,0.03
+22260,I. Sissoko,176,VfL Bochum,78,2024,2624,75,29,11,1,2.57
+24785,T. Horn,176,VfL Bochum,78,2024,1170,0,2,2,0,0.0
+25151,M. Wittek,176,VfL Bochum,78,2024,2715,34,34,8,0,1.13
+25413,E. Rexhbeçaj,170,FC Augsburg,78,2024,1792,13,42,8,0,0.65
+26171,P. Tietz,170,FC Augsburg,78,2024,1684,36,12,4,0,1.92
+26227,M. Broschinski,176,VfL Bochum,78,2024,1385,28,18,1,0,1.82
+48629,N. Loosli,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+61411,E. Mašović,176,VfL Bochum,78,2024,913,12,4,2,0,1.18
+127929,N. Thiede,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+145059,M. Kwarteng,176,VfL Bochum,78,2024,166,3,1,1,0,1.63
+162476,C. Kleine-Bekel,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+323974,E. Saad,186,FC St. Pauli,78,2024,912,17,24,1,0,1.68
+336224,M. Pannewig,176,VfL Bochum,78,2024,256,5,1,1,0,1.76
+380643,Hugo Johannes Walter Rölleke,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+392254,Francis-Ikechukwu Onyeka,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+397740,K. WÃ¤tjen,165,Borussia Dortmund,78,2024,15,0,1,0,0,0.0
+480847,K. Koscierski,176,VfL Bochum,78,2024,6,0,0,0,0,0.0
+702,O. Baumann,167,1899 Hoffenheim,78,2024,2520,0,6,1,0,0.0
+6904,C. Metcalfe,186,FC St. Pauli,78,2024,371,5,4,2,1,1.21
+7649,D. Nemeth,186,FC St. Pauli,78,2024,2141,21,14,3,0,0.88
+8486,E. Smith,186,FC St. Pauli,78,2024,2829,27,24,7,0,0.86
+24961,H. Wahl,186,FC St. Pauli,78,2024,2970,13,15,1,0,0.39
+25366,K. Akpoguma,167,1899 Hoffenheim,78,2024,2213,25,23,3,0,1.02
+27157,M. Saliakas,186,FC St. Pauli,78,2024,2328,16,15,4,0,0.62
+47965,E. Ahlstrand,186,FC St. Pauli,78,2024,40,0,0,0,0,0.0
+48142,K. Mets,186,FC St. Pauli,78,2024,900,7,5,1,0,0.7
+50863,J. Sands,186,FC St. Pauli,78,2024,451,11,5,1,0,2.2
+90731,L. Ritzka,186,FC St. Pauli,78,2024,925,10,6,1,0,0.97
+119167,B. Voll,186,FC St. Pauli,78,2024,91,0,0,1,0,0.0
+162964,R. Hranáč,167,1899 Hoffenheim,78,2024,219,5,0,0,0,2.05
+163066,L. Philipp,167,1899 Hoffenheim,78,2024,540,0,0,0,0,0.0
+288097,L. Petersson,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+304686,Arthur Chaves,167,1899 Hoffenheim,78,2024,2191,38,19,8,0,1.56
+327861,T. Drexler,167,1899 Hoffenheim,78,2024,356,8,2,2,0,2.02
+344284,Romeo Aigbekaen,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+449985,Marwin Reiner Ian Schmitz,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+474789,Abdoulie Ceesay,186,FC St. Pauli,78,2024,75,2,3,1,0,2.4
+718,D. Geiger,167,1899 Hoffenheim,78,2024,744,26,10,4,0,3.15
+7327,A. Prass,167,1899 Hoffenheim,78,2024,1576,17,25,1,0,0.97
+24854,G. Prömel,167,1899 Hoffenheim,78,2024,175,0,3,0,0,0.0
+24932,F. Becker,167,1899 Hoffenheim,78,2024,666,5,7,1,0,0.68
+25389,I. Bebou,167,1899 Hoffenheim,78,2024,8,0,0,0,0,0.0
+127631,V. Gendrey,167,1899 Hoffenheim,78,2024,1416,12,27,1,0,0.76
+162723,M. John,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+202501,F. Asllani,167,1899 Hoffenheim,78,2024,0,1,3,0,0,0.0
+203337,N. König,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+279907,U. Tohumcu,167,1899 Hoffenheim,78,2024,370,6,6,3,0,1.46
+279913,L. Đurić,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+280453,Juan Cabrera,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+328262,M. Damar,167,1899 Hoffenheim,78,2024,0,3,3,0,0,0.0
+334092,Noah Pesch,163,Borussia Mönchengladbach,78,2024,9,1,0,0,0,10.0
+342268,L. Ulrich,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+350047,D. Mokwa,167,1899 Hoffenheim,78,2024,31,1,0,0,0,2.9
+353143,Hennes Behrens,167,1899 Hoffenheim,78,2024,28,0,1,0,0,0.0
+368260,G. Orban,167,1899 Hoffenheim,78,2024,690,15,7,2,0,1.96
+387643,B. Touré,167,1899 Hoffenheim,78,2024,618,13,3,1,0,1.89
+387973,Max Moerstedt,167,1899 Hoffenheim,78,2024,449,6,10,2,0,1.2
+979,D. Kohr,164,FSV Mainz 05,78,2024,2306,46,36,11,1,1.8
+1812,D. da Costa,164,FSV Mainz 05,78,2024,2011,19,4,0,0,0.85
+2906,Lee Jae-Sung,164,FSV Mainz 05,78,2024,2663,23,40,4,0,0.78
+4145,S. Simoni,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+14605,I. Prtajin,182,Union Berlin,78,2024,167,1,1,0,0,0.54
+22244,A. Caci,164,FSV Mainz 05,78,2024,2704,37,11,6,0,1.23
+25066,M. Leitsch,164,FSV Mainz 05,78,2024,677,10,4,2,0,1.33
+25906,R. Zentner,164,FSV Mainz 05,78,2024,2880,1,2,3,0,0.03
+25907,S. Bell,164,FSV Mainz 05,78,2024,1435,24,10,4,0,1.51
+25915,P. Mwene,164,FSV Mainz 05,78,2024,2620,24,24,7,0,0.82
+33889,K. Sano,164,FSV Mainz 05,78,2024,3045,16,33,3,0,0.47
+39279,A. Hanche-Olsen,164,FSV Mainz 05,78,2024,1279,20,8,4,1,1.41
+48378,S. Widmer,164,FSV Mainz 05,78,2024,543,5,4,3,0,0.83
+90829,D. Batz,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+177745,F. Alidou,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+180553,L. Rieß,164,FSV Mainz 05,78,2024,180,0,0,1,0,0.0
+202736,P. Nebel,164,FSV Mainz 05,78,2024,2348,37,38,4,0,1.42
+283753,N. Veratschnig,164,FSV Mainz 05,78,2024,370,9,6,1,0,2.19
+380603,Daniel Gleiber,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+394735,Maxim Bora Dal,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+13,D. Zagadou,172,VfB Stuttgart,78,2024,31,1,0,1,0,2.9
+399,A. Nübel,172,VfB Stuttgart,78,2024,3060,0,4,0,0,0.0
+714,N. Amiri,164,FSV Mainz 05,78,2024,2481,44,51,9,2,1.6
+22097,A. Nordin,164,FSV Mainz 05,78,2024,86,1,3,0,0,1.05
+24806,N. Nartey,172,VfB Stuttgart,78,2024,21,0,0,0,0,0.0
+24868,J. Vagnoman,172,VfB Stuttgart,78,2024,1836,18,20,4,0,0.88
+24963,A. Karazor,172,VfB Stuttgart,78,2024,2626,37,59,10,1,1.27
+25342,M. Mittelstädt,172,VfB Stuttgart,78,2024,2475,24,38,5,0,0.87
+25597,F. Bredlow,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+26244,P. Stenzel,172,VfB Stuttgart,78,2024,288,4,2,0,0,1.25
+38112,J. Chabot,172,VfB Stuttgart,78,2024,2280,35,28,11,1,1.38
+48481,L. Stergiou,172,VfB Stuttgart,78,2024,857,6,0,0,1,0.63
+135883,R. Hendriks,172,VfB Stuttgart,78,2024,1166,12,14,3,0,0.93
+137210,A. Stiller,172,VfB Stuttgart,78,2024,2743,21,48,6,0,0.69
+162946,B. Hollerbach,182,Union Berlin,78,2024,2556,42,45,3,0,1.48
+178093,Y. Keitel,172,VfB Stuttgart,78,2024,277,2,6,1,0,0.65
+178217,S. Drljača,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+342177,N. Weiper,164,FSV Mainz 05,78,2024,710,19,0,2,0,2.41
+349344,L. Jaquez,172,VfB Stuttgart,78,2024,253,4,0,0,0,1.42
+394734,Finn Jeltsch,172,VfB Stuttgart,78,2024,794,7,5,2,0,0.79
+663,M. Terrier,168,Bayer Leverkusen,78,2024,583,2,9,1,0,0.31
+6002,E. Palacios,168,Bayer Leverkusen,78,2024,1158,9,18,2,0,0.7
+20617,S. Katompa Mvumpa,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+24798,C. Führich,172,VfB Stuttgart,78,2024,1991,9,6,1,0,0.41
+24903,R. Andrich,168,Bayer Leverkusen,78,2024,1611,29,17,7,0,1.62
+25168,N. Lomb,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+25635,J. Hofmann,168,Bayer Leverkusen,78,2024,367,1,9,1,0,0.25
+37246,J. Blaswich,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+39071,V. Boniface,168,Bayer Leverkusen,78,2024,1015,14,8,2,0,1.24
+128533,J. Leweling,172,VfB Stuttgart,78,2024,1677,17,29,4,0,0.91
+287927,J. Diehl,172,VfB Stuttgart,78,2024,98,2,0,0,0,1.84
+324034,G. Puerta,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+327993,D. Seimen,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+343316,J. Belocian,168,Bayer Leverkusen,78,2024,68,1,4,1,0,1.32
+352375,Arthur,168,Bayer Leverkusen,78,2024,765,20,6,1,0,2.35
+380587,I. Maza,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+414384,A. Sarco,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+431946,Bennit Bröger,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+462228,A. Natali,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+486523,B. Hawighorst,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+794,P. Schick,168,Bayer Leverkusen,78,2024,1693,24,23,4,0,1.28
+2915,M. Ginter,160,SC Freiburg,78,2024,2558,13,26,5,0,0.46
+2917,M. Eggestein,160,SC Freiburg,78,2024,2855,22,24,4,0,0.69
+15874,A. Jung,162,Werder Bremen,78,2024,1905,9,15,1,0,0.43
+24841,C. Lenz,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+25313,J. Beste,180,1. FC Heidenheim,78,2024,0,3,6,0,0,0.0
+25313,J. Beste,160,SC Freiburg,78,2024,210,3,6,0,0,1.29
+25383,F. Muslija,160,SC Freiburg,78,2024,160,0,2,0,0,0.0
+25904,J. Huth,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+25905,F. Müller,160,SC Freiburg,78,2024,752,0,1,0,0,0.0
+26236,C. Günter,160,SC Freiburg,78,2024,2323,14,4,0,0,0.54
+26239,L. Kübler,160,SC Freiburg,78,2024,1850,25,23,5,0,1.22
+26240,P. Lienhart,160,SC Freiburg,78,2024,2772,22,19,5,0,0.71
+162502,M. Lotka,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+178768,N. Atubolu,160,SC Freiburg,78,2024,2308,0,0,2,0,0.0
+178769,P. Treu,186,FC St. Pauli,78,2024,2885,20,36,2,0,0.62
+191160,J. Makengo,160,SC Freiburg,78,2024,753,5,6,1,0,0.6
+202843,K. Schmidt,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+202919,M. Rosenfelder,160,SC Freiburg,78,2024,1242,9,14,2,0,0.65
+339230,L. Raimund,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+361393,I. Ogbus,160,SC Freiburg,78,2024,17,1,0,0,0,5.29
+24,M. Philipp,160,SC Freiburg,78,2024,15,0,0,0,0,0.0
+1798,F. Rønnow,182,Union Berlin,78,2024,2520,0,4,2,0,0.0
+24815,C. Antwi-Adjei,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+25307,M. Richter,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+25530,D. Kyereh,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+26248,V. Grifo,160,SC Freiburg,78,2024,2453,15,12,2,0,0.55
+26250,N. Höfler,160,SC Freiburg,78,2024,782,12,5,3,0,1.38
+26255,L. Höler,160,SC Freiburg,78,2024,1882,30,30,3,0,1.43
+90977,T. Becker,191,Holstein Kiel,78,2024,2447,9,9,2,0,0.33
+108475,P. Pfeiffer,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+125173,J. Adamu,160,SC Freiburg,78,2024,1554,38,22,5,1,2.2
+127471,C. Klaus,182,Union Berlin,78,2024,0,0,0,0,0,0.0
+163022,P. Osterhage,160,SC Freiburg,78,2024,2274,25,22,6,1,0.99
+199143,Y. Suzuki,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+202526,E. Dinkçi,160,SC Freiburg,78,2024,1193,9,6,1,0,0.68
+286710,D. Scherhant,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+286728,Y. Stein,182,Union Berlin,78,2024,0,0,0,0,0,0.0
+406244,J. Manzambi,160,SC Freiburg,78,2024,339,7,7,2,0,1.86
+412847,Oluwaseun God Power Osaro Ogbemudia,182,Union Berlin,78,2024,0,0,0,0,0,0.0
+431149,Cyriaque Kalou Irié,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+270,S. Nsoki,167,1899 Hoffenheim,78,2024,1324,12,6,3,1,0.82
+497,M. Neuer,157,Bayern München,78,2024,1980,0,1,0,0,0.0
+498,S. Ulreich,157,Bayern München,78,2024,90,0,0,0,0,0.0
+512,Jeong Woo-Yeong,182,Union Berlin,78,2024,1272,16,15,2,0,1.13
+512,Jeong Woo-Yeong,172,VfB Stuttgart,78,2024,0,16,15,0,0,0.0
+664,L. Tousart,182,Union Berlin,78,2024,557,11,6,2,0,1.78
+1298,R. Skov,182,Union Berlin,78,2024,863,14,10,1,0,1.46
+14330,J. Juranović,182,Union Berlin,78,2024,1168,8,6,4,0,0.62
+24848,C. Trimmel,182,Union Berlin,78,2024,1743,14,5,5,0,0.72
+24910,T. Skarke,182,Union Berlin,78,2024,1155,10,15,1,0,0.78
+25242,M. Bülter,167,1899 Hoffenheim,78,2024,1739,11,36,4,0,0.57
+25300,R. Khedira,182,Union Berlin,78,2024,2727,44,18,7,0,1.45
+26249,J. Haberer,182,Union Berlin,78,2024,1714,22,15,1,0,1.16
+30785,A. Schäfer,182,Union Berlin,78,2024,1535,27,33,3,0,1.58
+37117,D. Doekhi,182,Union Berlin,78,2024,3060,36,14,4,0,1.06
+45892,A. Ilić,182,Union Berlin,78,2024,943,14,8,1,0,1.34
+288206,L. Querfeld,182,Union Berlin,78,2024,1750,20,13,8,0,1.03
+292218,M. LjubiÄiÄ,182,Union Berlin,78,2024,270,9,8,1,0,3.0
+327831,A. Kemlein,182,Union Berlin,78,2024,925,15,2,3,0,1.46
+327956,David Preu,182,Union Berlin,78,2024,119,1,1,1,0,0.76
+435089,Leon Klanac,157,Bayern München,78,2024,0,0,0,0,0,0.0
+8,Raphaël Guerreiro,157,Bayern München,78,2024,1581,9,7,2,0,0.51
+502,J. Kimmich,157,Bayern München,78,2024,2847,15,27,3,0,0.47
+509,A. Davies,157,Bayern München,78,2024,1561,8,26,0,0,0.46
+511,L. Goretzka,157,Bayern München,78,2024,1321,12,11,2,0,0.82
+1149,D. Upamecano,157,Bayern München,78,2024,1761,20,11,6,0,1.02
+1157,K. Laimer,157,Bayern München,78,2024,1704,35,12,7,0,1.85
+25147,P. Jaeckel,182,Union Berlin,78,2024,0,0,0,0,0,0.0
+32893,H. Ito,157,Bayern München,78,2024,257,2,3,1,0,0.7
+105887,F. Hartmann,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+125171,J. Stanišić,157,Bayern München,78,2024,872,2,4,0,0,0.21
+181812,J. Musiala,157,Bayern München,78,2024,1804,20,55,3,0,1.0
+202481,J. Sterner,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+203229,N. Oberbeck,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+203376,J. Urbig,157,Bayern München,78,2024,720,0,0,0,0,0.0
+281926,L. Wilhelm,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+322505,M. Wenig,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+328033,A. Pavlović,157,Bayern München,78,2024,1457,17,9,2,0,1.05
+344290,M. Schmitt,157,Bayern München,78,2024,0,0,0,0,0,0.0
+494131,L. Karl,157,Bayern München,78,2024,0,0,0,0,0,0.0
+496738,W. Mike,157,Bayern München,78,2024,0,0,0,0,0,0.0
+683,I. Ordets,176,VfL Bochum,78,2024,1862,22,19,6,0,1.06
+989,K. Volland,182,Union Berlin,78,2024,57,3,0,1,0,4.74
+24891,V. Eicher,180,1. FC Heidenheim,78,2024,0,0,0,0,0,0.0
+24911,N. Theuerkauf,180,1. FC Heidenheim,78,2024,21,1,0,0,0,4.29
+25074,A. Losilla,176,VfL Bochum,78,2024,1138,18,9,1,0,1.42
+25084,S. Zoller,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+25141,S. Burchert,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+25288,R. Framberger,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+25404,J. Roussillon,182,Union Berlin,78,2024,131,1,3,0,0,0.69
+25637,C. Kramer,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+40271,T. Dähne,191,Holstein Kiel,78,2024,810,1,1,0,0,0.11
+48456,M. Schulz,191,Holstein Kiel,78,2024,312,6,1,3,0,1.73
+128815,P. Grave,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+129135,R. Johansson,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+178146,C. Boukhalfa,186,FC St. Pauli,78,2024,1654,18,17,1,0,0.98
+178425,S. Ahlers,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+203140,T. Köther,180,1. FC Heidenheim,78,2024,0,0,0,0,0,0.0
+336233,M. Tolba,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+340676,M. Monamay,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+374505,C. Negele,180,1. FC Heidenheim,78,2024,0,0,0,0,0,0.0
+716,L. Bittencourt,162,Werder Bremen,78,2024,973,15,19,3,0,1.39
+2916,N. Stark,162,Werder Bremen,78,2024,2110,30,28,6,1,1.28
+7562,R. Schmid,162,Werder Bremen,78,2024,2846,28,42,4,0,0.89
+15972,A. Albers,186,FC St. Pauli,78,2024,47,3,2,0,0,5.74
+25058,M. Riemann,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+25192,K. Behrens,161,VfL Wolfsburg,78,2024,152,4,1,2,0,2.37
+25314,M. Friedl,162,Werder Bremen,78,2024,2165,26,16,9,1,1.08
+25455,A. Barkok,164,FSV Mainz 05,78,2024,69,2,1,0,0,2.61
+26319,F. Agu,162,Werder Bremen,78,2024,1761,11,43,1,0,0.56
+38798,S. Lynen,162,Werder Bremen,78,2024,2744,39,25,9,0,1.28
+129133,N. Klinger,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+162887,E. Millot,172,VfB Stuttgart,78,2024,1852,25,37,9,0,1.21
+177807,J. Njinmah,162,Werder Bremen,78,2024,958,7,17,1,0,0.66
+328214,M. Loune,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+340089,Florian Micheler,167,1899 Hoffenheim,78,2024,31,1,0,1,0,2.9
+341250,Benjamin Bediako Boakye,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+413072,Nuha Jatta,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+419627,O. Raterink,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+435086,T. Neininger,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+479269,F. Sakar,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+7073,M. Grüll,162,Werder Bremen,78,2024,1198,22,31,1,0,1.65
+7305,B. Pichler,191,Holstein Kiel,78,2024,791,14,16,1,0,1.59
+8673,O. Deman,162,Werder Bremen,78,2024,58,1,2,1,0,1.55
+177661,J. Justvan,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+202792,R. Elongo-Yombo,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+207229,P. Tschernuth,180,1. FC Heidenheim,78,2024,0,0,0,0,0,0.0
+278736,D. Hausmann,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+289460,J. Malatini,162,Werder Bremen,78,2024,452,9,5,1,0,1.79
+319858,H. Koudossou,170,FC Augsburg,78,2024,741,7,5,1,0,0.85
+329578,M. Backhaus,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+330612,T. Buchmann,157,Bayern München,78,2024,0,0,0,0,0,0.0
+334334,K. Topp,162,Werder Bremen,78,2024,270,8,6,1,0,2.67
+342171,N. Aséko Nkili,157,Bayern München,78,2024,0,0,0,0,0,0.0
+353142,Berkay Yilmaz,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+355176,Kofi Jeremy Amoako,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+440147,Abdoul Karim Coulibaly,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+444975,Artem Stepanov,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+448468,P. Čović,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+455290,Wesley Adeh,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+467927,A. Siljevic,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+3,E. Oelschlägel,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+709,P. Kadeřábek,167,1899 Hoffenheim,78,2024,1576,21,8,6,0,1.2
+24836,J. Busk,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+24887,J. Arp,191,Holstein Kiel,78,2024,695,20,18,7,0,2.59
+25297,M. Gregoritsch,160,SC Freiburg,78,2024,629,7,5,2,0,1.0
+25299,F. Jensen,170,FC Augsburg,78,2024,772,5,5,0,0,0.58
+26235,M. Gulde,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+43246,A. Laïdouni,182,Union Berlin,78,2024,0,0,0,0,0,0.0
+119685,D. Čolina,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+129132,F. Rüdlin,160,SC Freiburg,78,2024,0,0,0,0,0,0.0
+146044,A. Elezi,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+161919,Y. Moukoko,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+177748,M. Łukowicz,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+178288,D. Mamutovic,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+202522,A. Nankishi,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+202647,L. Günther,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+265386,D. Javorček,191,Holstein Kiel,78,2024,408,7,6,2,0,1.54
+339225,B. Winter,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+346723,M. Dahaba,186,FC St. Pauli,78,2024,0,0,0,0,0,0.0
+449076,Nils Ramming,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+25292,P. Max,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+88008,C. Röcker,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+158053,A. Azhil,165,Borussia Dortmund,78,2024,23,2,0,1,0,7.83
+178405,J. Olschowsky,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+178407,M. Brüll,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+208190,T. Kastanaras,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+279875,N. Jessen,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+280335,F. Krätzig,180,1. FC Heidenheim,78,2024,1225,7,4,1,0,0.51
+280335,F. Krätzig,172,VfB Stuttgart,78,2024,57,7,4,0,0,11.05
+293603,Guille Bueno,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+327664,V. Stange,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+328009,Seedy Jarju,180,1. FC Heidenheim,78,2024,0,0,0,0,0,0.0
+329472,N. Jahn,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+330600,A. Aourir,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+342173,S. Walde,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+342442,K. Lisztes,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+361981,A. Chase,172,VfB Stuttgart,78,2024,737,12,2,1,0,1.47
+380564,Lennart Koerdt,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+380575,Manuel Braun,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+385260,J. Paulina,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+431914,Jonathan Akaegbobi,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+973,M. Weiser,162,Werder Bremen,78,2024,2870,30,45,8,0,0.94
+1082,S. Lainer,163,Borussia Mönchengladbach,78,2024,744,11,6,2,0,1.33
+1323,Dani Olmo,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+25011,A. Pieper,162,Werder Bremen,78,2024,1517,11,11,3,0,0.65
+25326,J. Eggestein,186,FC St. Pauli,78,2024,1869,11,12,3,0,0.53
+25519,M. Kolke,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+25928,K. Onisiwo,164,FSV Mainz 05,78,2024,125,3,2,0,0,2.16
+48471,R. Vargas,170,FC Augsburg,78,2024,305,5,3,3,0,1.48
+129072,Y. Vertessen,182,Union Berlin,78,2024,722,14,17,2,0,1.75
+162123,I. Moriba,173,RB Leipzig,78,2024,0,0,0,0,0,0.0
+193720,S. Alvero,162,Werder Bremen,78,2024,226,7,5,1,0,2.79
+279924,D. Salifou,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+280431,S. Fofana,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+318531,Y. Borges Sanches,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+327660,A. Wagbe,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+328464,M. Cissé,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+361523,S. Kalambayi,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+380522,Lars Strobl,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+395559,Kerim-Sam Alajbegović,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+444984,Mick Schmetgens,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+539,D. de Wit,176,VfL Bochum,78,2024,1167,24,12,1,0,1.85
+963,L. Hrádecký,168,Bayer Leverkusen,78,2024,2610,0,2,1,0,0.0
+1800,K. Trapp,169,Eintracht Frankfurt,78,2024,2296,0,1,0,0,0.0
+8683,I. Cardona,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+15592,J. Stage,162,Werder Bremen,78,2024,2211,37,30,10,0,1.51
+16367,W. Pacho,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+21570,N. Cozza,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+22264,L. Ajorque,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+23643,M. Guilavogui,186,FC St. Pauli,78,2024,1816,48,34,6,0,2.38
+25646,A. Pléa,163,Borussia Mönchengladbach,78,2024,1914,17,33,3,0,0.8
+36907,M. Boadu,176,VfL Bochum,78,2024,1042,11,6,2,0,0.95
+37083,B. Simakala,191,Holstein Kiel,78,2024,0,0,0,0,0,0.0
+38114,K. Itakura,163,Borussia Mönchengladbach,78,2024,2790,28,12,5,0,0.9
+129670,N. Mbuku,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+129681,A. Rouault,172,VfB Stuttgart,78,2024,1215,19,8,1,0,1.41
+162568,S. Coulibaly,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+191233,K. Sildillia,160,SC Freiburg,78,2024,791,10,9,2,0,1.14
+202017,W. Faghir,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+327895,P. Wanner,180,1. FC Heidenheim,78,2024,1780,25,19,2,0,1.26
+386276,Paris Josua  Brunner,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+522,T. Müller,157,Bayern München,78,2024,1255,14,12,3,0,1.0
+1083,J. Onguéné,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+1094,D. Samassékou,167,1899 Hoffenheim,78,2024,295,5,4,0,0,1.53
+1221,S. Azmoun,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+2669,Hermoso,168,Bayer Leverkusen,78,2024,292,2,1,0,0,0.62
+3001,R. Gumny,170,FC Augsburg,78,2024,268,4,4,2,0,1.34
+8625,C. Bedia,182,Union Berlin,78,2024,0,0,0,0,0,0.0
+22147,M. Koné,163,Borussia Mönchengladbach,78,2024,0,0,0,0,0,0.0
+22250,M. Simakan,173,RB Leipzig,78,2024,55,0,1,0,0,0.0
+24968,M. Okugawa,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+25268,L. Daschner,176,VfL Bochum,78,2024,404,4,2,0,0,0.89
+25406,F. Uduokhai,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+26234,A. Schwolow,182,Union Berlin,78,2024,540,0,0,0,0,0.0
+28443,A. Szalai,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+30422,R. Gosens,182,Union Berlin,78,2024,90,5,0,1,0,5.0
+127413,A. Vranckx,161,VfL Wolfsburg,78,2024,571,12,11,1,0,1.89
+162210,A. Engels,170,FC Augsburg,78,2024,80,3,1,1,0,3.38
+207236,Ö. Beyaz,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+237068,A. Balde,176,VfL Bochum,78,2024,87,1,0,1,0,1.03
+415723,Robin Lisewski,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+508,K. Coman,157,Bayern München,78,2024,1283,9,12,0,0,0.63
+545,N. Mazraoui,157,Bayern München,78,2024,0,0,0,0,0,0.0
+1146,N. Mukiele,168,Bayer Leverkusen,78,2024,904,6,14,4,0,0.6
+1464,G. Xhaka,168,Bayer Leverkusen,78,2024,2892,33,34,3,0,1.03
+1809,Tuta,169,Eintracht Frankfurt,78,2024,2277,30,9,8,0,1.19
+20995,M. Lacroix,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+24917,D. Thomalla,180,1. FC Heidenheim,78,2024,0,0,0,0,0,0.0
+37143,L. Geertruida,173,RB Leipzig,78,2024,1570,17,6,3,0,0.97
+39073,J. Hauge,169,Eintracht Frankfurt,78,2024,0,0,0,0,0,0.0
+81573,Omar Marmoush,169,Eintracht Frankfurt,78,2024,1455,8,55,2,0,0.49
+127817,P. Hincapié,168,Bayer Leverkusen,78,2024,2670,26,43,8,0,0.88
+129682,A. Adli,168,Bayer Leverkusen,78,2024,756,15,9,3,0,1.79
+138935,C. Chukwuemeka,165,Borussia Dortmund,78,2024,245,4,5,1,0,1.47
+152654,J. Frimpong,168,Bayer Leverkusen,78,2024,2326,20,31,4,0,0.77
+162016,X. Simons,173,RB Leipzig,78,2024,2157,24,56,5,0,1.0
+174565,H. Ekitike,169,Eintracht Frankfurt,78,2024,2581,39,17,1,0,1.36
+202854,M. Röhl,160,SC Freiburg,78,2024,966,21,19,2,0,1.96
+203224,F. Wirtz,168,Bayer Leverkusen,78,2024,2354,22,39,3,0,0.84
+270510,M. Tel,157,Bayern München,78,2024,252,5,6,0,0,1.79
+286894,J. Bynoe-Gittens,165,Borussia Dortmund,78,2024,1797,25,44,4,0,1.25
+22,J. Bruun Larsen,172,VfB Stuttgart,78,2024,406,2,2,1,0,0.44
+22,J. Bruun Larsen,167,1899 Hoffenheim,78,2024,393,2,2,0,0,0.46
+249,D. Malen,165,Borussia Dortmund,78,2024,610,2,7,1,0,0.3
+532,M. de Ligt,157,Bayern München,78,2024,0,0,0,0,0,0.0
+1109,C. Gamboa,176,VfL Bochum,78,2024,216,1,3,1,0,0.42
+1408,S. Bornauw,161,VfL Wolfsburg,78,2024,791,12,2,2,0,1.37
+1449,J. Osei-Tutu,176,VfL Bochum,78,2024,0,0,0,0,0,0.0
+2821,M. Veljković,162,Werder Bremen,78,2024,1038,5,3,1,0,0.43
+15745,M. Roerslev,161,VfL Wolfsburg,78,2024,294,2,3,0,0,0.61
+15799,F. Onyeka,170,FC Augsburg,78,2024,2596,47,74,8,0,1.63
+19071,E. Buendía,168,Bayer Leverkusen,78,2024,255,6,7,0,0,2.12
+19461,L. Nmecha,161,VfL Wolfsburg,78,2024,455,7,16,1,0,1.38
+19617,M. Olise,157,Bayern München,78,2024,2346,22,65,3,0,0.84
+25293,R. Oxford,170,FC Augsburg,78,2024,0,0,0,0,0,0.0
+25391,N. Füllkrug,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+115589,B. Šeško,173,RB Leipzig,78,2024,2399,26,20,1,0,0.98
+158054,N. Woltemade,172,VfB Stuttgart,78,2024,1620,24,35,4,0,1.33
+177665,A. Stach,167,1899 Hoffenheim,78,2024,2589,38,34,8,0,1.32
+276263,F. Stevens,186,FC St. Pauli,78,2024,1,0,0,0,0,0.0
+328225,B. Gruda,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+436443,J. Kusi-Asare,157,Bayern München,78,2024,2,0,0,0,0,0.0
+14,M. Dahoud,169,Eintracht Frankfurt,78,2024,367,10,2,2,0,2.45
+294,N. Keïta,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+510,S. Gnabry,157,Bayern München,78,2024,1235,19,6,0,0,1.38
+637,F. Nmecha,165,Borussia Dortmund,78,2024,1512,22,26,3,0,1.31
+726,A. Kramarić,167,1899 Hoffenheim,78,2024,2782,12,28,4,0,0.39
+1139,P. Gulácsi,173,RB Leipzig,78,2024,2632,0,1,0,0,0.0
+1159,M. Sabitzer,165,Borussia Dortmund,78,2024,1615,12,9,3,0,0.67
+1234,A. Král,182,Union Berlin,78,2024,0,0,0,0,0,0.0
+1826,S. Haller,165,Borussia Dortmund,78,2024,0,0,0,0,0,0.0
+18970,P. Groß,165,Borussia Dortmund,78,2024,2337,18,12,5,1,0.69
+24876,L. Holtby,191,Holstein Kiel,78,2024,1235,13,23,1,1,0.95
+26238,R. Koch,169,Eintracht Frankfurt,78,2024,2589,24,13,3,0,0.83
+26300,O. Kabak,167,1899 Hoffenheim,78,2024,0,0,0,0,0,0.0
+26475,D. Undav,172,VfB Stuttgart,78,2024,1729,25,22,4,0,1.3
+47516,Aleix García,168,Bayer Leverkusen,78,2024,1458,8,9,3,0,0.49
+107087,S. Banks,186,FC St. Pauli,78,2024,112,2,4,1,0,1.61
+138804,M. Kovář,168,Bayer Leverkusen,78,2024,450,0,1,0,0,0.0
+231029,N. Tella,168,Bayer Leverkusen,78,2024,1367,22,32,1,0,1.45
+323449,A. Al Dakhil,172,VfB Stuttgart,78,2024,436,4,5,0,1,0.83
+342320,K. Nedeljković,173,RB Leipzig,78,2024,479,7,1,1,0,1.32
+184,H. Kane,157,Bayern München,78,2024,2389,9,21,5,0,0.34
+533,R. Kristensen,169,Eintracht Frankfurt,78,2024,2515,25,12,4,0,0.89
+644,L. Sané,157,Bayern München,78,2024,1633,16,25,2,0,0.88
+864,E. Can,165,Borussia Dortmund,78,2024,2101,25,19,4,1,1.07
+2360,D. Giannoulis,170,FC Augsburg,78,2024,2655,17,20,8,0,0.58
+3395,S. Mounié,170,FC Augsburg,78,2024,346,9,5,2,0,2.34
+18967,L. Østigård,167,1899 Hoffenheim,78,2024,928,19,5,0,1,1.84
+26252,R. Sallai,160,SC Freiburg,78,2024,44,0,1,0,0,0.0
+26519,Hong Hyun-Seok,164,FSV Mainz 05,78,2024,541,3,8,0,0,0.5
+30405,E. Fernandes,164,FSV Mainz 05,78,2024,0,0,0,0,0,0.0
+48119,O. Kossounou,168,Bayer Leverkusen,78,2024,0,0,0,0,0,0.0
+148284,B. Białek,161,VfL Wolfsburg,78,2024,0,0,0,0,0,0.0
+156490,N. Nkounkou,169,Eintracht Frankfurt,78,2024,393,5,2,1,0,1.15
+194750,E. Touré,172,VfB Stuttgart,78,2024,350,9,3,0,0,2.31
+216770,I. Hansen-Aarøen,162,Werder Bremen,78,2024,0,0,0,0,0,0.0
+280334,G. Vidović,164,FSV Mainz 05,78,2024,3,0,1,0,0,0.0
+280334,G. Vidović,157,Bayern München,78,2024,0,0,1,0,0,0.0
+286373,M. Sankoh,172,VfB Stuttgart,78,2024,0,0,0,0,0,0.0
+322508,Y. Kabadayı,170,FC Augsburg,78,2024,66,1,1,0,0,1.36
+328617,William Cole Campbell,165,Borussia Dortmund,78,2024,30,1,1,0,0,3.0
+431921,Adam Aznou Ben Cheikh,157,Bayern München,78,2024,15,0,0,0,0,0.0
+19,J. Weigl,163,Borussia Mönchengladbach,78,2024,2888,23,24,8,0,0.72
+1302,J. Wind,161,VfL Wolfsburg,78,2024,1976,15,40,2,0,0.68
+1358,E. Elmas,173,RB Leipzig,78,2024,42,2,0,1,0,4.29
+2063,André Silva,162,Werder Bremen,78,2024,383,4,7,1,0,0.94
+2063,André Silva,173,RB Leipzig,78,2024,130,0,2,0,0,0.0
+2195,S. Boey,157,Bayern München,78,2024,599,7,7,1,0,1.05
+2897,Kim Min-Jae,157,Bayern München,78,2024,2289,25,4,2,0,0.98
+2927,M. Batshuayi,169,Eintracht Frankfurt,78,2024,309,6,2,2,0,1.75
+7691,M. Berisha,170,FC Augsburg,78,2024,38,2,0,1,0,4.74
+7691,M. Berisha,167,1899 Hoffenheim,78,2024,38,2,0,1,0,4.74
+8651,S. Essende,170,FC Augsburg,78,2024,1646,45,34,4,2,2.46
+24962,L. Bénes,182,Union Berlin,78,2024,613,10,4,4,0,1.47
+25919,G. Holtmann,176,VfL Bochum,78,2024,1136,26,7,2,0,2.06
+37122,M. Bero,176,VfL Bochum,78,2024,2569,50,34,11,0,1.75
+40274,A. Dźwigała,186,FC St. Pauli,78,2024,373,5,3,2,1,1.21
+40560,J. Kamiński,161,VfL Wolfsburg,78,2024,1138,10,3,2,0,0.79
+80434,T. Čvančara,163,Borussia Mönchengladbach,78,2024,822,11,6,5,1,1.2
+128350,E. Yardımcı,167,1899 Hoffenheim,78,2024,325,8,5,2,0,2.22
+128853,D. Köhn,162,Werder Bremen,78,2024,1360,14,19,2,0,0.93
+200139,M. Amoura,161,VfL Wolfsburg,78,2024,2481,31,20,6,0,1.12
+265363,Tiago Tomás,161,VfL Wolfsburg,78,2024,1896,30,49,7,0,1.42
+280368,S. Bamba,176,VfL Bochum,78,2024,35,0,1,0,0,0.0
+175,E. Dier,157,Bayern München,78,2024,1468,16,4,1,0,0.98
+376,Diogo Leite,182,Union Berlin,78,2024,2548,25,37,3,0,0.88
+563,Álex Grimaldo,168,Bayer Leverkusen,78,2024,2642,15,25,6,1,0.51
+719,F. Grillitsch,167,1899 Hoffenheim,78,2024,604,4,11,1,0,0.6
+2219,J. Siebatcheu,182,Union Berlin,78,2024,907,22,15,2,0,2.18
+12550,Maurides,186,FC St. Pauli,78,2024,1,0,0,0,0,0.0
+41104,João Palhinha,157,Bayern München,78,2024,686,13,10,2,1,1.71
+41150,E. Tapsoba,168,Bayer Leverkusen,78,2024,2511,34,6,4,0,1.22
+128793,D. Jurásek,167,1899 Hoffenheim,78,2024,615,1,2,0,0,0.15
+140947,I. Kaboré,162,Werder Bremen,78,2024,312,4,8,0,0,1.15
+197448,Yan Couto,165,Borussia Dortmund,78,2024,892,12,7,5,0,1.21

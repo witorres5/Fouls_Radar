@@ -399,7 +399,6 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 455252,Lucas Vennegoor of Hesselink,415,Twente,88,2026,22,0,0,0,0,0.0
 494106,R. Nijstad,415,Twente,88,2026,90,0,0,0,0,0.0
 621140,Tygo Kotte,195,Willem II,88,2026,0,0,0,0,0,0.0
-2700,A. Jahanbakhsh,196,Excelsior,88,2026,16,1,0,0,0,5.62
 32858,T. Watanabe,209,Feyenoord,88,2026,64,0,0,0,0,0.0
 37602,H. Verhulst,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
 37749,J. Veerman,197,PSV Eindhoven,88,2026,90,0,0,0,0,0.0
@@ -409,6 +408,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 161898,M. Didden,207,Utrecht,88,2026,45,1,0,0,0,2.0
 191979,J. Ondrejka,202,Groningen,88,2026,3,0,0,0,0,0.0
 330261,S. van Duijn,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
+336562,D. Weidmann,415,Twente,88,2026,80,3,1,0,0,3.38
 341983,M. Csinger,202,Groningen,88,2026,31,0,0,0,0,0.0
 353898,M. Šín,201,AZ Alkmaar,88,2026,0,0,0,0,0,0.0
 354506,K. Sano,197,PSV Eindhoven,88,2026,27,0,0,0,0,0.0
@@ -419,6 +419,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 480858,Khadim Ngom,197,PSV Eindhoven,88,2026,0,0,0,0,0,0.0
 550823,A. Stepanov,207,Utrecht,88,2026,90,3,1,1,0,3.0
 668662,A. Veselov,198,ADO Den Haag,88,2026,0,0,0,0,0,0.0
+2700,A. Jahanbakhsh,196,Excelsior,88,2026,16,1,0,0,0,5.62
 19065,Ivo Pinto,205,Fortuna Sittard,88,2026,90,0,0,0,0,0.0
 19497,B. Martins Indi,426,Sparta Rotterdam,88,2026,90,3,0,0,0,3.0
 37148,J. St. Juste,209,Feyenoord,88,2026,90,1,2,0,0,1.0
@@ -428,7 +429,6 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 181865,Y. Oukili,205,Fortuna Sittard,88,2026,87,0,2,0,0,0.0
 267771,Marcos Leonardo,194,Ajax,88,2026,23,0,0,0,0,0.0
 294797,Ángel Alarcón,207,Utrecht,88,2026,84,2,0,0,0,2.14
-336562,D. Weidmann,415,Twente,88,2026,80,3,1,0,0,3.38
 412872,D. Janse,194,Ajax,88,2026,0,0,0,0,0,0.0
 425585,O. Braude,210,Heerenveen,88,2026,87,3,0,0,0,3.1
 444960,Jan Bürger,193,PEC Zwolle,88,2026,0,0,0,0,0,0.0

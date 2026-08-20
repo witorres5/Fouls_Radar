@@ -1,0 +1,1363 @@
+player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_committed,fouls_drawn,yellow_cards,red_cards,fouls_per_90
+70550,A. Espínola,2140,2 de Mayo,13,2026,0,0,0,0,0,0.0
+70551,C. Saiz,2140,2 de Mayo,13,2026,373,3,1,1,0,0.72
+70586,B. Ayala,2140,2 de Mayo,13,2026,87,3,4,2,0,3.1
+70622,M. Barreto,2140,2 de Mayo,13,2026,59,0,0,0,0,0.0
+70692,P. Sosa,2140,2 de Mayo,13,2026,373,1,2,0,0,0.24
+70722,C. Servín,2140,2 de Mayo,13,2026,0,0,0,0,0,0.0
+70728,E. Alfonso,2140,2 de Mayo,13,2026,267,1,2,0,0,0.34
+70810,R. Ruiz Díaz,2140,2 de Mayo,13,2026,236,3,3,1,0,1.14
+95209,V. Dávalos,2140,2 de Mayo,13,2026,314,3,1,2,0,0.86
+95222,S. Fretes,2140,2 de Mayo,13,2026,15,0,0,0,0,0.0
+95235,Orlando David Colmán,2140,2 de Mayo,13,2026,94,1,1,0,0,0.96
+95371,U. Coronel,2140,2 de Mayo,13,2026,178,0,0,0,0,0.0
+195791,P. Delvalle,2140,2 de Mayo,13,2026,323,2,4,0,0,0.56
+237092,D. Acosta,2140,2 de Mayo,13,2026,162,4,5,2,0,2.22
+278381,Ó. Romero,2140,2 de Mayo,13,2026,344,6,2,0,0,1.57
+406563,A. Gómez,2140,2 de Mayo,13,2026,268,4,7,1,0,1.34
+425002,S. Sanabria,2140,2 de Mayo,13,2026,310,7,6,0,0,2.03
+535686,C. Castro,2140,2 de Mayo,13,2026,239,3,2,0,0,1.13
+535703,J. Diaz,2140,2 de Mayo,13,2026,63,1,0,0,0,1.43
+535744,A. Martinez,2140,2 de Mayo,13,2026,373,0,1,1,0,0.0
+2559,E. Pavez,2553,Alianza Lima,13,2026,77,1,0,0,0,1.17
+6012,F. Girotti,2553,Alianza Lima,13,2026,123,0,0,0,0,0.0
+6087,F. Gaibor,2553,Alianza Lima,13,2026,92,1,2,0,0,0.98
+10401,P. Guerrero,2553,Alianza Lima,13,2026,110,3,0,1,0,2.45
+35688,E. Castillo,2553,Alianza Lima,13,2026,121,0,2,0,0,0.0
+36308,J. Vélez,2553,Alianza Lima,13,2026,88,4,0,1,0,4.09
+39534,R. Garcés,2553,Alianza Lima,13,2026,180,2,4,0,0,1.0
+39779,C. Carbajal,2553,Alianza Lima,13,2026,152,2,0,0,0,1.18
+39781,G. Chávez,2553,Alianza Lima,13,2026,172,4,0,1,0,2.09
+58779,G. Gentile,2553,Alianza Lima,13,2026,117,3,2,0,0,2.31
+65681,G. Viscarra,2553,Alianza Lima,13,2026,90,0,0,0,0,0.0
+70688,W. Ibarrola,2140,2 de Mayo,13,2026,0,0,0,0,0,0.0
+170119,A. Cantero,2553,Alianza Lima,13,2026,75,1,3,0,0,1.2
+311770,M. Antoni,2553,Alianza Lima,13,2026,180,0,3,0,0,0.0
+313058,A. Burlamaqui,2553,Alianza Lima,13,2026,13,1,0,0,0,6.92
+382986,D´Alessandro Montenegro,2553,Alianza Lima,13,2026,90,1,0,0,0,1.0
+414465,J. García,2553,Alianza Lima,13,2026,12,1,0,1,0,7.5
+424887,F. Cáceres,2140,2 de Mayo,13,2026,49,1,0,0,0,1.84
+505529,P. Cari,2553,Alianza Lima,13,2026,68,0,3,0,0,0.0
+535720,R. O. Rodriguez Echeverria,2140,2 de Mayo,13,2026,0,0,0,0,0,0.0
+5968,E. Más,2353,Juventud,13,2026,548,6,10,2,0,0.99
+35488,P. Aquino,2553,Alianza Lima,13,2026,0,0,0,0,0,0.0
+35796,A. Duarte,2553,Alianza Lima,13,2026,90,1,0,1,0,1.0
+35931,S. Sosa,2353,Juventud,13,2026,548,0,1,0,0,0.0
+39433,K. Quevedo,2553,Alianza Lima,13,2026,32,0,0,0,0,0.0
+51767,F. Barrandeguy,2353,Juventud,13,2026,546,6,9,1,0,0.99
+288698,P. Pernicone,2353,Juventud,13,2026,412,2,5,0,0,0.44
+288763,A. Cruz,2353,Juventud,13,2026,91,1,3,0,0,0.99
+291686,M. Huamán,2553,Alianza Lima,13,2026,0,0,0,0,0,0.0
+311342,R. Peralta,2353,Juventud,13,2026,283,4,5,1,1,1.27
+321838,R. Chagas,2353,Juventud,13,2026,497,7,4,0,0,1.27
+321841,R. Sánchez,2353,Juventud,13,2026,394,2,3,0,0,0.46
+359968,A. Alaniz,2353,Juventud,13,2026,494,11,17,0,0,2.0
+362747,L. Roldán,2353,Juventud,13,2026,434,9,7,3,0,1.87
+367041,D. Morosini,2353,Juventud,13,2026,548,9,5,0,0,1.48
+399538,F. Mimbacas,2353,Juventud,13,2026,120,4,2,0,0,3.0
+410412,B. Larregui,2353,Juventud,13,2026,506,7,12,0,0,1.25
+448637,P. Lago,2353,Juventud,13,2026,357,0,8,1,1,0.0
+532558,A. De la Cruz,2553,Alianza Lima,13,2026,0,0,0,0,0,0.0
+633461,Gonzalo Gomez,2353,Juventud,13,2026,127,0,1,0,0,0.0
+854,M. Cáceres,2353,Juventud,13,2026,136,1,2,0,0,0.66
+2438,R. Romo,1157,Universidad Catolica,13,2026,180,1,1,0,0,0.5
+2439,J. Chancellor,1157,Universidad Catolica,13,2026,180,2,0,0,0,1.0
+2983,J. Fajardo,1157,Universidad Catolica,13,2026,164,1,3,1,0,0.55
+5591,M. Alonso,1157,Universidad Catolica,13,2026,76,1,0,0,0,1.18
+6345,J. Cacciabue,1157,Universidad Catolica,13,2026,180,2,1,1,0,1.0
+16405,D. Clavijo,1157,Universidad Catolica,13,2026,152,1,1,1,0,0.59
+16438,L. Cangá,1157,Universidad Catolica,13,2026,180,1,0,1,0,0.5
+16525,G. Anangonó,1157,Universidad Catolica,13,2026,180,1,2,0,0,0.5
+50307,M. Díaz,1157,Universidad Catolica,13,2026,165,3,5,0,0,1.64
+51846,N. Rossi,2353,Juventud,13,2026,0,0,0,0,0,0.0
+51909,R. Rabino,2353,Juventud,13,2026,0,0,0,0,0,0.0
+57721,E. Rose,1157,Universidad Catolica,13,2026,121,1,2,0,0,0.74
+63971,E. Mejía,1157,Universidad Catolica,13,2026,175,3,0,2,0,1.54
+297921,S. Guerrero,2353,Juventud,13,2026,0,0,0,0,0,0.0
+361146,M. Izaguirre,2353,Juventud,13,2026,0,0,0,0,0,0.0
+474799,E. Valencia,1157,Universidad Catolica,13,2026,90,2,1,0,0,2.0
+546156,J. Boselli,2353,Juventud,13,2026,11,1,0,0,0,8.18
+546171,A. Prado,2353,Juventud,13,2026,0,0,0,0,0,0.0
+633733,F. Risso,2353,Juventud,13,2026,0,0,0,0,0,0.0
+2419,L. Advíncula,2553,Alianza Lima,13,2026,90,1,1,0,0,1.0
+2441,A. González,2810,Carabobo FC,13,2026,180,0,0,0,0,0.0
+5833,L. Bruera,2810,Carabobo FC,13,2026,366,0,2,1,0,0.0
+16515,J. Lara,1157,Universidad Catolica,13,2026,0,0,0,0,0,0.0
+16566,B. Palacios,1157,Universidad Catolica,13,2026,40,2,0,0,0,4.5
+36784,D. Palacios,1157,Universidad Catolica,13,2026,12,0,0,0,0,0.0
+39527,L. Ramos,2553,Alianza Lima,13,2026,8,0,0,0,0,0.0
+39815,J. Estrada,2553,Alianza Lima,13,2026,0,0,0,0,0,0.0
+112052,Foad Eid,1157,Universidad Catolica,13,2026,10,1,1,1,0,9.0
+153167,W. Gaona,2140,2 de Mayo,13,2026,0,0,0,0,0,0.0
+292396,A. Londoño,1157,Universidad Catolica,13,2026,0,0,0,0,0,0.0
+293308,E. Neira,2810,Carabobo FC,13,2026,366,5,1,0,0,1.23
+302231,C. Medina,1157,Universidad Catolica,13,2026,23,0,0,0,0,0.0
+304622,M. Sevillano,1157,Universidad Catolica,13,2026,0,0,0,0,0,0.0
+355524,Alex Andrés Rodríguez Reascos,1157,Universidad Catolica,13,2026,28,0,3,0,0,0.0
+356537,Darwin Carlos Nazareno Arroyo,1157,Universidad Catolica,13,2026,0,0,0,0,0,0.0
+414348,R. Troya,1157,Universidad Catolica,13,2026,0,0,0,0,0,0.0
+430114,L. Moreno,1157,Universidad Catolica,13,2026,45,0,1,0,0,0.0
+633022,I. Mujica,2353,Juventud,13,2026,0,0,0,0,0,0.0
+639226,C. Benalcazar,1157,Universidad Catolica,13,2026,0,0,0,0,0,0.0
+35757,Y. Orozco,2810,Carabobo FC,13,2026,142,1,1,0,0,0.63
+36267,M. Cova,2810,Carabobo FC,13,2026,364,1,3,0,0,0.25
+39840,J. Bilbao,2810,Carabobo FC,13,2026,258,4,3,0,0,1.4
+52532,M. Guaramato,2810,Carabobo FC,13,2026,63,1,1,0,0,1.43
+52552,E. Tortolero,2810,Carabobo FC,13,2026,263,2,5,1,0,0.68
+52657,J. Fuentes,2810,Carabobo FC,13,2026,366,4,1,3,0,0.98
+52677,J. Pérez,2810,Carabobo FC,13,2026,271,3,4,1,0,1.0
+52696,L. Aponte,2810,Carabobo FC,13,2026,18,0,0,0,0,0.0
+52727,J. Moreno,2810,Carabobo FC,13,2026,87,3,0,0,0,3.1
+52925,A. Bahachille,2810,Carabobo FC,13,2026,18,0,0,0,0,0.0
+52991,E. Castillo,2810,Carabobo FC,13,2026,314,7,5,1,0,2.01
+52996,Dimas Rafael Meza Daniz,2810,Carabobo FC,13,2026,0,0,0,0,0,0.0
+61365,E. Ramírez,2810,Carabobo FC,13,2026,171,2,1,0,0,1.05
+278354,M. Núñez,2810,Carabobo FC,13,2026,280,7,5,1,0,2.25
+288485,J. Riasco,2810,Carabobo FC,13,2026,191,4,1,0,0,1.88
+314963,J. Berríos,2810,Carabobo FC,13,2026,276,2,4,2,0,0.65
+323321,F. López,2810,Carabobo FC,13,2026,14,1,0,0,0,6.43
+405993,F. Oliveros,2810,Carabobo FC,13,2026,8,0,0,0,0,0.0
+465300,S. Mendoza,2810,Carabobo FC,13,2026,0,0,0,0,0,0.0
+637941,K. Roa,2810,Carabobo FC,13,2026,0,0,0,0,0,0.0
+11672,M. Rodríguez,2328,Huachipato,13,2026,152,0,4,2,0,0.0
+11674,C. Sepúlveda,2328,Huachipato,13,2026,135,2,1,0,0,1.33
+11682,C. Martínez,2328,Huachipato,13,2026,73,0,2,0,0,0.0
+11822,R. Caroca,2328,Huachipato,13,2026,180,1,1,1,0,0.5
+11860,L. Altamirano,2328,Huachipato,13,2026,165,3,1,0,0,1.64
+11911,M. Briceño,2328,Huachipato,13,2026,60,1,1,0,0,1.5
+51707,R. Odriozola,2328,Huachipato,13,2026,180,0,0,0,0,0.0
+70249,C. Toro,2328,Huachipato,13,2026,57,1,1,1,0,1.58
+196747,E. Cañete,2328,Huachipato,13,2026,147,2,1,0,0,1.22
+199187,R. Malanca,2328,Huachipato,13,2026,180,1,0,0,0,0.5
+307110,J. Castro,2328,Huachipato,13,2026,0,0,0,0,0,0.0
+308375,C. Torres,2328,Huachipato,13,2026,48,2,2,1,0,3.75
+308389,M. León,2328,Huachipato,13,2026,78,0,1,0,0,0.0
+316732,S. Silva,2328,Huachipato,13,2026,180,2,1,0,0,1.0
+354652,K. Altez,2328,Huachipato,13,2026,60,1,1,0,0,1.5
+371790,M. Gutiérrez,2328,Huachipato,13,2026,75,0,0,0,0,0.0
+414495,Lucas Amaru Velásquez Tenorio,2328,Huachipato,13,2026,120,2,2,1,0,1.5
+414500,C. Bravo,2328,Huachipato,13,2026,0,0,0,0,0,0.0
+425736,S. Mella,2328,Huachipato,13,2026,0,0,0,0,0,0.0
+464006,B. Mellado,2328,Huachipato,13,2026,0,0,0,0,0,0.0
+2608,M. Campaña,2358,Liverpool Montevideo,13,2026,195,0,2,0,0,0.0
+6125,D. Zabala,2358,Liverpool Montevideo,13,2026,24,0,0,0,0,0.0
+35857,F. Barceló,2358,Liverpool Montevideo,13,2026,119,1,2,0,0,0.76
+36311,R. Bentancourt,2358,Liverpool Montevideo,13,2026,140,2,2,1,0,1.29
+51467,M. Rabuñal,2358,Liverpool Montevideo,13,2026,195,1,4,0,0,0.46
+51553,F. Martínez,2358,Liverpool Montevideo,13,2026,133,1,1,0,0,0.68
+51981,E. Castillo,2358,Liverpool Montevideo,13,2026,195,5,5,1,0,2.31
+128956,F. Perdomo,2358,Liverpool Montevideo,13,2026,181,0,2,0,0,0.0
+195809,L. Arriagada,2328,Huachipato,13,2026,0,0,0,0,0,0.0
+197668,N. Garayalde,2358,Liverpool Montevideo,13,2026,155,4,4,0,0,2.32
+202362,K. Lewis,2358,Liverpool Montevideo,13,2026,66,1,0,0,0,1.36
+266009,M. Bernatene,2358,Liverpool Montevideo,13,2026,0,0,0,0,0,0.0
+297750,D. Romero,2358,Liverpool Montevideo,13,2026,150,0,0,0,0,0.0
+302996,S. Laquidaín,2358,Liverpool Montevideo,13,2026,160,1,4,2,0,0.56
+405123,R. Machado,2358,Liverpool Montevideo,13,2026,121,1,3,0,0,0.74
+405827,E. Olivera,2358,Liverpool Montevideo,13,2026,26,0,1,0,0,0.0
+414496,B. Ampuero,2328,Huachipato,13,2026,0,0,0,0,0,0.0
+417282,R. Degregorio,2358,Liverpool Montevideo,13,2026,76,1,0,0,0,1.18
+457266,Javier Nicolás Cárcamo Cifuentes,2328,Huachipato,13,2026,0,0,0,0,0,0.0
+566438,S. Strasorier,2358,Liverpool Montevideo,13,2026,195,2,1,1,0,0.92
+5963,F. Fabra,1128,Independiente Medellin,13,2026,747,13,5,1,0,1.57
+6358,F. Fydriszewski,1128,Independiente Medellin,13,2026,815,33,9,3,0,3.64
+13313,H. Palacios,1128,Independiente Medellin,13,2026,237,6,2,1,0,2.28
+13439,J. Ortiz,1128,Independiente Medellin,13,2026,830,9,3,2,0,0.98
+13613,F. Chaverra,1128,Independiente Medellin,13,2026,406,8,10,1,0,1.77
+30493,S. Ichazo,1128,Independiente Medellin,13,2026,375,0,2,1,0,0.0
+36374,E. Mena,1128,Independiente Medellin,13,2026,552,3,2,0,0,0.49
+46804,D. Moreno,1128,Independiente Medellin,13,2026,593,10,6,0,0,1.52
+59546,L. Chaverra,1128,Independiente Medellin,13,2026,602,5,2,2,0,0.75
+59779,L. Berrío,1128,Independiente Medellin,13,2026,138,4,2,0,0,2.61
+199065,E. Larrosa,1128,Independiente Medellin,13,2026,234,11,5,1,0,4.23
+311419,K. Mantilla,1128,Independiente Medellin,13,2026,375,2,3,1,0,0.48
+355904,Lucas Acosta Moreno,2358,Liverpool Montevideo,13,2026,14,0,0,0,0,0.0
+376618,M. Mir,2358,Liverpool Montevideo,13,2026,0,0,0,0,0,0.0
+414333,J. Montaño,1128,Independiente Medellin,13,2026,287,5,3,1,0,1.57
+434147,A. de Luca,2358,Liverpool Montevideo,13,2026,0,0,0,0,0,0.0
+507622,Gonzalo de Mello,2358,Liverpool Montevideo,13,2026,0,0,0,0,0,0.0
+521710,H. Loboa,1128,Independiente Medellin,13,2026,633,8,11,1,0,1.14
+634032,J. Castillo,2358,Liverpool Montevideo,13,2026,0,0,0,0,0,0.0
+634038,F. Barrenechea,2358,Liverpool Montevideo,13,2026,0,0,0,0,0,0.0
+5845,A. Robledo,2320,O'Higgins,13,2026,320,3,2,1,0,0.84
+6359,F. González,2320,O'Higgins,13,2026,364,4,9,0,0,0.99
+10397,M. Sarrafiore,2320,O'Higgins,13,2026,339,3,1,0,0,0.8
+11393,J. Leiva,2320,O'Higgins,13,2026,347,9,1,2,0,2.33
+11409,O. Carabalí,2320,O'Higgins,13,2026,367,0,0,0,0,0.0
+11446,L. Pavez,2320,O'Higgins,13,2026,367,4,0,1,0,0.98
+11466,B. Yáñez,2320,O'Higgins,13,2026,59,2,0,1,0,3.05
+13155,A. Serna,1128,Independiente Medellin,13,2026,435,5,5,1,0,1.03
+13259,D. Moreno,1128,Independiente Medellin,13,2026,55,1,0,0,0,1.64
+13696,E. Chaux,1128,Independiente Medellin,13,2026,455,0,0,1,0,0.0
+35825,B. Rabello,2320,O'Higgins,13,2026,265,1,5,0,0,0.34
+106677,A. Castillo,2320,O'Higgins,13,2026,347,7,5,0,0,1.82
+126670,M. Brizuela,2320,O'Higgins,13,2026,367,2,0,1,0,0.49
+353869,F. Ogaz,2320,O'Higgins,13,2026,268,4,3,3,0,1.34
+375854,M. Palacios,1128,Independiente Medellin,13,2026,86,2,2,1,0,2.09
+414497,Felipe Andrés Faúndez González,2320,O'Higgins,13,2026,367,6,2,0,0,1.47
+437770,Andrés Felipe Dávila Mosquera,1128,Independiente Medellin,13,2026,0,0,0,0,0,0.0
+538242,G. Mancilla,1128,Independiente Medellin,13,2026,0,0,0,0,0,0.0
+555009,M. Balanta,1128,Independiente Medellin,13,2026,0,0,0,0,0,0.0
+616947,L. Maturana,1128,Independiente Medellin,13,2026,0,0,0,0,0,0.0
+9512,Ronaldo,118,Bahia,13,2026,187,0,0,0,0,0.0
+9854,Ademir,118,Bahia,13,2026,141,1,3,1,0,0.64
+9994,Jean Lucas,118,Bahia,13,2026,175,1,2,0,0,0.51
+10130,Erick,118,Bahia,13,2026,32,1,0,0,0,2.81
+11737,L. Díaz,2320,O'Higgins,13,2026,0,0,0,0,0,0.0
+51545,N. Acevedo,118,Bahia,13,2026,116,1,3,2,0,0.78
+125667,J. Peña,2320,O'Higgins,13,2026,0,0,0,1,0,0.0
+129880,S. Ramos,118,Bahia,13,2026,187,1,2,1,0,0.48
+137622,T. Vecino,2320,O'Higgins,13,2026,48,0,1,0,0,0.0
+197383,Luciano Juba,118,Bahia,13,2026,187,1,2,1,0,0.48
+197536,B. Rojas,2320,O'Higgins,13,2026,10,0,0,1,0,0.0
+237262,N. Garrido,2320,O'Higgins,13,2026,61,0,0,0,0,0.0
+353728,Gabriel Xavier,118,Bahia,13,2026,187,3,5,1,0,1.44
+404643,M. Maturana,2320,O'Higgins,13,2026,0,0,0,0,0,0.0
+414499,C. Morales,2320,O'Higgins,13,2026,0,0,0,0,0,0.0
+414537,B. Schamine,2320,O'Higgins,13,2026,98,4,0,0,0,3.67
+424705,J. Tapia,2320,O'Higgins,13,2026,42,1,1,0,0,2.14
+424721,G. Pinto,2320,O'Higgins,13,2026,46,0,2,0,0,0.0
+424727,R. Godoy,2320,O'Higgins,13,2026,0,0,0,0,0,0.0
+459837,Roman Gomez,118,Bahia,13,2026,160,2,0,1,0,1.12
+9954,Rodrigo Nestor,118,Bahia,13,2026,12,0,0,0,0,0.0
+9979,João Paulo,118,Bahia,13,2026,0,0,0,0,0,0.0
+10168,Éverton Ribeiro,118,Bahia,13,2026,97,1,4,0,0,0.93
+10222,Everaldo,118,Bahia,13,2026,46,1,2,1,0,1.96
+10305,Gilberto,118,Bahia,13,2026,27,1,0,1,0,3.33
+10375,Iago,118,Bahia,13,2026,0,0,0,0,0,0.0
+11585,C. Herrera,2328,Huachipato,13,2026,0,0,0,0,0,0.0
+12235,P. Vargas,2328,Huachipato,13,2026,67,0,0,1,0,0.0
+47319,Willian José,118,Bahia,13,2026,158,1,0,0,0,0.57
+67902,C. Olivera,118,Bahia,13,2026,89,0,3,1,0,0.0
+180236,Caio Alexandre,118,Bahia,13,2026,129,1,1,0,0,0.7
+303127,Erick Pulga,118,Bahia,13,2026,98,1,4,0,0,0.92
+355253,M. Sanabria,118,Bahia,13,2026,10,1,1,0,0,9.0
+424722,E. Calderón,2320,O'Higgins,13,2026,0,0,0,0,0,0.0
+454145,Wendel Silva,118,Bahia,13,2026,0,0,0,0,0,0.0
+454562,Luiz Gustavo,118,Bahia,13,2026,0,0,0,0,0,0.0
+505598,Fred,118,Bahia,13,2026,0,0,0,0,0,0.0
+510204,David Martins,118,Bahia,13,2026,0,0,0,0,0,0.0
+510677,Dell,118,Bahia,13,2026,19,0,0,0,0,0.0
+574911,H. Antinirre,2328,Huachipato,13,2026,23,0,1,0,0,0.0
+2478,D. Benedetto,1152,Barcelona SC,13,2026,550,5,9,2,0,0.82
+2523,H. Villalba,1152,Barcelona SC,13,2026,442,4,4,2,0,0.81
+16406,M. Parrales,1152,Barcelona SC,13,2026,99,6,1,0,0,5.45
+16533,J. Quiñónez,1152,Barcelona SC,13,2026,844,20,7,2,0,2.13
+16570,J. Rojas,1152,Barcelona SC,13,2026,281,4,4,2,0,1.28
+16615,B. Carabalí,1152,Barcelona SC,13,2026,819,4,5,2,0,0.44
+16649,L. Sosa,1152,Barcelona SC,13,2026,375,3,2,1,0,0.72
+16662,J. Perlaza,1152,Barcelona SC,13,2026,171,1,2,1,0,0.53
+20820,J. Contreras,1152,Barcelona SC,13,2026,911,0,5,3,0,0.0
+36159,J. Báez,1152,Barcelona SC,13,2026,911,5,6,1,0,0.49
+51091,T. Martínez,1152,Barcelona SC,13,2026,289,0,3,1,0,0.0
+59200,M. Céliz,1152,Barcelona SC,13,2026,646,11,14,5,1,1.53
+63947,B. Castillo,1152,Barcelona SC,13,2026,355,5,5,2,0,1.27
+270520,S. Núñez,1152,Barcelona SC,13,2026,182,6,5,1,0,2.97
+348906,L. Escorcia,1128,Independiente Medellin,13,2026,28,0,0,0,0,0.0
+460050,J. García,1152,Barcelona SC,13,2026,28,0,1,0,0,0.0
+460052,J. Gómez,1152,Barcelona SC,13,2026,181,3,1,0,0,1.49
+542239,J. Viveros,1128,Independiente Medellin,13,2026,0,0,0,0,0,0.0
+634059,D. Cabrera,2358,Liverpool Montevideo,13,2026,0,0,0,0,0,0.0
+639962,J. Duran,2810,Carabobo FC,13,2026,0,0,0,0,0,0.0
+2548,B. Cortés,458,Argentinos JRS,13,2026,186,0,1,0,0,0.0
+5546,S. Prieto,458,Argentinos JRS,13,2026,186,2,2,0,0,0.97
+5554,F. Fattori,458,Argentinos JRS,13,2026,186,2,3,2,0,0.97
+5999,H. López,458,Argentinos JRS,13,2026,165,3,3,0,0,1.64
+6070,L. Fernández,458,Argentinos JRS,13,2026,65,0,1,0,0,0.0
+6533,F. Álvarez,458,Argentinos JRS,13,2026,65,1,0,0,1,1.38
+11832,N. Oroz,458,Argentinos JRS,13,2026,150,0,1,0,0,0.0
+16536,G. Vallecilla,1152,Barcelona SC,13,2026,684,9,2,2,0,1.18
+16666,W. Vargas,1152,Barcelona SC,13,2026,34,0,1,0,0,0.0
+16767,J. Cevallos,1152,Barcelona SC,13,2026,0,0,0,0,0,0.0
+51278,É. Godoy,458,Argentinos JRS,13,2026,186,3,0,0,0,1.45
+51332,L. Lozano,458,Argentinos JRS,13,2026,186,2,1,1,0,0.97
+63960,J. Montaño,1152,Barcelona SC,13,2026,50,2,0,0,0,3.6
+75989,T. Molina,458,Argentinos JRS,13,2026,52,1,0,0,0,1.73
+198491,J. Mina,1152,Barcelona SC,13,2026,211,0,0,0,0,0.0
+304841,A. Rangel,1152,Barcelona SC,13,2026,731,8,4,4,0,0.98
+306546,R. Riquelme,458,Argentinos JRS,13,2026,117,0,0,0,0,0.0
+311353,E. Viveros,458,Argentinos JRS,13,2026,127,2,2,0,0,1.42
+358383,A. Lescano,458,Argentinos JRS,13,2026,177,3,4,1,0,1.53
+639402,J. Medina,1152,Barcelona SC,13,2026,0,0,0,0,0,0.0
+2565,I. Morales,458,Argentinos JRS,13,2026,19,0,2,0,0,0.0
+6003,E. Pérez,458,Argentinos JRS,13,2026,9,0,0,0,0,0.0
+6374,C. Bravo,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+13216,M. Núñez,3706,Nacional Potosí,13,2026,65,0,1,1,0,0.0
+13805,E. Restrepo,3706,Nacional Potosí,13,2026,180,0,2,0,0,0.0
+51842,L. Otormín,3706,Nacional Potosí,13,2026,107,0,4,0,0,0.0
+65646,W. Álvarez,3706,Nacional Potosí,13,2026,152,0,0,0,0,0.0
+65692,P. Azogue,3706,Nacional Potosí,13,2026,180,3,0,0,0,1.5
+65987,Pedro Galindo,3706,Nacional Potosí,13,2026,180,0,1,0,0,0.0
+68052,L. Demiquel,3706,Nacional Potosí,13,2026,180,0,0,0,0,0.0
+76748,Ó. Baldomar,3706,Nacional Potosí,13,2026,173,1,0,0,0,0.52
+81198,M. Solís,3706,Nacional Potosí,13,2026,166,4,4,1,0,2.17
+296671,L. Giaccone,458,Argentinos JRS,13,2026,59,1,2,0,0,1.53
+354785,G. Siri,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+402036,A. Torrico,3706,Nacional Potosí,13,2026,127,0,3,0,0,0.0
+414386,T. Palacio,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+414515,K. Coronel,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+414518,L. Gómez,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+463830,D. Porcel,458,Argentinos JRS,13,2026,86,4,2,0,0,4.19
+560435,F. Jainikoski,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+378,Alex Telles,120,Botafogo,13,2026,360,2,3,1,0,0.5
+1845,Bartolomeu Jacinto Quissanga,120,Botafogo,13,2026,315,2,3,0,0,0.57
+5933,A. Barboza,120,Botafogo,13,2026,360,7,2,1,0,1.75
+5933,A. Barboza,121,Palmeiras,13,2026,180,5,2,0,0,2.5
+8661,Vitinho,120,Botafogo,13,2026,360,3,3,0,0,0.75
+50611,T. Tobar,3706,Nacional Potosí,13,2026,25,1,2,0,0,3.6
+59286,D. Villalba,3706,Nacional Potosí,13,2026,93,0,2,0,0,0.0
+65687,J. Orellana,3706,Nacional Potosí,13,2026,53,1,2,0,0,1.7
+65708,E. Arauz,3706,Nacional Potosí,13,2026,0,0,0,0,0,0.0
+65742,N. Amarilla,3706,Nacional Potosí,13,2026,0,0,0,0,0,0.0
+65756,D. Hoyos,3706,Nacional Potosí,13,2026,135,1,0,0,0,0.67
+65813,L. Pavia,3706,Nacional Potosí,13,2026,28,1,1,1,0,3.21
+65868,Rodrigo Fabián Ávila Sóliz,3706,Nacional Potosí,13,2026,0,0,0,0,0,0.0
+65974,H. Rojas,3706,Nacional Potosí,13,2026,115,1,2,0,0,0.78
+292166,Léo Linck,120,Botafogo,13,2026,360,0,0,0,0,0.0
+297687,M. Ponte,120,Botafogo,13,2026,275,3,1,2,0,0.98
+307037,C. Abastoflor,3706,Nacional Potosí,13,2026,14,1,1,0,0,6.43
+307044,Y. Martínez,3706,Nacional Potosí,13,2026,0,0,0,0,0,0.0
+379093,J. Guerra,3706,Nacional Potosí,13,2026,0,0,0,0,0,0.0
+410843,J. Barrera,120,Botafogo,13,2026,297,6,3,1,0,1.82
+476417,S. Peña,3706,Nacional Potosí,13,2026,13,1,0,0,0,6.92
+912,Neto,120,Botafogo,13,2026,0,0,0,0,0,0.0
+10040,Artur,120,Botafogo,13,2026,45,0,1,0,0,0.0
+68014,G. Florentín,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+129879,F. Paredes,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+277169,Newton,120,Botafogo,13,2026,360,7,3,1,0,1.75
+305821,Matheus Martins,120,Botafogo,13,2026,293,1,2,0,0,0.31
+308798,L. Villalba,120,Botafogo,13,2026,52,1,0,0,0,1.73
+403670,Bernardo Valim,120,Botafogo,13,2026,0,0,0,0,0,0.0
+413140,Kauan Toledo,120,Botafogo,13,2026,1,0,0,0,0,0.0
+419936,Nathan Fernandes,120,Botafogo,13,2026,15,0,0,0,0,0.0
+426627,Ythallo,120,Botafogo,13,2026,1,0,0,0,0,0.0
+428592,R. Borja,1152,Barcelona SC,13,2026,0,0,0,0,0,0.0
+455130,Álvaro Montoro,120,Botafogo,13,2026,344,2,5,1,0,0.52
+463987,Wallace II,120,Botafogo,13,2026,57,0,0,0,0,0.0
+544681,K. Barria,120,Botafogo,13,2026,33,0,1,0,0,0.0
+544705,Marquinhos,120,Botafogo,13,2026,14,1,0,0,0,6.43
+561346,Gabriel Abdias,120,Botafogo,13,2026,0,0,0,0,0,0.0
+609493,Arthur Novaes,120,Botafogo,13,2026,0,0,0,0,0,0.0
+613321,Kadu Santos,120,Botafogo,13,2026,0,0,0,0,0,0.0
+613327,Facundo Carrizo,458,Argentinos JRS,13,2026,0,0,0,0,0,0.0
+1854,J. Correa,120,Botafogo,13,2026,74,0,1,0,0,0.0
+1854,J. Correa,450,Estudiantes L.P.,13,2026,91,1,2,0,0,0.99
+2397,R. Castro,3711,The Strongest,13,2026,115,0,1,2,0,0.0
+5299,J. Bustos,3711,The Strongest,13,2026,68,0,1,0,0,0.0
+9938,Arthur Cabral,120,Botafogo,13,2026,73,1,1,0,0,1.23
+13434,A. Estacio,3711,The Strongest,13,2026,90,2,3,0,0,2.0
+13766,J. Moya,3711,The Strongest,13,2026,180,2,2,0,0,1.0
+65610,C. Algarañaz,3711,The Strongest,13,2026,133,3,0,0,0,2.03
+65618,J. Romay,3711,The Strongest,13,2026,45,2,0,0,0,4.0
+65718,W. Saucedo,3711,The Strongest,13,2026,180,6,0,1,0,3.0
+65719,V. Abrego,3711,The Strongest,13,2026,111,1,1,0,0,0.81
+65830,C. Roca,3711,The Strongest,13,2026,135,1,1,1,0,0.67
+65842,K. Salvatierra,3711,The Strongest,13,2026,86,2,1,1,0,2.09
+65867,J. Arrascaita,3711,The Strongest,13,2026,179,1,3,0,0,0.5
+65923,L. Banegas,3711,The Strongest,13,2026,180,0,0,1,0,0.0
+80188,Raul,120,Botafogo,13,2026,0,0,0,0,0,0.0
+275170,Danilo Santos,120,Botafogo,13,2026,270,3,4,0,0,1.0
+307038,M. Chiatti,3711,The Strongest,13,2026,180,2,1,0,0,1.0
+309487,C. Ventura,3711,The Strongest,13,2026,178,2,5,0,0,1.01
+506276,Caio Valle,120,Botafogo,13,2026,15,0,0,0,0,0.0
+544707,G. Justino,120,Botafogo,13,2026,9,0,0,0,0,0.0
+18811,A. Peñaranda,2807,Deportivo Tachira FC,13,2026,354,3,12,2,0,0.76
+52735,P. Camacho,2807,Deportivo Tachira FC,13,2026,191,0,0,0,0,0.0
+57904,J. Welch,3711,The Strongest,13,2026,91,1,1,0,0,0.99
+59179,L. Lusnig,2807,Deportivo Tachira FC,13,2026,282,1,2,2,0,0.32
+65688,P. Pedraza,3711,The Strongest,13,2026,0,0,0,0,0,0.0
+66007,G. Sotomayor,3711,The Strongest,13,2026,0,0,0,0,0,0.0
+133132,D. Alfonzo,2807,Deportivo Tachira FC,13,2026,296,7,3,1,0,2.13
+159155,C. Calzadilla,2807,Deportivo Tachira FC,13,2026,305,1,2,1,0,0.3
+181914,D. Valdivia,3711,The Strongest,13,2026,0,0,0,0,1,0.0
+265941,J. Villalpando,2807,Deportivo Tachira FC,13,2026,203,2,5,0,0,0.89
+311020,J. Camargo,2807,Deportivo Tachira FC,13,2026,360,0,2,1,0,0.0
+316925,A. Pérez,2807,Deportivo Tachira FC,13,2026,360,3,6,0,0,0.75
+337605,F. Quaglio,3711,The Strongest,13,2026,1,0,0,0,0,0.0
+363109,J. Sánchez,2807,Deportivo Tachira FC,13,2026,343,0,0,0,0,0.0
+424390,G. Lozano,2807,Deportivo Tachira FC,13,2026,117,4,1,0,0,3.08
+457865,S. Melgar,3711,The Strongest,13,2026,0,0,0,0,0,0.0
+549630,R. Ribera,3711,The Strongest,13,2026,0,0,0,0,0,0.0
+549663,Y. Portuncho,3711,The Strongest,13,2026,0,0,0,0,0,0.0
+549666,J. Michel,3711,The Strongest,13,2026,0,0,0,0,0,0.0
+591602,Franco Provenzano,2807,Deportivo Tachira FC,13,2026,187,2,0,1,0,0.96
+2401,A. Jusino,3711,The Strongest,13,2026,1,0,0,0,0,0.0
+13377,L. González,2807,Deportivo Tachira FC,13,2026,62,1,3,1,0,1.45
+13417,Neto Volpi,1142,Deportes Tolima,13,2026,999,0,1,0,0,0.0
+13460,C. Arrieta,1142,Deportes Tolima,13,2026,893,7,7,3,0,0.71
+48870,R. Pollero,2807,Deportivo Tachira FC,13,2026,270,3,5,1,0,1.0
+51331,G. Fratta,2807,Deportivo Tachira FC,13,2026,270,3,1,1,0,1.0
+52513,C. Sosa,2807,Deportivo Tachira FC,13,2026,264,1,2,0,0,0.34
+52682,J. Balza,2807,Deportivo Tachira FC,13,2026,54,0,0,0,0,0.0
+52810,A. Araque,2807,Deportivo Tachira FC,13,2026,0,0,0,0,0,0.0
+53110,Ó. Hernández,2807,Deportivo Tachira FC,13,2026,26,0,0,0,0,0.0
+65634,S. Arce,3711,The Strongest,13,2026,1,0,0,0,0,0.0
+197997,V. Cuellar,3711,The Strongest,13,2026,26,1,0,0,0,3.46
+363108,E. Vargas,2807,Deportivo Tachira FC,13,2026,0,0,0,0,0,0.0
+412006,L. Zúñiga,2807,Deportivo Tachira FC,13,2026,46,3,2,0,0,5.87
+457727,E. Tamiche,2807,Deportivo Tachira FC,13,2026,0,0,0,0,0,0.0
+555151,A. Montanez,2807,Deportivo Tachira FC,13,2026,0,0,0,0,0,0.0
+565500,M. Roa,2807,Deportivo Tachira FC,13,2026,0,0,0,0,0,0.0
+565513,W. Wilches,2807,Deportivo Tachira FC,13,2026,0,0,0,0,0,0.0
+570456,A. Rondon,2807,Deportivo Tachira FC,13,2026,0,0,0,0,0,0.0
+591607,Alexander Oliveros,2807,Deportivo Tachira FC,13,2026,13,0,0,0,0,0.0
+6417,E. López,1142,Deportes Tolima,13,2026,602,3,6,2,0,0.45
+13304,B. Rovira,1142,Deportes Tolima,13,2026,759,9,4,2,0,1.07
+13372,C. Trujillo,1142,Deportes Tolima,13,2026,414,12,6,0,0,2.61
+13522,E. Valencia,1142,Deportes Tolima,13,2026,41,0,0,0,0,0.0
+13663,J. Valencia,1142,Deportes Tolima,13,2026,98,4,2,0,0,3.67
+13679,S. Guzmán,1142,Deportes Tolima,13,2026,740,4,14,2,0,0.49
+13682,J. Nieto,1142,Deportes Tolima,13,2026,174,3,3,1,0,1.55
+59414,L. Sandoval,1142,Deportes Tolima,13,2026,548,8,4,3,0,1.31
+59642,A. Parra,1142,Deportes Tolima,13,2026,809,26,4,1,0,2.89
+79170,A. Angulo,1142,Deportes Tolima,13,2026,909,3,6,1,0,0.3
+127601,J. Hernández,1142,Deportes Tolima,13,2026,560,6,1,1,0,0.96
+200156,D. Pedrozo,1142,Deportes Tolima,13,2026,62,2,3,1,0,2.9
+207764,J. González,1142,Deportes Tolima,13,2026,602,4,10,1,0,0.6
+306717,L. Marquinez,1142,Deportes Tolima,13,2026,0,0,0,0,0,0.0
+356516,J. Torres,1142,Deportes Tolima,13,2026,609,5,12,2,0,0.74
+362869,S. Barbosa,1142,Deportes Tolima,13,2026,45,1,0,1,0,2.0
+371249,J. Angulo,1142,Deportes Tolima,13,2026,907,12,5,0,0,1.19
+373765,K. Flórez,1142,Deportes Tolima,13,2026,402,5,3,1,1,1.12
+538222,J. Mera,1142,Deportes Tolima,13,2026,56,0,0,0,0,0.0
+538281,Y. Moreno,1142,Deportes Tolima,13,2026,0,0,0,0,0,0.0
+2420,M. Araujo,2546,Sporting Cristal,13,2026,846,1,4,0,0,0.11
+2430,C. Gonzáles,2546,Sporting Cristal,13,2026,108,3,1,0,0,2.5
+2434,Y. Yotún,2546,Sporting Cristal,13,2026,860,11,15,1,0,1.15
+5839,J. González,2546,Sporting Cristal,13,2026,387,3,6,0,0,0.7
+6630,S. González,2546,Sporting Cristal,13,2026,451,5,7,3,0,1.0
+10503,Felipe Vizeu,2546,Sporting Cristal,13,2026,456,5,5,1,0,0.99
+27546,L. Sosa,2546,Sporting Cristal,13,2026,769,5,3,1,0,0.59
+39646,L. Iberico,2546,Sporting Cristal,13,2026,409,5,5,0,1,1.1
+39776,D. Enríquez,2546,Sporting Cristal,13,2026,936,0,2,1,0,0.0
+39783,R. Lutiger,2546,Sporting Cristal,13,2026,916,11,5,1,0,1.08
+39800,G. Távara,2546,Sporting Cristal,13,2026,640,14,8,5,0,1.97
+96385,Gustavo Cazonatti,2546,Sporting Cristal,13,2026,484,5,3,3,0,0.93
+105501,Cris Silva,2546,Sporting Cristal,13,2026,795,11,6,3,0,1.25
+321835,L. Díaz,2546,Sporting Cristal,13,2026,1,0,0,0,0,0.0
+354041,A. Pósito,2546,Sporting Cristal,13,2026,76,1,1,0,0,1.18
+397458,C. Cabellos,2546,Sporting Cristal,13,2026,346,5,9,3,0,1.3
+411670,I. Wisdom,2546,Sporting Cristal,13,2026,52,0,1,0,0,0.0
+454129,M. Castro,2546,Sporting Cristal,13,2026,593,9,6,1,0,1.37
+458326,C. Bautista,2546,Sporting Cristal,13,2026,0,0,0,0,0,0.0
+491473,V. Reyes,1142,Deportes Tolima,13,2026,0,0,0,0,0,0.0
+16839,C. Benavente,2546,Sporting Cristal,13,2026,45,1,0,0,0,2.0
+35953,I. Ávila,2546,Sporting Cristal,13,2026,511,8,7,2,0,1.41
+36158,G. Servio,1174,Club Guarani,13,2026,188,0,0,0,0,0.0
+52022,Facundo Nahuel Pérez Bertinat,2353,Juventud,13,2026,0,0,0,0,0,0.0
+70694,S. Zaracho,1174,Club Guarani,13,2026,137,3,1,1,1,1.97
+75519,J. Pérez,1174,Club Guarani,13,2026,188,2,1,0,0,0.96
+95290,D. Rodríguez,1174,Club Guarani,13,2026,172,6,2,2,0,3.14
+119131,D. Fernández,1174,Club Guarani,13,2026,174,2,1,0,0,1.03
+129802,E. Maidana,2140,2 de Mayo,13,2026,0,0,0,0,0,0.0
+191867,F. Llano,1174,Club Guarani,13,2026,60,0,0,0,0,0.0
+279788,L. Martínez,1174,Club Guarani,13,2026,144,5,0,0,0,3.12
+280931,I. Segovia,1174,Club Guarani,13,2026,188,4,2,1,0,1.91
+280935,P. Tanda,1174,Club Guarani,13,2026,174,5,3,1,0,2.59
+354684,M. López,1174,Club Guarani,13,2026,128,3,0,0,0,2.11
+362398,D. Otoya,2546,Sporting Cristal,13,2026,0,0,0,0,0,0.0
+410333,R. Torales,1174,Club Guarani,13,2026,166,2,1,0,0,1.08
+414376,M. RodrÃ­guez,2546,Sporting Cristal,13,2026,26,2,0,0,0,6.92
+425020,A. Maidana,1174,Club Guarani,13,2026,188,0,0,0,0,0.0
+460441,F. Lora,2546,Sporting Cristal,13,2026,35,0,0,0,0,0.0
+532541,J. Moretti,2546,Sporting Cristal,13,2026,0,0,0,0,0,0.0
+6317,A. Manzur,1174,Club Guarani,13,2026,11,0,0,0,0,0.0
+16371,J. Sánchez,1174,Club Guarani,13,2026,12,0,0,0,0,0.0
+33617,Gabriel,2546,Sporting Cristal,13,2026,339,5,5,0,0,1.33
+36314,F. Fernández,1174,Club Guarani,13,2026,12,0,0,0,0,0.0
+70812,M. Arzamendia,1174,Club Guarani,13,2026,0,0,0,0,0,0.0
+95459,M. Gómez,1174,Club Guarani,13,2026,14,1,0,0,0,6.43
+278379,A. Barbotte,1174,Club Guarani,13,2026,0,0,0,0,0,0.0
+304608,T. Servín,1174,Club Guarani,13,2026,44,0,3,0,0,0.0
+312836,J. Chalá,1152,Barcelona SC,13,2026,11,1,0,0,1,8.18
+354679,C. Ramírez,1174,Club Guarani,13,2026,0,0,0,0,0,0.0
+372524,C. Miño,1174,Club Guarani,13,2026,0,0,0,0,0,0.0
+406659,N. Ruotola,2353,Juventud,13,2026,0,0,0,0,0,0.0
+460427,J. Cuenca,2546,Sporting Cristal,13,2026,20,1,0,0,0,4.5
+517720,I. Ramirez,1174,Club Guarani,13,2026,31,0,0,0,0,0.0
+524403,G. Gómez,1174,Club Guarani,13,2026,0,0,0,0,0,0.0
+623658,J. Burga,2546,Sporting Cristal,13,2026,0,0,0,0,0,0.0
+636482,M. Ramos,1174,Club Guarani,13,2026,0,0,0,0,0,0.0
+637066,A. A. Dominguez Garcete,1174,Club Guarani,13,2026,0,0,0,0,0,0.0
+637944,L. Martinez,2810,Carabobo FC,13,2026,11,0,0,0,0,0.0
+644720,Jefferson Wila,1152,Barcelona SC,13,2026,200,1,1,0,0,0.45
+326,Allan,120,Botafogo,13,2026,0,0,0,0,0,0.0
+12380,J. Amoroso,3700,Always Ready,13,2026,277,2,2,0,0,0.65
+13145,Y. Hurtado,3700,Always Ready,13,2026,167,2,1,0,0,1.08
+13654,A. Rambal,3700,Always Ready,13,2026,353,1,0,0,0,0.25
+13779,B. Perlaza,1128,Independiente Medellin,13,2026,280,4,2,1,0,1.29
+35731,E. Triverio,3700,Always Ready,13,2026,549,7,7,0,0,1.15
+52561,A. Baroja,3700,Always Ready,13,2026,571,0,0,0,0,0.0
+81033,D. Londoño,1128,Independiente Medellin,13,2026,500,2,2,1,0,0.36
+304036,L. Caicedo,3700,Always Ready,13,2026,186,3,3,2,0,1.45
+307065,R. Lima,3700,Always Ready,13,2026,368,4,5,1,0,0.98
+310022,J.  Godoy,3700,Always Ready,13,2026,135,0,2,0,0,0.0
+354347,H. Cuellar,3700,Always Ready,13,2026,475,7,7,1,0,1.33
+364816,É. Ricardo,1142,Deportes Tolima,13,2026,28,3,0,1,0,9.64
+372201,C. Rodriguez,3700,Always Ready,13,2026,382,5,1,2,0,1.18
+404644,F. Nava,3700,Always Ready,13,2026,387,6,7,1,0,1.4
+414428,J. Hernández,120,Botafogo,13,2026,0,0,0,0,0,0.0
+446790,D. Rodriguez,3700,Always Ready,13,2026,285,6,0,0,0,1.89
+538318,M. Martinez,1142,Deportes Tolima,13,2026,0,0,0,0,0,0.0
+538333,Y. A. Parra,1142,Deportes Tolima,13,2026,0,0,0,0,0,0.0
+642394,A. Ortega,1128,Independiente Medellin,13,2026,0,0,0,0,0,0.0
+11540,F. Cornejo,1158,LDU de Quito,13,2026,459,9,4,1,0,1.76
+16372,L. Segovia,1158,LDU de Quito,13,2026,485,5,3,3,0,0.93
+16419,Leonel Enrique Quiñónez Padilla,1158,LDU de Quito,13,2026,531,6,3,1,0,1.02
+16479,José Alfredo Quintero Ordóñez,1158,LDU de Quito,13,2026,474,12,4,1,0,2.28
+16530,Richard Alexander Mina Caicedo,1158,LDU de Quito,13,2026,194,1,1,1,0,0.46
+16642,G. Valle,1158,LDU de Quito,13,2026,657,1,1,1,0,0.14
+39798,J. Pretell,1158,LDU de Quito,13,2026,644,14,4,0,0,1.96
+65645,Darío Torrico,3700,Always Ready,13,2026,132,2,1,0,0,1.36
+65702,G. Villamíl,1158,LDU de Quito,13,2026,467,5,0,0,0,0.96
+65789,F. Saucedo,3700,Always Ready,13,2026,390,7,2,2,0,1.62
+65831,M. Suarez,3700,Always Ready,13,2026,353,0,2,0,0,0.0
+66000,R. Gómez,3700,Always Ready,13,2026,492,8,2,2,0,1.46
+379097,Santiago Paz,3700,Always Ready,13,2026,0,0,0,0,0,0.0
+392640,Yerlin Quinonez,1158,LDU de Quito,13,2026,612,11,4,3,0,1.62
+404942,E. Rodriguez,3700,Always Ready,13,2026,0,0,0,0,0,0.0
+409879,C. Medina,3700,Always Ready,13,2026,127,2,0,0,0,1.42
+452338,F. Pasadore,3700,Always Ready,13,2026,96,2,0,0,0,1.88
+513550,J. Maraude,3700,Always Ready,13,2026,415,2,6,0,0,0.43
+516772,M. Mamani,3700,Always Ready,13,2026,37,1,0,0,0,2.43
+628778,Nicolas Cabrera,3700,Always Ready,13,2026,0,0,0,0,0,0.0
+2411,Fágner,135,Cruzeiro,13,2026,401,9,2,3,0,2.02
+2568,Alexander Domínguez Carabalí,1158,LDU de Quito,13,2026,0,0,0,0,0,0.0
+2579,J. Intriago,1152,Barcelona SC,13,2026,199,3,4,1,0,1.36
+9934,Deyverson,1158,LDU de Quito,13,2026,413,2,4,1,0,0.44
+10089,Fabrício Bruno,135,Cruzeiro,13,2026,720,3,5,1,0,0.38
+13196,J. Medina,1158,LDU de Quito,13,2026,203,1,2,1,0,0.44
+16229,L. Cano,1152,Barcelona SC,13,2026,131,2,0,0,0,1.37
+16413,J. Corozo,1158,LDU de Quito,13,2026,241,4,4,0,0,1.49
+16432,M. Estrada,1158,LDU de Quito,13,2026,322,8,0,0,0,2.24
+16465,K. Minda,1158,LDU de Quito,13,2026,49,1,0,0,0,1.84
+16524,Alexander Antonio Alvarado Carriel,1158,LDU de Quito,13,2026,59,1,2,0,0,1.53
+70606,R. Redes,1158,LDU de Quito,13,2026,239,1,3,0,0,0.38
+81380,C. Tobar,1158,LDU de Quito,13,2026,168,1,6,1,0,0.54
+101882,G. Allala,1158,LDU de Quito,13,2026,411,2,0,2,0,0.44
+195114,J. Cuero,1158,LDU de Quito,13,2026,106,5,1,1,0,4.25
+306210,Matheus Cunha,135,Cruzeiro,13,2026,180,0,0,0,0,0.0
+306547,M. Lugo,1152,Barcelona SC,13,2026,500,9,4,1,0,1.62
+354009,Daniel Isai de la Cruz de la Cruz,1158,LDU de Quito,13,2026,0,0,0,0,0,0.0
+440480,P. Ortiz,1158,LDU de Quito,13,2026,0,0,0,0,0,0.0
+642023,J. Caicedo,1158,LDU de Quito,13,2026,36,0,1,0,0,0.0
+2083,Wanderson,135,Cruzeiro,13,2026,75,0,1,0,0,0.0
+6268,L. Villalba,135,Cruzeiro,13,2026,129,1,2,0,0,0.7
+10008,Kaio Jorge,135,Cruzeiro,13,2026,587,7,5,1,0,1.07
+10102,Lucas Silva,135,Cruzeiro,13,2026,132,1,1,1,0,0.68
+10494,Matheus Henrique,135,Cruzeiro,13,2026,251,6,1,3,0,2.15
+25398,William,135,Cruzeiro,13,2026,214,6,0,1,0,2.52
+25618,Matheus Pereira,135,Cruzeiro,13,2026,695,7,22,2,0,0.91
+30408,Gerson,135,Cruzeiro,13,2026,577,7,22,2,1,1.09
+36312,Francisco da Costa,135,Cruzeiro,13,2026,31,0,0,0,0,0.0
+54866,João Marcelo,135,Cruzeiro,13,2026,21,0,0,0,0,0.0
+67204,Christian,135,Cruzeiro,13,2026,527,8,10,0,0,1.37
+309792,Kaiki,135,Cruzeiro,13,2026,516,11,11,2,0,1.92
+360306,Otávio Eleodoro Rezende Costa,135,Cruzeiro,13,2026,540,0,0,0,0,0.0
+405353,Japa,135,Cruzeiro,13,2026,0,0,0,0,0,0.0
+405353,Japa,7848,Mirassol,13,2026,59,1,1,1,0,1.53
+414405,K. Arroyo,135,Cruzeiro,13,2026,420,4,3,0,1,0.86
+422150,Jonathan,135,Cruzeiro,13,2026,615,1,2,0,0,0.15
+439566,N. Villareal,135,Cruzeiro,13,2026,123,2,1,2,0,1.46
+465165,Kenji,135,Cruzeiro,13,2026,37,0,2,0,0,0.0
+507692,Kauã Prates,135,Cruzeiro,13,2026,0,0,0,0,0,0.0
+522246,Kauã Moraes,135,Cruzeiro,13,2026,105,2,1,0,0,1.71
+6014,L. Pratto,2330,Coquimbo Unido,13,2026,282,7,2,1,0,2.23
+11349,J. Cornejo,2330,Coquimbo Unido,13,2026,736,6,9,1,0,0.73
+11440,D. Sánchez,2330,Coquimbo Unido,13,2026,623,0,2,1,0,0.0
+11499,M. Fernández,2330,Coquimbo Unido,13,2026,597,7,7,3,0,1.06
+11534,C. Zavala,2330,Coquimbo Unido,13,2026,675,5,3,1,0,0.67
+11538,S. Cabrera,2330,Coquimbo Unido,13,2026,0,0,0,0,0,0.0
+11543,S. Galani,2330,Coquimbo Unido,13,2026,646,12,9,0,0,1.67
+11735,A. Camargo,2330,Coquimbo Unido,13,2026,348,11,3,0,0,2.84
+11758,S. Cordero,2330,Coquimbo Unido,13,2026,393,12,4,3,0,2.75
+12343,B. Gazzolo,2330,Coquimbo Unido,13,2026,641,11,4,3,0,1.54
+12345,F. Salinas,2330,Coquimbo Unido,13,2026,736,6,6,0,0,0.73
+125840,D. Escobar,2330,Coquimbo Unido,13,2026,0,0,0,0,0,0.0
+200269,A. Azócar,2330,Coquimbo Unido,13,2026,251,2,3,0,0,0.72
+289316,G. Flores,2330,Coquimbo Unido,13,2026,113,0,0,0,0,0.0
+317855,B. Chandía,2330,Coquimbo Unido,13,2026,479,9,4,0,0,1.69
+352477,N. Johansen,2330,Coquimbo Unido,13,2026,442,8,6,1,0,1.63
+457875,C. Dorador,2330,Coquimbo Unido,13,2026,0,0,0,0,0,0.0
+463485,Martín Barraza,2330,Coquimbo Unido,13,2026,30,0,0,0,0,0.0
+564071,P. Rodriguez,2330,Coquimbo Unido,13,2026,75,2,0,1,0,2.4
+634743,Joshua Arancibia,2330,Coquimbo Unido,13,2026,0,0,0,0,0,0.0
+1477,S. Coates,2356,Club Nacional,13,2026,545,3,3,1,0,0.5
+2613,N. Lodeiro,2356,Club Nacional,13,2026,299,1,12,0,0,0.3
+2615,M. Gómez,2356,Club Nacional,13,2026,544,12,11,1,0,1.99
+5689,T. Verón,2356,Club Nacional,13,2026,170,2,5,0,0,1.06
+9968,G. Carneiro,2356,Club Nacional,13,2026,135,0,0,0,0,0.0
+10402,N. López,2356,Club Nacional,13,2026,138,0,1,1,0,0.0
+10402,N. López,1064,Platense,13,2026,38,0,0,0,0,0.0
+12036,L. Soza,2330,Coquimbo Unido,13,2026,42,0,0,0,0,0.0
+51343,L. Rodríguez,2356,Club Nacional,13,2026,231,4,2,2,0,1.56
+51459,L. Boggio,2356,Club Nacional,13,2026,469,5,7,1,0,0.96
+51522,J. Pintado,2356,Club Nacional,13,2026,0,0,0,0,0,0.0
+51752,N. Rodríguez,2356,Club Nacional,13,2026,358,2,6,0,0,0.5
+53678,A. Rogel,2356,Club Nacional,13,2026,455,2,1,2,0,0.4
+59245,D. Glaby,2330,Coquimbo Unido,13,2026,111,4,0,2,0,3.24
+133613,M. Vera,2356,Club Nacional,13,2026,29,0,0,0,0,0.0
+153082,I. Suárez,2356,Club Nacional,13,2026,135,0,1,0,0,0.0
+311795,B. Barcia,2356,Club Nacional,13,2026,406,6,4,0,0,1.33
+354659,J. de los Santos,2356,Club Nacional,13,2026,143,2,2,0,0,1.26
+414432,P. Calione,2356,Club Nacional,13,2026,46,0,1,0,0,0.0
+473543,M. Zepeda,2330,Coquimbo Unido,13,2026,0,0,0,0,0,0.0
+562741,T. Viera,2356,Club Nacional,13,2026,225,2,0,1,1,0.8
+5709,F. Callejo,10013,Cusco,13,2026,356,3,2,0,0,0.76
+6390,N. Silva,10013,Cusco,13,2026,286,0,3,0,0,0.0
+6471,G. Carabajal,10013,Cusco,13,2026,298,1,5,1,0,0.3
+16543,J. Tévez,10013,Cusco,13,2026,209,3,1,1,0,1.29
+39425,A. Fuentes,10013,Cusco,13,2026,545,2,3,2,0,0.33
+39426,J. Manzaneda,10013,Cusco,13,2026,329,3,4,1,0,0.82
+39430,O. Valenzuela,10013,Cusco,13,2026,472,9,2,1,0,1.72
+39498,P. Díaz,10013,Cusco,13,2026,455,0,2,1,0,0.0
+39590,Á. Ampuero,10013,Cusco,13,2026,385,2,2,1,0,0.47
+39799,D. Soto,10013,Cusco,13,2026,404,8,2,1,0,1.78
+39860,J. Bolívar,10013,Cusco,13,2026,237,1,2,0,0,0.38
+59218,L. Colitto,10013,Cusco,13,2026,353,4,4,1,0,1.02
+196673,M. Ruidías,10013,Cusco,13,2026,491,3,1,0,0,0.55
+316513,E. Mereles,2356,Club Nacional,13,2026,0,0,0,0,0,0.0
+353999,J. Herrera,10013,Cusco,13,2026,140,2,2,0,0,1.29
+415037,F. Bianchi,2356,Club Nacional,13,2026,0,0,0,0,0,0.0
+472612,A. dos Santos,2356,Club Nacional,13,2026,190,1,1,1,0,0.47
+565565,P. Nunez,2356,Club Nacional,13,2026,33,0,0,0,0,0.0
+634051,F. Bais,2356,Club Nacional,13,2026,0,0,0,0,0,0.0
+634062,L. Gonzalez,2356,Club Nacional,13,2026,3,0,0,0,0,0.0
+618,Danilo,127,Flamengo,13,2026,365,1,0,0,0,0.25
+1566,Emerson Royal,127,Flamengo,13,2026,641,9,7,1,0,1.26
+1646,Lucas Paquetá,127,Flamengo,13,2026,269,4,5,0,0,1.34
+1771,Ayrton Lucas,127,Flamengo,13,2026,532,3,9,0,0,0.51
+5994,J. Carrascal,127,Flamengo,13,2026,353,3,6,0,0,0.76
+5995,N. de la Cruz,127,Flamengo,13,2026,188,0,6,0,0,0.0
+6273,I. Colman,10013,Cusco,13,2026,208,3,7,0,0,1.3
+10124,Léo Pereira,127,Flamengo,13,2026,461,1,2,0,0,0.2
+10180,Bruno Henrique,127,Flamengo,13,2026,489,10,9,1,0,1.84
+11756,A. Rossi,127,Flamengo,13,2026,551,0,0,0,0,0.0
+16369,G. Plata,127,Flamengo,13,2026,380,2,4,0,0,0.47
+39475,A. Vidal,10013,Cusco,13,2026,90,0,0,0,0,0.0
+39618,C. Diez,10013,Cusco,13,2026,129,4,2,1,0,2.79
+39630,C. Gamarra,10013,Cusco,13,2026,90,1,0,0,0,1.0
+39876,J. Zevallos,10013,Cusco,13,2026,359,3,5,1,0,0.75
+95762,R. Anderson,10013,Cusco,13,2026,0,0,0,0,0,0.0
+95858,G. Choi,10013,Cusco,13,2026,90,1,1,1,0,1.0
+332654,Evertton Araújo,127,Flamengo,13,2026,405,5,3,1,0,1.11
+475041,J. AlÃ­ Gutiérrez,10013,Cusco,13,2026,39,0,0,0,0,0.0
+639533,Julinho Astudillo,10013,Cusco,13,2026,0,0,0,0,0,0.0
+1290,G. Varela,127,Flamengo,13,2026,23,0,0,0,0,0.0
+2443,Y. Osorio,1142,Deportes Tolima,13,2026,133,3,2,0,0,2.03
+2612,G. de Arrascaeta,127,Flamengo,13,2026,227,1,3,1,0,0.4
+5426,C. Fara,2540,Universitario,13,2026,540,10,12,2,0,1.67
+9458,Léo Ortiz,127,Flamengo,13,2026,290,2,1,0,0,0.62
+9909,Vitão,127,Flamengo,13,2026,180,0,0,0,0,0.0
+10321,Pedro,127,Flamengo,13,2026,255,2,5,0,0,0.71
+11783,M. Vargas,2540,Universitario,13,2026,450,0,3,0,0,0.0
+12067,M. Di Benedetto,2540,Universitario,13,2026,295,2,0,1,0,0.61
+16451,W. Riveros,2540,Universitario,13,2026,386,0,1,0,0,0.0
+22238,Luiz Araújo,127,Flamengo,13,2026,241,5,3,2,0,1.87
+59588,J. Mosquera,1142,Deportes Tolima,13,2026,191,5,2,0,0,2.36
+80528,Andrew,127,Flamengo,13,2026,90,0,0,0,0,0.0
+126936,Samuel Lino,127,Flamengo,13,2026,379,3,8,0,0,0.71
+350935,C. Inga,2540,Universitario,13,2026,168,1,0,0,0,0.54
+372083,Dyogo,127,Flamengo,13,2026,0,0,0,0,0,0.0
+405160,Wallace,127,Flamengo,13,2026,21,0,3,0,0,0.0
+454555,Guilherme,127,Flamengo,13,2026,0,0,0,0,0,0.0
+510574,Luiz Felipe,127,Flamengo,13,2026,0,0,0,0,0,0.0
+638681,Neifer Sanchez,1142,Deportes Tolima,13,2026,31,1,1,0,0,2.9
+2422,A. Corzo,2540,Universitario,13,2026,0,0,0,0,0,0.0
+2423,A. Santamaría,2540,Universitario,13,2026,334,2,3,2,0,0.54
+2429,É. Flores,2540,Universitario,13,2026,217,4,7,0,0,1.66
+5610,M. Pérez,2540,Universitario,13,2026,380,4,4,0,0,0.95
+6628,H. Fértoli,2540,Universitario,13,2026,179,1,4,0,0,0.5
+10328,Y. González,1128,Independiente Medellin,13,2026,329,2,4,0,0,0.55
+13366,D. Cataño,1128,Independiente Medellin,13,2026,175,1,6,1,0,0.51
+16313,J. Carabalí,2540,Universitario,13,2026,508,5,4,0,0,0.89
+16313,J. Carabalí,1158,LDU de Quito,13,2026,90,2,2,0,0,2.0
+39639,P. Reyna,2540,Universitario,13,2026,0,0,0,0,0,0.0
+39790,H. Calcaterra,2540,Universitario,13,2026,32,3,3,0,0,8.44
+39792,J. Castillo,2540,Universitario,13,2026,201,7,0,1,0,3.13
+39826,J. Murrugarra,2540,Universitario,13,2026,226,6,5,1,0,2.39
+39849,J. Concha,2540,Universitario,13,2026,514,7,12,0,0,1.23
+39919,J. Rivera,2540,Universitario,13,2026,77,3,1,0,0,3.51
+39985,H. Ancajima,2540,Universitario,13,2026,9,0,0,0,0,0.0
+64331,Miguel Silveira,2540,Universitario,13,2026,106,4,4,0,0,3.4
+104865,S. Gassama,2540,Universitario,13,2026,73,4,2,1,0,4.93
+107197,B. Reyna,2540,Universitario,13,2026,50,0,2,0,0,0.0
+195940,D. Romero,2540,Universitario,13,2026,90,0,0,0,0,0.0
+196678,A. Valera,2540,Universitario,13,2026,494,9,6,1,0,1.64
+429,F. Muslera,450,Estudiantes L.P.,13,2026,738,0,1,2,0,0.0
+1688,R. Funes Mori,450,Estudiantes L.P.,13,2026,0,0,0,0,0,0.0
+5275,Lucas Ezequiel Piovi,450,Estudiantes L.P.,13,2026,603,11,2,5,0,1.64
+5942,A. Castro,450,Estudiantes L.P.,13,2026,349,4,2,1,0,1.03
+6629,A. Gaich,450,Estudiantes L.P.,13,2026,60,0,1,0,0,0.0
+47421,G. Carrillo,450,Estudiantes L.P.,13,2026,660,4,9,1,0,0.55
+49887,J. Sosa,450,Estudiantes L.P.,13,2026,20,0,0,0,0,0.0
+50875,L. González,450,Estudiantes L.P.,13,2026,551,8,7,2,0,1.31
+51580,G. Neves,450,Estudiantes L.P.,13,2026,288,4,1,2,0,1.25
+94599,E. Cetré,450,Estudiantes L.P.,13,2026,287,1,6,0,0,0.31
+159122,F. Farías,450,Estudiantes L.P.,13,2026,316,5,5,2,0,1.42
+206984,T. Palacios,450,Estudiantes L.P.,13,2026,538,11,5,3,0,1.84
+289426,E. Meza,450,Estudiantes L.P.,13,2026,668,4,5,1,0,0.54
+289465,B. Aguirre,450,Estudiantes L.P.,13,2026,165,3,4,0,0,1.64
+289472,G. Benedetti,450,Estudiantes L.P.,13,2026,639,8,5,2,0,1.13
+311360,T. Palacios,450,Estudiantes L.P.,13,2026,648,6,7,5,0,0.83
+356937,F. Iacovich,450,Estudiantes L.P.,13,2026,0,0,0,0,0,0.0
+426626,M. Amondarain,450,Estudiantes L.P.,13,2026,534,8,4,0,0,1.35
+463852,J. Burgos,450,Estudiantes L.P.,13,2026,200,3,2,0,0,1.35
+538339,S. Romero,1128,Independiente Medellin,13,2026,0,0,0,0,0,0.0
+982,L. Alario,450,Estudiantes L.P.,13,2026,37,1,0,0,0,2.43
+2494,S. Villa,473,Independ. Rivadavia,13,2026,498,5,9,0,0,0.9
+6380,L. Gómez,473,Independ. Rivadavia,13,2026,516,3,10,2,0,0.52
+6425,E. Bonifacio,473,Independ. Rivadavia,13,2026,526,8,2,2,0,1.37
+51419,L. Costa,473,Independ. Rivadavia,13,2026,523,6,3,1,0,1.03
+70790,I. Villalba,473,Independ. Rivadavia,13,2026,385,4,1,0,0,0.94
+95460,A. Arce,473,Independ. Rivadavia,13,2026,587,15,6,1,0,2.3
+119809,J. Florentín,473,Independ. Rivadavia,13,2026,580,11,5,3,0,1.71
+133614,M. Fernández,473,Independ. Rivadavia,13,2026,664,3,9,2,0,0.41
+194899,G. Ríos,473,Independ. Rivadavia,13,2026,250,5,2,0,0,1.8
+288705,L. Bucca,473,Independ. Rivadavia,13,2026,268,9,0,1,0,3.02
+292885,T. Bottari,473,Independ. Rivadavia,13,2026,651,7,6,1,0,0.97
+311070,E. Mancuso,450,Estudiantes L.P.,13,2026,101,1,0,0,0,0.89
+311362,S. Studer,473,Independ. Rivadavia,13,2026,712,8,6,2,0,1.01
+346270,S. Núñez,450,Estudiantes L.P.,13,2026,383,4,2,0,0,0.94
+354677,F. Sartori,473,Independ. Rivadavia,13,2026,423,6,5,1,0,1.28
+362740,R. Atencio,473,Independ. Rivadavia,13,2026,93,3,0,0,0,2.9
+463854,F. Pérez Escudero,450,Estudiantes L.P.,13,2026,190,2,5,0,0,0.95
+524235,B. DadÃ­n,473,Independ. Rivadavia,13,2026,5,1,0,0,0,18.0
+613326,Nicolás Bolcato,473,Independ. Rivadavia,13,2026,742,0,2,1,0,0.0
+2388,C. Lampe,3702,Bolívar,13,2026,567,0,1,0,0,0.0
+2402,L. Justiniano,3702,Bolívar,13,2026,567,2,9,2,0,0.32
+2572,X. Arreaga,3702,Bolívar,13,2026,567,5,4,2,0,0.79
+6297,N. Arena,473,Independ. Rivadavia,13,2026,0,0,0,0,0,0.0
+6329,V. Ramis,473,Independ. Rivadavia,13,2026,12,1,0,0,0,7.5
+35579,M. Cauteruccio,3702,Bolívar,13,2026,283,0,0,0,0,0.0
+41135,P. Rodríguez,3702,Bolívar,13,2026,320,8,4,1,0,2.25
+58362,J. Elordi,473,Independ. Rivadavia,13,2026,414,4,1,1,0,0.87
+59088,D. Crego,473,Independ. Rivadavia,13,2026,32,0,0,0,0,0.0
+59225,B. Oyola,3702,Bolívar,13,2026,274,4,5,0,0,1.31
+63952,C. Alemán,3702,Bolívar,13,2026,61,0,0,0,0,0.0
+65657,Jesús Sagredo,3702,Bolívar,13,2026,257,3,1,0,0,1.05
+65785,C. Melgar,3702,Bolívar,13,2026,387,6,9,0,0,1.4
+65995,J. Sagredo,3702,Bolívar,13,2026,447,2,1,1,1,0.4
+81553,S. Echeverría,3702,Bolívar,13,2026,343,1,2,1,0,0.26
+214013,D. Romero,3702,Bolívar,13,2026,567,4,11,1,0,0.63
+288693,Emmanuel Gómez,473,Independ. Rivadavia,13,2026,0,0,0,0,0,0.0
+319435,A. Riep,473,Independ. Rivadavia,13,2026,25,0,0,0,0,0.0
+355301,A. Osella,473,Independ. Rivadavia,13,2026,42,0,1,0,0,0.0
+404870,R. Matheus,3702,Bolívar,13,2026,525,1,8,0,0,0.17
+2393,E. Saavedra,3702,Bolívar,13,2026,140,3,2,0,0,1.93
+2492,Y. Chará,1135,Junior,13,2026,334,1,3,1,0,0.27
+13152,J. Ríos,1135,Junior,13,2026,352,15,7,2,0,3.84
+13756,Jesús Rivas,1135,Junior,13,2026,377,4,3,0,0,0.95
+51764,M. Silveira,1135,Junior,13,2026,462,0,0,0,0,0.0
+59441,Y. Súarez,1135,Junior,13,2026,391,5,1,1,0,1.15
+59634,D. Rivera,1135,Junior,13,2026,282,2,2,0,0,0.64
+65836,J. García,3702,Bolívar,13,2026,119,5,1,1,0,3.78
+65891,D. Méndez,3702,Bolívar,13,2026,0,0,0,0,0,0.0
+153065,K.  Pérez,1135,Junior,13,2026,316,2,6,1,0,0.57
+265954,L. Monzón,1135,Junior,13,2026,442,3,1,0,0,0.61
+311440,L. Chávez,3702,Bolívar,13,2026,49,1,2,0,0,1.84
+345584,C. Sejas,3702,Bolívar,13,2026,0,0,0,0,0,0.0
+345757,E. Vaca,3702,Bolívar,13,2026,161,3,4,0,0,1.68
+353428,J. Guerrero,1135,Junior,13,2026,430,7,10,1,0,1.47
+354207,J. Velásquez,3702,Bolívar,13,2026,62,1,0,0,0,1.45
+379092,L. Paz,3702,Bolívar,13,2026,220,6,2,1,0,2.45
+445968,C. Vedia,3702,Bolívar,13,2026,0,0,0,0,0,0.0
+457611,E. Rivero,3702,Bolívar,13,2026,0,0,0,0,0,0.0
+538301,J. Pena,1135,Junior,13,2026,297,3,2,0,1,0.91
+899,Andreas Pereira,121,Palmeiras,13,2026,571,5,1,1,1,0.79
+1706,C. Bacca,1135,Junior,13,2026,30,1,1,0,0,3.0
+2493,L. Muriel,1135,Junior,13,2026,320,1,1,0,0,0.28
+2502,G. Gómez,121,Palmeiras,13,2026,657,3,4,2,0,0.41
+6648,G. Celis,1135,Junior,13,2026,84,1,2,0,0,1.07
+9218,Marlon Freitas,121,Palmeiras,13,2026,716,4,3,0,0,0.5
+10083,Murilo,121,Palmeiras,13,2026,727,6,4,0,0,0.74
+10373,Carlos Miguel,121,Palmeiras,13,2026,736,0,1,0,0,0.0
+13153,H. Rivera,1135,Junior,13,2026,63,0,0,0,0,0.0
+13261,J. Pestaña,1135,Junior,13,2026,225,7,1,2,0,2.8
+13457,J. Martínez,1135,Junior,13,2026,90,1,0,0,0,1.0
+13524,B. Castrillón,1135,Junior,13,2026,87,2,1,0,0,2.07
+13592,T. Gutiérrez,1135,Junior,13,2026,270,4,0,1,0,1.33
+13787,E. Herrera,1135,Junior,13,2026,212,4,1,0,0,1.7
+53128,G. Paiva,1135,Junior,13,2026,210,4,3,2,0,1.71
+59403,F. Ángel,1135,Junior,13,2026,221,3,2,0,0,1.22
+306706,A. Giay,121,Palmeiras,13,2026,495,8,6,1,0,1.45
+405127,J. Sarmiento,1135,Junior,13,2026,82,2,1,1,0,2.2
+425715,Arthur,121,Palmeiras,13,2026,428,7,6,2,0,1.47
+431436,J. Canchimbo,1135,Junior,13,2026,275,3,3,0,0,0.98
+2412,Felipe Anderson,121,Palmeiras,13,2026,84,2,2,0,0,2.14
+10125,Khellven,121,Palmeiras,13,2026,152,0,2,0,0,0.0
+10372,Marcelo Lomba,121,Palmeiras,13,2026,0,0,0,0,0,0.0
+10379,Bruno Fuchs,121,Palmeiras,13,2026,9,0,0,0,0,0.0
+13708,J. Arias,121,Palmeiras,13,2026,680,10,20,0,0,1.32
+21095,Lucas Evangelista,121,Palmeiras,13,2026,192,4,6,0,0,1.88
+52537,D. Osio,2813,Deportivo La Guaira,13,2026,461,1,2,1,0,0.2
+52732,C. Varela,2813,Deportivo La Guaira,13,2026,454,0,0,1,0,0.0
+52959,C. Rivero,2813,Deportivo La Guaira,13,2026,187,1,0,1,0,0.48
+106485,Maurício,121,Palmeiras,13,2026,128,1,2,0,0,0.7
+153083,E. Martínez,121,Palmeiras,13,2026,244,2,2,0,0,0.74
+196298,R. Sosa,121,Palmeiras,13,2026,283,3,8,0,0,0.95
+197901,L. Peña,2813,Deportivo La Guaira,13,2026,545,7,13,1,0,1.16
+295513,J. López,121,Palmeiras,13,2026,701,13,17,1,0,1.67
+414357,Riquelme Fillipi,121,Palmeiras,13,2026,0,0,0,0,0,0.0
+415068,Benedetti,121,Palmeiras,13,2026,0,0,0,0,0,0.0
+425714,Allan,121,Palmeiras,13,2026,665,2,17,1,0,0.27
+449244,Luighi Hanri,121,Palmeiras,13,2026,45,1,2,0,0,2.0
+574837,Luis Felipe,121,Palmeiras,13,2026,21,1,0,0,0,4.29
+575323,Larson,121,Palmeiras,13,2026,0,0,0,0,0,0.0
+6351,A. Rodríguez,2813,Deportivo La Guaira,13,2026,72,0,1,0,0,0.0
+6453,J. Vargas,2813,Deportivo La Guaira,13,2026,0,0,0,0,0,0.0
+6640,G. Ortiz,2813,Deportivo La Guaira,13,2026,364,3,1,2,0,0.74
+10080,Fábio,124,Fluminense,13,2026,734,0,0,0,0,0.0
+46213,J. Meza,2813,Deportivo La Guaira,13,2026,401,7,4,0,0,1.57
+52463,R. Arace,2813,Deportivo La Guaira,13,2026,125,3,1,0,1,2.16
+52658,R. Ibarra,2813,Deportivo La Guaira,13,2026,388,6,6,0,0,1.39
+52710,J. Castellanos,2813,Deportivo La Guaira,13,2026,160,2,1,0,0,1.12
+52719,J. Perdomo,2813,Deportivo La Guaira,13,2026,316,3,1,1,0,0.85
+52967,N. Hernández,2813,Deportivo La Guaira,13,2026,20,0,0,0,0,0.0
+52977,Y. Rivas,2813,Deportivo La Guaira,13,2026,200,4,2,1,0,1.8
+53156,J. Paredes,2813,Deportivo La Guaira,13,2026,17,2,0,1,0,10.59
+57803,J. Gutiérrez,2813,Deportivo La Guaira,13,2026,548,7,8,1,0,1.15
+287213,M. Gianoli,2813,Deportivo La Guaira,13,2026,160,2,0,0,0,1.12
+311317,F. Londoño,2813,Deportivo La Guaira,13,2026,450,7,4,0,0,1.4
+323787,F. Cáceres,2813,Deportivo La Guaira,13,2026,126,4,2,0,0,2.86
+329535,C. Da Silva,2813,Deportivo La Guaira,13,2026,126,2,2,0,0,1.43
+565434,C. Faya,2813,Deportivo La Guaira,13,2026,310,2,6,0,0,0.58
+565541,J. Sanchez,2813,Deportivo La Guaira,13,2026,97,0,0,0,0,0.0
+635444,J. Correa,2813,Deportivo La Guaira,13,2026,379,6,4,0,0,1.42
+2038,Guilherme Arana,124,Fluminense,13,2026,434,2,5,0,0,0.41
+2454,Y. Soteldo,124,Fluminense,13,2026,267,0,3,1,0,0.0
+6337,J. Freytes,124,Fluminense,13,2026,548,3,4,1,0,0.49
+10017,Ignacio,124,Fluminense,13,2026,541,4,6,1,0,0.67
+10079,Vitor Eudes,124,Fluminense,13,2026,0,0,0,0,0,0.0
+10163,Renê,124,Fluminense,13,2026,319,5,6,0,0,1.41
+10267,Samuel Xavier,124,Fluminense,13,2026,175,0,3,0,0,0.0
+10311,PH Ganso,124,Fluminense,13,2026,173,3,1,1,0,1.56
+10501,Alisson,124,Fluminense,13,2026,51,1,2,0,0,1.76
+13523,G. Cano,124,Fluminense,13,2026,64,0,0,0,0,0.0
+13715,J. Millán,124,Fluminense,13,2026,8,0,0,0,0,0.0
+50763,L. Acosta,124,Fluminense,13,2026,431,8,7,2,0,1.67
+51214,J. Savarino,124,Fluminense,13,2026,470,0,5,0,0,0.0
+51603,A. Canobbio,124,Fluminense,13,2026,565,9,10,1,0,1.43
+70849,K. Serna,124,Fluminense,13,2026,151,6,4,0,0,3.58
+266267,Hércules,124,Fluminense,13,2026,578,11,1,2,0,1.71
+280245,Martinelli,124,Fluminense,13,2026,444,3,4,0,0,0.61
+282692,Jemmes,124,Fluminense,13,2026,180,1,2,0,0,0.5
+297522,John Kennedy,124,Fluminense,13,2026,290,5,1,1,0,1.55
+304048,R. Castillo,124,Fluminense,13,2026,339,7,8,2,0,1.86
+568,Gabriel Pires,7848,Mirassol,13,2026,36,0,1,0,0,0.0
+1262,Otávio,124,Fluminense,13,2026,0,0,0,0,0,0.0
+9308,Lucas Oliveira,7848,Mirassol,13,2026,353,4,0,2,0,1.02
+9371,Nathan Fogaça,7848,Mirassol,13,2026,117,3,2,0,0,2.31
+9429,Alesson,7848,Mirassol,13,2026,348,5,8,3,0,1.29
+9613,Neto Moura,7848,Mirassol,13,2026,418,4,1,1,0,0.86
+9874,Guga,124,Fluminense,13,2026,559,7,8,2,0,1.13
+9946,Reinaldo,7848,Mirassol,13,2026,438,1,1,0,0,0.21
+10025,Shaylon,7848,Mirassol,13,2026,274,2,4,0,0,0.66
+10226,Walter,7848,Mirassol,13,2026,471,0,1,1,0,0.0
+41430,André Luís,7848,Mirassol,13,2026,223,0,1,0,0,0.0
+44348,Eduardo,7848,Mirassol,13,2026,425,6,3,0,0,1.27
+54238,Edson,7848,Mirassol,13,2026,347,3,5,0,0,0.78
+65837,L. Mugni,7848,Mirassol,13,2026,73,0,2,0,0,0.0
+80654,Willian Machado,7848,Mirassol,13,2026,471,4,2,1,0,0.76
+115525,João Victor,7848,Mirassol,13,2026,553,7,5,0,1,1.14
+133183,José Aldo,7848,Mirassol,13,2026,301,6,1,1,0,1.79
+153458,Negueba,7848,Mirassol,13,2026,165,1,6,0,0,0.55
+156191,Igor Formiga,7848,Mirassol,13,2026,345,6,3,1,0,1.57
+276452,Denilson,7848,Mirassol,13,2026,236,6,4,1,0,2.29
+576,E. Salvio,446,Lanus,13,2026,471,4,10,0,0,0.76
+5965,C. Izquierdoz,446,Lanus,13,2026,553,4,1,1,0,0.65
+6030,R. Carrera,446,Lanus,13,2026,440,9,13,1,0,1.84
+6147,A. Cardozo,446,Lanus,13,2026,367,2,6,2,0,0.49
+6567,T. Guidara,446,Lanus,13,2026,362,5,6,1,1,1.24
+9337,Alex Muralha,7848,Mirassol,13,2026,194,0,0,0,0,0.0
+9907,Victor Luís,7848,Mirassol,13,2026,186,2,3,1,0,0.97
+10488,Rodrigues,7848,Mirassol,13,2026,62,0,0,0,0,0.0
+11405,W. Bou,446,Lanus,13,2026,113,1,0,0,0,0.8
+11486,M. Sepúlveda,446,Lanus,13,2026,204,2,4,1,0,0.88
+54235,Everton Galdino,7848,Mirassol,13,2026,201,0,1,0,0,0.0
+59173,N. Losada,446,Lanus,13,2026,563,0,0,1,0,0.0
+70732,J. Canale,446,Lanus,13,2026,547,4,6,2,0,0.66
+80474,Chico,7848,Mirassol,13,2026,112,4,5,0,0,3.21
+129986,S. Marcich,446,Lanus,13,2026,553,4,7,0,0,0.65
+202082,F. Watson,446,Lanus,13,2026,158,1,3,0,0,0.57
+288730,L. Besozzi,446,Lanus,13,2026,201,3,7,0,0,1.34
+311316,F. Peña,446,Lanus,13,2026,366,3,2,0,0,0.74
+465137,A. Medina,446,Lanus,13,2026,348,2,6,1,0,0.52
+467182,Y. Valois,446,Lanus,13,2026,197,1,4,0,0,0.46
+5295,N. Morgantini,446,Lanus,13,2026,0,0,0,0,0,0.0
+6045,M. Borgogno,1064,Platense,13,2026,556,0,3,1,0,0.0
+6059,G. Mainero,1064,Platense,13,2026,587,4,10,3,0,0.61
+6129,A. Lotti,1064,Platense,13,2026,161,4,2,0,0,2.24
+6591,G. Lencina,1064,Platense,13,2026,208,1,8,0,0,0.43
+6653,L. Heredia,1064,Platense,13,2026,77,1,0,0,0,1.17
+10377,V. Cuesta,1064,Platense,13,2026,648,5,6,2,0,0.69
+59184,I. Vázquez,1064,Platense,13,2026,530,3,8,0,0,0.51
+170010,J. Saborido,1064,Platense,13,2026,316,4,1,0,1,1.14
+197062,G. Pérez,446,Lanus,13,2026,192,3,0,1,0,1.41
+203534,F. Petroli,446,Lanus,13,2026,0,0,0,0,0,0.0
+287377,R. De Jesús,446,Lanus,13,2026,26,0,0,0,0,0.0
+296128,F. Amarfil,1064,Platense,13,2026,421,6,2,0,0,1.28
+322307,F. Zapiola,1064,Platense,13,2026,595,5,15,2,0,0.76
+353488,T. Silva,1064,Platense,13,2026,634,6,3,0,0,0.85
+355274,P. Ferreira,1064,Platense,13,2026,631,11,10,0,0,1.57
+414423,B. Acosta,446,Lanus,13,2026,0,0,0,0,0,0.0
+460362,B. Cabrera,446,Lanus,13,2026,46,1,2,0,0,1.96
+465140,F. Sánchez,446,Lanus,13,2026,16,0,0,0,0,0.0
+465141,L. Romero,446,Lanus,13,2026,0,0,0,0,0,0.0
+915,Gabriel Paulista,131,Corinthians,13,2026,630,0,2,1,0,0.0
+5794,R. Garro,131,Corinthians,13,2026,526,2,15,0,0,0.34
+5947,B. Merlini,1064,Platense,13,2026,91,3,1,1,0,2.97
+6400,I. Gómez,1064,Platense,13,2026,264,7,1,1,0,2.39
+9742,Matheus Bidu,131,Corinthians,13,2026,540,4,15,0,0,0.67
+9992,Gustavo Henrique,131,Corinthians,13,2026,630,1,3,0,0,0.14
+10161,Matheuzinho,131,Corinthians,13,2026,540,3,3,2,0,0.5
+51694,M. Barrios,1064,Platense,13,2026,345,4,0,0,0,1.04
+58544,N. Retamar,1064,Platense,13,2026,399,5,5,0,0,1.13
+123759,Hugo Souza,131,Corinthians,13,2026,630,0,0,0,0,0.0
+129888,N. Sumavil,1064,Platense,13,2026,0,0,0,0,0,0.0
+129905,A. Lagos,1064,Platense,13,2026,328,11,3,1,0,3.02
+160436,Raniele,131,Corinthians,13,2026,469,3,1,0,0,0.58
+196750,J. Gauto,1064,Platense,13,2026,142,3,2,1,0,1.9
+363693,Breno,131,Corinthians,13,2026,512,11,15,1,0,1.93
+366554,E. Raggio,1064,Platense,13,2026,125,2,0,1,0,1.44
+459866,M. Mendia,1064,Platense,13,2026,357,3,2,1,0,0.76
+463850,T. Nasif,1064,Platense,13,2026,160,7,3,1,0,3.94
+524454,Stefan Đokić,1064,Platense,13,2026,23,1,1,1,0,3.91
+544679,Andre,131,Corinthians,13,2026,398,5,8,1,0,1.13
+543,Z. Labyad,131,Corinthians,13,2026,137,1,0,0,0,0.66
+871,Matheus Pereira,131,Corinthians,13,2026,73,1,0,0,0,1.23
+900,J. Lingard,131,Corinthians,13,2026,225,3,4,0,0,1.2
+1085,André Ramalho,131,Corinthians,13,2026,1,0,0,0,0,0.0
+2426,A. Carrillo,131,Corinthians,13,2026,84,0,0,0,0,0.0
+5962,G. Ávila,437,Rosario Central,13,2026,538,4,9,1,0,0.67
+5987,F. Angileri,131,Corinthians,13,2026,90,0,0,0,0,0.0
+6367,E. Coronel,437,Rosario Central,13,2026,594,17,0,1,0,2.58
+6492,J. Ledesma,437,Rosario Central,13,2026,643,0,0,0,0,0.0
+9329,Pedro Raul,131,Corinthians,13,2026,200,3,3,0,0,1.35
+10007,Yuri Alberto,131,Corinthians,13,2026,445,2,6,0,0,0.4
+10177,Vitinho,131,Corinthians,13,2026,13,0,0,0,0,0.0
+10319,Allan,131,Corinthians,13,2026,253,3,2,2,0,1.07
+129878,F. Ibarra,437,Rosario Central,13,2026,537,9,9,3,0,1.51
+278373,A. Sandez,437,Rosario Central,13,2026,499,8,1,3,0,1.44
+415083,Kauê Camargo,131,Corinthians,13,2026,0,0,0,0,0,0.0
+415090,Kayke,131,Corinthians,13,2026,164,1,0,0,0,0.55
+463975,Dieguinho,131,Corinthians,13,2026,28,0,0,0,0,0.0
+510091,Ignacio Ovando,437,Rosario Central,13,2026,590,3,5,1,0,0.46
+570402,I. Machado,131,Corinthians,13,2026,0,0,0,0,0,0.0
+266,Á. Di María,437,Rosario Central,13,2026,476,3,17,2,0,0.57
+1053,J. Broun,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+5196,M. Carabajal,1153,Independiente del Valle,13,2026,622,9,11,1,0,1.3
+5635,E. Copetti,437,Rosario Central,13,2026,350,6,3,2,0,1.54
+5911,A. Soto,437,Rosario Central,13,2026,141,0,0,0,0,0.0
+6241,F. Navarro,437,Rosario Central,13,2026,88,3,1,0,0,3.07
+6707,C. Quintana,437,Rosario Central,13,2026,43,0,0,0,0,0.0
+13235,A. Quintana,1153,Independiente del Valle,13,2026,630,0,1,1,0,0.0
+13376,J. Campaz,437,Rosario Central,13,2026,502,5,8,1,0,0.9
+70463,V. Pizarro,437,Rosario Central,13,2026,577,6,2,1,0,0.94
+70700,E. Giménez,437,Rosario Central,13,2026,388,2,6,0,0,0.46
+278174,Daykol Alejandro Romero Padilla,1153,Independiente del Valle,13,2026,613,0,2,0,0,0.0
+311344,A. Véliz,437,Rosario Central,13,2026,385,3,4,1,0,0.7
+354232,J. Fernández,437,Rosario Central,13,2026,220,0,4,0,0,0.0
+370011,F. Oviedo,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+441329,L. Raffin,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+463846,G. Duarte,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+463848,G. Cantizano,437,Rosario Central,13,2026,116,3,0,1,0,2.33
+560382,L. Ramos,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+599935,M. Cabrera,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+2518,C. González,1153,Independiente del Valle,13,2026,611,5,7,1,0,0.74
+2581,J. Méndez,1153,Independiente del Valle,13,2026,57,1,1,0,0,1.58
+10252,J. Sornoza,1153,Independiente del Valle,13,2026,390,4,9,1,1,0.92
+16389,G. Cortéz,1153,Independiente del Valle,13,2026,0,0,0,0,0,0.0
+16470,J. Alcívar,1153,Independiente del Valle,13,2026,594,2,4,0,0,0.3
+16480,D. Reasco,1153,Independiente del Valle,13,2026,24,0,0,0,0,0.0
+16528,J. Espinoza,1153,Independiente del Valle,13,2026,0,0,0,0,0,0.0
+101883,J. Viacava,1153,Independiente del Valle,13,2026,427,5,1,0,1,1.05
+166967,A. Rodríguez,1153,Independiente del Valle,13,2026,523,3,8,0,0,0.52
+184916,R. Briones,1153,Independiente del Valle,13,2026,312,5,5,1,0,1.44
+278364,L. Zárate,1153,Independiente del Valle,13,2026,0,0,0,0,0,0.0
+311347,M. Perelló,1153,Independiente del Valle,13,2026,285,2,0,0,0,0.63
+311816,Andy René Velasco García,1153,Independiente del Valle,13,2026,126,0,1,0,0,0.0
+353989,Emerson Ivan Pata Rodríguez,1153,Independiente del Valle,13,2026,350,1,2,0,0,0.26
+354318,L. Loor,1153,Independiente del Valle,13,2026,630,4,0,2,0,0.57
+354955,Y. Ochoa,1153,Independiente del Valle,13,2026,40,0,0,0,0,0.0
+465666,Justin Lerma,1153,Independiente del Valle,13,2026,388,0,1,0,0,0.0
+476121,D. Guagua,1153,Independiente del Valle,13,2026,70,1,0,0,0,1.29
+642742,M. Peralta,1153,Independiente del Valle,13,2026,0,0,0,0,0,0.0
+646252,J. Angulo,1153,Independiente del Valle,13,2026,50,2,0,1,0,3.6
+2486,H. Palacios,1139,Santa Fe,13,2026,355,2,0,0,0,0.51
+6523,M. Lovera,1139,Santa Fe,13,2026,65,2,3,0,0,2.77
+6639,E. Olivera,1139,Santa Fe,13,2026,422,7,2,1,0,1.49
+10420,J. Quintero,1139,Santa Fe,13,2026,51,0,0,0,0,0.0
+13258,V. Moreno,1139,Santa Fe,13,2026,505,11,3,1,0,1.96
+13287,C. Mafla,1139,Santa Fe,13,2026,466,0,2,0,0,0.0
+13290,Y. Velásquez,1139,Santa Fe,13,2026,48,1,0,0,0,1.88
+13485,A. Zapata,1139,Santa Fe,13,2026,137,5,1,1,0,3.28
+13496,A. Mosquera,1139,Santa Fe,13,2026,511,0,0,1,0,0.0
+35667,N. Bustos,1139,Santa Fe,13,2026,240,7,3,0,0,2.62
+35751,O. Fernández,1139,Santa Fe,13,2026,402,1,2,0,0,0.22
+35902,Jeison Angulo,1139,Santa Fe,13,2026,97,1,0,1,0,0.93
+46720,D. Torres,1139,Santa Fe,13,2026,501,7,9,2,0,1.26
+49892,H. Rodallega,1139,Santa Fe,13,2026,525,11,4,1,0,1.89
+281743,F. Fagúndez,1139,Santa Fe,13,2026,154,3,6,0,0,1.75
+323288,L. Palacios,1139,Santa Fe,13,2026,286,7,0,2,0,2.2
+356522,K. Toscano,1139,Santa Fe,13,2026,333,8,0,2,0,2.16
+522698,Carlos Nemocón,1139,Santa Fe,13,2026,0,0,0,0,0,0.0
+538305,W. Asprilla,1139,Santa Fe,13,2026,45,0,0,0,0,0.0
+608593,J. Torres,1139,Santa Fe,13,2026,347,14,6,2,0,3.63
+5958,G. Togni,2348,Penarol,13,2026,212,0,2,0,0,0.0
+5958,G. Togni,1064,Platense,13,2026,79,1,2,0,0,1.14
+9723,F. Batista,2348,Penarol,13,2026,84,5,2,1,0,5.36
+13528,E. Mosquera,1139,Santa Fe,13,2026,13,1,0,0,0,6.92
+13755,J. Obrian,1139,Santa Fe,13,2026,145,1,0,0,0,0.62
+30524,M. Lemos,2348,Penarol,13,2026,506,4,4,1,0,0.71
+50874,F. Escobar,2348,Penarol,13,2026,405,6,3,1,0,1.33
+50888,E. Remedi,2348,Penarol,13,2026,266,3,20,1,0,1.02
+51488,N. Fernández,2348,Penarol,13,2026,416,10,7,1,0,2.16
+51489,L. Fernández,2348,Penarol,13,2026,90,0,1,0,0,0.0
+51503,S. Britos,2348,Penarol,13,2026,180,0,1,0,0,0.0
+51614,J. Trindade,2348,Penarol,13,2026,495,6,1,1,0,1.09
+51756,M. Arezo,2348,Penarol,13,2026,491,5,5,0,0,0.92
+51804,E. Darias,2348,Penarol,13,2026,228,1,8,0,0,0.39
+59416,I. Scarpeta,1139,Santa Fe,13,2026,150,2,0,0,0,1.2
+70757,M. Olivera,2348,Penarol,13,2026,360,2,1,2,0,0.5
+209955,L. Ferreira,2348,Penarol,13,2026,360,6,8,3,0,1.5
+297346,L. Angulo,2348,Penarol,13,2026,238,3,2,0,0,1.13
+362575,F. González,2348,Penarol,13,2026,24,0,0,0,0,0.0
+410433,L. Umpiérrez,2348,Penarol,13,2026,387,1,12,0,0,0.23
+546163,M. Gonzalez,2348,Penarol,13,2026,90,0,0,0,0,0.0
+2418,L. Abram,2546,Sporting Cristal,13,2026,151,3,0,1,0,1.79
+2510,C. Paredes,1176,Cerro Porteno,13,2026,45,0,0,0,0,0.0
+2511,R. Piris Da Motta,1176,Cerro Porteno,13,2026,411,10,4,1,0,2.19
+2517,C. Domínguez,1176,Cerro Porteno,13,2026,248,5,13,0,1,1.81
+5284,J. Torres,1176,Cerro Porteno,13,2026,496,6,6,0,0,1.09
+5795,M. Klimowicz,1176,Cerro Porteno,13,2026,288,2,6,0,0,0.62
+5804,P. Vegetti,1176,Cerro Porteno,13,2026,727,8,15,2,0,0.99
+6423,A. Martín Arias,1176,Cerro Porteno,13,2026,551,0,0,1,0,0.0
+35808,G. Velázquez,1176,Cerro Porteno,13,2026,724,4,9,1,0,0.5
+70595,J. Morel,1176,Cerro Porteno,13,2026,730,13,5,3,0,1.6
+129885,A. Soñora,1176,Cerro Porteno,13,2026,77,0,0,0,0,0.0
+363132,L. Quintana,1176,Cerro Porteno,13,2026,369,8,1,1,0,1.95
+363143,A. Madruga,2348,Penarol,13,2026,0,0,0,0,0,0.0
+414342,S. Mülhethaler,2348,Penarol,13,2026,17,0,0,0,0,0.0
+466309,G. Barbas,2348,Penarol,13,2026,0,0,0,0,0,0.0
+517868,K. RodrÃ­guez,2348,Penarol,13,2026,17,0,0,0,0,0.0
+575274,P. Da Costa,2348,Penarol,13,2026,0,0,0,0,0,0.0
+633748,L. Diaz,2348,Penarol,13,2026,0,0,0,0,0,0.0
+639532,Gerson Castillo,2546,Sporting Cristal,13,2026,0,0,0,0,0,0.0
+641356,M. Chaparro,1176,Cerro Porteno,13,2026,530,7,4,1,0,1.19
+1982,G. Medel,2994,U. Catolica,13,2026,97,1,0,0,0,0.93
+2497,R. Fernández,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+2554,E. Mena,2994,U. Catolica,13,2026,657,4,2,0,0,0.55
+5294,B. Luciatti,1176,Cerro Porteno,13,2026,90,0,0,0,0,0.0
+6397,J. Díaz,2994,U. Catolica,13,2026,465,4,0,0,0,0.77
+7599,C. Cuevas,2994,U. Catolica,13,2026,538,17,11,3,0,2.84
+11764,B. Ampuero,2994,U. Catolica,13,2026,742,4,4,0,0,0.49
+11850,D. Gónzalez,2994,U. Catolica,13,2026,485,6,4,0,0,1.11
+13824,J. Valencia,2994,U. Catolica,13,2026,707,17,4,3,0,2.16
+35928,J. Iturbe,1176,Cerro Porteno,13,2026,118,2,2,1,0,1.53
+70577,G. Benítez,1176,Cerro Porteno,13,2026,287,6,1,2,0,1.88
+143574,C. Montes,2994,U. Catolica,13,2026,477,14,5,1,0,2.64
+201905,V. Bernedo,2994,U. Catolica,13,2026,742,1,2,1,0,0.12
+237179,F. Peralta,1176,Cerro Porteno,13,2026,46,2,1,1,0,3.91
+237271,R. Melgarejo,1176,Cerro Porteno,13,2026,3,0,0,0,0,0.0
+456276,E. Torales,1176,Cerro Porteno,13,2026,69,0,0,1,0,0.0
+535712,R. Gomez,1176,Cerro Porteno,13,2026,126,3,3,0,0,2.14
+535770,L. J. Servin,1176,Cerro Porteno,13,2026,54,1,1,0,0,1.67
+646258,C. Bobadilla,1176,Cerro Porteno,13,2026,298,7,4,2,0,2.11
+652577,V. Sanchez,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+271,L. Paredes,451,Boca Juniors,13,2026,551,2,20,2,0,0.33
+2558,J. Martínez,2994,U. Catolica,13,2026,365,3,2,0,0,0.74
+5675,J. Giani,2994,U. Catolica,13,2026,646,13,10,2,0,1.81
+5969,M. Weigandt,451,Boca Juniors,13,2026,351,4,4,0,0,1.03
+6516,M. Palavecino,2994,U. Catolica,13,2026,136,1,1,1,0,0.66
+6529,F. Zampedri,2994,U. Catolica,13,2026,615,9,6,3,0,1.32
+6657,F. Zuqui,2994,U. Catolica,13,2026,632,3,16,2,0,0.43
+11377,D. Valencia,2994,U. Catolica,13,2026,9,0,0,0,0,0.0
+11411,D. Melo,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+11848,B. Cerezo,2994,U. Catolica,13,2026,85,1,0,0,0,1.06
+177230,L. Brey,451,Boca Juniors,13,2026,482,0,1,0,0,0.0
+195804,A. Canales,2994,U. Catolica,13,2026,24,1,0,0,0,3.75
+288750,A. Costa,451,Boca Juniors,13,2026,462,3,2,3,0,0.58
+289444,L. Blanco,451,Boca Juniors,13,2026,560,7,5,2,0,1.12
+369412,L. Di Lollo,451,Boca Juniors,13,2026,560,6,2,1,0,0.96
+408865,D. Corral,2994,U. Catolica,13,2026,92,1,1,0,0,0.98
+408941,J. Rossel,2994,U. Catolica,13,2026,24,0,0,0,0,0.0
+409957,V. Cárcamo,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+536844,M. Gomez,2994,U. Catolica,13,2026,94,1,0,0,0,0.96
+566980,N. L’Huillier,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+898,Ander Herrera,451,Boca Juniors,13,2026,81,2,1,0,0,2.22
+2521,Á. Romero,451,Boca Juniors,13,2026,54,0,2,0,0,0.0
+5791,M. Braida,451,Boca Juniors,13,2026,188,1,6,0,0,0.48
+5903,J. García,451,Boca Juniors,13,2026,66,0,0,0,0,0.0
+6082,N. Figal,451,Boca Juniors,13,2026,28,0,0,0,0,0.0
+6092,A. Velasco,451,Boca Juniors,13,2026,91,0,3,1,0,0.0
+6209,T. Belmonte,451,Boca Juniors,13,2026,72,1,3,0,0,1.25
+6327,M. Merentiel,451,Boca Juniors,13,2026,376,3,2,1,0,0.72
+11424,W. Alarcón,451,Boca Juniors,13,2026,0,0,0,0,0,0.0
+26305,S. Ascacíbar,451,Boca Juniors,13,2026,315,5,4,0,1,1.43
+35551,A. Bareiro,451,Boca Juniors,13,2026,208,9,4,2,0,3.89
+52678,K. Silva,2840,UCV,13,2026,531,5,5,3,0,0.85
+52914,G. Schiavone,2840,UCV,13,2026,450,1,0,1,0,0.2
+52920,A. Martínez,2840,UCV,13,2026,341,2,0,1,0,0.53
+59229,M. Giménez,451,Boca Juniors,13,2026,284,6,2,0,0,1.9
+126743,J. Barinaga,451,Boca Juniors,13,2026,21,0,0,0,0,0.0
+212842,Marco Pellegrino,451,Boca Juniors,13,2026,66,0,0,0,0,0.0
+414378,C. Rey,451,Boca Juniors,13,2026,0,0,0,0,0,0.0
+459876,M. Delgado,451,Boca Juniors,13,2026,559,13,4,1,0,2.09
+510587,T. Aranda,451,Boca Juniors,13,2026,490,3,10,1,0,0.55
+6196,L. Morales,2840,UCV,13,2026,96,0,1,1,0,0.0
+6246,S. Sosa,2840,UCV,13,2026,166,0,4,0,0,0.0
+13514,J. Cuesta,2840,UCV,13,2026,530,2,12,2,0,0.34
+33852,W. Velásquez,2840,UCV,13,2026,276,1,0,1,0,0.33
+37007,R. Ramírez,2840,UCV,13,2026,127,1,1,0,0,0.71
+52683,J. Bolívar,2840,UCV,13,2026,437,4,2,3,0,0.82
+52697,D. Carrillo,2840,UCV,13,2026,435,1,1,0,0,0.21
+52745,C. Cermeño,2840,UCV,13,2026,15,0,0,0,0,0.0
+52976,C. Ortiz,2840,UCV,13,2026,26,1,0,0,0,3.46
+53001,V. Rodríguez,2840,UCV,13,2026,265,3,3,1,0,1.02
+53051,Y. Murillo,2840,UCV,13,2026,59,0,1,0,0,0.0
+57840,A. González,2840,UCV,13,2026,523,4,4,0,0,0.69
+59402,A. Simarra,2840,UCV,13,2026,356,2,1,1,0,0.51
+59500,J. Zapata,2840,UCV,13,2026,501,6,7,0,0,1.08
+75864,F. Solé,2840,UCV,13,2026,508,8,4,1,0,1.42
+224275,Y. Hernández,2840,UCV,13,2026,0,0,0,0,0,0.0
+310909,M. Ruiz,2840,UCV,13,2026,34,0,2,0,0,0.0
+314309,D. De Sousa,2840,UCV,13,2026,137,1,0,0,0,0.66
+316309,K. Mendoza,2840,UCV,13,2026,14,0,1,0,0,0.0
+492549,A. Granko,2840,UCV,13,2026,114,1,3,1,0,0.79
+1788,L. Melgarejo,1179,Libertad Asuncion,13,2026,449,4,8,0,0,0.8
+6305,D. Viera,1179,Libertad Asuncion,13,2026,550,3,0,0,0,0.49
+70556,F. Carrizo,1179,Libertad Asuncion,13,2026,358,5,6,2,0,1.26
+70671,I. Ramírez,1179,Libertad Asuncion,13,2026,178,1,5,0,0,0.51
+70671,I. Ramírez,1176,Cerro Porteno,13,2026,45,2,4,0,0,4.0
+70720,R. Morínigo,1179,Libertad Asuncion,13,2026,276,0,1,0,0,0.0
+70735,M. Espinoza,1179,Libertad Asuncion,13,2026,367,5,8,0,0,1.23
+70736,H. Martínez,1179,Libertad Asuncion,13,2026,13,0,0,0,0,0.0
+70741,L. Sanabria,1179,Libertad Asuncion,13,2026,435,2,3,0,0,0.41
+70743,G. Aguilar,1179,Libertad Asuncion,13,2026,166,7,1,3,0,3.8
+70762,H. Caballero,1179,Libertad Asuncion,13,2026,107,3,2,0,0,2.52
+95259,N. Giménez,1179,Libertad Asuncion,13,2026,366,5,1,0,0,1.23
+95390,Á. Campuzano,1179,Libertad Asuncion,13,2026,457,10,5,2,0,1.97
+237269,Á. González,1179,Libertad Asuncion,13,2026,187,0,1,0,0,0.0
+265921,M. Fernández,1179,Libertad Asuncion,13,2026,188,0,0,0,0,0.0
+347678,C. Martínez,1179,Libertad Asuncion,13,2026,96,0,0,0,0,0.0
+404577,A. Fretes,1179,Libertad Asuncion,13,2026,422,3,3,0,0,0.64
+415972,T. Fernández,1179,Libertad Asuncion,13,2026,260,1,0,0,0,0.35
+426215,P. Villalba,1179,Libertad Asuncion,13,2026,26,1,0,1,0,3.46
+466317,S. del Valle,1179,Libertad Asuncion,13,2026,0,0,0,0,0,0.0
+636517,E. Villalba,1179,Libertad Asuncion,13,2026,228,3,2,2,0,1.18
+2464,A. Marchesín,451,Boca Juniors,13,2026,12,0,0,0,0,0.0
+6594,A. Uribe,2813,Deportivo La Guaira,13,2026,26,2,0,1,0,6.92
+9445,Bruno Rodrigues,135,Cruzeiro,13,2026,115,1,3,0,0,0.78
+59617,J. Melendez,1139,Santa Fe,13,2026,0,0,0,0,0,0.0
+129901,M. Pérez,1176,Cerro Porteno,13,2026,461,3,2,0,0,0.59
+182025,P. Milans,131,Corinthians,13,2026,90,0,0,0,0,0.0
+191865,W. Viera,1176,Cerro Porteno,13,2026,59,2,0,0,0,3.05
+237090,E. Zeballos,451,Boca Juniors,13,2026,195,2,3,1,0,0.92
+304611,M. Sulbarán,2813,Deportivo La Guaira,13,2026,74,0,4,0,0,0.0
+394619,M. Galindo,3702,Bolívar,13,2026,0,0,0,0,0,0.0
+414367,A. Ayhuana,3702,Bolívar,13,2026,0,0,0,0,0,0.0
+415971,V. Rojas,1179,Libertad Asuncion,13,2026,96,0,1,0,0,0.0
+415979,A. Molinas,1179,Libertad Asuncion,13,2026,116,2,2,0,0,1.55
+415981,O. Acuña,1179,Libertad Asuncion,13,2026,9,0,0,0,0,0.0
+427735,F. Noguera,1176,Cerro Porteno,13,2026,45,0,1,0,0,0.0
+464451,G. Ascanio,2813,Deportivo La Guaira,13,2026,0,0,0,0,0,0.0
+510475,A. Pacheco,2813,Deportivo La Guaira,13,2026,0,0,0,0,0,0.0
+517529,H. Butron,3702,Bolívar,13,2026,0,0,0,0,0,0.0
+535724,C. Franco,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+538250,K. Cortes,1139,Santa Fe,13,2026,0,0,0,0,0,0.0
+48,Saúl,127,Flamengo,13,2026,79,1,1,0,0,1.14
+860,Alex Sandro,127,Flamengo,13,2026,95,1,4,0,0,0.95
+2414,Everton,127,Flamengo,13,2026,9,0,0,0,0,0.0
+6217,M. Moreno,446,Lanus,13,2026,276,2,4,0,0,0.65
+9872,Igor Rabello,124,Fluminense,13,2026,0,0,0,0,0,0.0
+10100,L. Romero,135,Cruzeiro,13,2026,423,6,3,3,0,1.28
+39694,M. Aucca,10013,Cusco,13,2026,0,0,0,0,0,0.0
+52651,C. González,2840,UCV,13,2026,0,0,0,0,0,0.0
+52685,Y. Cumaná,2840,UCV,13,2026,116,3,0,1,0,2.33
+316519,F. Bernal,124,Fluminense,13,2026,105,1,1,1,0,0.86
+388480,K. Vázquez,473,Independ. Rivadavia,13,2026,46,0,0,0,0,0.0
+408749,Eduardo David Bores Díaz,1153,Independiente del Valle,13,2026,0,0,0,0,0,0.0
+414492,Francisco Antonio Valdés Rios,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+415561,S. Arancibia,2994,U. Catolica,13,2026,411,2,2,0,0,0.44
+423866,D. Aquino,446,Lanus,13,2026,197,1,2,0,0,0.46
+449151,Y. Vásquez,1153,Independiente del Valle,13,2026,0,0,0,0,0,0.0
+449248,T. Laplace,446,Lanus,13,2026,0,0,0,0,0,0.0
+515671,Wesley Natã,124,Fluminense,13,2026,9,1,1,0,0,10.0
+538299,J. Mena,1128,Independiente Medellin,13,2026,0,0,0,0,0,0.0
+582247,S. Gongora,1153,Independiente del Valle,13,2026,1,0,0,0,0,0.0
+390,Tiquinho Soares,7848,Mirassol,13,2026,34,0,1,0,0,0.0
+2504,R. Rojas,1179,Libertad Asuncion,13,2026,258,1,0,1,0,0.35
+2513,M. Rojas,1179,Libertad Asuncion,13,2026,38,1,0,0,0,2.37
+2967,L. Mejía,2356,Club Nacional,13,2026,410,0,1,1,0,0.0
+5916,G. Fernández,437,Rosario Central,13,2026,200,4,1,2,0,1.8
+9771,Daniel Borges,7848,Mirassol,13,2026,159,0,3,0,0,0.0
+9935,Carlos Eduardo,7848,Mirassol,13,2026,234,2,8,0,0,0.77
+52058,M. Silvera,2356,Club Nacional,13,2026,192,0,2,0,0,0.0
+70738,J. Recalde,1179,Libertad Asuncion,13,2026,163,5,1,1,0,2.76
+70748,I. Franco,1179,Libertad Asuncion,13,2026,203,3,1,0,0,1.33
+77966,Thomazella,7848,Mirassol,13,2026,0,0,0,0,0,0.0
+95392,A. Galeano,7848,Mirassol,13,2026,138,1,2,0,0,0.65
+415976,J. Bogarín,1179,Libertad Asuncion,13,2026,0,0,0,0,0,0.0
+464019,Aranha,121,Palmeiras,13,2026,0,0,0,0,0,0.0
+472572,T. De Martis,446,Lanus,13,2026,0,0,0,0,0,0.0
+555096,S. P. Barbosa Gomez,1142,Deportes Tolima,13,2026,111,2,1,0,0,1.62
+607390,S. Cuestas,3700,Always Ready,13,2026,0,0,0,0,0,0.0
+634063,R. Martinez,2356,Club Nacional,13,2026,82,2,1,0,0,2.2
+634150,J. I. Garcia Lantean,2356,Club Nacional,13,2026,90,0,0,0,0,0.0
+641614,Juan Bernal,1179,Libertad Asuncion,13,2026,45,0,0,0,0,0.0
+844,A. Hernández,2348,Penarol,13,2026,104,1,1,0,0,0.87
+1643,D. Laxalt,2348,Penarol,13,2026,283,6,5,0,0,1.91
+2436,A. Polo,2540,Universitario,13,2026,441,3,1,0,0,0.61
+11604,A. Farías,2994,U. Catolica,13,2026,128,2,0,1,0,1.41
+11749,L. Riveros,2330,Coquimbo Unido,13,2026,257,7,1,0,0,2.45
+11751,G. Vadalá,2330,Coquimbo Unido,13,2026,398,5,7,2,0,1.13
+16402,L. Amarilla,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+16721,M. Mejía,1152,Barcelona SC,13,2026,0,0,0,0,0,0.0
+51597,L. Hernández,2348,Penarol,13,2026,45,0,0,0,0,0.0
+126868,F. Domínguez,1176,Cerro Porteno,13,2026,528,12,16,2,0,2.05
+289420,I. Gariglio,3702,Bolívar,13,2026,314,1,1,0,0,0.29
+414670,R. Perlaza,1152,Barcelona SC,13,2026,86,0,1,0,0,0.0
+443088,Julio Fidelis,124,Fluminense,13,2026,0,0,0,0,0,0.0
+451011,M. Tucker,1064,Platense,13,2026,0,0,0,0,0,0.0
+459877,S. Dalmasso,1064,Platense,13,2026,38,2,0,0,0,4.74
+475729,Felipe Bussio,1064,Platense,13,2026,0,0,0,0,0,0.0
+502726,Riquelme,124,Fluminense,13,2026,0,0,0,0,0,0.0
+515631,F. Mena,3702,Bolívar,13,2026,0,0,0,0,0,0.0
+535725,A. Cristaldo,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+634800,F. Alvez,2348,Penarol,13,2026,101,1,0,1,0,0.89
+2289,Jorginho,127,Flamengo,13,2026,361,2,6,0,0,0.5
+10030,Yuri Lara,7848,Mirassol,13,2026,14,0,0,0,0,0.0
+37161,L. Sinisterra,135,Cruzeiro,13,2026,93,4,1,0,0,3.87
+51385,W. Aguerre,2348,Penarol,13,2026,360,0,3,1,0,0.0
+288707,K. Zenón,451,Boca Juniors,13,2026,0,0,0,0,0,0.0
+289431,S. Moreyra,473,Independ. Rivadavia,13,2026,1,0,0,0,0,0.0
+306718,Y. Perlaza,1139,Santa Fe,13,2026,161,8,2,2,0,4.47
+311384,Jefté,121,Palmeiras,13,2026,29,1,1,0,0,3.1
+374098,R. Villalba,1179,Libertad Asuncion,13,2026,80,2,1,0,0,2.25
+380435,Kaio César,131,Corinthians,13,2026,256,3,12,0,0,1.05
+449150,A. Gómez,1153,Independiente del Valle,13,2026,0,0,0,0,0,0.0
+465764,Ruddy Mina,1158,LDU de Quito,13,2026,13,0,0,0,0,0.0
+482352,Ederson Castillo,1158,LDU de Quito,13,2026,0,0,0,0,0,0.0
+503619,Nicolas Villarroel Galindo,3700,Always Ready,13,2026,0,0,0,0,0,0.0
+520266,B. Ãlvarez,2348,Penarol,13,2026,0,0,0,0,0,0.0
+575275,B. Barboza,2348,Penarol,13,2026,64,1,0,0,0,1.41
+642026,W. Olvera,1158,LDU de Quito,13,2026,0,0,0,0,0,0.0
+653420,J. P. Gomez,3700,Always Ready,13,2026,30,1,0,0,0,3.0
+657439,Edison Gomez,1158,LDU de Quito,13,2026,0,0,0,0,0,0.0
+657694,F. Lunar,2813,Deportivo La Guaira,13,2026,0,0,0,0,0,0.0
+6161,L. Janson,451,Boca Juniors,13,2026,0,0,0,0,0,0.0
+6343,Lisandro Joel Alzugaray,2540,Universitario,13,2026,182,0,0,1,0,0.0
+10396,Nonato,124,Fluminense,13,2026,260,3,5,2,0,1.04
+12303,Ricardo Ade,1158,LDU de Quito,13,2026,302,0,1,0,0,0.0
+13709,C. Barrios,1135,Junior,13,2026,74,0,2,0,0,0.0
+43182,F. Mallo,437,Rosario Central,13,2026,135,1,1,0,0,0.67
+51417,E. Ancheta,2356,Club Nacional,13,2026,193,1,4,0,0,0.47
+51718,C. Cándido,2356,Club Nacional,13,2026,270,1,1,0,0,0.33
+58963,E. Hernández,2330,Coquimbo Unido,13,2026,192,0,1,0,0,0.0
+307541,Juan Gabriel Rivas Rivera,450,Estudiantes L.P.,13,2026,0,0,0,0,0,0.0
+321660,J. Navia,1135,Junior,13,2026,71,0,0,0,0,0.0
+362327,M. González,2813,Deportivo La Guaira,13,2026,58,0,0,0,0,0.0
+461223,J. Pereyra,450,Estudiantes L.P.,13,2026,0,0,0,0,0,0.0
+463858,L. Cornejo,450,Estudiantes L.P.,13,2026,0,0,0,0,0,0.0
+512193,R. Davis,2840,UCV,13,2026,0,0,0,0,0,0.0
+512199,Y. Berroteran,2840,UCV,13,2026,0,0,0,0,0,0.0
+538244,M. Palacios,1139,Santa Fe,13,2026,0,0,0,0,0,0.0
+607389,C. M. Collazo Martinez,3700,Always Ready,13,2026,66,1,3,0,0,1.36
+608202,R. E. Perez Aguirre,3700,Always Ready,13,2026,0,0,0,0,0,0.0
+646680,J. Calle,1158,LDU de Quito,13,2026,0,0,0,0,0,0.0
+987,Paulinho,121,Palmeiras,13,2026,38,0,1,0,0,0.0
+9789,Igor Cariús,7848,Mirassol,13,2026,151,0,2,1,0,0.0
+51658,E. Gularte,2348,Penarol,13,2026,105,3,0,1,0,2.57
+80649,Georgemy,7848,Mirassol,13,2026,0,0,0,0,0,0.0
+311520,Marquinhos,135,Cruzeiro,13,2026,0,0,0,0,0,0.0
+404631,S. Quirós,1064,Platense,13,2026,105,1,0,0,0,0.86
+414370,C. Valle,2546,Sporting Cristal,13,2026,13,0,0,0,0,0.0
+435549,J. Lara,2546,Sporting Cristal,13,2026,0,0,0,0,0,0.0
+449258,V. Pierani,450,Estudiantes L.P.,13,2026,8,0,0,0,0,0.0
+460084,L. Segovia,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+463979,Guilherme Inácio,131,Corinthians,13,2026,0,0,0,0,0,0.0
+512522,Erick Machado,121,Palmeiras,13,2026,0,0,0,0,0,0.0
+535777,E. Diaz,1179,Libertad Asuncion,13,2026,0,0,0,0,0,0.0
+555128,A. Shmalbach,1135,Junior,13,2026,0,0,0,0,0,0.0
+560431,E. Veron,437,Rosario Central,13,2026,21,0,0,0,0,0.0
+565552,T. Olase,2348,Penarol,13,2026,0,0,0,0,0,0.0
+608242,J. Salas,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+610494,S. Quillahuaman,10013,Cusco,13,2026,0,0,0,0,0,0.0
+646348,M. Kone,121,Palmeiras,13,2026,0,0,0,0,0,0.0
+655613,Fernando Herrera,1179,Libertad Asuncion,13,2026,0,0,0,0,0,0.0
+667,M. Depay,131,Corinthians,13,2026,45,0,1,0,0,0.0
+2560,E. Pulgar,127,Flamengo,13,2026,210,6,0,0,0,2.57
+5939,I. Aliseda,1176,Cerro Porteno,13,2026,112,1,1,0,0,0.8
+6058,G. Giménez,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+9577,Charles,131,Corinthians,13,2026,0,0,0,0,0,0.0
+10150,M. Ruben,437,Rosario Central,13,2026,40,1,0,0,0,2.25
+51786,J. Cabrera,2348,Penarol,13,2026,21,0,0,1,0,0.0
+59514,M. Puerta,1139,Santa Fe,13,2026,174,5,1,2,0,2.59
+68013,A. Martegani,451,Boca Juniors,13,2026,0,0,0,0,0,0.0
+70723,A. Benítez,1179,Libertad Asuncion,13,2026,26,0,0,0,0,0.0
+167651,L. Sequeira,473,Independ. Rivadavia,13,2026,0,0,0,0,0,0.0
+180866,Marcelo,124,Fluminense,13,2026,0,0,0,0,0,0.0
+195108,H. Bobadilla,1064,Platense,13,2026,41,0,1,0,0,0.0
+288239,E. Murillo,1139,Santa Fe,13,2026,0,0,0,0,0,0.0
+362877,B. González,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+415978,E. Díaz,1179,Libertad Asuncion,13,2026,0,0,0,0,0,0.0
+607075,V. Villegas,2330,Coquimbo Unido,13,2026,0,0,0,0,0,0.0
+613328,Thiago Currado,1064,Platense,13,2026,0,0,0,0,0,0.0
+655642,L. Duarte,437,Rosario Central,13,2026,8,0,0,0,0,0.0
+659305,Asael Oviedo,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+6608,G. Rojas,135,Cruzeiro,13,2026,170,0,1,0,0,0.0
+13189,L. Sánchez,1142,Deportes Tolima,13,2026,71,2,2,1,0,2.54
+13584,H. Martínez,1142,Deportes Tolima,13,2026,90,1,0,0,0,1.0
+16359,R. Schunke,1153,Independiente del Valle,13,2026,90,2,1,1,0,2.0
+35508,M. Ortega,1142,Deportes Tolima,13,2026,0,0,0,0,0,0.0
+70768,H. Quintana,1153,Independiente del Valle,13,2026,83,0,1,0,0,0.0
+297749,L. Rodríguez,135,Cruzeiro,13,2026,10,0,1,0,0,0.0
+308161,J. Cabezas,1142,Deportes Tolima,13,2026,72,1,1,0,0,1.25
+362868,G. Balanta,1142,Deportes Tolima,13,2026,0,0,0,0,0,0.0
+363341,B. Gallego,450,Estudiantes L.P.,13,2026,90,2,3,1,0,2.0
+365287,Wesley Gassova,135,Cruzeiro,13,2026,131,3,4,0,0,2.06
+368096,João Gabriel e Costa Cesco,135,Cruzeiro,13,2026,36,1,0,1,0,2.5
+403300,Lorran,127,Flamengo,13,2026,0,0,0,0,0,0.0
+454038,S. Aguayo,1142,Deportes Tolima,13,2026,14,0,0,0,0,0.0
+504950,Zé Lucas,135,Cruzeiro,13,2026,12,0,0,0,0,0.0
+512740,Johnny Góes,127,Flamengo,13,2026,0,0,0,0,0,0.0
+522974,Vitor Lamounier,135,Cruzeiro,13,2026,0,0,0,0,0,0.0
+606262,F. Daza,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+606701,Felipe Morais,135,Cruzeiro,13,2026,0,0,0,0,0,0.0
+653980,E. Quintero,1153,Independiente del Valle,13,2026,0,0,0,0,0,0.0
+259,Thiago Silva,124,Fluminense,13,2026,186,0,1,0,0,0.0
+5961,M. Roffo,1176,Cerro Porteno,13,2026,180,0,0,0,0,0.0
+6173,L. Merolla,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+6645,A. Vigo,473,Independ. Rivadavia,13,2026,30,1,0,0,0,3.0
+11493,M. Salas,473,Independ. Rivadavia,13,2026,169,3,1,0,0,1.6
+12705,Hulk,124,Fluminense,13,2026,127,2,3,1,0,1.42
+16732,I. Zambrano,1158,LDU de Quito,13,2026,0,0,0,0,0,0.0
+51466,J. Piquerez,121,Palmeiras,13,2026,180,2,1,0,0,1.0
+77680,Fernandinho,7848,Mirassol,13,2026,19,0,2,0,0,0.0
+159493,Wallisson,7848,Mirassol,13,2026,31,0,2,0,0,0.0
+159843,Bruno Santos,7848,Mirassol,13,2026,90,1,0,0,0,1.0
+311544,Sebastían González Baquero,1158,LDU de Quito,13,2026,84,0,0,0,0,0.0
+340279,Vitor Roque,121,Palmeiras,13,2026,154,4,2,0,0,2.34
+369678,L. Díaz,473,Independ. Rivadavia,13,2026,0,0,0,0,0,0.0
+404572,A. Gamarra,1176,Cerro Porteno,13,2026,124,1,0,0,0,0.73
+414448,J. RodrÃ­guez,1158,LDU de Quito,13,2026,1,0,0,0,0,0.0
+425759,A. Cañete,1176,Cerro Porteno,13,2026,180,2,3,1,0,1.0
+607088,A. Perez,2994,U. Catolica,13,2026,19,1,0,0,0,4.74
+656092,N. Pino,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+669735,C. Chena,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+5220,F. Pons,2330,Coquimbo Unido,13,2026,29,1,0,0,0,3.1
+6193,J. Cozzani,1064,Platense,13,2026,192,0,1,0,0,0.0
+10067,Alex Santana,131,Corinthians,13,2026,0,0,0,0,0,0.0
+10229,Cássio,135,Cruzeiro,13,2026,0,0,0,0,0,0.0
+46812,A. Werner,437,Rosario Central,13,2026,0,0,0,0,0,0.0
+51468,A. Rodríguez,437,Rosario Central,13,2026,11,0,0,0,0,0.0
+76098,T. Badaloni,437,Rosario Central,13,2026,11,1,0,0,0,8.18
+294033,L. Giménez,1064,Platense,13,2026,170,0,3,1,0,0.0
+414502,Ignacio Andres Pérez Gutierrez,2994,U. Catolica,13,2026,0,0,0,0,0,0.0
+415085,João Pedro,131,Corinthians,13,2026,0,0,0,0,0,0.0
+455314,F. Minerva,1064,Platense,13,2026,0,0,0,0,0,0.0
+535769,A. Espinola,1176,Cerro Porteno,13,2026,0,0,0,0,0,0.0
+560305,L. Sabato,473,Independ. Rivadavia,13,2026,8,0,0,0,0,0.0
+575324,Heittor,121,Palmeiras,13,2026,0,0,0,0,0,0.0
+636717,A. Guich,437,Rosario Central,13,2026,0,0,0,0,0,0.0
