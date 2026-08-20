@@ -8,7 +8,7 @@ on:
 jobs:
   reconcile:
     runs-on: ubuntu-latest
-    environment: prod  # <- AGREGA ESTA LÍNEA AQUÍ
+    environment: prod
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -36,8 +36,13 @@ jobs:
           import os
           from core.api_client import APIFootballClient
           from core.reconciliation import reconcile_daily_bets
+          from core.notifications import send_telegram_alert
 
           client = APIFootballClient(api_key=os.environ.get('API_FOOTBALL_KEY', ''))
           result = reconcile_daily_bets(client)
-          print(result)
+          print('Resultado:', result)
+
+          # Enviar notificación del resultado
+          msg = f'🤖 *Reconciliación Automática (GitHub Actions)*\n\n📌 *Estado:* {result}'
+          send_telegram_alert(msg)
           "
