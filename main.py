@@ -148,16 +148,29 @@ class DatabaseManager:
         conn.close()
 
     def get_referee(self, referee_name: str):
-        """Consulta métricas de un árbitro registrado."""
-        conn = self._get_connection()
-        cursor = conn.cursor()
-        cursor.execute(
-            "SELECT matches_count, avg_fouls FROM referee_stats WHERE referee_name = ?",
-            (referee_name,)
-        )
-        row = cursor.fetchone()
-        conn.close()
-        return row
+        """Consulta los partidos y el promedio de faltas de un árbitro."""
+        if not referee_name:
+            return None
+        try:
+            conn = self._get_connection()
+            cursor = conn.cursor()
+            
+            # Ajusta la consulta SQL según los nombres exactos de tus tablas/columnas
+            query = """
+                SELECT COUNT(*) as matches_count, AVG(total_fouls) as avg_fouls
+                FROM referee_stats
+                WHERE referee_name = ?
+            """
+            cursor.execute(query, (referee_name,))
+            row = cursor.fetchone()
+            conn.close()
+            
+            if row and row[0] > 0 and row[1] is not None:
+                return row[0], row[1]
+            return None
+        except Exception as e:
+            print(f"Error consultando árbitro {referee_name}: {e}")
+            return None
 
     def save_simulated_bet(self, bet_data: dict):
         """Guarda una apuesta simulada en la base de datos."""
