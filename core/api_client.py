@@ -309,9 +309,15 @@ class APIFootballClient:
 
     def get_fixture_player_stats(self, fixture_id: int):
         """Obtiene las estadísticas de todos los jugadores que participaron en un partido finalizado."""
+        url = f"{self.BASE_URL}/fixtures/players" if hasattr(self, 'BASE_URL') else "https://v3.football.api-sports.io/fixtures/players"
+        params = {"fixture": fixture_id}
+        
         try:
-            # Si tu cliente usa un método helper interno como _get o get:
-            return self._get("fixtures/players", params={"fixture": fixture_id})
+            response = requests.get(url, headers=self.headers, params=params, timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                return data.get("response", [])
         except Exception as e:
             print(f"Error al obtener estadísticas de fixture {fixture_id}: {e}")
-            return []
+        
+        return []
