@@ -92,9 +92,90 @@ class DatabaseManager:
                 updated_at TEXT
             )
         """)
+        
+        # 2. Nueva Tabla: Historial de Árbitros
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS referee_stats (
+                referee_name TEXT PRIMARY KEY,
+                matches_count INTEGER DEFAULT 0,
+                total_fouls INTEGER DEFAULT 0,
+                total_yellows INTEGER DEFAULT 0,
+                total_reds INTEGER DEFAULT 0,
+                avg_fouls REAL DEFAULT 0.0,
+                updated_at TEXT
+            )
+        """)
+
+        # 3. Nueva Tabla: Simulador de Apuestas
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS simulated_bets (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                fixture_id INTEGER NOT NULL,
+                match_date TEXT NOT NULL,
+                league_id INTEGER NOT NULL,
+                home_team TEXT NOT NULL,
+                away_team TEXT NOT NULL,
+                referee_name TEXT,
+                predicted_fouls REAL NOT NULL,
+                bet_line REAL NOT NULL,
+                bet_type TEXT NOT NULL,
+                status TEXT DEFAULT 'PENDING',
+                actual_fouls INTEGER,
+                created_at TEXT
+            )
+        """)
+        
+        # Tabla para el simulador de apuestas
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS simulated_bets (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                fixture_id INTEGER,
+                match_date TEXT,
+                league_id INTEGER,
+                home_team TEXT,
+                away_team TEXT,
+                referee_name TEXT,
+                predicted_fouls REAL,
+                bet_line REAL,
+                bet_type TEXT,
+                edge REAL,
+                status TEXT DEFAULT 'PENDING',
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(fixture_id, bet_type, bet_line)
+            )
+        """)
         conn.commit()
         conn.close()
 
+    def get_referee(self, referee_name: str):
+        """Consulta métricas de un árbitro registrado."""
+        conn = self._get_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            "SELECT matches_count, avg_fouls FROM referee_stats WHERE referee_name = ?",
+            (referee_name,)
+        )
+        row = cursor.fetchone()
+        conn.close()
+        return row
+
+    def save_simulated_bet(self, bet_data: dict):
+        """Guarda una apuesta simulada en la base de datos."""
+        conn = self._get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO simulated_bets (
+                fixture_id, match_date, league_id, home_team, away_team, 
+                referee_name, predicted_fouls, bet_line, bet_type, status, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'PENDING', datetime('now'))
+        """, (
+            bet_data["fixture_id"], bet_data["match_date"], bet_data["league_id"],
+            bet_data["home_team"], bet_data["away_team"], bet_data.get("referee_name"),
+            bet_data["predicted_fouls"], bet_data["bet_line"], bet_data["bet_type"]
+        ))
+        conn.commit()
+        conn.close()
+        
     def save_foul_records(self, records: List[PlayerFoulStats], league_name: str):
         """Inserta o actualiza registros en lote (batch) de forma ultrarrápida."""
         if not records:
@@ -177,23 +258,70 @@ def export_to_csv(records: List[PlayerFoulStats], league_name: str, season: int,
             
     logger.info(f"Archivo CSV exportado: {filename}")
 
+def save_completed_fixtures(self, fixtures: list):
+    """Guarda o actualiza el historial de partidos finalizados y sus árbitros."""
+    if not fixtures:
+        return
+    conn = self._get_connection()
+    cursor = conn.cursor()
+    query = """
+        INSERT INTO match_fixtures (fixture_id, season, league_id, referee_name, total_fouls, total_yellow_cards)
+        VALUES (:fixture_id, :season, :league_id, :referee_name, :total_fouls, :total_yellow_cards)
+        ON CONFLICT(fixture_id) DO UPDATE SET
+            referee_name = excluded.referee_name,
+            total_fouls = excluded.total_fouls,
+            total_yellow_cards = excluded.total_yellow_cards
+    """
+    cursor.executemany(query, fixtures)
+    conn.commit()
+    conn.close()
+
 
 # --- FUNCIÓN DE SINCRONIZACIÓN INDIVIDUAL (PARA APP.PY) ---
 def sync_league_data(league_id: int, league_name: str, season: int) -> int:
-    """Extrae y persiste los datos de una sola liga/temporada usando el cliente y la BD."""
+    """Extrae y persiste los datos de jugadores Y partidos (con árbitros) de una liga/temporada."""
     client = APIFootballClient()
     db = DatabaseManager()
 
+    # 1. Sincronizar Faltas de Jugadores
     raw_data = client.get_player_season_fouls(league_id=league_id, season=season)
     foul_records = parse_player_fouls(raw_data, league_id=league_id, season=season)
 
-    if not foul_records:
-        return 0
+    if foul_records:
+        db.save_foul_records(foul_records, league_name)
+        export_to_csv(foul_records, league_name, season)
 
-    db.save_foul_records(foul_records, league_name)
-    export_to_csv(foul_records, league_name, season)
+    # 2. Sincronizar Partidos Finalizados y Estadísticas de Árbitros
+    # Obtenemos todos los partidos jugados hasta la fecha para esta liga/temporada
+    completed_fixtures = client.get_completed_fixtures(league_id=league_id, season=season)
+
+    if completed_fixtures:
+        fixture_records = []
+        for f in completed_fixtures:
+            referee_raw = f.get("fixture", {}).get("referee")
+            
+            # Limpiar nombre del árbitro (ej: "R. Claus, Brazil" -> "R. Claus")
+            clean_referee = referee_raw.split(",")[0].strip() if referee_raw else None
+
+            # Extraer totales de faltas y tarjetas del partido desde la API
+            # Ajusta según las llaves que te entregue tu cliente API (ej: f["statistics"])
+            total_fouls = f.get("statistics", {}).get("total_fouls", 0)
+            total_yellows = f.get("statistics", {}).get("total_yellow_cards", 0)
+
+            fixture_records.append({
+                "fixture_id": f["fixture"]["id"],
+                "season": season,
+                "league_id": league_id,
+                "referee_name": clean_referee,
+                "total_fouls": total_fouls,
+                "total_yellow_cards": total_yellows
+            })
+
+        # Guardar o actualizar fixtures en la base de datos
+        db.save_completed_fixtures(fixture_records)
 
     return len(foul_records)
+
 
 
 # --- PIPELINE PRINCIPAL ---

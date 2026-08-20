@@ -9,9 +9,9 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 13634,O. Bertel,1138,America de Cali,239,2026,2035,16,6,1,0,0.71
 13771,D. Borrero,1138,America de Cali,239,2026,463,6,6,0,0,1.17
 35483,A. Mosquera,1138,America de Cali,239,2026,1164,11,7,2,0,0.85
-35483,A. Mosquera,1144,Águilas Doradas,239,2026,180,3,1,0,0,1.5
+35483,A. Mosquera,1144,Águilas Doradas,239,2026,270,3,3,0,0,1.0
 79249,J. Soto,1138,America de Cali,239,2026,726,0,0,1,0,0.0
-79249,J. Soto,1144,Águilas Doradas,239,2026,180,0,0,1,0,0.0
+79249,J. Soto,1144,Águilas Doradas,239,2026,270,0,0,1,0,0.0
 375842,M. Castillo,1138,America de Cali,239,2026,1271,11,27,2,0,0.78
 434034,J. Escobar,1138,America de Cali,239,2026,1800,30,19,13,0,1.5
 439969,B. Correa,1138,America de Cali,239,2026,197,3,2,1,0,1.37
@@ -23,25 +23,25 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 538255,T. Palacios,1138,America de Cali,239,2026,1271,24,19,5,0,1.7
 638481,Jorge Mosquera,1462,Deportivo Pereira,239,2026,0,0,0,0,0,0.0
 313,D. Ospina,1137,Atletico Nacional,239,2026,1086,0,4,0,0,0.0
-2437,W. Fariñez,1134,Internacional de Bogota,239,2026,1786,0,5,2,0,0.0
-9606,F. Boné,1134,Internacional de Bogota,239,2026,1684,21,28,3,0,1.12
+2437,W. Fariñez,1134,Internacional de Bogota,239,2026,1876,0,5,2,0,0.0
+9606,F. Boné,1134,Internacional de Bogota,239,2026,1774,22,29,3,0,1.12
 13190,C. Sierra,1138,America de Cali,239,2026,180,3,1,0,0,1.5
-13226,J. Caballero,1134,Internacional de Bogota,239,2026,587,8,6,3,0,1.23
-13373,L. Vásquez,1134,Internacional de Bogota,239,2026,2046,21,13,3,0,0.92
+13226,J. Caballero,1134,Internacional de Bogota,239,2026,660,8,7,3,0,1.09
+13373,L. Vásquez,1134,Internacional de Bogota,239,2026,2136,21,14,3,0,0.88
 13642,A. Román,1137,Atletico Nacional,239,2026,2129,22,10,6,1,0.93
-13801,Yulián Gómez,1134,Internacional de Bogota,239,2026,1227,23,2,7,0,1.69
+13801,Yulián Gómez,1134,Internacional de Bogota,239,2026,1307,24,2,8,0,1.65
 51923,F. Sanguinetti,1134,Internacional de Bogota,239,2026,1792,13,8,1,0,0.65
-52744,C. Vivas,1134,Internacional de Bogota,239,2026,1898,12,3,7,0,0.57
-59410,R. Manjarrés,1134,Internacional de Bogota,239,2026,506,11,5,3,0,1.96
-59810,D. Rodas,1134,Internacional de Bogota,239,2026,687,16,6,4,0,2.1
+52744,C. Vivas,1134,Internacional de Bogota,239,2026,1944,12,3,7,0,0.56
+59410,R. Manjarrés,1134,Internacional de Bogota,239,2026,557,12,5,4,0,1.94
+59810,D. Rodas,1134,Internacional de Bogota,239,2026,777,18,6,4,0,2.08
 198228,K. Suárez,1134,Internacional de Bogota,239,2026,801,3,14,0,0,0.34
 198228,K. Suárez,1127,Deportivo Cali,239,2026,103,2,2,0,0,1.75
-297717,D. Quiñonez,1134,Internacional de Bogota,239,2026,1713,33,30,9,0,1.73
-346883,A. Irazoque,1134,Internacional de Bogota,239,2026,1808,5,10,3,0,0.25
+297717,D. Quiñonez,1134,Internacional de Bogota,239,2026,1752,34,30,9,0,1.75
+346883,A. Irazoque,1134,Internacional de Bogota,239,2026,1852,6,12,3,0,0.29
 356517,K. Parra,1134,Internacional de Bogota,239,2026,1556,4,33,1,0,0.23
 356517,K. Parra,1137,Atletico Nacional,239,2026,9,0,0,0,0,0.0
 411170,S. Mayo,1134,Internacional de Bogota,239,2026,150,4,1,2,0,2.4
-411170,S. Mayo,1470,Cucuta,239,2026,85,2,1,0,0,2.12
+411170,S. Mayo,1470,Cucuta,239,2026,130,2,4,0,0,1.38
 428788,R. Julio,1134,Internacional de Bogota,239,2026,149,5,1,1,0,3.02
 449116,S. Garcia,1137,Atletico Nacional,239,2026,1543,13,1,3,0,0.76
 538252,J. Valencia,1134,Internacional de Bogota,239,2026,519,12,6,3,0,2.08
@@ -113,12 +113,12 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 13323,M. Duarte,1470,Cucuta,239,2026,1247,19,8,4,1,1.37
 13656,D. Silva,1125,Millonarios,239,2026,895,9,9,3,0,0.91
 13738,S. Rodríguez,1470,Cucuta,239,2026,511,3,1,0,1,0.53
-13738,S. Rodríguez,1144,Águilas Doradas,239,2026,1,0,0,0,0,0.0
+13738,S. Rodríguez,1144,Águilas Doradas,239,2026,13,0,0,0,0,0.0
 35637,R. Contreras,1125,Millonarios,239,2026,1469,23,37,4,1,1.41
 51164,D. Quintero,1125,Millonarios,239,2026,553,4,10,1,0,0.65
 59660,M. García,1125,Millonarios,239,2026,1591,30,29,5,1,1.7
 59664,S. Orozco,1470,Cucuta,239,2026,529,13,9,3,0,2.21
-126093,J. Ceballos,1470,Cucuta,239,2026,460,3,5,0,0,0.59
+126093,J. Ceballos,1470,Cucuta,239,2026,480,3,6,0,0,0.56
 265960,D. Victoria,1125,Millonarios,239,2026,20,0,0,0,0,0.0
 303134,J. Angulo,1125,Millonarios,239,2026,116,2,0,0,0,1.55
 308161,J. Cabezas,1125,Millonarios,239,2026,149,2,1,1,0,1.21
@@ -130,25 +130,26 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 538273,M. Diaz Samuel,1125,Millonarios,239,2026,304,6,2,1,0,1.78
 538279,S. Viveros,1125,Millonarios,239,2026,599,10,13,1,0,1.5
 554915,A. Ballesteros,1470,Cucuta,239,2026,153,4,0,1,0,2.35
-566614,F. Abadia,1470,Cucuta,239,2026,1425,1,1,2,1,0.06
+566614,F. Abadia,1470,Cucuta,239,2026,1515,1,1,3,1,0.06
 6124,L. Ríos,1470,Cucuta,239,2026,393,6,6,2,1,1.37
-13344,J. Agudelo,1470,Cucuta,239,2026,395,9,10,1,1,2.05
-16349,S. Támara,1470,Cucuta,239,2026,436,8,4,2,0,1.65
+13344,J. Agudelo,1470,Cucuta,239,2026,409,9,10,1,1,1.98
+16349,S. Támara,1470,Cucuta,239,2026,444,8,4,2,0,1.62
 51131,M. Barrios,1136,Once Caldas,239,2026,991,8,17,2,0,0.73
-52787,V. Mejía,1470,Cucuta,239,2026,1413,20,19,2,0,1.27
+52787,V. Mejía,1470,Cucuta,239,2026,1483,22,21,3,0,1.34
 59615,J. Cuesta,1136,Once Caldas,239,2026,2241,15,18,2,0,0.6
 81333,J. Cardona,1136,Once Caldas,239,2026,1808,15,3,4,0,0.75
 128779,E. Beltrán,1136,Once Caldas,239,2026,203,2,3,1,0,0.89
 128779,E. Beltrán,1133,Jaguares,239,2026,39,1,2,2,0,2.31
-159163,B. Montaño,1470,Cucuta,239,2026,788,6,4,2,0,0.69
+159163,B. Montaño,1470,Cucuta,239,2026,878,6,5,2,0,0.62
 181420,J. Alvarado,1136,Once Caldas,239,2026,926,11,8,5,0,1.07
 195721,J. Parra,1136,Once Caldas,239,2026,2250,0,11,3,0,0.0
 200154,K. Cuesta,1136,Once Caldas,239,2026,642,12,5,2,0,1.68
-306733,L. Berdugo,1470,Cucuta,239,2026,1535,15,54,3,0,0.88
+306733,L. Berdugo,1470,Cucuta,239,2026,1625,16,57,3,0,0.89
 406432,K. Tamayo,1136,Once Caldas,239,2026,1312,16,5,3,0,1.1
+406432,K. Tamayo,1470,Cucuta,239,2026,45,0,0,0,0,0.0
 408371,E. Arízalas,1470,Cucuta,239,2026,1175,12,21,2,0,0.92
-408371,E. Arízalas,1144,Águilas Doradas,239,2026,117,0,1,0,0,0.0
-427330,J. Peralta,1470,Cucuta,239,2026,860,13,16,5,0,1.36
+408371,E. Arízalas,1144,Águilas Doradas,239,2026,202,1,2,0,0,0.45
+427330,J. Peralta,1470,Cucuta,239,2026,950,13,17,5,0,1.23
 554913,A. Cano,1470,Cucuta,239,2026,209,4,3,0,0,1.72
 555080,J. Valencia,1470,Cucuta,239,2026,265,2,4,0,0,0.68
 555163,D. Gelvez,1470,Cucuta,239,2026,58,0,0,0,0,0.0
@@ -161,7 +162,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 13207,E. Navarro,1136,Once Caldas,239,2026,93,3,2,0,0,2.9
 13334,H. Mancilla,1126,Deportivo Pasto,239,2026,818,17,6,2,0,1.87
 13482,I. Rojas,1136,Once Caldas,239,2026,420,5,2,3,0,1.07
-13482,I. Rojas,1144,Águilas Doradas,239,2026,53,0,1,0,0,0.0
+13482,I. Rojas,1144,Águilas Doradas,239,2026,116,1,2,0,0,0.78
 13676,E. Velasco,1126,Deportivo Pasto,239,2026,1728,20,8,3,0,1.04
 13676,E. Velasco,1127,Deportivo Cali,239,2026,194,6,4,1,0,2.78
 13757,G. Banguera,1126,Deportivo Pasto,239,2026,1132,0,4,2,0,0.0
@@ -215,7 +216,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 13696,E. Chaux,1128,Independiente Medellin,239,2026,827,0,2,2,0,0.0
 46804,D. Moreno,1128,Independiente Medellin,239,2026,1092,28,15,5,0,2.31
 52704,M. Pernía,1147,Fortaleza FC,239,2026,457,6,2,0,1,1.18
-52704,M. Pernía,1134,Internacional de Bogota,239,2026,26,0,0,0,0,0.0
+52704,M. Pernía,1134,Internacional de Bogota,239,2026,39,2,0,1,0,4.62
 52915,M. Silva,1147,Fortaleza FC,239,2026,1370,2,1,2,0,0.13
 59535,J. Herrera,1147,Fortaleza FC,239,2026,12,0,1,0,0,0.0
 59553,J. Balanta,1147,Fortaleza FC,239,2026,1691,15,16,5,0,0.8
@@ -336,7 +337,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 555289,D. Villarreal,1135,Junior,239,2026,53,2,1,0,0,3.4
 6591,G. Lencina,1142,Deportes Tolima,239,2026,0,0,0,0,0,0.0
 6626,G. Torres,1462,Deportivo Pereira,239,2026,352,6,3,1,1,1.53
-6626,G. Torres,1470,Cucuta,239,2026,117,2,3,2,0,1.54
+6626,G. Torres,1470,Cucuta,239,2026,206,2,3,2,0,0.87
 13378,M. Pérez,1462,Deportivo Pereira,239,2026,766,3,6,5,0,0.35
 13430,S. Acosta,1462,Deportivo Pereira,239,2026,761,14,16,1,1,1.66
 13438,Ederson Moreno,1462,Deportivo Pereira,239,2026,433,10,3,1,0,2.08
@@ -358,23 +359,23 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 2486,H. Palacios,1139,Santa Fe,239,2026,1796,17,20,2,0,0.85
 5270,B. Benítez,1464,Llaneros,239,2026,263,5,4,1,0,1.71
 6639,E. Olivera,1139,Santa Fe,239,2026,1992,12,10,6,0,0.54
-13157,J. Vásquez,1464,Llaneros,239,2026,1724,29,65,9,0,1.51
+13157,J. Vásquez,1464,Llaneros,239,2026,1814,33,65,9,0,1.64
 13287,C. Mafla,1139,Santa Fe,239,2026,1691,15,13,4,0,0.8
 13496,A. Mosquera,1139,Santa Fe,239,2026,2055,1,1,2,0,0.04
 13714,D. Mantilla,1464,Llaneros,239,2026,409,6,2,4,0,1.32
-13716,K. Osorio,1464,Llaneros,239,2026,1177,15,7,1,0,1.15
+13716,K. Osorio,1464,Llaneros,239,2026,1208,15,7,1,0,1.12
 16569,D. Quintero,1464,Llaneros,239,2026,745,6,5,1,2,0.72
-35513,F. Meza,1464,Llaneros,239,2026,1827,15,13,6,1,0.74
+35513,F. Meza,1464,Llaneros,239,2026,1917,18,13,7,1,0.85
 51253,J. Medranda,1464,Llaneros,239,2026,939,6,5,0,0,0.58
 59416,I. Scarpeta,1139,Santa Fe,239,2026,711,3,2,2,0,0.38
 59504,J. Loaiza,1464,Llaneros,239,2026,0,0,0,0,0,0.0
 59523,E. Laszo,1464,Llaneros,239,2026,128,0,0,0,0,0.0
-207225,C. Cortés,1464,Llaneros,239,2026,1270,12,23,2,0,0.85
+207225,C. Cortés,1464,Llaneros,239,2026,1291,13,23,2,0,0.91
 283830,L. Riascos,1464,Llaneros,239,2026,719,10,11,4,0,1.25
 301275,J. Blanco,1464,Llaneros,239,2026,480,5,2,1,0,0.94
 301275,J. Blanco,1147,Fortaleza FC,239,2026,43,2,1,0,0,4.19
 371252,E. Restrepo,1464,Llaneros,239,2026,237,5,2,2,1,1.9
-440683,J. RamÃ­rez,1464,Llaneros,239,2026,873,6,13,2,0,0.62
+440683,J. RamÃ­rez,1464,Llaneros,239,2026,881,6,14,3,0,0.61
 565607,J. Castro,1464,Llaneros,239,2026,86,1,1,0,0,1.05
 2480,I. Arboleda,1144,Águilas Doradas,239,2026,1094,0,4,4,0,0.0
 13169,D. Hernández,1144,Águilas Doradas,239,2026,1454,15,7,5,0,0.93
@@ -395,22 +396,22 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 344164,D. Lozano,1144,Águilas Doradas,239,2026,1524,19,16,2,0,1.12
 356522,K. Toscano,1139,Santa Fe,239,2026,1056,21,12,3,0,1.79
 379104,J. Torres,1139,Santa Fe,239,2026,99,1,1,0,0,0.91
-441050,J. Mena,1144,Águilas Doradas,239,2026,1713,20,19,2,0,1.05
+441050,J. Mena,1144,Águilas Doradas,239,2026,1803,20,21,2,0,1.0
 522700,Jhon Rentería,1139,Santa Fe,239,2026,0,0,0,0,0,0.0
 538244,M. Palacios,1139,Santa Fe,239,2026,22,1,1,2,0,4.09
 13179,A. Álvarez,1144,Águilas Doradas,239,2026,25,0,0,0,0,0.0
 13492,C. Rojas,1144,Águilas Doradas,239,2026,0,0,0,0,0,0.0
-13520,A. Ricaurte,1144,Águilas Doradas,239,2026,902,11,26,4,0,1.1
+13520,A. Ricaurte,1144,Águilas Doradas,239,2026,992,12,28,4,0,1.09
 13554,J. Obregón,1144,Águilas Doradas,239,2026,803,15,17,1,0,1.68
 13554,J. Obregón,1126,Deportivo Pasto,239,2026,173,3,5,1,0,1.56
 52430,L. Hernández,1470,Cucuta,239,2026,1242,13,13,2,0,0.94
-59469,F. Lozano,1144,Águilas Doradas,239,2026,1894,15,27,4,0,0.71
+59469,F. Lozano,1144,Águilas Doradas,239,2026,1984,15,31,4,0,0.68
 59526,J. Roa,1144,Águilas Doradas,239,2026,1015,31,7,3,0,2.75
 59642,A. Parra,1142,Deportes Tolima,239,2026,1604,22,16,2,0,1.23
 59762,J. Pineda,1144,Águilas Doradas,239,2026,870,17,9,5,0,1.76
 79590,B. Urueña,1144,Águilas Doradas,239,2026,854,7,13,2,0,0.74
 330300,N. Lara,1144,Águilas Doradas,239,2026,471,10,4,2,0,1.91
-373771,F. Suárez,1144,Águilas Doradas,239,2026,1041,8,31,2,0,0.69
+373771,F. Suárez,1144,Águilas Doradas,239,2026,1062,9,31,2,0,0.76
 393877,Jorge Luis Rivaldo Pinto,1144,Águilas Doradas,239,2026,1376,14,12,3,0,0.92
 405536,R. Benítez,1144,Águilas Doradas,239,2026,246,8,7,1,0,2.93
 454964,D. Moncada,1134,Internacional de Bogota,239,2026,996,15,17,2,0,1.36
@@ -425,8 +426,8 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 35508,M. Ortega,1142,Deportes Tolima,239,2026,360,0,0,0,0,0.0
 36269,Marlon Ricardo Sierra Zamora,1464,Llaneros,239,2026,1062,10,8,2,0,0.85
 59781,J. Castillo,1141,Alianza Valledupar,239,2026,1239,21,20,7,0,1.53
-126748,A. Moralez,1464,Llaneros,239,2026,1346,12,6,1,0,0.8
-301592,H. Mena,1464,Llaneros,239,2026,658,16,5,2,0,2.19
+126748,A. Moralez,1464,Llaneros,239,2026,1377,13,6,1,0,0.85
+301592,H. Mena,1464,Llaneros,239,2026,740,19,5,3,0,2.31
 309389,J. Quiñones,1462,Deportivo Pereira,239,2026,1178,9,24,4,0,0.69
 454488,N. Rengifo,1462,Deportivo Pereira,239,2026,1077,11,1,2,0,0.92
 460753,M. Palacios,1462,Deportivo Pereira,239,2026,23,0,1,0,0,0.0
@@ -453,7 +454,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 190475,C. Cañozales,1144,Águilas Doradas,239,2026,209,8,2,1,1,3.44
 288239,E. Murillo,1139,Santa Fe,239,2026,431,15,6,2,0,3.13
 321660,J. Navia,1135,Junior,239,2026,257,8,4,1,0,2.8
-351926,J. Ávalo,1144,Águilas Doradas,239,2026,797,12,9,3,1,1.36
+351926,J. Ávalo,1144,Águilas Doradas,239,2026,824,12,9,3,1,1.31
 353530,J. Bernal,1126,Deportivo Pasto,239,2026,48,3,3,0,0,5.62
 431436,J. Canchimbo,1135,Junior,239,2026,970,18,23,3,0,1.67
 454541,J. Castaño,1136,Once Caldas,239,2026,1170,10,3,5,1,0.77
@@ -472,7 +473,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 59574,H. Castillo,1137,Atletico Nacional,239,2026,1087,0,2,0,0,0.0
 125220,R. Bustamante,1133,Jaguares,239,2026,480,8,14,1,0,1.5
 207224,E. Batalla,1131,Bucaramanga,239,2026,1263,12,29,2,0,0.86
-295512,D. Calcaterra,1470,Cucuta,239,2026,1496,12,6,6,0,0.72
+295512,D. Calcaterra,1470,Cucuta,239,2026,1548,13,6,6,1,0.76
 324035,J. Mejia,1133,Jaguares,239,2026,618,9,4,3,0,1.31
 538171,C. Uribe,1137,Atletico Nacional,239,2026,106,1,0,0,0,0.85
 538335,M. Marin,1137,Atletico Nacional,239,2026,40,0,0,0,0,0.0
@@ -488,7 +489,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 324894,J. Díaz,1132,Chico,239,2026,96,6,3,1,0,5.62
 339312,C. Santander,1147,Fortaleza FC,239,2026,360,0,1,0,0,0.0
 358460,J. Muñoz,1141,Alianza Valledupar,239,2026,1232,13,41,1,0,0.95
-375826,J. Pertúz,1464,Llaneros,239,2026,879,13,17,2,0,1.33
+375826,J. Pertúz,1464,Llaneros,239,2026,969,13,18,2,0,1.21
 437770,Andrés Felipe Dávila Mosquera,1128,Independiente Medellin,239,2026,42,1,0,0,0,2.14
 538184,C. Villegas,1141,Alianza Valledupar,239,2026,293,4,8,0,0,1.23
 538228,J. Valoyes,1141,Alianza Valledupar,239,2026,17,2,0,0,1,10.59
@@ -511,7 +512,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 411975,J. Mena,1127,Deportivo Cali,239,2026,23,2,0,0,0,7.83
 538162,S. Cordoba,1126,Deportivo Pasto,239,2026,896,2,7,0,1,0.2
 538170,J. Angulo,1125,Millonarios,239,2026,363,5,5,2,0,1.24
-538201,R. Julio,1134,Internacional de Bogota,239,2026,281,2,6,0,0,0.64
+538201,R. Julio,1134,Internacional de Bogota,239,2026,371,4,7,1,0,0.97
 538240,J. Aponza,1127,Deportivo Cali,239,2026,54,3,1,1,0,5.0
 538275,M. Orozco,1127,Deportivo Cali,239,2026,929,26,13,3,0,2.52
 538304,A. Rojo,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
@@ -527,7 +528,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 13180,Y. Cabrera,1132,Chico,239,2026,935,7,15,0,0,0.67
 53128,G. Paiva,1135,Junior,239,2026,1173,12,20,5,0,0.92
 61363,F. Castañeda,1470,Cucuta,239,2026,522,2,13,0,0,0.34
-61363,F. Castañeda,1464,Llaneros,239,2026,0,0,0,0,0,0.0
+61363,F. Castañeda,1464,Llaneros,239,2026,21,1,0,0,0,4.29
 303136,J. Lucumí,1138,America de Cali,239,2026,1011,31,18,3,0,2.76
 414334,A. Batioja,1147,Fortaleza FC,239,2026,81,2,3,1,0,2.22
 531423,Y. Guzman,1138,America de Cali,239,2026,1708,13,30,4,0,0.69
@@ -564,10 +565,10 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 538259,G. Medina,1131,Bucaramanga,239,2026,87,3,1,1,0,3.1
 555282,C. Perez,1135,Junior,239,2026,0,0,0,0,0,0.0
 574172,X. Rios,1137,Atletico Nacional,239,2026,3,0,0,0,0,0.0
-614028,J. Loaiza,1464,Llaneros,239,2026,320,0,0,1,0,0.0
+614028,J. Loaiza,1464,Llaneros,239,2026,410,0,0,1,0,0.0
 2451,J. Murillo,1138,America de Cali,239,2026,395,3,7,1,0,0.68
 10420,J. Quintero,1139,Santa Fe,239,2026,133,0,0,0,0,0.0
-13348,L. Miranda,1464,Llaneros,239,2026,986,8,15,4,0,0.73
+13348,L. Miranda,1464,Llaneros,239,2026,1055,8,16,4,0,0.68
 16790,J. Valencia,1138,America de Cali,239,2026,742,7,13,1,1,0.85
 35902,Jeison Angulo,1139,Santa Fe,239,2026,511,6,1,1,0,1.06
 46695,A. Ramos,1138,America de Cali,239,2026,473,4,4,1,0,0.76
@@ -575,7 +576,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 200156,D. Pedrozo,1142,Deportes Tolima,239,2026,540,13,1,3,1,2.17
 297345,K. Londoño,1470,Cucuta,239,2026,1092,10,13,4,0,0.82
 297577,T. Ángel,1138,America de Cali,239,2026,789,6,5,1,0,0.68
-299728,Y. Abonía,1470,Cucuta,239,2026,1160,11,14,3,0,0.85
+299728,Y. Abonía,1470,Cucuta,239,2026,1249,11,15,3,0,0.79
 356972,Jordan García,1147,Fortaleza FC,239,2026,0,0,0,0,0,0.0
 442023,J. Martínez,1147,Fortaleza FC,239,2026,284,4,3,1,0,1.27
 475282,L. Mina,1138,America de Cali,239,2026,409,9,4,5,0,1.98
@@ -583,7 +584,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 538312,J. Medina Obando,1147,Fortaleza FC,239,2026,124,1,0,0,0,0.73
 540816,J. Herrera,1147,Fortaleza FC,239,2026,970,25,16,5,0,2.32
 554949,C. Caicedo,1144,Águilas Doradas,239,2026,22,0,1,0,0,0.0
-555182,L. Ochoa,1470,Cucuta,239,2026,195,4,1,1,0,1.85
+555182,L. Ochoa,1470,Cucuta,239,2026,284,6,1,1,0,1.9
 637681,C. Londono,1144,Águilas Doradas,239,2026,10,0,1,0,0,0.0
 13361,J. Quiñónes,1127,Deportivo Cali,239,2026,704,6,4,2,0,0.77
 13361,J. Quiñónes,1126,Deportivo Pasto,239,2026,291,2,0,1,0,0.62
@@ -613,8 +614,8 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 31482,E. Elizalde,1125,Millonarios,239,2026,587,4,2,2,0,0.61
 51483,J. Varela,1144,Águilas Doradas,239,2026,472,1,1,0,0,0.19
 51483,J. Varela,1128,Independiente Medellin,239,2026,150,2,2,1,1,1.2
-301369,J. Escobar,1464,Llaneros,239,2026,574,11,7,3,0,1.72
-363371,N. Ospina,1464,Llaneros,239,2026,1171,5,7,1,0,0.38
+301369,J. Escobar,1464,Llaneros,239,2026,664,12,9,3,0,1.63
+363371,N. Ospina,1464,Llaneros,239,2026,1230,5,7,1,0,0.37
 508992,E. Zea,1137,Atletico Nacional,239,2026,0,0,0,0,0,0.0
 524433,Sebastian Palacios,1147,Fortaleza FC,239,2026,20,0,1,0,0,0.0
 538215,J. Rosa,1137,Atletico Nacional,239,2026,31,0,2,0,0,0.0
@@ -691,15 +692,15 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 659299,A. Toro,1138,America de Cali,239,2026,0,0,0,0,0,0.0
 659300,J. Balanta,1138,America de Cali,239,2026,0,0,0,0,0,0.0
 5451,M. Ramírez,1144,Águilas Doradas,239,2026,63,3,1,1,0,4.29
-13827,R. Márquez,1144,Águilas Doradas,239,2026,41,2,0,1,0,4.39
+13827,R. Márquez,1144,Águilas Doradas,239,2026,62,2,1,1,0,2.9
 35589,N. Benedetti,1127,Deportivo Cali,239,2026,67,2,4,0,0,2.69
 35676,K. Balanta,1139,Santa Fe,239,2026,109,1,0,0,0,0.83
-59617,J. Melendez,1144,Águilas Doradas,239,2026,179,2,0,0,0,1.01
-119811,J. Ontaneda,1144,Águilas Doradas,239,2026,180,1,2,1,0,0.5
-237159,Junior Alexander Noguera Machuca,1144,Águilas Doradas,239,2026,152,1,5,0,0,0.59
+59617,J. Melendez,1144,Águilas Doradas,239,2026,264,3,0,0,0,1.02
+119811,J. Ontaneda,1144,Águilas Doradas,239,2026,270,3,2,1,0,1.0
+237159,Junior Alexander Noguera Machuca,1144,Águilas Doradas,239,2026,221,1,6,0,0,0.41
 265945,J. Castillo,1147,Fortaleza FC,239,2026,340,7,1,0,0,1.85
 289461,W. Barlasina,1147,Fortaleza FC,239,2026,180,0,0,0,0,0.0
-330400,A. Vásquez,1144,Águilas Doradas,239,2026,139,0,1,0,0,0.0
+330400,A. Vásquez,1144,Águilas Doradas,239,2026,208,0,2,0,0,0.0
 352298,E. Martínez,1133,Jaguares,239,2026,190,1,0,0,0,0.47
 374003,H. Arango,1144,Águilas Doradas,239,2026,0,0,0,0,0,0.0
 385694,C. Vergara,1141,Alianza Valledupar,239,2026,253,10,5,1,0,3.56
@@ -715,15 +716,15 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 13472,N. Giraldo,1133,Jaguares,239,2026,40,0,1,0,0,0.0
 13584,H. Martínez,1142,Deportes Tolima,239,2026,255,10,6,2,0,3.53
 13734,J. Malagón,1133,Jaguares,239,2026,207,1,0,0,0,0.43
-16376,C. Dájome,1134,Internacional de Bogota,239,2026,158,2,3,0,0,1.14
+16376,C. Dájome,1134,Internacional de Bogota,239,2026,237,5,4,0,0,1.9
 35531,L. Quiñones,1138,America de Cali,239,2026,222,3,4,1,0,1.22
 35601,A. Ibargüen,1126,Deportivo Pasto,239,2026,83,3,2,1,0,3.25
 59402,A. Simarra,1128,Independiente Medellin,239,2026,117,0,0,0,0,0.0
 68013,A. Martegani,1128,Independiente Medellin,239,2026,192,3,5,2,0,1.41
 141305,J. Ossa,1126,Deportivo Pasto,239,2026,180,6,1,0,0,3.0
 198349,J. Acosta,1135,Junior,239,2026,0,0,0,0,0,0.0
-200157,S. Girado,1134,Internacional de Bogota,239,2026,0,0,0,0,0,0.0
-237085,D. Duarte,1134,Internacional de Bogota,239,2026,122,1,2,0,0,0.74
+200157,S. Girado,1134,Internacional de Bogota,239,2026,17,1,0,1,0,5.29
+237085,D. Duarte,1134,Internacional de Bogota,239,2026,212,2,4,0,0,0.85
 346893,J. Córdoba,1128,Independiente Medellin,239,2026,151,7,4,0,0,4.17
 352338,A. Alfonso,1133,Jaguares,239,2026,15,2,0,0,0,12.0
 554986,J. Mendez,1126,Deportivo Pasto,239,2026,26,1,1,0,0,3.46
@@ -731,9 +732,9 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 646304,N. Erazo,1128,Independiente Medellin,239,2026,0,0,0,0,0,0.0
 646328,K. Klinger,1128,Independiente Medellin,239,2026,46,2,0,0,0,3.91
 13156,E. Torres,1136,Once Caldas,239,2026,167,3,0,0,0,1.62
-13228,J. Contreras,1464,Llaneros,239,2026,54,1,3,1,0,1.67
+13228,J. Contreras,1464,Llaneros,239,2026,113,1,3,1,0,0.8
 13276,D. Agudelo,1132,Chico,239,2026,0,0,0,0,0,0.0
-13527,Y. Mena,1464,Llaneros,239,2026,125,1,0,0,0,0.72
+13527,Y. Mena,1464,Llaneros,239,2026,194,3,0,0,0,1.39
 16408,J. Burrai,1125,Millonarios,239,2026,270,0,1,0,0,0.0
 26921,F. Castro,1131,Bucaramanga,239,2026,268,6,0,1,0,2.01
 51822,C. Fiermarín,1131,Bucaramanga,239,2026,360,0,2,0,0,0.0
@@ -742,7 +743,7 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 59461,C. Mosquera,1132,Chico,239,2026,135,4,1,0,0,2.67
 59635,D. Ruiz,1125,Millonarios,239,2026,149,2,3,0,0,1.21
 126096,J. Montoya,1138,America de Cali,239,2026,90,0,0,0,0,0.0
-262840,J. Castilla,1464,Llaneros,239,2026,169,2,2,2,0,1.07
+262840,J. Castilla,1464,Llaneros,239,2026,259,4,2,2,0,1.39
 306641,I. Camargo,1132,Chico,239,2026,99,0,1,0,0,0.0
 350809,D. Polanco,1132,Chico,239,2026,90,2,0,1,0,2.0
 362476,F. Cifuentes,1132,Chico,239,2026,108,1,2,0,0,0.83
@@ -752,19 +753,22 @@ player_id,player_name,team_id,team_name,league_id,season,minutes_played,fouls_co
 642714,S. Velasquez,1131,Bucaramanga,239,2026,0,0,0,0,0,0.0
 2463,F. Armani,1137,Atletico Nacional,239,2026,180,0,2,0,0,0.0
 13364,N. Castrillón,1131,Bucaramanga,239,2026,76,0,0,0,0,0.0
-13369,Neneco,1470,Cucuta,239,2026,45,0,0,0,0,0.0
+13369,Neneco,1470,Cucuta,239,2026,90,2,1,1,0,2.0
 13580,V. Cantillo,1131,Bucaramanga,239,2026,0,0,0,0,0,0.0
 13766,J. Moya,1127,Deportivo Cali,239,2026,61,0,1,0,0,0.0
 35654,S. Barreiro,1125,Millonarios,239,2026,10,0,0,0,0,0.0
+133986,Jesús Antonio Díaz Gómez,1470,Cucuta,239,2026,0,0,0,0,0,0.0
 200142,E. Sarria,1132,Chico,239,2026,12,1,0,0,0,7.5
 200144,C. Cantillo,1133,Jaguares,239,2026,38,0,1,0,0,0.0
 301781,J. Franco,1133,Jaguares,239,2026,180,3,2,0,0,1.5
-425364,J. Manyoma,1470,Cucuta,239,2026,26,0,2,0,0,0.0
-475702,Sebastián Viveros,1132,Chico,239,2026,1,0,0,0,0,0.0
+362520,A. Carreño,1144,Águilas Doradas,239,2026,12,0,0,0,0,0.0
+425364,J. Manyoma,1470,Cucuta,239,2026,40,0,4,0,0,0.0
+460818,F. Chaverra,1134,Internacional de Bogota,239,2026,11,1,0,0,0,8.18
 538245,C. Blanco Betancur,1132,Chico,239,2026,90,1,0,0,0,1.0
-554937,M. B. Carabali Lopez,1470,Cucuta,239,2026,64,0,3,1,0,0.0
+554937,M. B. Carabali Lopez,1470,Cucuta,239,2026,109,1,4,1,0,0.83
 575893,G. Ramirez,1133,Jaguares,239,2026,0,0,0,0,0,0.0
 663260,Santiago Martinez,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
 669649,J. Caicedo,1139,Santa Fe,239,2026,0,0,0,0,0,0.0
 669669,Emilio Pardo,1464,Llaneros,239,2026,0,0,0,0,0,0.0
 670237,Juan Gomez,1127,Deportivo Cali,239,2026,0,0,0,0,0,0.0
+475702,Sebastián Viveros,1132,Chico,239,2026,1,0,0,0,0,0.0

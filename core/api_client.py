@@ -17,6 +17,7 @@ import requests_cache
 import streamlit as st
 
 from config.constants import BASE_URL
+from typing import Dict, Any
 
 logger = logging.getLogger("FoulsTracker.APIClient")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -211,3 +212,95 @@ class APIFootballClient:
         except Exception as e:
             logger.error(f"Excepción consultando próximos partidos: {e}")
             return []
+        
+    def get_fixture_details(self, fixture_id: int) -> Dict[str, Any]:
+        """Obtiene el detalle completo de un partido, incluyendo el árbitro designado."""
+        endpoint = "/fixtures"
+        params = {"id": fixture_id}
+        data = self._execute_request(endpoint, params)
+        response = data.get("response", [])
+        return response[0] if response else {}
+
+
+    def get_referee_stats(self, referee_name: str, season: int = None) -> Dict[str, Any]:
+        """
+        Calcula las estadísticas acumuladas de un árbitro consultando los partidos
+        guardados en la base de datos local (Turso/SQLite).
+        """
+        if not referee_name or referee_name.strip() == "":
+            return {
+                "referee": None,
+                "matches": 0,
+                "avg_fouls": 0.0,
+                "avg_yellows": 0.0,
+                "raw_name": referee_name
+            }
+
+        # 1. Normalización del nombre para la búsqueda
+        # "J. Vitor Gobi" -> extrae "Vitor Gobi" o el último apellido "Gobi"
+        clean_referee = referee_name.split(",")[0].strip()
+        name_parts = clean_referee.replace(".", "").split()
+        last_name = name_parts[-1] if name_parts else clean_referee
+
+        conn = self._get_connection()
+        cursor = conn.cursor()
+
+        # 2. Consulta SQL: Busca por coincidencia exacta o parcial por apellido
+        # Filtra opcionalmente por temporada si se especifica
+        query = """
+            SELECT 
+                COUNT(*) as matches,
+                COALESCE(AVG(total_fouls), 0.0) as avg_fouls,
+                COALESCE(AVG(total_yellow_cards), 0.0) as avg_yellows
+            FROM match_fixtures
+            WHERE (referee_name = ? OR referee_name LIKE ?)
+        """
+        params = [clean_referee, f"%{last_name}%"]
+
+        if season:
+            query += " AND season = ?"
+            params.append(season)
+
+        cursor.execute(query, tuple(params))
+        row = cursor.fetchone()
+        conn.close()
+
+        # 3. Mapeo del resultado
+        matches_count = row["matches"] if row else 0
+
+        if matches_count == 0:
+            return {
+                "referee": clean_referee,
+                "matches": 0,
+                "avg_fouls": 0.0,
+                "avg_yellows": 0.0,
+                "raw_name": referee_name
+            }
+
+        return {
+            "referee": clean_referee,
+            "matches": matches_count,
+            "avg_fouls": round(float(row["avg_fouls"]), 2),
+            "avg_yellows": round(float(row["avg_yellows"]), 2),
+            "raw_name": referee_name
+        }
+        
+    def get_completed_fixtures(self, league_id: int, season: int) -> list:
+        """
+        Obtiene los partidos finalizados de una liga y temporada específica.
+        Endpoint: /fixtures?league={league_id}&season={season}&status=FT
+        """
+        endpoint = "/fixtures"
+        params = {
+            "league": league_id,
+            "season": season,
+            "status": "FT"  # FT = Finished (Partidos terminados)
+        }
+        
+        # Utiliza tu método interno existente para realizar la petición (ej. _make_request, _get, etc.)
+        response = self._make_request(endpoint, params=params)
+        
+        if response and "response" in response:
+            return response["response"]
+        
+        return []
