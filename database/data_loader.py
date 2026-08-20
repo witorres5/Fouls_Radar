@@ -2,6 +2,9 @@ import libsql
 import pandas as pd
 import streamlit as st
 from main import DatabaseManager
+import os
+import libsql as libsql
+import streamlit as st
 
 db = DatabaseManager()
 
@@ -122,3 +125,22 @@ def save_auto_bet(bet_data: dict):
         conn.close()
     except Exception as e:
         print(f"Error guardando apuesta en auto_bets: {e}")
+        
+def get_db_client():
+    """
+    Retorna el cliente de conexión a la base de datos Turso / LibSQL.
+    """
+    try:
+        # Intenta obtener credenciales desde Streamlit secrets o variables de entorno
+        url = os.getenv("TURSO_DATABASE_URL") or st.secrets.get("TURSO_DATABASE_URL")
+        auth_token = os.getenv("TURSO_AUTH_TOKEN") or st.secrets.get("TURSO_AUTH_TOKEN")
+
+        if not url or not auth_token:
+            print("Error: Credenciales de Turso no encontradas.")
+            return None
+
+        client = libsql.connect(database=url, auth_token=auth_token)
+        return client
+    except Exception as e:
+        print(f"Error conectando a la base de datos Turso: {e}")
+        return None
