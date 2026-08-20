@@ -8,6 +8,7 @@ on:
 jobs:
   reconcile:
     runs-on: ubuntu-latest
+    environment: prod  # <- AGREGA ESTA LÍNEA AQUÍ
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -21,7 +22,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install requests-cache libsql-experimental
+          pip install requests-cache libsql-experimental streamlit
 
       - name: Run Reconciliation Script
         env:
