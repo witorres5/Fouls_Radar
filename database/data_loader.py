@@ -66,3 +66,46 @@ def get_available_seasons() -> list:
         return [r[0] for r in rows] if rows else [2026, 2025, 2024, 2022]
     except Exception:
         return [2026, 2025, 2024, 2022]
+    
+# En database/data_loader.py
+import sqlite3
+
+DB_BETS_PATH = "database/bets_tracker.db"
+
+def init_bets_db():
+    """Inicializa la tabla de apuestas si no existe."""
+    conn = sqlite3.connect(DB_BETS_PATH)
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS auto_bets (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            fixture_id INTEGER,
+            match_date TEXT,
+            home_team TEXT,
+            away_team TEXT,
+            player_name TEXT,
+            bet_line TEXT,
+            tier TEXT,
+            probability REAL,
+            odds REAL DEFAULT 0.0,
+            status TEXT DEFAULT 'PENDING',
+            actual_fouls INTEGER DEFAULT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(fixture_id, player_name, bet_line)
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+def save_auto_bet(bet_data: dict):
+    """Guarda una sugerencia de apuesta en la BD."""
+    init_bets_db()  # Asegura que la tabla exista antes de insertar
+    conn = sqlite3.connect(DB_BETS_PATH)
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT OR IGNORE INTO auto_bets 
+        (fixture_id, match_date, home_team, away_team, player_name, bet_line, tier, probability)
+        VALUES (:fixture_id, :match_date, :home_team, :away_team, :player_name, :bet_line, :tier, :probability)
+    """, bet_data)
+    conn.commit()
+    conn.close()

@@ -304,3 +304,14 @@ class APIFootballClient:
             return response["response"]
         
         return []
+    
+    # En core/api_client.py
+
+    def get_fixture_player_stats(self, fixture_id: int):
+        """Obtiene las estadísticas de todos los jugadores que participaron en un partido finalizado."""
+        try:
+            # Si tu cliente usa un método helper interno como _get o get:
+            return self._get("fixtures/players", params={"fixture": fixture_id})
+        except Exception as e:
+            print(f"Error al obtener estadísticas de fixture {fixture_id}: {e}")
+            return []

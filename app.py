@@ -7,13 +7,15 @@ from database.data_loader import load_data
 from components.sidebar import render_sidebar
 from components.match_cards import render_upcoming_matches
 from components.tabs import render_analysis_tabs
+from core.auto_bettor import process_daily_auto_bets
+from core.reconciliation import reconcile_daily_bets
+from config.constants import TARGET_LEAGUES  # <- Importación añadida
 
 @st.cache_resource
 def get_api_client():
     return APIFootballClient()
 
-#Estilos
-
+# Estilos CSS
 st.markdown("""
     <style>
         /* Ajustar padding inferior en las tarjetas con contenedor de Streamlit */
@@ -33,16 +35,19 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Initialize API Client
+# 1. Inicializar cliente API primero
 client = get_api_client()
 
-# 1. Cargar Datos Globales
+# 2. Reconciliación de partidos pasados en BD
+reconcile_daily_bets(client)
+
+# 3. Cargar Datos Globales
 raw_df = load_data()
 
-# 2. Renderizar Sidebar y Obtener Datos Filtrados
+# 4. Renderizar Sidebar y Obtener Datos Filtrados
 filtered_df, selected_season, selected_league, min_edge = render_sidebar(raw_df)
 
-# 3. Encabezado y KPIs Principales
+# 5. Encabezado y KPIs Principales
 league_title = f" - {selected_league}" if selected_league != "Todas" else ""
 st.title(f"⚽ Probabilidad de Faltas por Jugador{league_title}")
 
@@ -52,8 +57,16 @@ col2.metric("Total Faltas Cometidas", int(filtered_df["fouls_committed"].sum()) 
 col3.metric("Promedio Faltas/90m", f"{filtered_df['fouls_per_90'].mean():.2f}" if not filtered_df.empty else "0.00")
 col4.metric("Máx. Faltas/90m", f"{filtered_df['fouls_per_90'].max():.2f}" if not filtered_df.empty else "0.00")
 
-# 4. Sección de Próximos Partidos
+# 6. Generar y guardar las apuestas del día según la liga activa
+if selected_league != "Todas" and not filtered_df.empty:
+    league_id = next((l_id for l_id, info in TARGET_LEAGUES.items() if info["name"] == selected_league), None)
+    if league_id:
+        upcoming_fixtures = client.get_next_fixtures(league_id=league_id, next_n=5)
+        # Procesa y guarda automáticamente la Principal + 2 Secundarias
+        process_daily_auto_bets(league_id, selected_season, upcoming_fixtures, filtered_df)
+
+# 7. Renderizar Sección de Próximos Partidos
 render_upcoming_matches(selected_league, selected_season, filtered_df, client, min_edge)
 
-# 5. Pestañas de Análisis Predictivo y Métricas
-render_analysis_tabs(filtered_df, selected_league, min_edge)
+# 8. Renderizar Pestañas de Análisis y Panel de Apuestas (4ta Pestaña)
+render_analysis_tabs(filtered_df, selected_league, min_edge, client=client)

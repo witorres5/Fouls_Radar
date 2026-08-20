@@ -188,7 +188,48 @@ class DatabaseManager:
         ))
         conn.commit()
         conn.close()
+    
+    # database/data_loader.py o tu modulo de BD
+
+    def init_bets_db():
+        import sqlite3
+        conn = sqlite3.connect("database/bets_tracker.db")
+        cursor = conn.cursor()
         
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS auto_bets (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                fixture_id INTEGER,
+                match_date TEXT,
+                home_team TEXT,
+                away_team TEXT,
+                player_name TEXT,
+                bet_line TEXT,            -- Ej: 'Más de 1.5 Faltas'
+                tier TEXT,                -- 'STAKE_ALTO' (Principal), 'STAKE_MEDIO', 'STAKE_BAJO'
+                probability REAL,         -- Probabilidad estimada (%)
+                odds REAL,                -- Cuota estimada o cuota de la API
+                status TEXT DEFAULT 'PENDING', -- 'PENDING', 'WON', 'LOST', 'VOID'
+                actual_fouls INTEGER DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(fixture_id, player_name, bet_line)
+            )
+        """)
+        conn.commit()
+        conn.close()
+
+    def save_auto_bet(bet_data: dict):
+        import sqlite3
+        conn = sqlite3.connect("database/bets_tracker.db")
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT OR IGNORE INTO auto_bets 
+            (fixture_id, match_date, home_team, away_team, player_name, bet_line, tier, probability)
+            VALUES (:fixture_id, :match_date, :home_team, :away_team, :player_name, :bet_line, :tier, :probability)
+        """, bet_data)
+        conn.commit()
+        conn.close()
+    
+    
     def save_foul_records(self, records: List[PlayerFoulStats], league_name: str):
         """Inserta o actualiza registros en lote (batch) de forma ultrarrápida."""
         if not records:

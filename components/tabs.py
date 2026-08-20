@@ -1,12 +1,14 @@
 import plotly.express as px
 import streamlit as st
 from core.math_utils import prob_at_least
+from components.bets_dashboard import render_bets_tracker_tab
 
-def render_analysis_tabs(filtered_df, selected_league: str, min_edge: float = 1.5):
-    tab1, tab2, tab3 = st.tabs([
+def render_analysis_tabs(filtered_df, selected_league: str, min_edge: float = 1.5, client=None):
+    tab1, tab2, tab3, tab4 = st.tabs([
         "🔥 Top Probabilidades por Liga", 
         "🎲 Calculadora Individual", 
-        "📋 Tabla Predictiva Completa"
+        "📋 Tabla Predictiva Completa",
+        "🤖 Auto-Apuestas y Balance"
     ])
 
     with tab1:
@@ -86,3 +88,7 @@ def render_analysis_tabs(filtered_df, selected_league: str, min_edge: float = 1.
                 use_container_width=True,
                 hide_index=True
             )
+            
+    with tab4:
+        # Renderiza el panel de apuestas guardadas y balance
+        render_bets_tracker_tab(client=client)
