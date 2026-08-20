@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import sqlite3
+import libsql
 from core.reconciliation import reconcile_daily_bets
 
 def render_bets_tracker_tab(client=None):
@@ -15,16 +15,24 @@ def render_bets_tracker_tab(client=None):
                 st.toast(msg, icon="⚽")
                 st.rerun()
 
-    conn = sqlite3.connect("database/bets_tracker.db")
-    df_bets = pd.read_sql_query("SELECT * FROM auto_bets ORDER BY id DESC", conn)
-    conn.close()
+    # Lectura directamente desde Turso / LibSQL
+    try:
+        turso_url = st.secrets["TURSO_DATABASE_URL"]
+        turso_token = st.secrets["TURSO_AUTH_TOKEN"]
+        
+        conn = libsql.connect(database=turso_url, auth_token=turso_token)
+        df_bets = pd.read_sql_query("SELECT * FROM auto_bets ORDER BY id DESC", conn)
+        conn.close()
+    except Exception as e:
+        st.warning(f"No se pudieron cargar las apuestas desde Turso: {e}")
+        return
 
     if df_bets.empty:
         st.info("Aún no hay apuestas registradas en la base de datos.")
         return
 
     # Métrica de Profit considerando Stake de 10 unidades por apuesta y cuota base
-    df_bets['odds_calc'] = df_bets['odds'].apply(lambda x: x if x > 1.0 else 1.85)
+    df_bets['odds_calc'] = df_bets['odds'].apply(lambda x: x if x and x > 1.0 else 1.85)
     
     evaluated = df_bets[df_bets["status"].isin(["WON", "LOST"])]
     total_bets = len(evaluated)
@@ -57,6 +65,7 @@ def render_bets_tracker_tab(client=None):
             "id": "ID",
             "fixture_id": None, # Ocultar columna técnica
             "created_at": None,
+            "odds": None,       # Ocultar columna cruda de odds si usas odds_calc
             "match_date": "Fecha",
             "home_team": "Local",
             "away_team": "Visitante",
