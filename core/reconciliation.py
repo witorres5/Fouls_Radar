@@ -2,6 +2,7 @@
 from core.api_client import APIFootballClient
 from database.data_loader import init_bets_db
 from main import DatabaseManager
+from core.notifications import send_telegram_alert
 
 db = DatabaseManager()
 
@@ -57,6 +58,8 @@ def reconcile_daily_bets(api_client: APIFootballClient):
 
         conn.commit()
         conn.close()
+        msg = f"⚽ *Reconciliación Diaria Completada*\nSe han verificado las apuestas pendientes en Turso."
+        send_telegram_alert(msg)
         return "Reconciliación completada exitosamente."
 
     except Exception as e:
