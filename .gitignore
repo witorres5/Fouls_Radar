@@ -5,6 +5,7 @@
 .streamlit
 .streamlit/secrets.toml
 .github
+.test
 
 # --- BASES DE DATOS LOCALES ---
 # Ya migraste a Turso, no subas la DB local
