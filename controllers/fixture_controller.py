@@ -11,20 +11,25 @@ class FixtureController:
 
     @staticmethod
     def sync_fixtures_and_stats(db_manager: DatabaseManager, league_id: int, season: int):
-        """Orquesta la obtención de partidos finalizados y actualiza las estadísticas detalladas de faltas por jugador."""
+        """Orquesta la obtención de partidos finalizados del día y actualiza las estadísticas detalladas de faltas por jugador."""
         api_service = APIFootballService()
         fixture_repo = FixtureRepository(db_manager)
         
         current_time = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d %H:%M:%S")
+        today_str = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d") # Fecha de hoy exacta
         entity_name = f"fixtures_league_{league_id}_{season}"
         
-        # 1. Obtener partidos finalizados ('FT') de la liga y temporada
-        print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, temporada {season}...")
-        fixtures = api_service.get_completed_fixtures(league_id, season)
-        print(f">>> DEBUG: Total de partidos finalizados encontrados: {len(fixtures)}")
+        # 1. Obtener partidos finalizados ('FT') exclusivamente del día de hoy
+        print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, fecha {today_str}...")
+        
+        # Nota: Asegúrate de tener implementado en api_service un método que reciba la fecha o use el parámetro date=
+        # Si tu servicio usa un método genérico, puedes ajustarlo para que envíe el parámetro '&date=today_str'
+        fixtures = api_service.get_completed_fixtures_by_date(league_id, season, today_str)
+        
+        print(f">>> DEBUG: Total de partidos finalizados hoy encontrados: {len(fixtures)}")
         
         if not fixtures:
-            print(">>> ADVERTENCIA: No se encontraron partidos finalizados para procesar.")
+            print(">>> ADVERTENCIA: No se encontraron partidos finalizados hoy para procesar.")
             return False
 
         processed_fixtures = 0
