@@ -1,5 +1,14 @@
 import os
 from dotenv import load_dotenv
+from datetime import datetime
+import pytz
+
+COLOMBIA_TZ = pytz.timezone("America/Bogota")
+
+# Si estamos antes de julio, la temporada en curso suele ser el año anterior (ej: enero 2026 -> temporada 2025)
+# Si estamos de julio en adelante, la temporada corresponde al año actual (ej: agosto 2026 -> temporada 2026)
+now = datetime.now()
+CURRENT_SEASON = now.year if now.month >= 7 else now.year - 1
 
 load_dotenv()  # Carga las variables desde el archivo .env
 

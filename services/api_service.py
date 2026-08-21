@@ -1,0 +1,105 @@
+# services/api_service.py
+import os
+import logging
+import requests
+from typing import Dict, Any, List, Optional
+
+logger = logging.getLogger("FoulsTracker.ApiService")
+
+class APIFootballService:
+    def __init__(self):
+        self.api_key = os.getenv("API_FOOTBALL_KEY", "")
+        self.base_url = os.getenv("API_FOOTBALL_BASE_URL", "https://v3.football.api-sports.io")
+        
+        if not self.api_key:
+            logger.warning("No se encontró la API Key de API-Football (API_FOOTBALL_KEY). Las consultas fallarán si no se configura.")
+
+        self.headers = {
+            "x-apisports-key": self.api_key
+        }
+
+    def _get(self, endpoint: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """Método genérico para realizar peticiones GET a la API con manejo básico de errores."""
+        url = f"{self.base_url}/{endpoint.lstrip('/')}"
+        try:
+            response = requests.get(url, headers=self.headers, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            
+            # Verificar si la API devolvió errores en su estructura interna
+            errors = data.get("errors")
+            if errors:
+                logger.error(f"Error devuelto por API-Football en {endpoint}: {errors}")
+            
+            return data
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Error de red o conexión al consultar {url}: {e}")
+            return {}
+
+    def get_teams_by_league(self, league_id: int, season: int) -> List[Dict[str, Any]]:
+        """Obtiene la lista de equipos participantes en una liga para una temporada dada."""
+        data = self._get("teams", {"league": league_id, "season": season})
+        return data.get("response", [])
+
+    def get_players_by_team(self, team_id: int, season: int, league_id: int = None, page: int = 1) -> List[Dict[str, Any]]:
+            """Obtiene la plantilla de jugadores de un equipo específico."""
+            # El endpoint de plantillas oficial de API-Football es 'players/squads' usando solo el team_id
+            data = self._get("players/squads", {"team": team_id})
+            response_list = data.get("response", [])
+            
+            # players/squads devuelve una estructura agrupada por equipo: [{'team': {...}, 'players': [...]}]
+            if response_list:
+                return response_list[0].get("players", [])
+            return []
+
+    def get_completed_fixtures(self, league_id: int, season: int) -> List[Dict[str, Any]]:
+        """Obtiene todos los partidos finalizados ('FT') de una liga y temporada."""
+        data = self._get("fixtures", {"league": league_id, "season": season, "status": "FT"})
+        return data.get("response", [])
+
+    def get_fixture_details(self, fixture_id: int) -> Dict[str, Any]:
+        """Obtiene los detalles completos (eventos, tarjetas, etc.) de un partido por su ID."""
+        data = self._get("fixtures/events", {"fixture": fixture_id})
+        response_list = data.get("response", [])
+        return response_list[0] if response_list else {}
+
+    def get_fixture_player_stats(self, fixture_id: int) -> Dict[int, Dict[str, Any]]:
+        """Obtiene las estadísticas detalladas por jugador para un partido específico (faltas, minutos, etc.)."""
+        data = self._get("fixtures/players", {"fixture": fixture_id})
+        result = {}
+        for team_data in data.get("response", []):
+            for player_entry in team_data.get("players", []):
+                player_id = player_entry.get("player", {}).get("id")
+                stats_list = player_entry.get("statistics", [])
+                if player_id and stats_list:
+                    # Tomamos el primer bloque de estadísticas del jugador en ese partido
+                    stats = stats_list[0]
+                    fouls = stats.get("fouls", {}) or {}
+                    cards = stats.get("cards", {}) or {}
+                    games = stats.get("games", {}) or {}
+                    
+                    result[player_id] = {
+                        "minutes_played": games.get("minutes", 0) or 0,
+                        "fouls_committed": fouls.get("committed", 0) or 0,
+                        "fouls_drawn": fouls.get("drawn", 0) or 0,
+                        "yellow_cards": 1 if cards.get("yellow") else 0,
+                        "red_cards": 1 if cards.get("red") else 0,
+                    }
+        return result
+    
+    def get_upcoming_fixtures(self, league_id: int, season: int, days: int = 3) -> List[Dict[str, Any]]:
+        """Obtiene los partidos próximos en los siguientes N días para una liga y temporada."""
+        from datetime import datetime, timedelta
+        
+        today = datetime.now().strftime("%Y-%m-%d")
+        to_date = (datetime.now() + timedelta(days=days)).strftime("%Y-%m-%d")
+        
+        # Endpoint de fixtures por liga, temporada y rango de fechas
+        params = {
+            "league": league_id,
+            "season": season,
+            "from": today,
+            "to": to_date
+        }
+        data = self._get("fixtures", params)
+        return data.get("response", [])
