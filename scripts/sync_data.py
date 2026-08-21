@@ -23,7 +23,7 @@ def run_full_sync():
             league_name = league_info.get("name", f"Liga {league_id}")
             
             # Sincronizamos para la temporada actual y la anterior si es necesario
-            for season in [CURRENT_SEASON, CURRENT_SEASON - 1]:
+            for season in [CURRENT_SEASON]:
                 logging.info(f"🔄 Sincronizando {league_name} (ID: {league_id}) - Temporada {season}...")
                 
                 try:
