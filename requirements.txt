@@ -7,3 +7,4 @@ libsql-experimental
 sqlalchemy
 python-dotenv
 requests-cache
+pytz
