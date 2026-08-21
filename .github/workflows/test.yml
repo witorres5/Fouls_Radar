@@ -3,7 +3,7 @@ name: Test Cron Action
 on:
   schedule:
     # Se ejecuta estrictamente cada 3 minutos
-    - cron: '*/3 * * * *'
+    - cron: '*/10 * * * *'
   workflow_dispatch: # Te permite darle clic a "Run workflow" manualmente para probarlo al instante
 
 jobs:
