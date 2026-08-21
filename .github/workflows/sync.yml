@@ -2,9 +2,9 @@ name: Sync Data & Generate Bets
 
 on:
   schedule:
-    # Se ejecutará automáticamente cada hora (puedes ajustarlo si prefieres otro intervalo)
+    # Se ejecuta automáticamente cada 10 minutos
     - cron: '*/10 * * * *'
-  workflow_dispatch: # Para seguir pudiendo correrlo a mano cuando quieras
+  workflow_dispatch: # Permite ejecución manual
 
 jobs:
   sync:
@@ -23,11 +23,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          # Aseguramos dependencias clave para la sincronización y la base de datos
+          # Instalamos dependencias necesarias para tus scripts y base de datos
           pip install requests requests-cache libsql-experimental pytz streamlit
 
       - name: Run Data Synchronization
         env:
+          # Esto le dice a Python que busque módulos en la raíz del repositorio
+          PYTHONPATH: .
           TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
           TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
