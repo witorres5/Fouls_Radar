@@ -96,7 +96,7 @@ class BettingRepository:
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
-                SELECT status, home_goals, away_goals FROM fixtures 
+                SELECT status, home_goals, away_goals FROM match_fixtures 
                 WHERE match_name = ? AND league_id = ? AND season = ?
             """, (match_name, league_id, season))
             return cursor.fetchone()
