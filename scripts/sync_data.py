@@ -11,8 +11,6 @@ from config.constants import TARGET_LEAGUES
 from databases.connection import DatabaseManager
 from controllers.fixture_controller import FixtureController
 from controllers.betting_controller import BettingController
-# Importa tus ligas configuradas
-# from config.constants import TARGET_LEAGUES, CURRENT_SEASON
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -38,13 +36,13 @@ def run_daily_sync():
             try:
                 logging.info(f"⚽ Consultando {league_name} para la fecha {today_str}...")
                 
-                # Opción A: Si tu controlador permite buscar por fecha exacta (Recomendado)
-                # FixtureController.sync_fixtures_by_date(db_manager, league_id, current_year, today_str)
-                
-                # Opción B: Si usas el método actual pero acotado a la temporada en curso sin bucles históricos
+                # 1. Sincronizar partidos y estadísticas del día
                 FixtureController.sync_fixtures_and_stats(db_manager, league_id, current_year)
 
-                # Generar apuestas simuladas de alta probabilidad basadas en los datos frescos
+                # 2. Evaluar y cerrar las apuestas pendientes cuyo partido ya terminó
+                BettingController.evaluate_pending_bets(db_manager, league_id, current_year)
+
+                # 3. Generar nuevas apuestas simuladas de alta probabilidad basadas en los datos frescos
                 picks = BettingController.get_high_probability_bets(db_manager, league_id, current_year)
                 for pick in picks:
                     BettingController.save_simulation(db_manager, pick)

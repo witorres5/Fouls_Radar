@@ -65,21 +65,37 @@ class BettingController:
     def evaluate_pending_bets(db_manager, league_id, season):
         """Lógica de negocio para determinar si una apuesta ganó o perdió."""
         pending_bets = BettingRepository.get_pending_bets(db_manager, league_id, season)
-        
+
         for bet_id, match_name, market in pending_bets:
             fixture = BettingRepository.get_fixture_result(db_manager, match_name, league_id, season)
-            
+
             if fixture:
-                status, home_goals, away_goals = fixture
-                
+                status = fixture[0] # Dependiendo de cómo devuelva los datos tu tupla
+
                 # Validamos si el partido ya finalizó
                 if status in ["FT", "Match Finished", "AET", "PEN"]:
                     won = False
-                    # Reglas de negocio por mercado
-                    if market == "Over 1.5" and (home_goals + away_goals) > 1.5:
-                        won = True
-                    elif market == "Both Teams Score" and home_goals > 0 and away_goals > 0:
-                        won = True
                     
+                    # Ajustamos según los mercados reales que manejas
+                    if "Faltas Totales" in market:
+                        # Extraer el valor numérico del mercado (ej. de "Más de 23.5 Faltas Totales" sacar 23.5)
+                        import re
+                        numbers = re.findall(r"[-+]?\d*\.\d+|\d+", market)
+                        if numbers:
+                            line_value = float(numbers[0])
+                            # Suponiendo que obtienes las faltas reales del partido finalizado
+                            actual_fouls = fixture.get("total_fouls", 0) # Ajusta según tu tupla/modelo
+                            if actual_fouls > line_value:
+                                won = True
+
+                    elif "Tarjetas Amarillas" in market:
+                        import re
+                        numbers = re.findall(r"[-+]?\d*\.\d+|\d+", market)
+                        if numbers:
+                            line_value = float(numbers[0])
+                            actual_yellows = fixture.get("total_yellow_cards", 0) # Ajusta según tu modelo
+                            if actual_yellows > line_value:
+                                won = True
+
                     new_status = "GANADA" if won else "PERDIDA"
                     BettingRepository.update_bet_status(db_manager, bet_id, new_status)

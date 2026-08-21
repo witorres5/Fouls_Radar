@@ -88,21 +88,30 @@ class APIFootballService:
         return result
     
     def get_upcoming_fixtures(self, league_id: int, season: int, days: int = 3) -> List[Dict[str, Any]]:
-        """Obtiene los partidos próximos en los siguientes N días para una liga y temporada."""
-        from datetime import datetime, timedelta
-        
-        today = datetime.now().strftime("%Y-%m-%d")
-        to_date = (datetime.now() + timedelta(days=days)).strftime("%Y-%m-%d")
-        
-        # Endpoint de fixtures por liga, temporada y rango de fechas
-        params = {
-            "league": league_id,
-            "season": season,
-            "from": today,
-            "to": to_date
-        }
-        data = self._get("fixtures", params)
-        return data.get("response", [])
+            """Obtiene los partidos próximos que aún no han comenzado en los siguientes N días."""
+            from datetime import datetime, timedelta
+            
+            today = datetime.now().strftime("%Y-%m-%d")
+            to_date = (datetime.now() + timedelta(days=days)).strftime("%Y-%m-%d")
+            
+            params = {
+                "league": league_id,
+                "season": season,
+                "from": today,
+                "to": to_date
+            }
+            data = self._get("fixtures", params)
+            fixtures = data.get("response", [])
+            
+            # Filtramos para mostrar únicamente los partidos que aún NO han comenzado (ej. 'NS' o 'TBD')
+            upcoming_fixtures = []
+            for fixture in fixtures:
+                status = fixture.get("fixture", {}).get("status", {}).get("short")
+                # 'NS' = Not Started, 'TBD' = Time To Be Defined
+                if status in ["NS", "TBD"]:
+                    upcoming_fixtures.append(fixture)
+                    
+            return upcoming_fixtures
     
     def get_completed_fixtures_by_date(self, league_id: int, season: int, date_str: str) -> list:
         """Obtiene los partidos finalizados de una liga específica para una fecha exacta (YYYY-MM-DD)."""
