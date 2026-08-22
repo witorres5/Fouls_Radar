@@ -46,6 +46,7 @@ class BettingController:
     @staticmethod
     def save_simulation(db_manager, pick_data):
         """Guarda la apuesta simulada incluyendo la fecha del partido."""
+        print("DEBUG---------------------------------",pick_data)
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
