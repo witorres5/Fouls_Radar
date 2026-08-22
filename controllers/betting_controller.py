@@ -21,6 +21,8 @@ class BettingController:
             home_name = teams.get("home", {}).get("name", "Local")
             away_name = teams.get("away", {}).get("name", "Visitante")
             referee = fix_info.get("referee") or "Árbitro Estándar"
+            match_date_fix = fix_info.get("date", {})
+            match_date = match_date_fix[:10]
             
             # Lógica heurística simulada basada en el perfil del árbitro y nombres
             # (En una fase avanzada se cruza con la tabla historical de árbitros)
