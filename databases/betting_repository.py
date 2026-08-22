@@ -93,13 +93,39 @@ class BettingRepository:
 
     @staticmethod
     def get_fixture_result(db_manager, match_name, league_id, season):
+        """Busca el resultado del partido por coincidencia flexible del nombre del encuentro."""
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute("""
-                SELECT status, home_goals, away_goals FROM match_fixtures 
-                WHERE match_name = ? AND league_id = ? AND season = ?
-            """, (match_name, league_id, season))
+            
+            # Separar los nombres de los equipos si vienen en formato "Local vs Visitante"
+            teams = match_name.split(" vs ") if " vs " in match_name else match_name.split(" - ")
+            
+            if len(teams) == 2:
+                home_part, away_part = f"%{teams[0].strip()}%", f"%{teams[1].strip()}%"
+                query = """
+                    SELECT status, total_fouls, total_yellow_cards 
+                    FROM match_fixtures 
+                    WHERE league_id = ? 
+                      AND season = ? 
+                      AND UPPER(home_team) LIKE UPPER(?)
+                      AND UPPER(away_team) LIKE UPPER(?)
+                    LIMIT 1;
+                """
+                cursor.execute(query, (league_id, season, home_part, away_part))
+            else:
+                # Búsqueda general si el formato del string es diferente
+                query = """
+                    SELECT status, total_fouls, total_yellow_cards 
+                    FROM match_fixtures 
+                    WHERE league_id = ? 
+                      AND season = ? 
+                      AND UPPER(home_team || ' vs ' || away_team) LIKE UPPER(?)
+                    LIMIT 1;
+                """
+                cursor.execute(query, (league_id, season, f"%{match_name.strip()}%"))
+                
             return cursor.fetchone()
+
 
     @staticmethod
     def update_bet_status(db_manager, bet_id, new_status):
@@ -109,3 +135,23 @@ class BettingRepository:
                 UPDATE simulated_bets SET status = ? WHERE id = ?
             """, (new_status, bet_id))
             conn.commit()
+            
+    @staticmethod
+    def get_pending_bets_by_date(db_manager, league_id, season, today_str):
+        """Obtiene las apuestas pendientes para la fecha actual consultando directamente el campo match_date."""
+        print("datos---------------------",league_id, season, today_str)
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            query = """
+                SELECT id, match_name, market 
+                FROM simulated_bets 
+                WHERE status = 'PENDIENTE' 
+                  AND league_id = ? 
+                  AND season = ?
+                  AND match_date LIKE ?
+            """
+            cursor.execute(query, (league_id, season, f'%{today_str}%'))
+            return cursor.fetchall()
+        
+        
+            

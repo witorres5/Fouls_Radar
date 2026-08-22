@@ -39,14 +39,19 @@ def run_daily_sync():
                 # 1. Sincronizar partidos y estadísticas del día
                 FixtureController.sync_fixtures_and_stats(db_manager, league_id, current_year)
 
-                # 2. Evaluar y cerrar las apuestas pendientes cuyo partido ya terminó
-                BettingController.evaluate_pending_bets(db_manager, league_id, current_year)
-
                 # 3. Generar nuevas apuestas simuladas de alta probabilidad basadas en los datos frescos
                 picks = BettingController.get_high_probability_bets(db_manager, league_id, current_year)
                 for pick in picks:
                     BettingController.save_simulation(db_manager, pick)
 
+                # --- INSPECCIÓN DE BASE DE DATOS (Muestra qué hay en match_fixtures) ---
+                with db_manager.get_connection() as conn:
+                    cursor = conn.cursor()
+                    cursor.execute("SELECT league_id, season, home_team, away_team, status FROM match_fixtures WHERE league_id = ?", (league_id,))
+                    print("\n📋 Contenido actual de match_fixtures para esta liga:", cursor.fetchall(), "\n")
+
+                # Evaluar y cerrar únicamente las apuestas pendientes de los partidos del día de hoy
+                BettingController.evaluate_pending_bets(db_manager, league_id, current_year, today_str)
                 logging.info(f"✅ Sincronización exitosa para {league_name} (Hoy).")
                 
             except Exception as sub_err:

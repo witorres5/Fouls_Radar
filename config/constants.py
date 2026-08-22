@@ -23,19 +23,19 @@ HTTP_HEADERS = {
 
 # 10 Ligas objetivo (ID oficial de API-Football)
 TARGET_LEAGUES = {
-    39: {"name": "Premier League", "country": "England"},
-    140: {"name": "La Liga", "country": "Spain"},
-    135: {"name": "Serie A", "country": "Italy"},
-    78: {"name": "Bundesliga", "country": "Germany"},
-    61: {"name": "Ligue 1", "country": "France"},
-    88: {"name": "Eredivisie", "country": "Netherlands"},
-    73: {"name": "Copa Do Brasil", "country": "Brazil"},
-    71: {"name": "Serie A Brazil", "country": "Brazil"},
+    # 39: {"name": "Premier League", "country": "England"},
+    # 140: {"name": "La Liga", "country": "Spain"},
+    # 135: {"name": "Serie A", "country": "Italy"},
+    # 78: {"name": "Bundesliga", "country": "Germany"},
+    # 61: {"name": "Ligue 1", "country": "France"},
+    # 88: {"name": "Eredivisie", "country": "Netherlands"},
+    # 73: {"name": "Copa Do Brasil", "country": "Brazil"},
+    # 71: {"name": "Serie A Brazil", "country": "Brazil"},
     239: {"name": "Liga BetPlay", "country": "Colombia"},
-    2: {"name": "UEFA Champions League", "country": "World"},
-    103: {"name": "Eliteserien", "country": "Norway"},
-    13: {"name": "Copa Libertadores", "country": "World"},
-    11: {"name": "Copa Sudamericana", "country": "World"}
+    # 2: {"name": "UEFA Champions League", "country": "World"},
+    # 103: {"name": "Eliteserien", "country": "Norway"},
+    # 13: {"name": "Copa Libertadores", "country": "World"},
+    # 11: {"name": "Copa Sudamericana", "country": "World"}
 }
 
 # Endpoints relevantes para la métrica de faltas

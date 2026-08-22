@@ -44,58 +44,52 @@ class BettingController:
         return high_prob_picks
 
     @staticmethod
-    def save_simulation(db_manager, bet_data):
-        repo = BettingRepository(db_manager)
-        repo.save_bet(
-            bet_data["league_id"],
-            bet_data["season"],
-            bet_data["match_name"],
-            bet_data["referee"],
-            bet_data["market"],
-            bet_data["probability"],
-            bet_data["odds"]
-        )
-
+    def save_simulation(db_manager, pick_data):
+        """Guarda la apuesta simulada incluyendo la fecha del partido."""
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT INTO simulated_bets (league_id, season, match_name, referee, market, probability, simulated_odds, match_date, status)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'PENDIENTE')
+            """, (
+                pick_data.get("league_id"),
+                pick_data.get("season"),
+                pick_data.get("match_name"),
+                pick_data.get("referee"),
+                pick_data.get("market"),
+                pick_data.get("probability"),
+                pick_data.get("odds"),
+                pick_data.get("match_date") # <-- Asegúrate de pasar la fecha del partido aquí
+            ))
+            conn.commit()
+            
     @staticmethod
     def get_history_df(db_manager, league_id, season):
         repo = BettingRepository(db_manager)
         return repo.get_simulated_bets(league_id, season)
     
     @staticmethod
-    def evaluate_pending_bets(db_manager, league_id, season):
-        """Lógica de negocio para determinar si una apuesta ganó o perdió."""
-        pending_bets = BettingRepository.get_pending_bets(db_manager, league_id, season)
+    def evaluate_pending_bets(db_manager, league_id, season, today_str):
+        pending_bets = BettingRepository.get_pending_bets_by_date(db_manager, league_id, season, today_str)
 
         for bet_id, match_name, market in pending_bets:
+            # Obtenemos los datos del partido desde la BD
             fixture = BettingRepository.get_fixture_result(db_manager, match_name, league_id, season)
-
             if fixture:
-                status = fixture[0] # Dependiendo de cómo devuelva los datos tu tupla
+                # Asegúrate de desempaquetar la tupla (status, total_fouls, total_yellow_cards)
+                status, total_fouls, total_yellow_cards = fixture
 
-                # Validamos si el partido ya finalizó
                 if status in ["FT", "Match Finished", "AET", "PEN"]:
                     won = False
+                    import re
+                    numbers = re.findall(r"[-+]?\d*\.\d+|\d+", market)
                     
-                    # Ajustamos según los mercados reales que manejas
-                    if "Faltas Totales" in market:
-                        # Extraer el valor numérico del mercado (ej. de "Más de 23.5 Faltas Totales" sacar 23.5)
-                        import re
-                        numbers = re.findall(r"[-+]?\d*\.\d+|\d+", market)
-                        if numbers:
-                            line_value = float(numbers[0])
-                            # Suponiendo que obtienes las faltas reales del partido finalizado
-                            actual_fouls = fixture.get("total_fouls", 0) # Ajusta según tu tupla/modelo
-                            if actual_fouls > line_value:
-                                won = True
-
-                    elif "Tarjetas Amarillas" in market:
-                        import re
-                        numbers = re.findall(r"[-+]?\d*\.\d+|\d+", market)
-                        if numbers:
-                            line_value = float(numbers[0])
-                            actual_yellows = fixture.get("total_yellow_cards", 0) # Ajusta según tu modelo
-                            if actual_yellows > line_value:
-                                won = True
+                    if numbers:
+                        line_value = float(numbers[0])
+                        if "Faltas Totales" in market and total_fouls > line_value:
+                            won = True
+                        elif "Tarjetas Amarillas" in market and total_yellow_cards > line_value:
+                            won = True
 
                     new_status = "GANADA" if won else "PERDIDA"
                     BettingRepository.update_bet_status(db_manager, bet_id, new_status)

@@ -181,3 +181,19 @@ class FixtureRepository:
                 fixture_data['date'], 
                 fixture_data['status']
             ))
+            
+    def save_fixture_info(self, fixture_id, league_id, season, home_team, away_team, status, match_date, total_fouls=0, total_yellow_cards=0):
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            query = """
+                INSERT INTO match_fixtures (fixture_id, league_id, season, home_team, away_team, status, match_date, total_fouls, total_yellow_cards)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(fixture_id) DO UPDATE SET
+                    status = excluded.status,
+                    home_team = excluded.home_team,
+                    away_team = excluded.away_team,
+                    match_date = excluded.match_date,
+                    total_fouls = excluded.total_fouls,
+                    total_yellow_cards = excluded.total_yellow_cards;
+            """
+            cursor.execute(query, (fixture_id, league_id, season, home_team, away_team, status, match_date, total_fouls, total_yellow_cards))
