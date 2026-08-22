@@ -41,7 +41,8 @@ class BettingController:
                     "probability": round(base_prob, 1),
                     "odds": simulated_odds,
                     "league_id": league_id,
-                    "season": season
+                    "season": season,
+                    "match_date": match_date
                 })
 
         return high_prob_picks
