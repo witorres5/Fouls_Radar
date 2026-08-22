@@ -15,6 +15,7 @@ class BettingController:
         high_prob_picks = []
 
         for fix in upcoming_fixtures:
+            print("DEBUG----000000-----",fix)
             fix_info = fix.get("fixture", {})
             teams = fix.get("teams", {})
             home_name = teams.get("home", {}).get("name", "Local")
