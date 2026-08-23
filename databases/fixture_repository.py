@@ -197,3 +197,39 @@ class FixtureRepository:
                     total_yellow_cards = excluded.total_yellow_cards;
             """
             cursor.execute(query, (fixture_id, league_id, season, home_team, away_team, status, match_date, total_fouls, total_yellow_cards))
+
+
+def get_team_avg_fouls(self, team_name: str, league_id: int, season: int) -> float:
+        """Calcula el promedio de faltas cometidas por partido de un equipo."""
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            query = """
+                SELECT AVG(total_fouls) 
+                FROM (
+                    SELECT total_fouls FROM match_fixtures 
+                    WHERE league_id = ? AND season = ? AND UPPER(home_team) LIKE UPPER(?) AND status = 'FT'
+                    UNION ALL
+                    SELECT total_fouls FROM match_fixtures 
+                    WHERE league_id = ? AND season = ? AND UPPER(away_team) LIKE UPPER(?) AND status = 'FT'
+                );
+            """
+            pattern = f"%{team_name.strip()}%"
+            cursor.execute(query, (league_id, season, pattern, league_id, season, pattern))
+            res = cursor.fetchone()
+            return float(res[0]) if res and res[0] is not None else 12.0 # 12.0 valor base por defecto
+
+    def get_referee_avg_fouls(self, referee_name: str) -> float:
+        """Obtiene el promedio de faltas pitadas por un árbitro."""
+        if not referee_name or "Estándar" in referee_name or "no asignado" in referee_name.lower():
+            return 24.0 # Promedio estándar de la liga
+            
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            query = """
+                SELECT AVG(total_fouls) 
+                FROM match_fixtures 
+                WHERE UPPER(referee) LIKE UPPER(?) AND status = 'FT';
+            """
+            cursor.execute(query, (f"%{referee_name.strip()}%",))
+            res = cursor.fetchone()
+            return float(res[0]) if res and res[0] is not None else 24.0
