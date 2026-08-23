@@ -153,7 +153,7 @@ class BettingRepository:
                 if cursor.fetchone() is None:
                     cursor.execute("""
                         INSERT INTO simulated_bets (league_id, season, match_name, referee, market, probability, simulated_odds,match_date, status)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, 'PENDIENTE')
+                        VALUES (?, ?, ?, ?, ?, ?, ?,?, 'PENDIENTE')
                     """, (
                         bet_data['league_id'], 
                         bet_data['season'], 
@@ -162,8 +162,7 @@ class BettingRepository:
                         clean_market, 
                         bet_data['probability'], 
                         bet_data.get('odds', bet_data.get('simulated_odds', 1.80)),
-                        bet_data.get("match_date"),
-                        'PENDIENTE'
+                        bet_data.get("match_date")
                     ))
                     return True
             return False
