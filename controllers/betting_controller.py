@@ -48,25 +48,10 @@ class BettingController:
         return high_prob_picks
 
     @staticmethod
-    def save_simulation(db_manager, pick_data):
-        """Guarda la apuesta simulada incluyendo la fecha del partido."""
-        print("DEBUG---------------------------------",pick_data)
-        with db_manager.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("""
-                INSERT INTO simulated_bets (league_id, season, match_name, referee, market, probability, simulated_odds, match_date, status)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'PENDIENTE')
-            """, (
-                pick_data.get("league_id"),
-                pick_data.get("season"),
-                pick_data.get("match_name"),
-                pick_data.get("referee"),
-                pick_data.get("market"),
-                pick_data.get("probability"),
-                pick_data.get("odds"),
-                pick_data.get("match_date") # <-- Asegúrate de pasar la fecha del partido aquí
-            ))
-            conn.commit()
+    def save_simulation(db_manager, bet_data):
+        """Guarda la apuesta en la BD asegurando que no existan duplicados."""
+        repo = BettingRepository(db_manager)
+        return repo.save_bet_unique(bet_data) # <-- Aquí conectas el método único
             
     @staticmethod
     def get_history_df(db_manager, league_id, season):
