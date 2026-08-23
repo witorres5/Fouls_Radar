@@ -58,29 +58,7 @@ class BettingRepository:
             return pd.DataFrame(rows, columns=["Partido", "Árbitro", "Mercado", "Probabilidad", "Cuota Sim.", "Estado", "Fecha"])
         return pd.DataFrame()
     
-    # databases/betting_repository.py
-    def save_bet_unique(self, bet_data):
-        """Guarda solo si no existe la misma apuesta para este partido."""
-        with self.db_manager.get_connection() as conn:
-            cursor = conn.cursor()
-            
-            # Comprobamos por un identificador único (partido + mercado)
-            cursor.execute("""
-                SELECT id FROM simulated_bets 
-                WHERE match_name = ? AND market = ? AND season = ?
-            """, (bet_data['match_name'], bet_data['market'], bet_data['season']))
-            
-            if cursor.fetchone() is None:
-                cursor.execute("""
-                    INSERT INTO simulated_bets (league_id, season, match_name, referee, market, probability, simulated_odds, status)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, 'PENDIENTE')
-                """, (
-                    bet_data['league_id'], bet_data['season'], bet_data['match_name'], 
-                    bet_data['referee'], bet_data['market'], bet_data['probability'], bet_data['odds']
-                ))
-                return True
-        return False
-    
+     
     @staticmethod
     def get_pending_bets(db_manager, league_id, season):
         with db_manager.get_connection() as conn:
