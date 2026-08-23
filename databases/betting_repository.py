@@ -133,6 +133,7 @@ class BettingRepository:
 
 
     def save_bet_unique(self, bet_data):
+            print("DEBUG---2--------",bet_data)
             """Guarda solo si no existe la misma apuesta para este partido y mercado."""
             with self.db_manager.get_connection() as conn:
                 cursor = conn.cursor()
