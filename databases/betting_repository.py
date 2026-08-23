@@ -162,7 +162,8 @@ class BettingRepository:
                         clean_market, 
                         bet_data['probability'], 
                         bet_data.get('odds', bet_data.get('simulated_odds', 1.80)),
-                        bet_data.get("match_date")
+                        bet_data.get("match_date"),
+                        'PENDIENTE'
                     ))
                     return True
             return False
