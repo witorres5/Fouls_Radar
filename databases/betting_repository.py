@@ -152,6 +152,41 @@ class BettingRepository:
             """
             cursor.execute(query, (league_id, season, f'%{today_str}%'))
             return cursor.fetchall()
+
+
+    def save_bet_unique(self, bet_data):
+            """Guarda solo si no existe la misma apuesta para este partido y mercado."""
+            with self.db_manager.get_connection() as conn:
+                cursor = conn.cursor()
+                
+                clean_match = bet_data['match_name'].strip()
+                clean_market = bet_data['market'].strip()
+                
+                # Comprobación estricta usando UPPER y TRIM
+                cursor.execute("""
+                    SELECT id FROM simulated_bets 
+                    WHERE league_id = ? 
+                      AND season = ? 
+                      AND UPPER(TRIM(match_name)) = UPPER(?) 
+                      AND UPPER(TRIM(market)) = UPPER(?)
+                """, (bet_data['league_id'], bet_data['season'], clean_match, clean_market))
+                
+                if cursor.fetchone() is None:
+                    cursor.execute("""
+                        INSERT INTO simulated_bets (league_id, season, match_name, referee, market, probability, simulated_odds,match_date, status)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, 'PENDIENTE')
+                    """, (
+                        bet_data['league_id'], 
+                        bet_data['season'], 
+                        clean_match, 
+                        bet_data.get('referee', 'Árbitro no asignado'), 
+                        clean_market, 
+                        bet_data['probability'], 
+                        bet_data.get('odds', bet_data.get('simulated_odds', 1.80)),
+                        bet_data.get("match_date")
+                    ))
+                    return True
+            return False
         
         
             
