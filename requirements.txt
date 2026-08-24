@@ -8,5 +8,4 @@ sqlalchemy
 python-dotenv
 requests-cache
 pytz
-inspect
 math
