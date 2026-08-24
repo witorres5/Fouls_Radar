@@ -177,23 +177,58 @@ class FixtureRepository:
                 fixture_data['status']
             ))
 
-    def save_fixture_info(self, fixture_id: int, league_id: int, season: int, home_team: str, away_team: str, status: str, match_date: str, total_fouls: int = 0, total_yellow_cards: int = 0) -> None:
-        """Registra o actualiza la información detallada del partido en match_fixtures."""
-        with self.db_manager.get_connection() as conn:
-            cursor = conn.cursor()
-            query = """
-                INSERT INTO match_fixtures (fixture_id, league_id, season, home_team, away_team, status, match_date, total_fouls, total_yellow_cards)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(fixture_id) DO UPDATE SET
-                    status = excluded.status,
-                    home_team = excluded.home_team,
-                    away_team = excluded.away_team,
-                    match_date = excluded.match_date,
-                    total_fouls = excluded.total_fouls,
-                    total_yellow_cards = excluded.total_yellow_cards;
-            """
-            cursor.execute(query, (fixture_id, league_id, season, home_team, away_team, status, match_date, total_fouls, total_yellow_cards))
-            conn.commit()
+    def save_fixture_info(
+            self, 
+            fixture_id: int, 
+            league_id: int, 
+            season: int, 
+            home_team: str, 
+            away_team: str, 
+            status: str, 
+            match_date: str, 
+            referee: str = "N/A", 
+            total_fouls: int = 0, 
+            total_yellow_cards: int = 0
+        ) -> None:
+            """Registra o actualiza la información detallada del partido en match_fixtures."""
+            with self.db_manager.get_connection() as conn:
+                cursor = conn.cursor()
+                query = """
+                    INSERT INTO match_fixtures (
+                        fixture_id, 
+                        league_id, 
+                        season, 
+                        home_team, 
+                        away_team, 
+                        status, 
+                        match_date, 
+                        total_fouls, 
+                        total_yellow_cards, 
+                        referee_name
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(fixture_id) DO UPDATE SET
+                        status = excluded.status,
+                        home_team = excluded.home_team,
+                        away_team = excluded.away_team,
+                        match_date = excluded.match_date,
+                        total_fouls = excluded.total_fouls,
+                        total_yellow_cards = excluded.total_yellow_cards,
+                        referee_name = excluded.referee_name;
+                """
+                cursor.execute(query, (
+                    fixture_id, 
+                    league_id, 
+                    season, 
+                    home_team, 
+                    away_team, 
+                    status, 
+                    match_date, 
+                    total_fouls, 
+                    total_yellow_cards, 
+                    referee
+                ))
+                conn.commit()
 
     def get_team_avg_fouls(self, team_name: str, league_id: int, season: int) -> float:
         """Calcula el promedio de faltas cometidas por partido de un equipo."""

@@ -6,6 +6,8 @@ from databases.connection import DatabaseManager
 from databases.fixture_repository import FixtureRepository
 from services.api_service import APIFootballService
 import streamlit as st
+import inspect
+
 
 class FixtureController:
 
@@ -19,11 +21,20 @@ class FixtureController:
         today_str = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d") # Fecha de hoy exacta
         entity_name = f"fixtures_league_{league_id}_{season}"
         
-        # 1. Obtener partidos finalizados ('FT') exclusivamente del día de hoy
-        print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, fecha {today_str}...")
-        fixtures = api_service.get_completed_fixtures_by_date(league_id, season, today_str)
+        # Obtener el marco (frame) del llamador (1 nivel arriba en la pila)
+        caller_frame = inspect.stack()[1]
         
-        print(f">>> DEBUG: Total de partidos finalizados hoy encontrados: {len(fixtures)}")
+        nombre_funcion = caller_frame.function  # Nombre de la función
+        
+        # 1. Obtener partidos finalizados ('FT') exclusivamente del día de hoy
+        if(nombre_funcion == "render_fixtures_view"):
+            print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, temporada {season}...")
+            fixtures = api_service.get_completed_fixtures_by_season(league_id, season)
+            print(f">>> DEBUG: Total de partidos finalizados ne la temporada {season} encontrados: {len(fixtures)}")
+        else:
+            print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, fecha {today_str}...")
+            fixtures = api_service.get_completed_fixtures_by_date(league_id, season, today_str)
+            print(f">>> DEBUG: Total de partidos finalizados hoy encontrados: {len(fixtures)}")
         
         if not fixtures:
             print(">>> ADVERTENCIA: No se encontraron partidos finalizados hoy para procesar.")
@@ -36,6 +47,7 @@ class FixtureController:
             fixture_info = fixture.get("fixture", {})
             fixture_id = fixture_info.get("id")
             teams = fixture.get("teams", {})
+            referee = fixture_info.get("referee")
             
             if not fixture_id:
                 continue
@@ -79,7 +91,8 @@ class FixtureController:
                     status=status,
                     match_date=match_date,
                     total_fouls=total_fouls,
-                    total_yellow_cards=total_yellow_cards
+                    total_yellow_cards=total_yellow_cards,
+                    referee=referee
                 )
 
                 if player_stats_map:
@@ -112,7 +125,7 @@ class FixtureController:
         return repo.get_competition_summary(league_id, season)
     
     @staticmethod
-    @st.cache_data(ttl=600)
+    # @st.cache_data(ttl=600)
     def get_upcoming_fixtures_cached(league_id: int, season: int, days: int = 3):
         """Controla la llamada a la API con caché para evitar latencia de red repetitiva."""
         api_service = APIFootballService()

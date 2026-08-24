@@ -150,3 +150,47 @@ class PlayerRepository:
                 chunk = data_to_insert[i:i + batch_size]
                 cursor.executemany(query, chunk)
             conn.commit()
+            
+            
+    def get_players_by_team(self, team_id: int):
+        """Obtiene los jugadores de un equipo con sus métricas completas."""
+        with self.db.get_connection() as conn:
+            cursor = conn.cursor()
+            query = """
+                SELECT 
+                    player_id,
+                    team_id,
+                    player_name,
+                    league_id,
+                    season,
+                    minutes_played,
+                    fouls_committed,
+                    fouls_drawn,
+                    yellow_cards,
+                    red_cards,
+                    fouls_per_90,
+                    updated_at
+                FROM players 
+                WHERE team_id = ?;
+            """
+            cursor.execute(query, (team_id,))
+            rows = cursor.fetchall()
+
+            # Mapeo explicito a diccionario para compatibilidad con la vista
+            return [
+                {
+                    "player_id": row[0],
+                    "team_id": row[1],
+                    "player_name": row[2],
+                    "league_id": row[3],
+                    "season": row[4],
+                    "minutes_played": row[5],
+                    "fouls_committed": row[6],
+                    "fouls_drawn": row[7],
+                    "yellow_cards": row[8],
+                    "red_cards": row[9],
+                    "fouls_per_90": row[10],
+                    "updated_at": row[11]
+                }
+                for row in rows
+            ]

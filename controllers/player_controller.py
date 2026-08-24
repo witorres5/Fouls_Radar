@@ -57,7 +57,7 @@ class PlayerController:
                 
             try:
                 # Obtenemos la plantilla completa mediante el endpoint de squads
-                players_data = api_service.get_players_by_team(team_id, season)
+                players_data = api_service.get_players_by_team(team_id)
                 if not players_data:
                     print(f">>> AVISO: El equipo {team_name} (ID: {team_id}) no devolvió jugadores.")
                     continue

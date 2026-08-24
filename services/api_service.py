@@ -41,16 +41,6 @@ class APIFootballService:
         data = self._get("teams", {"league": league_id, "season": season})
         return data.get("response", [])
 
-    def get_players_by_team(self, team_id: int, season: int, league_id: int = None, page: int = 1) -> List[Dict[str, Any]]:
-            """Obtiene la plantilla de jugadores de un equipo específico."""
-            # El endpoint de plantillas oficial de API-Football es 'players/squads' usando solo el team_id
-            data = self._get("players/squads", {"team": team_id})
-            response_list = data.get("response", [])
-            
-            # players/squads devuelve una estructura agrupada por equipo: [{'team': {...}, 'players': [...]}]
-            if response_list:
-                return response_list[0].get("players", [])
-            return []
 
     def get_completed_fixtures(self, league_id: int, season: int) -> List[Dict[str, Any]]:
         """Obtiene todos los partidos finalizados ('FT') de una liga y temporada."""
@@ -110,7 +100,7 @@ class APIFootballService:
                 # 'NS' = Not Started, 'TBD' = Time To Be Defined
                 if status in ["NS", "TBD"]:
                     upcoming_fixtures.append(fixture)
-                    
+                       
             return upcoming_fixtures
     
     def get_completed_fixtures_by_date(self, league_id: int, season: int, date_str: str) -> list:
@@ -123,6 +113,24 @@ class APIFootballService:
             "status": "FT"  # Filtrar solo partidos finalizados (Finished)
         }
         
+        try:
+            response = self._get(endpoint, params=params)
+            if response and "response" in response:
+                return response["response"]
+        except Exception as e:
+            print(f">>> ERROR obteniendo fixtures por fecha para la liga {league_id}: {e}")
+            
+        return []
+    
+    def get_completed_fixtures_by_season(self, league_id: int, season: int) -> list:
+        """Obtiene los partidos finalizados de una liga específica para una fecha exacta (YYYY-MM-DD)."""
+        endpoint = "fixtures"
+        params = {
+            "league": league_id,
+            "season": season,
+            "status": "FT"  # Filtrar solo partidos finalizados (Finished)
+        }
+    
         try:
             response = self._get(endpoint, params=params)
             if response and "response" in response:
