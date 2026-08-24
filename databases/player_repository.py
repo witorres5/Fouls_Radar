@@ -8,29 +8,29 @@ class PlayerRepository:
         self.init_table()
 
     def init_table(self):
-        """Inicializa las tablas necesarias si no existen."""
+        """Inicializa las tablas necesarias garantizando clave compuesta por temporada."""
         with self.db.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS players (
-                    player_id INTEGER PRIMARY KEY,
+                    player_id INTEGER,
                     team_id INTEGER,
                     player_name TEXT,
                     league_id INTEGER,
                     season INTEGER,
-                    minutes_played INTEGER,
-                    fouls_committed INTEGER,
-                    fouls_drawn INTEGER,
-                    yellow_cards INTEGER,
-                    red_cards INTEGER,
-                    fouls_per_90 REAL,
-                    updated_at TEXT
+                    minutes_played INTEGER DEFAULT 0,
+                    fouls_committed INTEGER DEFAULT 0,
+                    fouls_drawn INTEGER DEFAULT 0,
+                    yellow_cards INTEGER DEFAULT 0,
+                    red_cards INTEGER DEFAULT 0,
+                    fouls_per_90 REAL DEFAULT 0.0,
+                    updated_at TEXT,
+                    PRIMARY KEY (player_id, league_id, season)
                 )
             """)
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_team ON players(team_id)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_league_season ON players(league_id, season)")
             
-            # Asegurar tabla de metadata de sincronización por si no existe
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS sync_metadata (
                     entity_name TEXT PRIMARY KEY,
@@ -39,7 +39,6 @@ class PlayerRepository:
             """)
 
     def get_last_sync(self, entity_name: str) -> str:
-        """Obtiene la última fecha de sincronización para una entidad dada."""
         with self.db.get_connection() as conn:
             cursor = conn.cursor()
             try:
@@ -52,7 +51,6 @@ class PlayerRepository:
         return "Nunca sincronizado"
 
     def update_sync_timestamp(self, entity_name: str, timestamp: str):
-        """Actualiza o inserta el registro de sincronización."""
         with self.db.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
@@ -63,55 +61,50 @@ class PlayerRepository:
             conn.commit()
 
     def get_players_by_league(self, league_id: int, season: int) -> List[Dict[str, Any]]:
-        """Obtiene todos los jugadores de una liga y temporada."""
+        """Obtiene métricas de jugadores alineadas explícitamente por liga y temporada."""
         with self.db.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
-                SELECT player_id, team_id, player_name, league_id, season,
-                       minutes_played, fouls_committed, fouls_drawn,
-                       yellow_cards, red_cards, fouls_per_90, updated_at
+                SELECT 
+                    player_id, 
+                    team_id, 
+                    player_name, 
+                    league_id, 
+                    season,
+                    COALESCE(minutes_played, 0) as minutes_played, 
+                    COALESCE(fouls_committed, 0) as fouls_committed, 
+                    COALESCE(fouls_drawn, 0) as fouls_drawn,
+                    COALESCE(yellow_cards, 0) as yellow_cards, 
+                    COALESCE(red_cards, 0) as red_cards, 
+                    COALESCE(fouls_per_90, 0.0) as fouls_per_90, 
+                    updated_at
                 FROM players
-                WHERE league_id = ? AND season = ?
-                ORDER BY player_name
+                WHERE CAST(league_id AS INTEGER) = CAST(? AS INTEGER) 
+                  AND CAST(season AS INTEGER) = CAST(? AS INTEGER)
+                ORDER BY fouls_committed DESC, minutes_played DESC
             """, (league_id, season))
             rows = cursor.fetchall()
             
         return [
             {
-                "player_id": r[0], "team_id": r[1], "player_name": r[2],
-                "league_id": r[3], "season": r[4], "minutes_played": r[5],
-                "fouls_committed": r[6], "fouls_drawn": r[7], "yellow_cards": r[8],
-                "red_cards": r[9], "fouls_per_90": r[10], "updated_at": r[11]
-            }
-            for r in rows
-        ]
-
-    def get_players_by_team(self, team_id: int) -> List[Dict[str, Any]]:
-        """Obtiene todos los jugadores de un equipo específico."""
-        with self.db.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("""
-                SELECT player_id, team_id, player_name, league_id, season,
-                       minutes_played, fouls_committed, fouls_drawn,
-                       yellow_cards, red_cards, fouls_per_90, updated_at
-                FROM players
-                WHERE team_id = ?
-                ORDER BY player_name
-            """, (team_id,))
-            rows = cursor.fetchall()
-            
-        return [
-            {
-                "player_id": r[0], "team_id": r[1], "player_name": r[2],
-                "league_id": r[3], "season": r[4], "minutes_played": r[5],
-                "fouls_committed": r[6], "fouls_drawn": r[7], "yellow_cards": r[8],
-                "red_cards": r[9], "fouls_per_90": r[10], "updated_at": r[11]
+                "player_id": r[0], 
+                "team_id": r[1], 
+                "player_name": r[2],
+                "league_id": r[3], 
+                "season": r[4], 
+                "minutes_played": r[5],
+                "fouls_committed": r[6], 
+                "fouls_drawn": r[7], 
+                "yellow_cards": r[8],
+                "red_cards": r[9], 
+                "fouls_per_90": r[10], 
+                "updated_at": r[11]
             }
             for r in rows
         ]
 
     def save_players(self, records: List[Dict[str, Any]], batch_size: int = 100):
-        """Inserta o actualiza lotes de jugadores utilizando upsert (ON CONFLICT)."""
+        """Inserta o actualiza lotes aislados por jugador, liga y temporada."""
         if not records:
             return
 
@@ -121,7 +114,7 @@ class PlayerRepository:
                 minutes_played, fouls_committed, fouls_drawn,
                 yellow_cards, red_cards, fouls_per_90, updated_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(player_id) DO UPDATE SET
+            ON CONFLICT(player_id, league_id, season) DO UPDATE SET
                 team_id = excluded.team_id,
                 player_name = excluded.player_name,
                 minutes_played = excluded.minutes_played,

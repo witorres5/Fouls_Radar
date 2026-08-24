@@ -3,7 +3,8 @@ import streamlit as st
 from databases.connection import DatabaseManager
 from views.team_view import render_team_view
 from views.fixtures_view import render_fixtures_view
-from views.betting_simulation_view import render_betting_simulation_view  # <-- Importamos la nueva vista
+from views.betting_simulation_view import render_betting_simulation_view
+from views.referees_view import render_referees_view
 from config.constants import TARGET_LEAGUES, CURRENT_SEASON
 
 # Configuración inicial de la página
@@ -22,7 +23,7 @@ def get_db():
 db_manager = get_db()
 
 def main():
-    st.title("⚽ Fouls Tracker & Analytics Architecture")
+    st.title("⚽ Análisis de faltas y tarjetas")
     
     # Barra lateral para navegación jerárquica
     st.sidebar.title("Navegación")
@@ -37,8 +38,8 @@ def main():
     st.sidebar.divider()
     st.sidebar.markdown("### Menú de Vistas")
     
-    # Añadimos "Simulador de Apuestas" al menú de opciones
-    options_list = ["Ligas y Equipos", "Jugadores", "Partidos", "Simulador de Apuestas"]
+    # Lista completa de vistas con la nueva opción "Árbitros"
+    options_list = ["Ligas y Equipos", "Jugadores", "Partidos", "Árbitros", "Simulador de Apuestas"]
 
     # Si venimos de hacer clic en "Ver Jugadores" desde un equipo, forzamos la vista
     if "selected_team_id" in st.session_state:
@@ -48,7 +49,7 @@ def main():
     if "current_view" not in st.session_state:
         st.session_state["current_view"] = "Ligas y Equipos"
 
-    # Menú de radio enlazado directamente a st.session_state usando 'key'
+    # Menú de radio enlazado directamente a st.session_state mediante 'key'
     view_mode = st.sidebar.radio(
         "Ir a:", 
         options_list, 
@@ -71,6 +72,10 @@ def main():
         st.header(f"⚖️ Análisis de Partidos {selected_league_name}")
         with st.spinner("🔄 Analizando partidos y comportamiento arbitral..."):
             render_fixtures_view(db_manager, selected_league_id, season)
+
+    elif view_mode == "Árbitros":
+        with st.spinner("🔄 Cargando perfil y estadísticas arbitrales..."):
+            render_referees_view(db_manager, selected_league_id, season, selected_league_name)
 
     elif view_mode == "Simulador de Apuestas":
         st.header(f"🤖 Simulador Inteligente - {selected_league_name}")

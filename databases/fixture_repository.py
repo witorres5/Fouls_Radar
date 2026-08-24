@@ -1,6 +1,5 @@
-# databases/fixture_repository.py
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, List
 from databases.connection import DatabaseManager
 import pandas as pd
 
@@ -12,7 +11,7 @@ class FixtureRepository:
         self._init_db()
 
     def _init_db(self):
-        """Crea la tabla de metadatos de sincronización y asegura sus columnas."""
+        """Crea las tablas necesarias y asegura sus columnas."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
@@ -21,35 +20,44 @@ class FixtureRepository:
                     last_updated TEXT
                 )
             """)
-            # Por si la tabla ya existía creada desde otro repositorio sin la columna last_updated:
             try:
                 cursor.execute("ALTER TABLE sync_metadata ADD COLUMN last_updated TEXT")
             except Exception:
-                # La columna ya existe, ignoramos el error de manera segura
                 pass
             conn.commit()
 
     def update_player_match_stats(self, player_stats: Dict[int, Dict[str, Any]], league_id: int, season: int) -> None:
-        """Actualiza e incrementa las estadísticas acumuladas (minutos, faltas, tarjetas) por jugador."""
+        """Actualiza e incrementa estadísticas acumuladas recalculando fouls_per_90 de forma segura."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
             
             for player_id, stats in player_stats.items():
-                minutes = stats.get("minutes_played", 0)
-                committed = stats.get("fouls_committed", 0)
-                drawn = stats.get("fouls_drawn", 0)
-                yellow = stats.get("yellow_cards", 0)
-                red = stats.get("red_cards", 0)
+                minutes = int(stats.get("minutes_played", 0) or 0)
+                committed = int(stats.get("fouls_committed", 0) or 0)
+                drawn = int(stats.get("fouls_drawn", 0) or 0)
+                yellow = int(stats.get("yellow_cards", 0) or 0)
+                red = int(stats.get("red_cards", 0) or 0)
 
+                # 1. Incremento acumulativo controlado
                 cursor.execute("""
                     UPDATE players 
-                    SET minutes_played = minutes_played + ?,
-                        fouls_committed = fouls_committed + ?,
-                        fouls_drawn = fouls_drawn + ?,
-                        yellow_cards = yellow_cards + ?,
-                        red_cards = red_cards + ?
+                    SET minutes_played = COALESCE(minutes_played, 0) + ?,
+                        fouls_committed = COALESCE(fouls_committed, 0) + ?,
+                        fouls_drawn = COALESCE(fouls_drawn, 0) + ?,
+                        yellow_cards = COALESCE(yellow_cards, 0) + ?,
+                        red_cards = COALESCE(red_cards, 0) + ?
                     WHERE player_id = ? AND league_id = ? AND season = ?
                 """, (minutes, committed, drawn, yellow, red, player_id, league_id, season))
+
+                # 2. Recálculo automático de fouls_per_90
+                cursor.execute("""
+                    UPDATE players
+                    SET fouls_per_90 = CASE 
+                        WHEN minutes_played > 0 THEN ROUND((CAST(fouls_committed AS FLOAT) / minutes_played) * 90.0, 2)
+                        ELSE 0.0 
+                    END
+                    WHERE player_id = ? AND league_id = ? AND season = ?
+                """, (player_id, league_id, season))
             
             conn.commit()
             logger.info(f"Estadísticas de partidos actualizadas para la liga {league_id}, temporada {season}.")
@@ -72,17 +80,13 @@ class FixtureRepository:
                 ON CONFLICT(entity_name) DO UPDATE SET last_updated = ?
             """, (entity_name, current_time, current_time))
             conn.commit()
-            
-    # Dentro de la clase FixtureRepository en databases/fixture_repository.py
-
-    # databases/fixture_repository.py
 
     def get_top_fouler_for_team(self, team_id: int, season: int) -> dict:
-        """Acceso a datos para obtener el jugador más sancionado del equipo."""
+        """Obtiene el jugador con más faltas de un equipo."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
-                SELECT player_name, fouls_committed 
+                SELECT player_name, COALESCE(fouls_committed, 0)
                 FROM players 
                 WHERE team_id = ? AND season = ?
                 ORDER BY fouls_committed DESC
@@ -92,45 +96,40 @@ class FixtureRepository:
             if row:
                 return {"name": row[0], "avg": float(row[1])}
         return {"name": "N/D", "avg": 0.0}
-    
-    
-    def get_competition_fouls_summary(self, league_id: int, season: int) -> pd.DataFrame:
-        """Obtiene el resumen de faltas y tarjetas de la competición."""
-        with self.db_manager.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("""
-                SELECT player_name, minutes_played, fouls_committed, yellow_cards, red_cards, fouls_per_90
-                FROM players 
-                WHERE league_id = ? AND season = ? AND minutes_played > 0
-                ORDER BY fouls_committed DESC
-                LIMIT 15
-            """, (league_id, season))
-            rows = cursor.fetchall()
-            
-        if rows:
-            return pd.DataFrame(rows, columns=["Jugador", "Minutos", "Faltas Cometidas", "Tarjetas Amarillas", "Tarjetas Rojas", "Faltas por 90'"])
-        return pd.DataFrame()
-    
+
     def get_competition_summary(self, league_id: int, season: int) -> pd.DataFrame:
-        """Obtiene el resumen de faltas y tarjetas de la competición desde la base de datos."""
+        """Obtiene el resumen ordenado y mapeado de la competición para evitar desalineación de columnas."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
-                SELECT player_name, minutes_played, fouls_committed, yellow_cards, red_cards, fouls_per_90
+                SELECT 
+                    player_name, 
+                    COALESCE(minutes_played, 0) AS minutes_played, 
+                    COALESCE(fouls_committed, 0) AS fouls_committed, 
+                    COALESCE(yellow_cards, 0) AS yellow_cards, 
+                    COALESCE(red_cards, 0) AS red_cards, 
+                    COALESCE(fouls_per_90, 0.0) AS fouls_per_90
                 FROM players 
-                WHERE league_id = ? AND season = ? AND minutes_played > 0
+                WHERE CAST(league_id AS INTEGER) = CAST(? AS INTEGER) 
+                  AND CAST(season AS INTEGER) = CAST(? AS INTEGER) 
+                  AND minutes_played > 0
                 ORDER BY fouls_committed DESC
-                LIMIT 15
+                LIMIT 20
             """, (league_id, season))
+            
             rows = cursor.fetchall()
             
+        columns = ["Jugador", "Minutos", "Faltas Cometidas", "Tarjetas Amarillas", "Tarjetas Rojas", "Faltas por 90'"]
         if rows:
-            return pd.DataFrame(rows, columns=["Jugador", "Minutos", "Faltas Cometidas", "Tarjetas Amarillas", "Tarjetas Rojas", "Faltas por 90'"])
-        return pd.DataFrame()
-    
-    
-    def get_top_foulers_for_teams(self, team_ids: list, season: int) -> dict:
-        """Obtiene el top de faltas para una lista de equipos en una sola consulta SQL."""
+            return pd.DataFrame(rows, columns=columns)
+        return pd.DataFrame(columns=columns)
+
+    def get_competition_fouls_summary(self, league_id: int, season: int) -> pd.DataFrame:
+        """Redirige al resumen unificado de la competición."""
+        return self.get_competition_summary(league_id, season)
+
+    def get_top_foulers_for_teams(self, team_ids: List[int], season: int) -> dict:
+        """Obtiene el top de faltas para una lista de equipos en una sola consulta batch."""
         if not team_ids:
             return {}
             
@@ -138,7 +137,7 @@ class FixtureRepository:
         query = f"""
             SELECT team_id, player_name, fouls_committed 
             FROM (
-                SELECT team_id, player_name, fouls_committed,
+                SELECT team_id, player_name, COALESCE(fouls_committed, 0) as fouls_committed,
                        ROW_NUMBER() OVER(PARTITION BY team_id ORDER BY fouls_committed DESC) as rn
                 FROM players 
                 WHERE team_id IN ({placeholders}) AND season = ?
@@ -154,21 +153,17 @@ class FixtureRepository:
             
         result = {}
         for row in rows:
-            # Si usas row_factory = sqlite3.Row, puedes acceder por nombre, 
-            # de lo contrario por índice: row[0], row[1], etc.
             team_id = row["team_id"] if hasattr(row, "keys") else row[0]
             player_name = row["player_name"] if hasattr(row, "keys") else row[1]
             fouls = row["fouls_committed"] if hasattr(row, "keys") else row[2]
             
             result[team_id] = {"name": player_name, "avg": float(fouls)}
         return result
-    
-    # databases/fixture_repository.py (Ejemplo de lógica)
-    def save_fixture(self, fixture_data):
-        """Guarda o actualiza un partido sin duplicar."""
+
+    def save_fixture(self, fixture_data: dict) -> None:
+        """Guarda o actualiza un partido general en la tabla fixtures."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            # NOTA: Asegúrate de que la tabla 'fixtures' tenga 'fixture_id' como UNIQUE
             cursor.execute("""
                 INSERT OR REPLACE INTO fixtures (fixture_id, league_id, season, match_name, referee, match_date, status)
                 VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -181,8 +176,9 @@ class FixtureRepository:
                 fixture_data['date'], 
                 fixture_data['status']
             ))
-            
-    def save_fixture_info(self, fixture_id, league_id, season, home_team, away_team, status, match_date, total_fouls=0, total_yellow_cards=0):
+
+    def save_fixture_info(self, fixture_id: int, league_id: int, season: int, home_team: str, away_team: str, status: str, match_date: str, total_fouls: int = 0, total_yellow_cards: int = 0) -> None:
+        """Registra o actualiza la información detallada del partido en match_fixtures."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
             query = """
@@ -197,9 +193,9 @@ class FixtureRepository:
                     total_yellow_cards = excluded.total_yellow_cards;
             """
             cursor.execute(query, (fixture_id, league_id, season, home_team, away_team, status, match_date, total_fouls, total_yellow_cards))
+            conn.commit()
 
-
-def get_team_avg_fouls(self, team_name: str, league_id: int, season: int) -> float:
+    def get_team_avg_fouls(self, team_name: str, league_id: int, season: int) -> float:
         """Calcula el promedio de faltas cometidas por partido de un equipo."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
@@ -216,12 +212,12 @@ def get_team_avg_fouls(self, team_name: str, league_id: int, season: int) -> flo
             pattern = f"%{team_name.strip()}%"
             cursor.execute(query, (league_id, season, pattern, league_id, season, pattern))
             res = cursor.fetchone()
-            return float(res[0]) if res and res[0] is not None else 12.0 # 12.0 valor base por defecto
+            return float(res[0]) if res and res[0] is not None else 12.0
 
-def get_referee_avg_fouls(self, referee_name: str) -> float:
+    def get_referee_avg_fouls(self, referee_name: str) -> float:
         """Obtiene el promedio de faltas pitadas por un árbitro."""
         if not referee_name or "Estándar" in referee_name or "no asignado" in referee_name.lower():
-            return 24.0 # Promedio estándar de la liga
+            return 24.0
             
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
