@@ -1,6 +1,7 @@
 # app.py
 import streamlit as st
 from databases.connection import DatabaseManager
+from views.backtesting import render_backtesting_dashboard
 from views.team_view import render_team_view
 from views.fixtures_view import render_fixtures_view
 from views.betting_simulation_view import render_betting_simulation_view
@@ -39,7 +40,7 @@ def main():
     st.sidebar.markdown("### Menú de Vistas")
     
     # Lista completa de vistas con la nueva opción "Árbitros"
-    options_list = ["Ligas y Equipos", "Jugadores", "Partidos", "Árbitros", "Simulador de Apuestas"]
+    options_list = ["Ligas y Equipos", "Jugadores", "Partidos", "Árbitros", "Simulador de Apuestas", "Backtesting & Performance"]
 
     # Si venimos de hacer clic en "Ver Jugadores" desde un equipo, forzamos la vista
     if "selected_team_id" in st.session_state:
@@ -81,6 +82,9 @@ def main():
         st.header(f"🤖 Simulador Inteligente - {selected_league_name}")
         with st.spinner("🔄 Calculando probabilidades y estadísticas de alta confianza..."):
             render_betting_simulation_view(db_manager, selected_league_id, season)
+            
+    elif view_mode == "Backtesting & Performance":
+        render_backtesting_dashboard(db_manager, selected_league_id, season)
 
 
 if __name__ == "__main__":

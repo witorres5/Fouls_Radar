@@ -165,5 +165,36 @@ class BettingRepository:
                     return True
             return False
         
-        
-            
+
+    def get_evaluated_bets(self, league_id: int, season: int) -> pd.DataFrame:
+        """Obtiene las apuestas con estado GANADA o PERDIDA con fallback para odds/stake."""
+        query = """
+            SELECT 
+                match_date, 
+                match_name, 
+                market, 
+                probability, 
+                COALESCE(odds, 1.85) as odds, 
+                COALESCE(stake, 10.0) as stake, 
+                status, 
+                created_at
+            FROM simulated_bets
+            WHERE status IN ('GANADA', 'PERDIDA')
+              AND league_id = ? AND season = ?
+            ORDER BY match_date ASC
+        """
+        with self.db_manager.get_connection() as conn:
+            try:
+                return pd.read_sql_query(query, conn, params=(league_id, season))
+            except Exception:
+                # Fallback en caso de que las columnas odds/stake aún no existan
+                fallback_query = """
+                    SELECT 
+                        match_date, match_name, market, probability, 
+                        1.85 as odds, 10.0 as stake, status, created_at
+                    FROM simulated_bets
+                    WHERE status IN ('GANADA', 'PERDIDA')
+                      AND league_id = ? AND season = ?
+                    ORDER BY match_date ASC
+                """
+                return pd.read_sql_query(fallback_query, conn, params=(league_id, season))        

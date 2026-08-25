@@ -2,6 +2,8 @@
 from databases.betting_repository import BettingRepository
 from controllers.fixture_controller import FixtureController
 import math
+import re
+import pandas as pd
 
 class BettingController:
 
@@ -21,7 +23,6 @@ class BettingController:
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
             
-            # Consulta opcional para dinamizar los promedios de la liga:
             cursor.execute("""
                 SELECT 
                     AVG(total_fouls) as avg_fouls, 
@@ -62,18 +63,14 @@ class BettingController:
                 ref_avg_cards = ref_row[2] if (ref_row and ref_row[2] is not None) else league_avg_cards
 
                 # 4. Calcular Factores de Ponderación (Árbitro vs Liga)
-                # Si el árbitro tiene menos de 3 partidos registrados, le asignamos menor peso al factor (Shrinkage)
                 confidence_weight = min(matches_count / 5.0, 1.0) if matches_count > 0 else 0.0
                 
                 fouls_ratio = ref_avg_fouls / league_avg_fouls if league_avg_fouls > 0 else 1.0
                 cards_ratio = ref_avg_cards / league_avg_cards if league_avg_cards > 0 else 1.0
 
-                # Ponderación combinada
                 weighted_fouls_ratio = 1.0 + ((fouls_ratio - 1.0) * confidence_weight)
                 weighted_cards_ratio = 1.0 + ((cards_ratio - 1.0) * confidence_weight)
 
-                # Probabilidades estimadas basadas en la tendencia del árbitro
-                # (Probabilidad base 70.0% * factor del árbitro)
                 fouls_prob = min(round(70.0 * weighted_fouls_ratio, 1), 95.0)
                 cards_prob = min(round(68.0 * weighted_cards_ratio, 1), 95.0)
 
@@ -107,16 +104,12 @@ class BettingController:
     def save_simulation(db_manager, bet_data):
         """Guarda la apuesta en la BD asegurando que no existan duplicados."""
         repo = BettingRepository(db_manager)
-        return repo.save_bet_unique(bet_data) # <-- Aquí conectas el método único
-            
+        return repo.save_bet_unique(bet_data)
+
     @staticmethod
     def get_history_df(db_manager, league_id, season):
         repo = BettingRepository(db_manager)
         return repo.get_simulated_bets(league_id, season)
-    
-import re
-
-class BettingController:
 
     @staticmethod
     def evaluate_pending_bets(db_manager, league_id, season, today_str):
@@ -127,20 +120,17 @@ class BettingController:
             return
 
         for bet in pending_bets:
-            # Soportar si pending_bets retorna 3 o 4 elementos (bet_id, match_name, market, player_name)
             bet_id = bet[0]
             match_name = bet[1]
             market = bet[2]
             player_name = bet[3] if len(bet) > 3 else None
 
-            # 1. Obtener los datos generales del partido (fixture_id, status, total_fouls, total_yellow_cards)
             fixture = BettingRepository.get_fixture_result(db_manager, match_name, league_id, season)
             if not fixture:
                 continue
 
             fixture_id, status, total_fouls, total_yellow_cards = fixture
 
-            # Evaluar únicamente si el partido ya finalizó
             if status in ["FT", "Match Finished", "AET", "PEN"]:
                 won = False
                 market_lower = market.lower()
@@ -153,14 +143,9 @@ class BettingController:
                 line_value = float(numbers[0])
                 is_under = "menos" in market_lower or "under" in market_lower
 
-                # -----------------------------------------------------------------
                 # CASO A: Apuesta por JUGADOR ESPECÍFICO
-                # -----------------------------------------------------------------
                 if player_name or ("jugador" in market_lower or "player" in market_lower):
-                    # Si el nombre del jugador viene en la columna 'player_name' o se extrae del mercado
                     target_player = player_name if player_name else market.split("-")[0].strip()
-
-                    # Consultar las estadísticas del jugador en ese partido específico
                     player_stats = BettingRepository.get_player_stats_by_fixture(
                         db_manager, fixture_id, target_player
                     )
@@ -172,14 +157,11 @@ class BettingController:
                         if "tarjeta" in market_lower or "cards" in market_lower:
                             won = player_cards < line_value if is_under else player_cards > line_value
                         else:
-                            # Por defecto asume faltas cometidas por el jugador
                             won = player_fouls < line_value if is_under else player_fouls > line_value
                     else:
                         print(f">>> ADVERTENCIA: No se encontraron estadísticas para el jugador '{target_player}' en Fixture ID {fixture_id}.")
 
-                # -----------------------------------------------------------------
                 # CASO B: Apuestas GLOBALES DEL PARTIDO
-                # -----------------------------------------------------------------
                 else:
                     if "faltas totales" in market_lower or "total fouls" in market_lower:
                         actual_fouls = total_fouls or 0
@@ -189,7 +171,6 @@ class BettingController:
                         actual_cards = total_yellow_cards or 0
                         won = actual_cards < line_value if is_under else actual_cards > line_value
 
-                # Actualizar el estado en la base de datos
                 new_status = "GANADA" if won else "PERDIDA"
                 BettingRepository.update_bet_status(db_manager, bet_id, new_status)
                 print(f">>> DEBUG: Apuesta ID {bet_id} ({market}) actualizada a {new_status}.")
@@ -201,8 +182,6 @@ class BettingController:
             return 0.0
         
         lam = (fouls_per_90 * expected_minutes) / 90.0
-        
-        # P(X >= k) = 1 - Sum(P(X = i)) para i de 0 a floor(threshold)
         k_floor = math.floor(threshold)
         prob_less_or_equal = 0.0
         
@@ -216,14 +195,53 @@ class BettingController:
         """Genera sugerencias de valor rápido para las tarjetas de la vista."""
         suggestions = []
         
-        # Evaluar Top Local
         if top_home.get("fouls_per_90", 0) >= 1.5:
             prob = BettingController.calculate_player_over_fouls(top_home["fouls_per_90"], threshold=0.5)
             suggestions.append(f"🔥 {top_home['name']}: +0.5 faltas ({prob}%)")
             
-        # Evaluar Top Visitante
         if top_away.get("fouls_per_90", 0) >= 1.5:
             prob = BettingController.calculate_player_over_fouls(top_away["fouls_per_90"], threshold=0.5)
             suggestions.append(f"🔥 {top_away['name']}: +0.5 faltas ({prob}%)")
             
         return suggestions
+    
+    def get_performance_metrics(self, league_id: int, season: int) -> dict:
+        df = BettingRepository.get_evaluated_bets(league_id, season)
+
+        if df.empty:
+            return {"has_data": False, "df": df}
+
+        # Transformaciones financieras
+        df['stake'] = df['stake'].fillna(10.0)
+        df['profit'] = df.apply(
+            lambda row: (row['stake'] * (row['odds'] - 1)) if row['status'] == 'GANADA' else -row['stake'],
+            axis=1
+        )
+        df['cumulative_profit'] = df['profit'].cumsum()
+
+        # Métricas clave
+        total_bets = len(df)
+        wins = len(df[df['status'] == 'GANADA'])
+        win_rate = (wins / total_bets) * 100 if total_bets > 0 else 0
+        total_staked = df['stake'].sum()
+        net_profit = df['profit'].sum()
+        yield_pct = (net_profit / total_staked) * 100 if total_staked > 0 else 0
+
+        # Análisis por mercado
+        df['market_type'] = df['market'].apply(lambda x: 'Faltas' if 'Falta' in str(x) else 'Tarjetas')
+        market_stats = df.groupby('market_type').agg(
+            Total=('status', 'count'),
+            Ganadas=('status', lambda x: (x == 'GANADA').sum()),
+            Profit=('profit', 'sum')
+        ).reset_index()
+        market_stats['Win_Rate'] = (market_stats['Ganadas'] / market_stats['Total']) * 100
+
+        return {
+            "has_data": True,
+            "df": df,
+            "total_bets": total_bets,
+            "win_rate": win_rate,
+            "net_profit": net_profit,
+            "yield_pct": yield_pct,
+            "market_stats": market_stats
+        }

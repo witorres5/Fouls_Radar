@@ -139,3 +139,32 @@ class APIFootballService:
             print(f">>> ERROR obteniendo fixtures por fecha para la liga {league_id}: {e}")
             
         return []
+    
+    # En tu clase APIFootballService (ej: services/api_football_service.py)
+
+    def get_players_by_team(self, team_id: int, season: int) -> list:
+        """
+        Obtiene la lista/plantilla de jugadores de un equipo para una temporada dada.
+        Endpoint API-Football: /players/squads o /players
+        """
+        url = f"{self.base_url}/players/squads"  # O el endpoint que utilices (ej: /players?team={team_id}&season={season})
+        params = {
+            "team": team_id
+        }
+        
+        try:
+            response = requests.get(url, headers=self.headers, params=params, timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                response_list = data.get("response", [])
+                if response_list and isinstance(response_list, list):
+                    # /players/squads retorna la plantilla del equipo en 'players'
+                    players = response_list[0].get("players", [])
+                    return players
+                return []
+            else:
+                print(f">>> ERROR API [{response.status_code}]: No se pudo obtener plantilla para el equipo {team_id}")
+                return []
+        except Exception as e:
+            print(f">>> EXCEPCIÓN en get_players_by_team para team_id {team_id}: {e}")
+            return []

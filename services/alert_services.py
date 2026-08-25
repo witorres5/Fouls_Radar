@@ -87,7 +87,7 @@ class AlertService:
                         f"📊 **Promedio F/90:** {f90}\n"
                         f"🔥 **Probabilidad (+0.5 faltas):** `{prob}%`"
                     )
-                    
+                    match_date = (date_str or "")[:10]
                     telegram_sent = TelegramNotifier.send_alert(msg)
                     betting_repo = BettingRepository(db_manager)
                     # 3. Guardar en el simulador usando tu método exactamente como está en BettingRepository
@@ -99,7 +99,7 @@ class AlertService:
                         "market": market_desc,
                         "probability": prob,
                         "simulated_odds": round(100 / prob, 2) if prob > 0 else 1.80,
-                        "match_date": date_str
+                        "match_date": match_date
                     }
                     
                     saved = betting_repo.save_bet_unique(bet_data)
