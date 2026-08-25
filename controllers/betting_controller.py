@@ -6,6 +6,9 @@ import re
 import pandas as pd
 
 class BettingController:
+    
+    def __init__(self, repository: BettingRepository):
+        self.repository = repository
 
     @staticmethod
     def get_high_probability_bets(db_manager, league_id: int, season: int):
