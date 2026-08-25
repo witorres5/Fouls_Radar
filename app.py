@@ -39,25 +39,33 @@ def main():
     st.sidebar.divider()
     st.sidebar.markdown("### Menú de Vistas")
     
-    # Lista completa de vistas con la nueva opción "Árbitros"
-    options_list = ["Ligas y Equipos", "Jugadores", "Partidos", "Árbitros", "Simulador de Apuestas", "Backtesting & Performance"]
+    # Lista de opciones estandarizada
+    options_list = [
+        "Ligas y Equipos", 
+        "Jugadores", 
+        "Partidos", 
+        "Árbitros", 
+        "Simulador de Apuestas", 
+        "📈 Backtesting & Performance"
+    ]
 
-    # Si venimos de hacer clic en "Ver Jugadores" desde un equipo, forzamos la vista
-    if "selected_team_id" in st.session_state:
-        st.session_state["current_view"] = "Jugadores"
-
-    # Inicializamos la vista actual si no existe en session_state
+    # --- MANEJO SEGURO DE ESTADO DE NAVEGACIÓN ---
+    # 1. Inicializar la clave 'current_view' si no existe
     if "current_view" not in st.session_state:
         st.session_state["current_view"] = "Ligas y Equipos"
 
-    # Menú de radio enlazado directamente a st.session_state mediante 'key'
+    # 2. Si venimos de un botón (ej: "Ver Jugadores" usando st.session_state["navigate_to"])
+    if "navigate_to" in st.session_state:
+        st.session_state["current_view"] = st.session_state.pop("navigate_to")
+
+    # 3. Widget de radio enlazado a 'current_view'
     view_mode = st.sidebar.radio(
         "Ir a:", 
         options_list, 
         key="current_view"
     )
 
-    # Control de navegación jerárquica con spinners de carga integrados
+    # --- CONTROL DE VISTAS ---
     if view_mode == "Ligas y Equipos":
         st.header(f"📊 Resumen: {selected_league_name} ({season})")
         with st.spinner("🔄 Cargando equipos y escudos de la liga..."):
@@ -83,8 +91,9 @@ def main():
         with st.spinner("🔄 Calculando probabilidades y estadísticas de alta confianza..."):
             render_betting_simulation_view(db_manager, selected_league_id, season)
             
-    elif view_mode == "Backtesting & Performance":
-        render_backtesting_dashboard(db_manager, selected_league_id, season)
+    elif view_mode == "📈 Backtesting & Performance":
+        with st.spinner("🔄 Calculando métricas de rendimiento y bankroll..."):
+            render_backtesting_dashboard(db_manager, selected_league_id, season)
 
 
 if __name__ == "__main__":

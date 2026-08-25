@@ -103,51 +103,52 @@ class PlayerRepository:
             for r in rows
         ]
 
-    def save_players(self, records: List[Dict[str, Any]], batch_size: int = 100):
-        """Inserta o actualiza lotes aislados por jugador, liga y temporada."""
-        if not records:
+    def save_players(self, player_records: list):
+        """Guarda o actualiza registros de jugadores usando tuplas posicionales para Turso."""
+        if not player_records:
             return
 
         query = """
-            INSERT INTO players (
-                player_id, team_id, player_name, league_id, season,
-                minutes_played, fouls_committed, fouls_drawn,
-                yellow_cards, red_cards, fouls_per_90, updated_at
+            INSERT OR REPLACE INTO players (
+                player_id,
+                team_id,
+                player_name,
+                league_id,
+                season,
+                minutes_played,
+                fouls_committed,
+                fouls_drawn,
+                yellow_cards,
+                red_cards,
+                fouls_per_90,
+                updated_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(player_id, league_id, season) DO UPDATE SET
-                team_id = excluded.team_id,
-                player_name = excluded.player_name,
-                minutes_played = excluded.minutes_played,
-                fouls_committed = excluded.fouls_committed,
-                fouls_drawn = excluded.fouls_drawn,
-                yellow_cards = excluded.yellow_cards,
-                red_cards = excluded.red_cards,
-                fouls_per_90 = excluded.fouls_per_90,
-                updated_at = excluded.updated_at
         """
 
-        data_to_insert = [
+        # Convertimos la lista de diccionarios a una lista de tuplas respetando el orden exacto del SQL
+        tuple_records = [
             (
-                r.get("player_id"),
-                r.get("team_id"),
-                r.get("player_name"),
-                r.get("league_id"),
-                r.get("season"),
-                r.get("minutes_played", 0),
-                r.get("fouls_committed", 0),
-                r.get("fouls_drawn", 0),
-                r.get("yellow_cards", 0),
-                r.get("red_cards", 0),
-                r.get("fouls_per_90", 0.0),
-                r.get("updated_at")
+                p.get("player_id"),
+                p.get("team_id"),
+                p.get("player_name"),
+                p.get("league_id"),
+                p.get("season"),
+                p.get("minutes_played", 0),
+                p.get("fouls_committed", 0),
+                p.get("fouls_drawn", 0),
+                p.get("yellow_cards", 0),
+                p.get("red_cards", 0),
+                p.get("fouls_per_90", 0.0),
+                p.get("updated_at")
             )
-            for r in records
+            for p in player_records
         ]
 
         with self.db.get_connection() as conn:
             cursor = conn.cursor()
-            for i in range(0, len(data_to_insert), batch_size):
-                chunk = data_to_insert[i:i + batch_size]
+            chunk_size = 500
+            for i in range(0, len(tuple_records), chunk_size):
+                chunk = tuple_records[i:i + chunk_size]
                 cursor.executemany(query, chunk)
             conn.commit()
             

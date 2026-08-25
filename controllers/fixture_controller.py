@@ -28,6 +28,7 @@ class FixtureController:
         nombre_funcion = caller_frame.function  # Nombre de la función
         
         # 1. Obtener partidos finalizados ('FT') exclusivamente del día de hoy
+        print("****************************FUNCIO____________________",nombre_funcion)
         if(nombre_funcion == "render_fixtures_view"):
             print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, temporada {season}...")
             fixtures = api_service.get_completed_fixtures_by_season(league_id, season)

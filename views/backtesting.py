@@ -2,14 +2,14 @@
 import streamlit as st
 import plotly.express as px
 from databases.betting_repository import BettingRepository
-from controllers.backtesting_controller import BacktestingController
+from controllers.betting_controller import BettingController
 
 def render_backtesting_dashboard(db_manager, league_id, season):
     st.title("📈 Módulo de Backtesting & Performance de Bankroll")
 
     # Inyección de dependencias
     repository = BettingRepository(db_manager)
-    controller = BacktestingController(repository)
+    controller = BettingController(repository)
 
     # Obtención de datos procesados
     data = controller.get_performance_metrics(league_id, season)
