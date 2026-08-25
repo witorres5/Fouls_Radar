@@ -2,6 +2,7 @@ import logging
 from typing import Dict, Any, List
 from databases.connection import DatabaseManager
 import pandas as pd
+from typing import List
 
 logger = logging.getLogger("FoulsTracker.FixtureRepository")
 
@@ -129,16 +130,21 @@ class FixtureRepository:
         return self.get_competition_summary(league_id, season)
 
     def get_top_foulers_for_teams(self, team_ids: List[int], season: int) -> dict:
-        """Obtiene el top de faltas para una lista de equipos en una sola consulta batch."""
+        """Obtiene el top de faltas y faltas por 90 min para una lista de equipos en una sola consulta batch."""
         if not team_ids:
             return {}
             
         placeholders = ','.join(['?'] * len(team_ids))
         query = f"""
-            SELECT team_id, player_name, fouls_committed 
+            SELECT team_id, player_name, fouls_committed, minutes_played, fouls_per_90
             FROM (
-                SELECT team_id, player_name, COALESCE(fouls_committed, 0) as fouls_committed,
-                       ROW_NUMBER() OVER(PARTITION BY team_id ORDER BY fouls_committed DESC) as rn
+                SELECT 
+                    team_id, 
+                    player_name, 
+                    COALESCE(fouls_committed, 0) as fouls_committed,
+                    COALESCE(minutes_played, 0) as minutes_played,
+                    COALESCE(fouls_per_90, 0.0) as fouls_per_90,
+                    ROW_NUMBER() OVER(PARTITION BY team_id ORDER BY COALESCE(fouls_committed, 0) DESC) as rn
                 FROM players 
                 WHERE team_id IN ({placeholders}) AND season = ?
             ) 
@@ -155,9 +161,27 @@ class FixtureRepository:
         for row in rows:
             team_id = row["team_id"] if hasattr(row, "keys") else row[0]
             player_name = row["player_name"] if hasattr(row, "keys") else row[1]
-            fouls = row["fouls_committed"] if hasattr(row, "keys") else row[2]
+            fouls = float(row["fouls_committed"] if hasattr(row, "keys") else row[2])
+            minutes = float(row["minutes_played"] if hasattr(row, "keys") else row[3])
+            f90_sql = float(row["fouls_per_90"] if hasattr(row, "keys") else row[4])
             
-            result[team_id] = {"name": player_name, "avg": float(fouls)}
+            # Estrategia de cálculo de fouls_per_90:
+            # 1. Usa fouls_per_90 de la base de datos si existe y es > 0.
+            # 2. Si es 0 pero hay minutos jugados, calcula: (faltas / minutos) * 90.
+            # 3. Si no hay minutos guardados, asume 3 partidos estándar (~270 mins) como estimación.
+            if f90_sql > 0:
+                f90 = f90_sql
+            elif minutes > 0:
+                f90 = (fouls / minutes) * 90.0
+            else:
+                f90 = fouls / 3.0
+
+            result[team_id] = {
+                "name": player_name, 
+                "avg": fouls,
+                "fouls_per_90": round(f90, 2)
+            }
+            
         return result
 
     def save_fixture(self, fixture_data: dict) -> None:

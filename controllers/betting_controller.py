@@ -78,7 +78,7 @@ class BettingController:
                 cards_prob = min(round(68.0 * weighted_cards_ratio, 1), 95.0)
 
                 # 5. Selección del mercado con mayor probabilidad según la severidad del árbitro
-                if fouls_prob >= 80.0 or cards_prob >= 80.0:
+                if fouls_prob >= 90.0 or cards_prob >= 90.0:
                     if fouls_prob >= cards_prob:
                         market = f"Más de {round(league_avg_fouls, 0) + 0.5} Faltas Totales"
                         prob = fouls_prob
@@ -114,31 +114,85 @@ class BettingController:
         repo = BettingRepository(db_manager)
         return repo.get_simulated_bets(league_id, season)
     
+import re
+
+class BettingController:
+
     @staticmethod
     def evaluate_pending_bets(db_manager, league_id, season, today_str):
         pending_bets = BettingRepository.get_pending_bets_by_date(db_manager, league_id, season, today_str)
 
-        for bet_id, match_name, market in pending_bets:
-            # Obtenemos los datos del partido desde la BD
+        if not pending_bets:
+            print(f">>> DEBUG: No hay apuestas pendientes por evaluar para la fecha {today_str}.")
+            return
+
+        for bet in pending_bets:
+            # Soportar si pending_bets retorna 3 o 4 elementos (bet_id, match_name, market, player_name)
+            bet_id = bet[0]
+            match_name = bet[1]
+            market = bet[2]
+            player_name = bet[3] if len(bet) > 3 else None
+
+            # 1. Obtener los datos generales del partido (fixture_id, status, total_fouls, total_yellow_cards)
             fixture = BettingRepository.get_fixture_result(db_manager, match_name, league_id, season)
-            if fixture:
-                # Asegúrate de desempaquetar la tupla (status, total_fouls, total_yellow_cards)
-                status, total_fouls, total_yellow_cards = fixture
+            if not fixture:
+                continue
 
-                if status in ["FT", "Match Finished", "AET", "PEN"]:
-                    won = False
-                    import re
-                    numbers = re.findall(r"[-+]?\d*\.\d+|\d+", market)
-                    
-                    if numbers:
-                        line_value = float(numbers[0])
-                        if "Faltas Totales" in market and total_fouls > line_value:
-                            won = True
-                        elif "Tarjetas Amarillas" in market and total_yellow_cards > line_value:
-                            won = True
+            fixture_id, status, total_fouls, total_yellow_cards = fixture
 
-                    new_status = "GANADA" if won else "PERDIDA"
-                    BettingRepository.update_bet_status(db_manager, bet_id, new_status)
+            # Evaluar únicamente si el partido ya finalizó
+            if status in ["FT", "Match Finished", "AET", "PEN"]:
+                won = False
+                market_lower = market.lower()
+                numbers = re.findall(r"[-+]?\d*\.\d+|\d+", market)
+
+                if not numbers:
+                    print(f">>> ADVERTENCIA: No se encontró valor numérico en el mercado '{market}' (Bet ID: {bet_id}).")
+                    continue
+
+                line_value = float(numbers[0])
+                is_under = "menos" in market_lower or "under" in market_lower
+
+                # -----------------------------------------------------------------
+                # CASO A: Apuesta por JUGADOR ESPECÍFICO
+                # -----------------------------------------------------------------
+                if player_name or ("jugador" in market_lower or "player" in market_lower):
+                    # Si el nombre del jugador viene en la columna 'player_name' o se extrae del mercado
+                    target_player = player_name if player_name else market.split("-")[0].strip()
+
+                    # Consultar las estadísticas del jugador en ese partido específico
+                    player_stats = BettingRepository.get_player_stats_by_fixture(
+                        db_manager, fixture_id, target_player
+                    )
+
+                    if player_stats:
+                        player_fouls = player_stats.get("fouls_committed", 0)
+                        player_cards = player_stats.get("yellow_cards", 0)
+
+                        if "tarjeta" in market_lower or "cards" in market_lower:
+                            won = player_cards < line_value if is_under else player_cards > line_value
+                        else:
+                            # Por defecto asume faltas cometidas por el jugador
+                            won = player_fouls < line_value if is_under else player_fouls > line_value
+                    else:
+                        print(f">>> ADVERTENCIA: No se encontraron estadísticas para el jugador '{target_player}' en Fixture ID {fixture_id}.")
+
+                # -----------------------------------------------------------------
+                # CASO B: Apuestas GLOBALES DEL PARTIDO
+                # -----------------------------------------------------------------
+                else:
+                    if "faltas totales" in market_lower or "total fouls" in market_lower:
+                        actual_fouls = total_fouls or 0
+                        won = actual_fouls < line_value if is_under else actual_fouls > line_value
+
+                    elif "tarjetas amarillas" in market_lower or "yellow cards" in market_lower:
+                        actual_cards = total_yellow_cards or 0
+                        won = actual_cards < line_value if is_under else actual_cards > line_value
+
+                # Actualizar el estado en la base de datos
+                new_status = "GANADA" if won else "PERDIDA"
+                BettingRepository.update_bet_status(db_manager, bet_id, new_status)
+                print(f">>> DEBUG: Apuesta ID {bet_id} ({market}) actualizada a {new_status}.")
 
     @staticmethod
     def calculate_player_over_fouls(fouls_per_90: float, threshold: float = 0.5, expected_minutes: int = 90) -> float:

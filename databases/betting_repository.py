@@ -117,7 +117,6 @@ class BettingRepository:
     @staticmethod
     def get_pending_bets_by_date(db_manager, league_id, season, today_str):
         """Obtiene las apuestas pendientes para la fecha actual consultando directamente el campo match_date."""
-        print("datos---------------------",league_id, season, today_str)
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
             query = """
@@ -133,7 +132,6 @@ class BettingRepository:
 
 
     def save_bet_unique(self, bet_data):
-            print("DEBUG---2--------",bet_data)
             """Guarda solo si no existe la misma apuesta para este partido y mercado."""
             with self.db_manager.get_connection() as conn:
                 cursor = conn.cursor()

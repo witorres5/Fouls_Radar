@@ -2,7 +2,7 @@
 import os
 import logging
 from databases.connection import DatabaseManager
-from services.telegram_bot import send_telegram_message
+from services.telegram_services import send_telegram_message
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 

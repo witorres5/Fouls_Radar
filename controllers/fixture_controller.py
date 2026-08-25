@@ -4,6 +4,7 @@ import time
 from config.constants import COLOMBIA_TZ
 from databases.connection import DatabaseManager
 from databases.fixture_repository import FixtureRepository
+from services.alert_services import AlertService
 from services.api_service import APIFootballService
 import streamlit as st
 import inspect
@@ -38,7 +39,6 @@ class FixtureController:
         
         if not fixtures:
             print(">>> ADVERTENCIA: No se encontraron partidos finalizados hoy para procesar.")
-            return False
 
         processed_fixtures = 0
         
@@ -109,6 +109,35 @@ class FixtureController:
         # 3. Actualizar la marca de tiempo de sincronización
         fixture_repo.update_sync_timestamp(entity_name, current_time)
         print(f">>> DEBUG: Sincronización de fixtures completada. Partidos procesados: {processed_fixtures}")
+        
+        # 4. EVALUACIÓN Y NOTIFICACIÓN TELEGRAM (Próximos partidos)
+        try:
+            print(">>> DEBUG: Evaluando probabilidades para enviar alertas a Telegram...")
+            upcoming_fixtures = FixtureController.get_upcoming_fixtures_cached(league_id, season, days=3)
+
+            if upcoming_fixtures:
+                team_ids = set()
+                for fix in upcoming_fixtures:
+                    t = fix.get("teams", {})
+                    if home_id := t.get("home", {}).get("id"):
+                        team_ids.add(home_id)
+                    if away_id := t.get("away", {}).get("id"):
+                        team_ids.add(away_id)
+
+                top_foulers_map = FixtureController.get_teams_top_foulers(db_manager, list(team_ids), season)
+                # Instanciar tu repositorio de apuestas
+                
+                # Disparar flujo seguro contra duplicados
+                AlertService.process_and_notify_fixtures(
+                    upcoming_fixtures=upcoming_fixtures,
+                    top_foulers_map=top_foulers_map,
+                    db_manager=db_manager,
+                    league_id=league_id,
+                    season=season
+                )
+                print(">>> DEBUG: Evaluación de alertas Telegram finalizada correctamente.")
+        except Exception as e:
+            print(f">>> ERROR evaluando/enviando alertas Telegram: {e}")
         
         return True
     
