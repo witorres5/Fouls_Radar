@@ -47,7 +47,11 @@ class BettingController:
                 away_name = teams.get("away", {}).get("name", "Visitante")
                 referee_raw = fix_info.get("referee")
                 
-                referee = referee_raw.strip() if referee_raw and isinstance(referee_raw, str) else "Árbitro Estándar"
+                # Validación 1: Verificar que el nombre del árbitro venga informado en la API
+                if not referee_raw or not isinstance(referee_raw, str) or not referee_raw.strip():
+                    continue
+
+                referee = referee_raw.strip()
                 match_date = (fix_info.get("date") or "")[:10]
                 
                 # 3. Consultar métricas históricas del árbitro en la BD
@@ -62,11 +66,16 @@ class BettingController:
                 ref_row = cursor.fetchone()
 
                 matches_count = ref_row[0] if ref_row else 0
+
+                # Validación 2: Si el árbitro no tiene partidos dirigidos registrados en BD, ignorar
+                if matches_count == 0:
+                    continue
+
                 ref_avg_fouls = ref_row[1] if (ref_row and ref_row[1] is not None) else league_avg_fouls
                 ref_avg_cards = ref_row[2] if (ref_row and ref_row[2] is not None) else league_avg_cards
 
                 # 4. Calcular Factores de Ponderación (Árbitro vs Liga)
-                confidence_weight = min(matches_count / 5.0, 1.0) if matches_count > 0 else 0.0
+                confidence_weight = min(matches_count / 5.0, 1.0)
                 
                 fouls_ratio = ref_avg_fouls / league_avg_fouls if league_avg_fouls > 0 else 1.0
                 cards_ratio = ref_avg_cards / league_avg_cards if league_avg_cards > 0 else 1.0
@@ -102,7 +111,6 @@ class BettingController:
                     })
 
         return high_prob_picks
-
     @staticmethod
     def save_simulation(db_manager, bet_data):
         """Guarda la apuesta en la BD asegurando que no existan duplicados."""
