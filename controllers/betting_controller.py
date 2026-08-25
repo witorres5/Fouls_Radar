@@ -209,7 +209,8 @@ class BettingController:
         return suggestions
     
     def get_performance_metrics(self, league_id: int, season: int) -> dict:
-        df = BettingRepository.get_evaluated_bets(league_id, season)
+        
+        df = self.repository.get_evaluated_bets(league_id, season)
 
         if df.empty:
             return {"has_data": False, "df": df}

@@ -28,40 +28,53 @@ class FixtureRepository:
             conn.commit()
 
     def update_player_match_stats(self, player_stats: Dict[int, Dict[str, Any]], league_id: int, season: int) -> None:
-        """Actualiza e incrementa estadísticas acumuladas recalculando fouls_per_90 de forma segura."""
+        """Actualiza e incrementa estadísticas acumuladas recalculando fouls_per_90 de forma eficiente."""
+        
+        if not player_stats:
+            return
+
+        # Preparamos los parámetros para executemany
+        payload = []
+        for player_id, stats in player_stats.items():
+            minutes = int(stats.get("minutes_played", 0) or 0)
+            committed = int(stats.get("fouls_committed", 0) or 0)
+            drawn = int(stats.get("fouls_drawn", 0) or 0)
+            yellow = int(stats.get("yellow_cards", 0) or 0)
+            red = int(stats.get("red_cards", 0) or 0)
+            
+            payload.append((minutes, committed, drawn, yellow, red, player_id, league_id, season))
+
+        query = """
+            UPDATE players 
+            SET minutes_played = COALESCE(minutes_played, 0) + ?,
+                fouls_committed = COALESCE(fouls_committed, 0) + ?,
+                fouls_drawn = COALESCE(fouls_drawn, 0) + ?,
+                yellow_cards = COALESCE(yellow_cards, 0) + ?,
+                red_cards = COALESCE(red_cards, 0) + ?,
+                fouls_per_90 = CASE 
+                    WHEN (COALESCE(minutes_played, 0) + ?) > 0 THEN 
+                        ROUND((CAST(COALESCE(fouls_committed, 0) + ? AS FLOAT) / (COALESCE(minutes_played, 0) + ?)) * 90.0, 2)
+                    ELSE 0.0 
+                END
+            WHERE player_id = ? AND league_id = ? AND season = ?
+        """
+
+        # Duplicamos minutos y fouls_committed en la tupla para el cálculo directo
+        exec_payload = [
+            (
+                p[0], p[1], p[2], p[3], p[4], # deltas: min, committed, drawn, yellow, red
+                p[0], p[1], p[0],             # us de minutes y committed para el CASE
+                p[5], p[6], p[7]              # WHERE: player_id, league_id, season
+            )
+            for p in payload
+        ]
+
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            
-            for player_id, stats in player_stats.items():
-                minutes = int(stats.get("minutes_played", 0) or 0)
-                committed = int(stats.get("fouls_committed", 0) or 0)
-                drawn = int(stats.get("fouls_drawn", 0) or 0)
-                yellow = int(stats.get("yellow_cards", 0) or 0)
-                red = int(stats.get("red_cards", 0) or 0)
-
-                # 1. Incremento acumulativo controlado
-                cursor.execute("""
-                    UPDATE players 
-                    SET minutes_played = COALESCE(minutes_played, 0) + ?,
-                        fouls_committed = COALESCE(fouls_committed, 0) + ?,
-                        fouls_drawn = COALESCE(fouls_drawn, 0) + ?,
-                        yellow_cards = COALESCE(yellow_cards, 0) + ?,
-                        red_cards = COALESCE(red_cards, 0) + ?
-                    WHERE player_id = ? AND league_id = ? AND season = ?
-                """, (minutes, committed, drawn, yellow, red, player_id, league_id, season))
-
-                # 2. Recálculo automático de fouls_per_90
-                cursor.execute("""
-                    UPDATE players
-                    SET fouls_per_90 = CASE 
-                        WHEN minutes_played > 0 THEN ROUND((CAST(fouls_committed AS FLOAT) / minutes_played) * 90.0, 2)
-                        ELSE 0.0 
-                    END
-                    WHERE player_id = ? AND league_id = ? AND season = ?
-                """, (player_id, league_id, season))
-            
+            cursor.executemany(query, exec_payload)
             conn.commit()
-            logger.info(f"Estadísticas de partidos actualizadas para la liga {league_id}, temporada {season}.")
+            
+        logger.info(f"Estadísticas de {len(player_stats)} jugadores actualizadas eficientemente.")
 
     def get_last_sync(self, entity_name: str) -> str:
         """Obtiene la última fecha de sincronización de fixtures desde la tabla de metadatos."""
