@@ -65,7 +65,7 @@ class AlertService:
                 ("Local", top_home, prob_home),
                 ("Visitante", top_away, prob_away)
             ]
-
+            print(f">>> DEBUG: Probabilidad de envio {prob}...")
             for side, player, prob in candidates:
                 if prob >= 91.0:
                     p_name = player.get("name")
@@ -88,6 +88,7 @@ class AlertService:
                         f"🔥 **Probabilidad (+0.5 faltas):** `{prob}%`"
                     )
                     match_date = date_str[:10]
+                    print(f">>> DEBUG: Enviando a Telegram {msg}...")
                     telegram_sent = TelegramNotifier.send_alert(msg)
                     betting_repo = BettingRepository(db_manager)
                     # 3. Guardar en el simulador usando tu método exactamente como está en BettingRepository
