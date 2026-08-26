@@ -5,27 +5,23 @@ from config.constants import COLOMBIA_TZ
 from databases.connection import DatabaseManager
 from databases.player_repository import PlayerRepository
 from services.api_service import APIFootballService
+from databases.team_repository import TeamRepository
 
 class PlayerController:
 
     @staticmethod
     def get_player_view_data(db_manager: DatabaseManager, league_id: int, season: int, selected_team_id: int = None):
-        """Obtiene la metadata, los equipos para los filtros y los jugadores a través del repositorio."""
+        """Obtiene datos delegando la consulta de equipos al TeamRepository."""
         player_repo = PlayerRepository(db_manager)
+        team_repo = TeamRepository(db_manager)
         entity_name = f"players_league_{league_id}_{season}"
         
-        # 1. Obtener última sincronización desde el repositorio
         last_updated = player_repo.get_last_sync(entity_name)
         
-        # 2. Obtener equipos para el selectbox
-        with db_manager.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT team_id, name FROM teams WHERE league_id = ? ORDER BY name", (league_id,))
-            teams_rows = cursor.fetchall()
-            
-        teams_dict = {row[1]: row[0] for row in teams_rows}
+        # Delegación correcta al Repositorio sin SQL en Controller
+        teams_list = team_repo.get_teams_by_league(league_id, season)
+        teams_dict = {t["name"]: t["team_id"] for t in teams_list}
         
-        # 3. Obtener jugadores según el filtro
         if selected_team_id:
             players = player_repo.get_players_by_team(selected_team_id)
         else:

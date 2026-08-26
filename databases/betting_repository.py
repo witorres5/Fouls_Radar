@@ -82,7 +82,7 @@ class BettingRepository:
             if len(teams) == 2:
                 home_part, away_part = f"%{teams[0].strip()}%", f"%{teams[1].strip()}%"
                 query = """
-                    SELECT status, total_fouls, total_yellow_cards 
+                    SELECT fixture_id, status, total_fouls, total_yellow_cards 
                     FROM match_fixtures 
                     WHERE league_id = ? 
                       AND season = ? 
@@ -94,7 +94,7 @@ class BettingRepository:
             else:
                 # Búsqueda general si el formato del string es diferente
                 query = """
-                    SELECT status, total_fouls, total_yellow_cards 
+                    SELECT fixture_id, status, total_fouls, total_yellow_cards 
                     FROM match_fixtures 
                     WHERE league_id = ? 
                       AND season = ? 
