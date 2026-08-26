@@ -125,7 +125,7 @@ class BettingController:
     @staticmethod
     def evaluate_pending_bets(db_manager, league_id, season, today_str):
         pending_bets = BettingRepository.get_pending_bets_by_date(db_manager, league_id, season, today_str)
-
+        print("-----------------------------------PENDING---------------------",pending_bets)
         if not pending_bets:
             print(f">>> DEBUG: No hay apuestas pendientes por evaluar para la fecha {today_str}.")
             return
@@ -143,7 +143,7 @@ class BettingController:
             fixture_id, status, total_fouls, total_yellow_cards = fixture
 
             if status in ["FT", "Match Finished", "AET", "PEN"]:
-                won = False
+                won = None  # Se inicializa en None para validar si realmente se pudo evaluar
                 market_lower = market.lower()
                 numbers = re.findall(r"[-+]?\d*\.\d+|\d+", market)
 
@@ -154,9 +154,31 @@ class BettingController:
                 line_value = float(numbers[0])
                 is_under = "menos" in market_lower or "under" in market_lower
 
-                # CASO A: Apuesta por JUGADOR ESPECÍFICO
-                if player_name or ("jugador" in market_lower or "player" in market_lower):
-                    target_player = player_name if player_name else market.split("-")[0].strip()
+                # Identificar si es un mercado GLOBAL del partido
+                is_global_fouls = "faltas totales" in market_lower or "total fouls" in market_lower
+                is_global_cards = "tarjetas amarillas" in market_lower or "yellow cards" in market_lower
+
+                # CASO A: Apuestas GLOBALES DEL PARTIDO
+                if is_global_fouls or is_global_cards:
+                    if is_global_fouls:
+                        actual_fouls = total_fouls or 0
+                        won = actual_fouls < line_value if is_under else actual_fouls > line_value
+                    elif is_global_cards:
+                        actual_cards = total_yellow_cards or 0
+                        won = actual_cards < line_value if is_under else actual_cards > line_value
+
+                # CASO B: Apuesta por JUGADOR ESPECÍFICO
+                else:
+                    target_player = player_name
+                    if not target_player:
+                        # Extraer nombre si el formato es "H. Heggheim (+0.5 faltas)" o "H. Heggheim - 0.5 faltas"
+                        if "(" in market:
+                            target_player = market.split("(")[0].strip()
+                        elif "-" in market:
+                            target_player = market.split("-")[0].strip()
+                        else:
+                            target_player = market.strip()
+
                     player_stats = BettingRepository.get_player_stats_by_fixture(
                         db_manager, fixture_id, target_player
                     )
@@ -165,26 +187,19 @@ class BettingController:
                         player_fouls = player_stats.get("fouls_committed", 0)
                         player_cards = player_stats.get("yellow_cards", 0)
 
-                        if "tarjeta" in market_lower or "cards" in market_lower:
+                        if "tarjeta" in market_lower or "card" in market_lower:
                             won = player_cards < line_value if is_under else player_cards > line_value
                         else:
                             won = player_fouls < line_value if is_under else player_fouls > line_value
                     else:
                         print(f">>> ADVERTENCIA: No se encontraron estadísticas para el jugador '{target_player}' en Fixture ID {fixture_id}.")
+                        continue
 
-                # CASO B: Apuestas GLOBALES DEL PARTIDO
-                else:
-                    if "faltas totales" in market_lower or "total fouls" in market_lower:
-                        actual_fouls = total_fouls or 0
-                        won = actual_fouls < line_value if is_under else actual_fouls > line_value
-
-                    elif "tarjetas amarillas" in market_lower or "yellow cards" in market_lower:
-                        actual_cards = total_yellow_cards or 0
-                        won = actual_cards < line_value if is_under else actual_cards > line_value
-
-                new_status = "GANADA" if won else "PERDIDA"
-                BettingRepository.update_bet_status(db_manager, bet_id, new_status)
-                print(f">>> DEBUG: Apuesta ID {bet_id} ({market}) actualizada a {new_status}.")
+                # Actualizar únicamente si la apuesta fue evaluada exitosamente
+                if won is not None:
+                    new_status = "GANADA" if won else "PERDIDA"
+                    BettingRepository.update_bet_status(db_manager, bet_id, new_status)
+                    print(f">>> DEBUG: Apuesta ID {bet_id} ({market}) actualizada a {new_status}.")
 
     @staticmethod
     def calculate_player_over_fouls(fouls_per_90: float, threshold: float = 0.5, expected_minutes: int = 90) -> float:

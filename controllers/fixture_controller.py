@@ -4,6 +4,7 @@ import time
 from config.constants import COLOMBIA_TZ
 from databases.connection import DatabaseManager
 from databases.fixture_repository import FixtureRepository
+from databases.betting_repository import BettingRepository
 from services.alert_services import AlertService
 from services.api_service import APIFootballService
 import streamlit as st
@@ -24,15 +25,13 @@ class FixtureController:
         
         # Obtener el marco (frame) del llamador (1 nivel arriba en la pila)
         caller_frame = inspect.stack()[1]
-        
         nombre_funcion = caller_frame.function  # Nombre de la función
         
         # 1. Obtener partidos finalizados ('FT') exclusivamente del día de hoy
-        print("****************************FUNCIO____________________",nombre_funcion)
-        if(nombre_funcion == "render_fixtures_view"):
+        if nombre_funcion == "render_fixtures_view":
             print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, temporada {season}...")
             fixtures = api_service.get_completed_fixtures_by_season(league_id, season)
-            print(f">>> DEBUG: Total de partidos finalizados ne la temporada {season} encontrados: {len(fixtures)}")
+            print(f">>> DEBUG: Total de partidos finalizados en la temporada {season} encontrados: {len(fixtures)}")
         else:
             print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, fecha {today_str}...")
             fixtures = api_service.get_completed_fixtures_by_date(league_id, season, today_str)
@@ -60,19 +59,63 @@ class FixtureController:
                 # Calcular acumulados totales de faltas y tarjetas amarillas del partido
                 total_fouls = 0
                 total_yellow_cards = 0
+                player_stats_list = []  # Lista para guardado masivo en player_fixture_stats
                 
                 if player_stats_map:
-                    for p in player_stats_map.values():
+                    for p_id, p in player_stats_map.items():
                         if isinstance(p, dict):
-                            # Obtener faltas buscando 'fouls_committed', 'fouls' o el dict anidado
+                            # --- Extracción de Faltas ---
                             fouls_val = p.get("fouls_committed")
                             if fouls_val is None:
                                 fouls_val = p.get("fouls", 0)
                             if isinstance(fouls_val, dict):
                                 fouls_val = fouls_val.get("committed") or 0
                             
+                            # --- Extracción de Tarjetas ---
+                            yellow_val = p.get("yellow_cards", 0)
+                            if isinstance(yellow_val, dict):
+                                yellow_val = yellow_val.get("yellow") or 0
+
+                            red_val = p.get("red_cards", 0)
+                            if isinstance(red_val, dict):
+                                red_val = red_val.get("red") or 0
+                            
                             total_fouls += int(fouls_val or 0)
-                            total_yellow_cards += int(p.get("yellow_cards", 0) or 0)
+                            total_yellow_cards += int(yellow_val or 0)
+
+                            # --- Extracción flexible de player_name ---
+                            raw_name = p.get("player_name") or p.get("name")
+                            if not raw_name:
+                                p_obj = p.get("player")
+                                if isinstance(p_obj, str):
+                                    raw_name = p_obj
+                                elif isinstance(p_obj, dict):
+                                    raw_name = p_obj.get("name") or p_obj.get("player_name") or p_obj.get("short_name")
+
+                            if not raw_name or str(raw_name).strip().isdigit():
+                                player_name = f"Jugador {p_id}"
+                            else:
+                                player_name = str(raw_name).strip()
+
+                            # --- Extracción flexible de team_id ---
+                            team_id = p.get("team_id")
+                            if team_id is None:
+                                t_obj = p.get("team")
+                                if isinstance(t_obj, (int, str)) and str(t_obj).isdigit():
+                                    team_id = int(t_obj)
+                                elif isinstance(t_obj, dict):
+                                    team_id = t_obj.get("id") or t_obj.get("team_id")
+
+                            # Estructurar fila para la tabla player_fixture_stats
+                            player_stats_list.append((
+                                fixture_id,
+                                p_id if isinstance(p_id, int) else p.get("player_id"),
+                                player_name,
+                                team_id,
+                                int(fouls_val or 0),
+                                int(yellow_val or 0),
+                                int(red_val or 0)
+                            ))
 
                 # Normalizar la fecha del partido a formato estricto YYYY-MM-DD
                 raw_date = fixture_info.get("date", "")
@@ -97,8 +140,13 @@ class FixtureController:
                 )
 
                 if player_stats_map:
-                    # Actualizar estadísticas individuales de forma acumulativa en la base de datos
+                    # 1. Actualizar estadísticas globales del jugador en la base de datos
                     fixture_repo.update_player_match_stats(player_stats_map, league_id, season)
+
+                    # 2. Guardar estadísticas detalladas por fixture individual
+                    if player_stats_list:
+                        BettingRepository.save_player_fixture_stats(db_manager, player_stats_list)
+
                     processed_fixtures += 1
                     print(f">>> DEBUG: Fixture ID {fixture_id} procesado ({len(player_stats_map)} jugadores | Faltas: {total_fouls}, Tarjetas: {total_yellow_cards}).")
                 
@@ -126,7 +174,6 @@ class FixtureController:
                         team_ids.add(away_id)
 
                 top_foulers_map = FixtureController.get_teams_top_foulers(db_manager, list(team_ids), season)
-                # Instanciar tu repositorio de apuestas
                 
                 # Disparar flujo seguro contra duplicados
                 AlertService.process_and_notify_fixtures(

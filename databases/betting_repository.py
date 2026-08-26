@@ -222,3 +222,62 @@ class BettingRepository:
                 ORDER BY probability DESC
             """, (f"%{today_str}%",))
             return cursor.fetchall()
+        
+    @staticmethod
+    def get_player_stats_by_fixture(db_manager, fixture_id: int, player_name: str) -> dict:
+        """Obtiene las estadísticas de un jugador en un fixture con soporte para apellidos/iniciales."""
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            clean_name = player_name.strip()
+
+            # 1. Intentar búsqueda directa por coincidencia de texto
+            query = """
+                SELECT 
+                    COALESCE(fouls_committed, 0) AS fouls_committed, 
+                    COALESCE(yellow_cards, 0) AS yellow_cards
+                FROM player_fixture_stats
+                WHERE fixture_id = ? 
+                  AND UPPER(player_name) LIKE UPPER(?)
+                LIMIT 1
+            """
+            cursor.execute(query, (fixture_id, f"%{clean_name}%"))
+            row = cursor.fetchone()
+
+            # 2. Fallback: Si viene con inicial ("H. Heggheim"), buscar solo por el apellido ("Heggheim")
+            if not row and ("." in clean_name or " " in clean_name):
+                surname = clean_name.split()[-1].replace(".", "").strip()
+                if len(surname) > 2:
+                    cursor.execute("""
+                        SELECT 
+                            COALESCE(fouls_committed, 0) AS fouls_committed, 
+                            COALESCE(yellow_cards, 0) AS yellow_cards
+                        FROM player_fixture_stats
+                        WHERE fixture_id = ? 
+                          AND UPPER(player_name) LIKE UPPER(?)
+                        LIMIT 1
+                    """, (fixture_id, f"%{surname}%"))
+                    row = cursor.fetchone()
+
+            if row:
+                return {
+                    "fouls_committed": row[0],
+                    "yellow_cards": row[1]
+                }
+            return None
+        
+    
+    @staticmethod
+    def save_player_fixture_stats(db_manager, stats_list: list):
+        """Inserta o actualiza las estadísticas masivas de jugadores para un fixture."""
+        if not stats_list:
+            return
+
+        query = """
+            INSERT INTO player_fixture_stats 
+                (fixture_id, player_id, player_name, team_id, fouls_committed, yellow_cards, red_cards)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.executemany(query, stats_list)
+            conn.commit()

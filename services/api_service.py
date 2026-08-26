@@ -53,30 +53,55 @@ class APIFootballService:
         response_list = data.get("response", [])
         return response_list[0] if response_list else {}
 
-    def get_fixture_player_stats(self, fixture_id: int) -> Dict[int, Dict[str, Any]]:
-        """Obtiene las estadísticas detalladas por jugador para un partido específico (faltas, minutos, etc.)."""
-        data = self._get("fixtures/players", {"fixture": fixture_id})
-        result = {}
-        for team_data in data.get("response", []):
+    def get_fixture_player_stats(self, fixture_id: int) -> dict:
+        """
+        Consulta la API de API-Football para el endpoint /fixtures/players
+        y retorna el mapa de estadísticas por jugador.
+        """
+        # Utiliza el mismo método de petición HTTP que usan tus otros endpoints (ej: self._get)
+        endpoint = "fixtures/players"
+        params = {"fixture": fixture_id}
+        
+        # Reemplaza 'self._get' si en tu servicio el método se llama distinto (ej: self._request)
+        response = self._get(endpoint, params=params)
+        
+        player_stats_map = {}
+        if not response or "response" not in response:
+            return player_stats_map
+
+        # La API agrupa la respuesta por equipo
+        for team_data in response.get("response", []):
+            team_info = team_data.get("team", {})
+            team_id = team_info.get("id")
+            
             for player_entry in team_data.get("players", []):
-                player_id = player_entry.get("player", {}).get("id")
+                player_info = player_entry.get("player", {})
+                player_id = player_info.get("id")
+                player_name = player_info.get("name") # Nombre real recibido de la API
+                
                 stats_list = player_entry.get("statistics", [])
-                if player_id and stats_list:
-                    # Tomamos el primer bloque de estadísticas del jugador en ese partido
-                    stats = stats_list[0]
-                    fouls = stats.get("fouls", {}) or {}
-                    cards = stats.get("cards", {}) or {}
-                    games = stats.get("games", {}) or {}
+                if not stats_list or not player_id:
+                    continue
                     
-                    result[player_id] = {
-                        "minutes_played": games.get("minutes", 0) or 0,
-                        "fouls_committed": fouls.get("committed", 0) or 0,
-                        "fouls_drawn": fouls.get("drawn", 0) or 0,
-                        "yellow_cards": 1 if cards.get("yellow") else 0,
-                        "red_cards": 1 if cards.get("red") else 0,
-                    }
-        return result
-    
+                stats = stats_list[0]
+                
+                # Extracción de métricas
+                games = stats.get("games", {}) or {}
+                fouls = stats.get("fouls", {}) or {}
+                cards = stats.get("cards", {}) or {}
+                
+                player_stats_map[player_id] = {
+                    "player_id": player_id,
+                    "player_name": player_name,
+                    "team_id": team_id,
+                    "minutes_played": games.get("minutes") or 0,
+                    "fouls_committed": fouls.get("committed") or 0,
+                    "fouls_drawn": fouls.get("drawn") or 0,
+                    "yellow_cards": cards.get("yellow") or 0,
+                    "red_cards": cards.get("red") or 0
+                }
+
+        return player_stats_map
     def get_upcoming_fixtures(self, league_id: int, season: int, days: int = 3) -> List[Dict[str, Any]]:
             """Obtiene los partidos próximos que aún no han comenzado en los siguientes N días."""
             from datetime import datetime, timedelta
