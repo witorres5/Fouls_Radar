@@ -61,3 +61,19 @@ class BettingEngine:
                 f"🔥 **Probabilidad (+0.5 faltas):** `{prob}%`"
             )
             TelegramNotifier.send_alert(alert_msg)
+            
+    def calculate_player_over_fouls(fouls_per_90: float, referee_factor: float = 1.0, threshold: float = 0.5, expected_minutes: int = 90) -> float:
+        """Calcula la probabilidad Poisson ajustada por el factor de rigurosidad del árbitro."""
+        if not fouls_per_90 or fouls_per_90 <= 0:
+            return 0.0
+
+        # Lambda esperado ajustado por el árbitro
+        lam = ((fouls_per_90 * expected_minutes) / 90.0) * referee_factor
+
+        k_floor = math.floor(threshold)
+        prob_less_or_equal = 0.0
+
+        for i in range(k_floor + 1):
+            prob_less_or_equal += (math.exp(-lam) * (lam ** i)) / math.factorial(i)
+
+        return round((1.0 - prob_less_or_equal) * 100, 1)

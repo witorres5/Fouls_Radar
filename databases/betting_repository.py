@@ -167,7 +167,8 @@ class BettingRepository:
             return False
         
 
-    def get_evaluated_bets(self, league_id: int, season: int) -> pd.DataFrame:
+    @staticmethod
+    def get_evaluated_bets(db_manager, league_id: int, season: int) -> pd.DataFrame:
         """Obtiene las apuestas con estado GANADA o PERDIDA con fallback para odds/stake."""
         query = """
             SELECT 
@@ -184,7 +185,7 @@ class BettingRepository:
               AND league_id = ? AND season = ?
             ORDER BY match_date ASC
         """
-        with self.db_manager.get_connection() as conn:
+        with db_manager.get_connection() as conn:
             try:
                 return pd.read_sql_query(query, conn, params=(league_id, season))
             except Exception:
@@ -198,7 +199,7 @@ class BettingRepository:
                       AND league_id = ? AND season = ?
                     ORDER BY match_date ASC
                 """
-                return pd.read_sql_query(fallback_query, conn, params=(league_id, season))        
+                return pd.read_sql_query(fallback_query, conn, params=(league_id, season))       
 
 
     def get_high_prob_pending_bets_today(db_manager, today_str: str) -> list:

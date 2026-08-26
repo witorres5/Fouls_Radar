@@ -169,3 +169,10 @@ class FixtureController:
         """Orquesta la obtención masiva del top de faltas por equipo."""
         repo = FixtureRepository(db_manager)
         return repo.get_top_foulers_for_teams(team_ids, season)
+    
+    @staticmethod
+    def get_last_sync(db_manager,entity_name):
+        """Orquesta la obtención masiva del top de faltas por equipo."""
+        repo = FixtureRepository(db_manager)
+        return repo.get_last_sync(entity_name)
+    

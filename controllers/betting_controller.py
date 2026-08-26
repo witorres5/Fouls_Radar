@@ -216,37 +216,37 @@ class BettingController:
             
         return suggestions
     
-    def get_performance_metrics(self, league_id: int, season: int) -> dict:
-        
-        df = self.repository.get_evaluated_bets(league_id, season)
+    @staticmethod
+    def get_performance_metrics(db_manager, league_id, season):
+        """Calcula las métricas de rendimiento y backtesting."""
+        # Invocación estática pasando db_manager al repositorio
+        df = BettingRepository.get_evaluated_bets(db_manager, league_id, season)
 
         if df.empty:
-            return {"has_data": False, "df": df}
+            return {"has_data": False}
 
-        # Transformaciones financieras
-        df['stake'] = df['stake'].fillna(10.0)
-        df['profit'] = df.apply(
-            lambda row: (row['stake'] * (row['odds'] - 1)) if row['status'] == 'GANADA' else -row['stake'],
+        # Cálculo de métricas
+        total_bets = len(df)
+        wins = len(df[df["status"] == "GANADA"])
+        win_rate = (wins / total_bets) * 100 if total_bets > 0 else 0.0
+
+        # Asumiendo apostar 1 unidad ($100) por apuesta o cálculo según cuotas/profit
+        df["profit"] = df.apply(
+            lambda row: (row["odds"] - 1) if row["status"] == "GANADA" else -1.0, 
             axis=1
         )
-        df['cumulative_profit'] = df['profit'].cumsum()
+        df["cumulative_profit"] = df["profit"].cumsum()
 
-        # Métricas clave
-        total_bets = len(df)
-        wins = len(df[df['status'] == 'GANADA'])
-        win_rate = (wins / total_bets) * 100 if total_bets > 0 else 0
-        total_staked = df['stake'].sum()
-        net_profit = df['profit'].sum()
-        yield_pct = (net_profit / total_staked) * 100 if total_staked > 0 else 0
+        net_profit = df["profit"].sum()
+        total_staked = total_bets * 1.0
+        yield_pct = (net_profit / total_staked) * 100 if total_staked > 0 else 0.0
 
-        # Análisis por mercado
-        df['market_type'] = df['market'].apply(lambda x: 'Faltas' if 'Falta' in str(x) else 'Tarjetas')
-        market_stats = df.groupby('market_type').agg(
-            Total=('status', 'count'),
-            Ganadas=('status', lambda x: (x == 'GANADA').sum()),
-            Profit=('profit', 'sum')
+        # Resumen por mercado
+        market_stats = df.groupby("market").agg(
+            Total=("status", "count"),
+            Ganadas=("status", lambda x: (x == "GANADA").sum()),
+            Yield=("profit", lambda x: (x.sum() / len(x)) * 100)
         ).reset_index()
-        market_stats['Win_Rate'] = (market_stats['Ganadas'] / market_stats['Total']) * 100
 
         return {
             "has_data": True,

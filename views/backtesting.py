@@ -1,20 +1,14 @@
-# views/backtesting_view.py
 import streamlit as st
 import plotly.express as px
-from databases.betting_repository import BettingRepository
 from controllers.betting_controller import BettingController
 
 def render_backtesting_dashboard(db_manager, league_id, season):
     st.title("📈 Módulo de Backtesting & Performance de Bankroll")
 
-    # Inyección de dependencias
-    repository = BettingRepository(db_manager)
-    controller = BettingController(repository)
+    # Invocación estática unificada con el resto de la aplicación
+    data = BettingController.get_performance_metrics(db_manager, league_id, season)
 
-    # Obtención de datos procesados
-    data = controller.get_performance_metrics(league_id, season)
-
-    if not data["has_data"]:
+    if not data.get("has_data"):
         st.warning("⚠️ No hay apuestas evaluadas aún para generar métricas de backtesting.")
         return
 
