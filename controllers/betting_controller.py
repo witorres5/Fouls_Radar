@@ -257,3 +257,26 @@ class BettingController:
             "yield_pct": yield_pct,
             "market_stats": market_stats
         }
+        
+    @staticmethod
+    def get_today_high_prob_summary(self, today_str: str) -> str:
+        """Construye el mensaje resumido de apuestas pendientes para el bot."""
+        bets = self.repository.get_high_prob_pending_bets_today(today_str)
+
+        if not bets:
+            return None
+
+        message = f"🚨 **APUESTAS PENDIENTES DEL DÍA (Probabilidad ≥ 90%)** 🚨\n"
+        message += f"📅 Fecha: {today_str}\n"
+        message += f"📊 Total encontradas: {len(bets)}\n\n"
+
+        for bet in bets:
+            _, match_name, market, referee, prob, odds, _ = bet
+            message += f"⚽ **{match_name}**\n"
+            message += f"👨‍⚖️ Árbitro: {referee}\n"
+            message += f"🎯 Mercado: {market}\n"
+            message += f"🔥 Probabilidad: {prob}%\n"
+            message += f"💰 Cuota: {odds}\n"
+            message += f"-----------------------------------\n"
+
+        return message

@@ -198,3 +198,25 @@ class BettingRepository:
                     ORDER BY match_date ASC
                 """
                 return pd.read_sql_query(fallback_query, conn, params=(league_id, season))        
+
+
+    def get_high_prob_pending_bets_today(self, today_str: str) -> list:
+        """Obtiene las apuestas pendientes de hoy con probabilidad >= 90%."""
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT 
+                    id, 
+                    match_name, 
+                    market, 
+                    referee, 
+                    probability, 
+                    COALESCE(simulated_odds, 1.80) AS odds, 
+                    match_date
+                FROM simulated_bets
+                WHERE status = 'PENDIENTE' 
+                  AND match_date LIKE ? 
+                  AND probability >= 90.0
+                ORDER BY probability DESC
+            """, (f"%{today_str}%",))
+            return cursor.fetchall()
