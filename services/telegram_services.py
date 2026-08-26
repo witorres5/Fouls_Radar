@@ -4,12 +4,13 @@ import requests
 import logging
 
 class TelegramNotifier:
-    BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
-    CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
     @classmethod
     def send_alert(cls, message: str) -> bool:
         """Envía un mensaje formateado en Markdown a Telegram."""
+        BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+        CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
+        
         print(f">>> Enviando desde TelegramNotifier ...")
         if not cls.BOT_TOKEN or not cls.CHAT_ID:
             print(f">>> no token o chatid revisar ...")
