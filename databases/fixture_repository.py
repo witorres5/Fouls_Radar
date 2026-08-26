@@ -296,7 +296,7 @@ class FixtureRepository:
             query = """
                 SELECT AVG(total_fouls) 
                 FROM match_fixtures 
-                WHERE UPPER(referee) LIKE UPPER(?) AND status = 'FT';
+                WHERE UPPER(referee_name) LIKE UPPER(?) AND status = 'FT';
             """
             cursor.execute(query, (f"%{referee_name.strip()}%",))
             res = cursor.fetchone()

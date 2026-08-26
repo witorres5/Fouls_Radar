@@ -71,14 +71,17 @@ class DatabaseManager:
                 )
             """)
 
+            
     def init_performance_indexes(self):
-        """Crea índices clave para acelerar consultas masivas en SQLite."""
+        """Crea índices clave para acelerar consultas de forma segura."""
         with self.get_connection() as conn:
             cursor = conn.cursor()
-            # Índices orientados a la tabla 'players' para agilizar filtros y ordenamientos
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_league_season ON players (league_id, season);")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_team_season ON players (team_id, season);")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_fouls ON players (fouls_committed DESC);")
+            # Validar existencia de la tabla antes de aplicar el índice
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='players';")
+            if cursor.fetchone():
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_league_season ON players (league_id, season);")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_team_season ON players (team_id, season);")
+                cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_fouls ON players (fouls_committed DESC);")
 
     def get_last_sync_timestamp(self, entity_name: str) -> Optional[str]:
         with self.get_connection() as conn:

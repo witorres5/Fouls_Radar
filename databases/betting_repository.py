@@ -30,6 +30,7 @@ class BettingRepository:
                     market TEXT,
                     probability REAL,
                     simulated_odds REAL,
+                    match_date TEXT,
                     status TEXT DEFAULT 'PENDIENTE',
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
