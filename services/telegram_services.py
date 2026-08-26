@@ -10,7 +10,9 @@ class TelegramNotifier:
     @classmethod
     def send_alert(cls, message: str) -> bool:
         """Envía un mensaje formateado en Markdown a Telegram."""
+        print(f">>> Enviando desde TelegramNotifier ...")
         if not cls.BOT_TOKEN or not cls.CHAT_ID:
+            print(f">>> no token o chatid revisar ...")
             return False
         
         url = f"https://api.telegram.org/bot{cls.BOT_TOKEN}/sendMessage"
