@@ -200,9 +200,9 @@ class BettingRepository:
                 return pd.read_sql_query(fallback_query, conn, params=(league_id, season))        
 
 
-    def get_high_prob_pending_bets_today(self, today_str: str) -> list:
+    def get_high_prob_pending_bets_today(db_manager, today_str: str) -> list:
         """Obtiene las apuestas pendientes de hoy con probabilidad >= 90%."""
-        with self.db_manager.get_connection() as conn:
+        with db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
                 SELECT 

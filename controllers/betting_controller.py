@@ -259,9 +259,9 @@ class BettingController:
         }
         
     @staticmethod
-    def get_today_high_prob_summary(self, today_str: str) -> str:
+    def get_today_high_prob_summary(db_manager, today_str: str) -> str:
         """Construye el mensaje resumido de apuestas pendientes para el bot."""
-        bets = self.repository.get_high_prob_pending_bets_today(today_str)
+        bets = BettingRepository.get_high_prob_pending_bets_today(db_manager,today_str)
 
         if not bets:
             return None
