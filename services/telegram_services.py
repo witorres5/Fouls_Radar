@@ -16,9 +16,9 @@ class TelegramNotifier:
             print(f">>> no token o chatid revisar ...")
             return False
         
-        url = f"https://api.telegram.org/bot{cls.BOT_TOKEN}/sendMessage"
+        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
         payload = {
-            "chat_id": cls.CHAT_ID,
+            "chat_id": CHAT_ID,
             "text": message,
             "parse_mode": "Markdown"
         }
