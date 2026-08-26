@@ -12,7 +12,7 @@ class TelegramNotifier:
         CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
         
         print(f">>> Enviando desde TelegramNotifier ...")
-        if not cls.BOT_TOKEN or not cls.CHAT_ID:
+        if not BOT_TOKEN or not CHAT_ID:
             print(f">>> no token o chatid revisar ...")
             return False
         
