@@ -65,8 +65,9 @@ class AlertService:
                 ("Local", top_home, prob_home),
                 ("Visitante", top_away, prob_away)
             ]
-            print(f">>> DEBUG: Probabilidad de envio {prob}...")
+            
             for side, player, prob in candidates:
+                print(f">>> DEBUG: Probabilidad de envio {prob}...")
                 if prob >= 91.0:
                     p_name = player.get("name")
                     f90 = player.get("fouls_per_90", 0.0)
