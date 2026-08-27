@@ -137,6 +137,7 @@ class BettingController:
             player_name = bet[3] if len(bet) > 3 else None
 
             fixture = BettingRepository.get_fixture_result(db_manager, match_name, league_id, season)
+            print("-------------------INFORMACIÓN POR PARTIDO ----------------",fixture)
             if not fixture:
                 continue
 
