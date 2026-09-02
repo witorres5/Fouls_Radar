@@ -184,18 +184,89 @@ class DatabaseManager:
                 )
             """)
 
-            # Migraciones defensivas de columnas en simulated_bets si la tabla ya existía
-            for col_name, col_def in [
+            # 8. Migraciones defensivas de columnas existentes en Turso/SQLite
+            self._apply_defensive_migrations(cursor)
+
+    def _apply_defensive_migrations(self, cursor):
+        """Verifica las columnas existentes en cada tabla y agrega automáticamente las que falten."""
+        migrations = {
+            "player_fixture_stats": [
+                ("player_name", "TEXT"),
+                ("team_id", "INTEGER"),
+                ("minutes_played", "INTEGER DEFAULT 0"),
+                ("fouls_committed", "INTEGER DEFAULT 0"),
+                ("fouls_drawn", "INTEGER DEFAULT 0"),
+                ("yellow_cards", "INTEGER DEFAULT 0"),
+                ("red_cards", "INTEGER DEFAULT 0"),
+            ],
+            "players": [
+                ("team_id", "INTEGER"),
+                ("player_name", "TEXT"),
+                ("minutes_played", "INTEGER DEFAULT 0"),
+                ("fouls_committed", "INTEGER DEFAULT 0"),
+                ("fouls_drawn", "INTEGER DEFAULT 0"),
+                ("yellow_cards", "INTEGER DEFAULT 0"),
+                ("red_cards", "INTEGER DEFAULT 0"),
+                ("fouls_per_90", "REAL DEFAULT 0.0"),
+                ("updated_at", "TEXT"),
+            ],
+            "match_fixtures": [
+                ("home_team", "TEXT"),
+                ("away_team", "TEXT"),
+                ("status", "TEXT"),
+                ("match_date", "TEXT"),
+                ("total_fouls", "INTEGER DEFAULT 0"),
+                ("total_yellow_cards", "INTEGER DEFAULT 0"),
+                ("referee_name", "TEXT"),
+                ("processed_for_stats", "INTEGER DEFAULT 0"),
+                ("created_at", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"),
+            ],
+            "simulated_bets": [
                 ("fixture_id", "INTEGER"),
+                ("match_name", "TEXT"),
+                ("referee", "TEXT"),
+                ("market", "TEXT"),
+                ("probability", "REAL DEFAULT 0.0"),
+                ("simulated_odds", "REAL DEFAULT 1.85"),
                 ("odds", "REAL DEFAULT 1.85"),
                 ("stake", "REAL DEFAULT 10.0"),
+                ("match_date", "TEXT"),
+                ("status", "TEXT DEFAULT 'PENDIENTE'"),
                 ("notified_telegram", "INTEGER DEFAULT 0"),
-                ("match_date", "TEXT")
-            ]:
-                try:
-                    cursor.execute(f"ALTER TABLE simulated_bets ADD COLUMN {col_name} {col_def}")
-                except Exception:
-                    pass
+                ("created_at", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"),
+            ],
+            "teams": [
+                ("name", "TEXT"),
+                ("code", "TEXT"),
+                ("country", "TEXT"),
+                ("founded", "INTEGER"),
+                ("logo", "TEXT"),
+                ("updated_at", "TEXT"),
+            ]
+        }
+
+        for table_name, columns in migrations.items():
+            try:
+                cursor.execute(f"PRAGMA table_info({table_name})")
+                rows = cursor.fetchall()
+                existing_cols = set()
+                for r in rows:
+                    if isinstance(r, (list, tuple)):
+                        existing_cols.add(str(r[1]).lower())
+                    elif hasattr(r, "keys") and "name" in r.keys():
+                        existing_cols.add(str(r["name"]).lower())
+                    elif isinstance(r, dict) and "name" in r:
+                        existing_cols.add(str(r["name"]).lower())
+                
+                for col_name, col_def in columns:
+                    if col_name.lower() not in existing_cols:
+                        try:
+                            cursor.execute(f"ALTER TABLE {table_name} ADD COLUMN {col_name} {col_def}")
+                            logger.info(f"Columna '{col_name}' añadida con éxito a '{table_name}'.")
+                        except Exception as e:
+                            logger.debug(f"Columna {col_name} en {table_name} ya existía o error: {e}")
+            except Exception as table_err:
+                logger.debug(f"Error verificando columnas para {table_name}: {table_err}")
 
     def init_performance_indexes(self):
         """Crea índices clave para acelerar consultas de forma segura."""

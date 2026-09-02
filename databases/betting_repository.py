@@ -235,16 +235,32 @@ class BettingRepository:
             return
 
         query = """
-            INSERT INTO player_fixture_stats 
-                (fixture_id, player_id, player_name, team_id, fouls_committed, yellow_cards, red_cards)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO player_fixture_stats (
+                fixture_id, player_id, player_name, team_id,
+                minutes_played, fouls_committed, fouls_drawn,
+                yellow_cards, red_cards
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(fixture_id, player_id) DO UPDATE SET
                 player_name = excluded.player_name,
                 team_id = excluded.team_id,
+                minutes_played = excluded.minutes_played,
                 fouls_committed = excluded.fouls_committed,
+                fouls_drawn = excluded.fouls_drawn,
                 yellow_cards = excluded.yellow_cards,
                 red_cards = excluded.red_cards
         """
+        normalized_stats = []
+        for p in stats_list:
+            if len(p) == 9:
+                normalized_stats.append(p)
+            elif len(p) == 7:
+                # (fix_id, p_id, p_name, t_id, fouls, yellow, red) -> añadir minutes=0, drawn=0
+                normalized_stats.append((p[0], p[1], p[2], p[3], 0, p[4], 0, p[5], p[6]))
+            elif len(p) == 8:
+                normalized_stats.append((p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], 0))
+            else:
+                normalized_stats.append(p)
+
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            cursor.executemany(query, stats_list)
+            cursor.executemany(query, normalized_stats)
