@@ -19,7 +19,8 @@ class BettingController:
     def get_high_probability_bets(db_manager, league_id: int, season: int) -> List[Dict[str, Any]]:
         """
         Algoritmo cuantitativo: Evalúa los próximos partidos aplicando Empirical Bayes
-        al factor arbitral y calculando probabilidades de Poisson sobre líneas base de la liga.
+        al factor arbitral y calculando probabilidades de Poisson. Usa el modelo ML
+        (PoissonRegressor) cuando está disponible, con fallback al modelo analítico.
         """
         upcoming_fixtures = FixtureController.get_upcoming_fixtures_cached(league_id, season, days=3)
         if not upcoming_fixtures:
@@ -34,6 +35,8 @@ class BettingController:
             fix_info = fix.get("fixture", {})
             fixture_id = fix_info.get("id")
             teams = fix.get("teams", {})
+            home_id = teams.get("home", {}).get("id")
+            away_id = teams.get("away", {}).get("id")
             home_name = teams.get("home", {}).get("name", "Local")
             away_name = teams.get("away", {}).get("name", "Visitante")
             referee_raw = fix_info.get("referee")
@@ -44,12 +47,12 @@ class BettingController:
             referee = referee_raw.strip()
             match_date = (fix_info.get("date") or "")[:10]
             
-            # Consultar métricas históricas del árbitro mediante el repositorio
+            # Métricas históricas del árbitro
             matches_count, ref_avg_fouls, ref_avg_cards = fixture_repo.get_referee_historical_stats(referee)
             if matches_count == 0:
                 continue
 
-            # Factor de contracción Bayesiana para faltas y tarjetas
+            # Factor Bayesiano del árbitro
             fouls_ref_factor = BettingEngine.calculate_referee_factor(
                 ref_avg_fouls=ref_avg_fouls,
                 league_avg_fouls=league_avg_fouls,
@@ -63,30 +66,43 @@ class BettingController:
                 prior_weight=5.0
             )
 
-            # Umbrales enteros para los mercados totales del partido
+            # Feature: faltas recibidas por el equipo visitante (rival del equipo local)
+            opp_drawn_per_90 = 0.25  # default conservador
+            if away_id:
+                opp_drawn_per_90 = fixture_repo.get_team_drawn_fouls_avg(away_id, season) or 0.25
+
+            # Calcular probabilidades con ML + fallback analítico
             foul_line = round(league_avg_fouls) - 0.5
             card_line = round(league_avg_cards) - 0.5
 
-            fouls_prob = BettingEngine.calculate_over_probability(
-                metric_rate_per_90=league_avg_fouls,
+            fouls_prob, used_ml_fouls = BettingEngine.calculate_ml_over_probability(
+                fouls_per_90=league_avg_fouls,
                 threshold=foul_line,
+                opp_drawn_per_90=opp_drawn_per_90,
+                referee_factor=fouls_ref_factor,
+                is_home=1,
+                league_avg_fouls=league_avg_fouls,
                 expected_minutes=90,
-                adjustment_factor=fouls_ref_factor
             )
-            cards_prob = BettingEngine.calculate_over_probability(
-                metric_rate_per_90=league_avg_cards,
+            cards_prob, used_ml_cards = BettingEngine.calculate_ml_over_probability(
+                fouls_per_90=league_avg_cards,
                 threshold=card_line,
+                opp_drawn_per_90=opp_drawn_per_90,
+                referee_factor=cards_ref_factor,
+                is_home=1,
+                league_avg_fouls=league_avg_cards,
                 expected_minutes=90,
-                adjustment_factor=cards_ref_factor
             )
 
             if fouls_prob >= 80.0 or cards_prob >= 80.0:
                 if fouls_prob >= cards_prob:
                     market = f"Más de {foul_line} Faltas Totales"
                     prob = fouls_prob
+                    used_ml = used_ml_fouls
                 else:
                     market = f"Más de {card_line} Tarjetas Amarillas"
                     prob = cards_prob
+                    used_ml = used_ml_cards
                 
                 simulated_odds = BettingEngine.calculate_fair_odds(prob, bookmaker_margin=0.06)
 
@@ -101,10 +117,12 @@ class BettingController:
                     "odds": simulated_odds,
                     "league_id": league_id,
                     "season": season,
-                    "match_date": match_date
+                    "match_date": match_date,
+                    "model_used": "🤖 ML (PoissonRegressor)" if used_ml else "📐 Analítico (Poisson+Bayes)",
                 })
 
         return high_prob_picks
+
 
     @staticmethod
     def save_simulation(db_manager, bet_data: dict) -> bool:
@@ -259,3 +277,26 @@ class BettingController:
             message += f"-----------------------------------\n"
 
         return message
+
+    @staticmethod
+    def train_ml_model(db_manager, alpha: float = 1.0, max_iter: int = 500) -> dict:
+        """
+        Entrena el modelo ML (PoissonRegressor) con los datos históricos de la BD.
+        Retorna un diccionario con métricas: success, n_samples, d2_score, coefficients.
+        """
+        try:
+            from services.ml_engine import MLEngine
+            result = MLEngine.train(db_manager, alpha=alpha, max_iter=max_iter)
+            return result
+        except Exception as e:
+            logger.error(f"Error entrenando modelo ML: {e}")
+            return {"success": False, "message": str(e), "n_samples": 0}
+
+    @staticmethod
+    def get_ml_model_info() -> dict:
+        """Retorna información del estado actual del modelo ML (si existe y su calidad)."""
+        try:
+            from services.ml_engine import MLEngine
+            return MLEngine.get_model_info()
+        except Exception as e:
+            return {"available": False, "message": str(e)}

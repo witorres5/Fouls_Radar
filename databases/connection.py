@@ -294,3 +294,118 @@ class DatabaseManager:
                 VALUES (?, ?)
                 ON CONFLICT(entity_name) DO UPDATE SET last_sync_timestamp = excluded.last_sync_timestamp
             """, (entity_name, timestamp))
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Cache de constraints por tabla (detectado una sola vez por sesión)
+    # ──────────────────────────────────────────────────────────────────────────
+    _constraint_cache: dict = {}
+
+    def _has_unique_constraint(self, cursor, table: str, key_cols: tuple) -> bool:
+        """
+        Detecta si la tabla tiene un PRIMARY KEY o UNIQUE constraint sobre key_cols.
+        El resultado se cachea en memoria para no repetir el PRAGMA en cada fila.
+        """
+        cache_key = (table, key_cols)
+        if cache_key in self._constraint_cache:
+            return self._constraint_cache[cache_key]
+
+        has_it = False
+        try:
+            # Comprobar PRIMARY KEY vía PRAGMA table_info (pk > 0 marca columnas PK)
+            cursor.execute(f"PRAGMA table_info({table})")
+            rows = cursor.fetchall()
+            pk_cols = set()
+            for r in rows:
+                # r = (cid, name, type, notnull, dflt_value, pk)
+                pk_val = r[5] if isinstance(r, (list, tuple)) else (r.get("pk", 0) if hasattr(r, "get") else 0)
+                name_val = r[1] if isinstance(r, (list, tuple)) else (r.get("name", "") if hasattr(r, "get") else "")
+                if pk_val and pk_val > 0:
+                    pk_cols.add(str(name_val).lower())
+
+            expected = {c.lower() for c in key_cols}
+            if expected.issubset(pk_cols):
+                has_it = True
+
+            if not has_it:
+                # Comprobar UNIQUE indexes vía PRAGMA index_list + index_info
+                cursor.execute(f"PRAGMA index_list({table})")
+                idx_rows = cursor.fetchall()
+                for idx_r in idx_rows:
+                    is_unique = idx_r[2] if isinstance(idx_r, (list, tuple)) else (idx_r.get("unique", 0) if hasattr(idx_r, "get") else 0)
+                    idx_name = idx_r[1] if isinstance(idx_r, (list, tuple)) else (idx_r.get("name", "") if hasattr(idx_r, "get") else "")
+                    if not is_unique:
+                        continue
+                    cursor.execute(f"PRAGMA index_info({idx_name})")
+                    idx_cols = set()
+                    for ic in cursor.fetchall():
+                        col = ic[2] if isinstance(ic, (list, tuple)) else (ic.get("name", "") if hasattr(ic, "get") else "")
+                        idx_cols.add(str(col).lower())
+                    if expected == idx_cols:
+                        has_it = True
+                        break
+        except Exception as e:
+            logger.debug(f"_has_unique_constraint error para {table}{key_cols}: {e}")
+
+        self._constraint_cache[cache_key] = has_it
+        logger.debug(f"Constraint {table}{key_cols}: {'ENCONTRADO' if has_it else 'NO encontrado'} → {'upsert directo' if has_it else 'delete+insert'}")
+        return has_it
+
+    def safe_upsert(
+        self,
+        cursor,
+        table: str,
+        key_cols: tuple,
+        insert_cols: tuple,
+        values: tuple,
+        update_cols: tuple,
+    ) -> None:
+        """
+        Upsert seguro compatible con Turso/libSQL incluso cuando la tabla fue creada
+        sin PRIMARY KEY o UNIQUE constraint (tablas legacy).
+
+        Estrategia:
+          - Si la tabla TIENE el constraint → usa INSERT ... ON CONFLICT DO UPDATE (rápido).
+          - Si NO tiene el constraint      → usa DELETE + INSERT (compatible con schemas legacy).
+
+        Args:
+            cursor:      Cursor activo de la conexión.
+            table:       Nombre de la tabla.
+            key_cols:    Columnas que forman la clave única (p.ej. ('fixture_id', 'player_id')).
+            insert_cols: Todas las columnas a insertar (en el mismo orden que values).
+            values:      Tupla de valores para insert_cols.
+            update_cols: Columnas a actualizar en caso de conflicto (ignora las key_cols).
+        """
+        if self._has_unique_constraint(cursor, table, key_cols):
+            # Camino rápido: upsert nativo
+            placeholders = ", ".join("?" * len(insert_cols))
+            col_names = ", ".join(insert_cols)
+            update_clause = ", ".join(f"{c} = excluded.{c}" for c in update_cols)
+            key_clause = ", ".join(key_cols)
+            sql = (
+                f"INSERT INTO {table} ({col_names}) VALUES ({placeholders}) "
+                f"ON CONFLICT({key_clause}) DO UPDATE SET {update_clause}"
+            )
+            cursor.execute(sql, values)
+        else:
+            # Camino seguro: DELETE por clave + INSERT fresco
+            key_indices = [insert_cols.index(k) for k in key_cols]
+            where_clause = " AND ".join(f"{k} = ?" for k in key_cols)
+            key_values = tuple(values[i] for i in key_indices)
+            cursor.execute(f"DELETE FROM {table} WHERE {where_clause}", key_values)
+
+            placeholders = ", ".join("?" * len(insert_cols))
+            col_names = ", ".join(insert_cols)
+            cursor.execute(f"INSERT INTO {table} ({col_names}) VALUES ({placeholders})", values)
+
+    def safe_upsert_many(
+        self,
+        cursor,
+        table: str,
+        key_cols: tuple,
+        insert_cols: tuple,
+        rows: list,
+        update_cols: tuple,
+    ) -> None:
+        """Ejecuta safe_upsert en lote para una lista de tuplas de valores."""
+        for values in rows:
+            self.safe_upsert(cursor, table, key_cols, insert_cols, values, update_cols)

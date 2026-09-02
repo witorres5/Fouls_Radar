@@ -58,6 +58,56 @@ class BettingEngine:
         return round(prob_over * 100.0, 1)
 
     @staticmethod
+    def calculate_ml_over_probability(
+        fouls_per_90: float,
+        threshold: float = 0.5,
+        opp_drawn_per_90: float = 0.25,
+        referee_factor: float = 1.0,
+        is_home: int = 0,
+        league_avg_fouls: float = 22.5,
+        expected_minutes: int = 85,
+    ) -> tuple:
+        """
+        Calcula P(X > threshold) usando el modelo ML (PoissonRegressor) cuando está disponible.
+        Si el modelo no está entrenado o falla, hace fallback automático al modelo analítico.
+
+        Returns:
+            (probability_pct: float, used_ml: bool)
+            - probability_pct: Probabilidad en porcentaje [0-100].
+            - used_ml: True si se usó el modelo de ML, False si se usó el modelo analítico.
+        """
+        # Intento con el motor de ML
+        try:
+            from services.ml_engine import MLEngine
+            lam_ml = MLEngine.predict_lambda(
+                fouls_per_90=fouls_per_90,
+                opp_drawn_per_90=opp_drawn_per_90,
+                referee_factor=referee_factor,
+                is_home=is_home,
+                league_avg_fouls=league_avg_fouls,
+                expected_minutes=expected_minutes,
+            )
+            if lam_ml is not None and lam_ml > 0:
+                k_floor = math.floor(threshold)
+                prob_le = sum(
+                    (math.exp(-lam_ml) * (lam_ml ** i)) / math.factorial(i)
+                    for i in range(k_floor + 1)
+                )
+                prob_over = max(0.0, min(1.0, 1.0 - prob_le))
+                return round(prob_over * 100.0, 1), True
+        except Exception as e:
+            logger.debug(f"MLEngine no disponible, usando modelo analítico: {e}")
+
+        # Fallback: modelo analítico (Poisson univariado con factor de árbitro)
+        prob_analytical = BettingEngine.calculate_over_probability(
+            metric_rate_per_90=fouls_per_90,
+            threshold=threshold,
+            expected_minutes=expected_minutes,
+            adjustment_factor=referee_factor,
+        )
+        return prob_analytical, False
+
+    @staticmethod
     def calculate_player_over_fouls(
         fouls_per_90: float, 
         referee_factor: float = 1.0, 
@@ -96,3 +146,4 @@ class BettingEngine:
         adjusted_prob = prob_decimal * (1.0 + bookmaker_margin)
         fair_odd = 1.0 / adjusted_prob if adjusted_prob > 0 else 1.85
         return round(max(1.10, fair_odd), 2)
+

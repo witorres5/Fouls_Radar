@@ -74,30 +74,14 @@ class PlayerRepository:
         """
         Inserta o actualiza jugadores provenientes de plantillas sin sobreescribir
         las estadísticas acumuladas a cero.
+
+        Comportamiento:
+          - Si el jugador YA existe (player_id + league_id + season): solo actualiza
+            team_id, player_name, updated_at (nunca toca fouls, minutes, etc.)
+          - Si el jugador NO existe: inserta con los valores en cero.
         """
         if not player_records:
             return
-
-        query = """
-            INSERT INTO players (
-                player_id,
-                team_id,
-                player_name,
-                league_id,
-                season,
-                minutes_played,
-                fouls_committed,
-                fouls_drawn,
-                yellow_cards,
-                red_cards,
-                fouls_per_90,
-                updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(player_id, league_id, season) DO UPDATE SET
-                team_id = excluded.team_id,
-                player_name = excluded.player_name,
-                updated_at = excluded.updated_at
-        """
 
         tuple_records = [
             (
@@ -117,12 +101,61 @@ class PlayerRepository:
             for p in player_records
         ]
 
+        INSERT_COLS = (
+            "player_id", "team_id", "player_name", "league_id", "season",
+            "minutes_played", "fouls_committed", "fouls_drawn",
+            "yellow_cards", "red_cards", "fouls_per_90", "updated_at"
+        )
+        # Solo actualizamos metadatos de identidad, NUNCA stats acumuladas
+        UPDATE_COLS = ("team_id", "player_name", "updated_at")
+
         with self.db.get_connection() as conn:
             cursor = conn.cursor()
             chunk_size = 500
             for i in range(0, len(tuple_records), chunk_size):
                 chunk = tuple_records[i:i + chunk_size]
-                cursor.executemany(query, chunk)
+
+                if self.db._has_unique_constraint(cursor, "players", ("player_id", "league_id", "season")):
+                    # Tabla con PK: upsert nativo que solo toca metadatos
+                    sql = """
+                        INSERT INTO players (
+                            player_id, team_id, player_name, league_id, season,
+                            minutes_played, fouls_committed, fouls_drawn,
+                            yellow_cards, red_cards, fouls_per_90, updated_at
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        ON CONFLICT(player_id, league_id, season) DO UPDATE SET
+                            team_id = excluded.team_id,
+                            player_name = excluded.player_name,
+                            updated_at = excluded.updated_at
+                    """
+                    cursor.executemany(sql, chunk)
+                else:
+                    # Tabla legacy sin PK: INSERT OR IGNORE (no sobrescribe nada si ya existe)
+                    # y luego UPDATE solo de metadatos
+                    ignore_sql = """
+                        INSERT OR IGNORE INTO players (
+                            player_id, team_id, player_name, league_id, season,
+                            minutes_played, fouls_committed, fouls_drawn,
+                            yellow_cards, red_cards, fouls_per_90, updated_at
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """
+                    update_sql = """
+                        UPDATE players
+                        SET team_id = ?, player_name = ?, updated_at = ?
+                        WHERE player_id = ? AND league_id = ? AND season = ?
+                    """
+                    for rec in chunk:
+                        # rec: (player_id, team_id, player_name, league_id, season, ...)
+                        try:
+                            cursor.execute(ignore_sql, rec)
+                        except Exception:
+                            pass
+                        try:
+                            cursor.execute(update_sql, (rec[1], rec[2], rec[11], rec[0], rec[3], rec[4]))
+                        except Exception:
+                            pass
+
+
             
     def get_players_by_team(self, team_id: int, season: Optional[int] = None) -> List[Dict[str, Any]]:
         """Obtiene los jugadores de un equipo con sus métricas filtradas por temporada."""

@@ -44,43 +44,25 @@ class FixtureRepository:
         """Registra o actualiza la información detallada del partido en match_fixtures."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            query = """
-                INSERT INTO match_fixtures (
-                    fixture_id, 
-                    league_id, 
-                    season, 
-                    home_team, 
-                    away_team, 
-                    status, 
-                    match_date, 
-                    total_fouls, 
-                    total_yellow_cards, 
-                    referee_name
-                )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(fixture_id) DO UPDATE SET
-                    league_id = excluded.league_id,
-                    season = excluded.season,
-                    status = excluded.status,
-                    home_team = excluded.home_team,
-                    away_team = excluded.away_team,
-                    match_date = excluded.match_date,
-                    total_fouls = excluded.total_fouls,
-                    total_yellow_cards = excluded.total_yellow_cards,
-                    referee_name = excluded.referee_name;
-            """
-            cursor.execute(query, (
-                fixture_id, 
-                league_id, 
-                season, 
-                home_team, 
-                away_team, 
-                status, 
-                match_date, 
-                total_fouls, 
-                total_yellow_cards, 
-                referee
-            ))
+            INSERT_COLS = (
+                "fixture_id", "league_id", "season", "home_team", "away_team",
+                "status", "match_date", "total_fouls", "total_yellow_cards", "referee_name"
+            )
+            UPDATE_COLS = (
+                "league_id", "season", "status", "home_team", "away_team",
+                "match_date", "total_fouls", "total_yellow_cards", "referee_name"
+            )
+            self.db_manager.safe_upsert(
+                cursor,
+                table="match_fixtures",
+                key_cols=("fixture_id",),
+                insert_cols=INSERT_COLS,
+                values=(
+                    fixture_id, league_id, season, home_team, away_team,
+                    status, match_date, total_fouls, total_yellow_cards, referee
+                ),
+                update_cols=UPDATE_COLS,
+            )
 
     def save_and_recalculate_fixture_stats(
         self, 
@@ -96,43 +78,42 @@ class FixtureRepository:
         if not player_stats_list:
             return
 
+        # Normalizar tuplas a 9 elementos: (fix_id, p_id, p_name, t_id, min, fouls_c, fouls_d, yellow, red)
+        def normalize(p):
+            if len(p) == 9:
+                return p
+            elif len(p) == 7:
+                return (p[0], p[1], p[2], p[3], 0, p[4], 0, p[5], p[6])
+            elif len(p) == 8:
+                return (p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], 0)
+            return p
+
+        normalized = [normalize(p) for p in player_stats_list]
+
+        PFS_COLS = (
+            "fixture_id", "player_id", "player_name", "team_id",
+            "minutes_played", "fouls_committed", "fouls_drawn", "yellow_cards", "red_cards"
+        )
+        PFS_UPDATE = ("player_name", "team_id", "minutes_played", "fouls_committed", "fouls_drawn", "yellow_cards", "red_cards")
+
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            
-            # 1. Guardar o actualizar datos de cada jugador en este fixture
-            cursor.executemany("""
-                INSERT INTO player_fixture_stats (
-                    fixture_id, player_id, player_name, team_id,
-                    minutes_played, fouls_committed, fouls_drawn,
-                    yellow_cards, red_cards
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(fixture_id, player_id) DO UPDATE SET
-                    player_name = excluded.player_name,
-                    team_id = excluded.team_id,
-                    minutes_played = excluded.minutes_played,
-                    fouls_committed = excluded.fouls_committed,
-                    fouls_drawn = excluded.fouls_drawn,
-                    yellow_cards = excluded.yellow_cards,
-                    red_cards = excluded.red_cards
-            """, [
-                (
-                    p[0], p[1], p[2], p[3],
-                    p[4] if len(p) > 7 else 0, # minutes_played
-                    p[4] if len(p) <= 7 else p[5], # fouls_committed
-                    p[5] if len(p) <= 7 else p[6], # fouls_drawn
-                    p[6] if len(p) <= 7 else p[7], # yellow_cards
-                    p[7] if len(p) <= 7 else (p[8] if len(p) > 8 else 0) # red_cards
-                ) if len(p) >= 7 else p
-                for p in player_stats_list
-            ])
 
-            # 2. Recalcular las estadísticas acumuladas en players agregando sobre los fixtures
-            cursor.execute("""
-                INSERT INTO players (
-                    player_id, team_id, player_name, league_id, season,
-                    minutes_played, fouls_committed, fouls_drawn,
-                    yellow_cards, red_cards, fouls_per_90, updated_at
-                )
+            # 1. Upsert seguro en player_fixture_stats (compatible con schemas legacy sin PK)
+            self.db_manager.safe_upsert_many(
+                cursor,
+                table="player_fixture_stats",
+                key_cols=("fixture_id", "player_id"),
+                insert_cols=PFS_COLS,
+                rows=normalized,
+                update_cols=PFS_UPDATE,
+            )
+
+            # 2. Recalcular acumulados en players desde los fixtures históricos
+            player_ids = tuple(set(p[1] for p in normalized))
+            placeholders = ",".join("?" * len(player_ids))
+
+            cursor.execute(f"""
                 SELECT 
                     pfs.player_id,
                     pfs.team_id,
@@ -149,24 +130,35 @@ class FixtureRepository:
                             ROUND((CAST(SUM(pfs.fouls_committed) AS FLOAT) / SUM(pfs.minutes_played)) * 90.0, 2)
                         ELSE 0.0 
                     END AS fouls_per_90,
-                    CURRENT_TIMESTAMP
+                    CURRENT_TIMESTAMP as updated_at
                 FROM player_fixture_stats pfs
                 JOIN match_fixtures mf ON pfs.fixture_id = mf.fixture_id
-                WHERE mf.league_id = ? AND mf.season = ? AND pfs.player_id IN (
-                    SELECT player_id FROM player_fixture_stats WHERE fixture_id = ?
-                )
+                WHERE mf.league_id = ? AND mf.season = ? AND pfs.player_id IN ({placeholders})
                 GROUP BY pfs.player_id, pfs.team_id, pfs.player_name, mf.league_id, mf.season
-                ON CONFLICT(player_id, league_id, season) DO UPDATE SET
-                    team_id = excluded.team_id,
-                    player_name = excluded.player_name,
-                    minutes_played = excluded.minutes_played,
-                    fouls_committed = excluded.fouls_committed,
-                    fouls_drawn = excluded.fouls_drawn,
-                    yellow_cards = excluded.yellow_cards,
-                    red_cards = excluded.red_cards,
-                    fouls_per_90 = excluded.fouls_per_90,
-                    updated_at = excluded.updated_at
-            """, (league_id, season, fixture_id))
+            """, (league_id, season, *player_ids))
+
+            aggregated = cursor.fetchall()
+
+            PLAYER_COLS = (
+                "player_id", "team_id", "player_name", "league_id", "season",
+                "minutes_played", "fouls_committed", "fouls_drawn",
+                "yellow_cards", "red_cards", "fouls_per_90", "updated_at"
+            )
+            PLAYER_UPDATE = (
+                "team_id", "player_name", "minutes_played", "fouls_committed",
+                "fouls_drawn", "yellow_cards", "red_cards", "fouls_per_90", "updated_at"
+            )
+
+            for row in aggregated:
+                vals = tuple(row[i] for i in range(12))
+                self.db_manager.safe_upsert(
+                    cursor,
+                    table="players",
+                    key_cols=("player_id", "league_id", "season"),
+                    insert_cols=PLAYER_COLS,
+                    values=vals,
+                    update_cols=PLAYER_UPDATE,
+                )
 
     def get_league_averages(self, league_id: int, season: int) -> Tuple[float, float]:
         """Obtiene el promedio de faltas y tarjetas por partido para una liga y temporada."""
@@ -301,3 +293,39 @@ class FixtureRepository:
         if rows:
             return pd.DataFrame(rows, columns=columns)
         return pd.DataFrame(columns=columns)
+
+    def get_team_drawn_fouls_avg(self, team_id: int, season: int) -> float:
+        """
+        Obtiene la tasa promedio de faltas recibidas (dibujadas) por el equipo rival
+        por partido. Se usa como feature 'opp_drawn_per_90' en el modelo ML.
+        """
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT AVG(pfs.fouls_drawn)
+                FROM player_fixture_stats pfs
+                JOIN match_fixtures mf ON pfs.fixture_id = mf.fixture_id
+                WHERE pfs.team_id = ?
+                  AND mf.season = ?
+                  AND mf.status IN ('FT', 'AET', 'PEN')
+                  AND pfs.minutes_played >= 45
+            """, (team_id, season))
+            row = cursor.fetchone()
+            val = row[0] if (row and row[0] is not None) else 0.0
+            # Normalizar a por-90 (es promedio de faltas totales dibujadas del equipo por partido)
+            return round(float(val) / 11.0, 4)  # aprox. por jugador
+
+    def get_training_dataset_size(self, min_minutes: int = 45) -> int:
+        """Retorna el número de filas disponibles para entrenar el modelo ML."""
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT COUNT(*)
+                FROM player_fixture_stats pfs
+                JOIN match_fixtures mf ON pfs.fixture_id = mf.fixture_id
+                WHERE mf.status IN ('FT', 'AET', 'PEN')
+                  AND pfs.minutes_played >= ?
+                  AND pfs.fouls_committed IS NOT NULL
+            """, (min_minutes,))
+            row = cursor.fetchone()
+            return int(row[0]) if row else 0

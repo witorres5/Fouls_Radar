@@ -51,22 +51,12 @@ class TeamRepository:
         ]
 
     def save_teams(self, records: List[Dict[str, Any]], batch_size: int = 100):
-        """Inserta o actualiza lotes de equipos utilizando upsert (ON CONFLICT)."""
+        """Inserta o actualiza lotes de equipos de forma segura (compatible con schemas legacy)."""
         if not records:
             return
 
-        query = """
-            INSERT INTO teams (
-                team_id, league_id, season, name, code, country, founded, logo, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(team_id, league_id, season) DO UPDATE SET
-                name = excluded.name,
-                code = excluded.code,
-                country = excluded.country,
-                founded = excluded.founded,
-                logo = excluded.logo,
-                updated_at = excluded.updated_at
-        """
+        INSERT_COLS = ("team_id", "league_id", "season", "name", "code", "country", "founded", "logo", "updated_at")
+        UPDATE_COLS = ("name", "code", "country", "founded", "logo", "updated_at")
 
         data_to_insert = [
             (
@@ -87,4 +77,11 @@ class TeamRepository:
             cursor = conn.cursor()
             for i in range(0, len(data_to_insert), batch_size):
                 chunk = data_to_insert[i:i + batch_size]
-                cursor.executemany(query, chunk)
+                self.db.safe_upsert_many(
+                    cursor,
+                    table="teams",
+                    key_cols=("team_id", "league_id", "season"),
+                    insert_cols=INSERT_COLS,
+                    rows=chunk,
+                    update_cols=UPDATE_COLS,
+                )
