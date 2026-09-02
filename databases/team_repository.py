@@ -5,50 +5,6 @@ from databases.connection import DatabaseManager
 class TeamRepository:
     def __init__(self, db_manager: DatabaseManager):
         self.db = db_manager
-        self.init_table()
-
-    def init_table(self):
-        """Inicializa las tablas de equipos y metadatos si no existen."""
-        with self.db.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS teams (
-                    team_id INTEGER PRIMARY KEY,
-                    league_id INTEGER,
-                    season INTEGER,
-                    name TEXT,
-                    code TEXT,
-                    country TEXT,
-                    founded INTEGER,
-                    logo TEXT,
-                    updated_at TEXT
-                )
-            """)
-            
-            # --- Migración defensiva para todas las columnas faltantes ---
-            columns_to_add = [
-                ("season", "INTEGER"),
-                ("code", "TEXT"),
-                ("country", "TEXT"),
-                ("founded", "INTEGER"),
-                ("logo", "TEXT"),
-                ("updated_at", "TEXT")
-            ]
-            
-            for col_name, col_type in columns_to_add:
-                try:
-                    cursor.execute(f"ALTER TABLE teams ADD COLUMN {col_name} {col_type}")
-                except Exception:
-                    pass  # La columna ya existe
-
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_teams_league_season ON teams(league_id, season)")
-            
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS sync_metadata (
-                    entity_name TEXT PRIMARY KEY,
-                    last_sync_timestamp TEXT
-                )
-            """)
 
     def get_last_sync(self, entity_name: str) -> str:
         """Obtiene la última fecha de sincronización para una entidad dada."""
@@ -103,9 +59,7 @@ class TeamRepository:
             INSERT INTO teams (
                 team_id, league_id, season, name, code, country, founded, logo, updated_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(team_id) DO UPDATE SET
-                league_id = excluded.league_id,
-                season = excluded.season,
+            ON CONFLICT(team_id, league_id, season) DO UPDATE SET
                 name = excluded.name,
                 code = excluded.code,
                 country = excluded.country,

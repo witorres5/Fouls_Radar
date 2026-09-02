@@ -1,42 +1,10 @@
 # databases/player_repository.py
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from databases.connection import DatabaseManager
 
 class PlayerRepository:
     def __init__(self, db_manager: DatabaseManager):
         self.db = db_manager
-        self.init_table()
-
-    def init_table(self):
-        """Inicializa las tablas necesarias garantizando clave compuesta por temporada."""
-        with self.db.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS players (
-                    player_id INTEGER,
-                    team_id INTEGER,
-                    player_name TEXT,
-                    league_id INTEGER,
-                    season INTEGER,
-                    minutes_played INTEGER DEFAULT 0,
-                    fouls_committed INTEGER DEFAULT 0,
-                    fouls_drawn INTEGER DEFAULT 0,
-                    yellow_cards INTEGER DEFAULT 0,
-                    red_cards INTEGER DEFAULT 0,
-                    fouls_per_90 REAL DEFAULT 0.0,
-                    updated_at TEXT,
-                    PRIMARY KEY (player_id, league_id, season)
-                )
-            """)
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_team ON players(team_id)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_players_league_season ON players(league_id, season)")
-            
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS sync_metadata (
-                    entity_name TEXT PRIMARY KEY,
-                    last_sync_timestamp TEXT
-                )
-            """)
 
     def get_last_sync(self, entity_name: str) -> str:
         with self.db.get_connection() as conn:
@@ -58,7 +26,6 @@ class PlayerRepository:
                 VALUES (?, ?)
                 ON CONFLICT(entity_name) DO UPDATE SET last_sync_timestamp = ?
             """, (entity_name, timestamp, timestamp))
-            conn.commit()
 
     def get_players_by_league(self, league_id: int, season: int) -> List[Dict[str, Any]]:
         """Obtiene métricas de jugadores alineadas explícitamente por liga y temporada."""
@@ -104,12 +71,15 @@ class PlayerRepository:
         ]
 
     def save_players(self, player_records: list):
-        """Guarda o actualiza registros de jugadores usando tuplas posicionales para Turso."""
+        """
+        Inserta o actualiza jugadores provenientes de plantillas sin sobreescribir
+        las estadísticas acumuladas a cero.
+        """
         if not player_records:
             return
 
         query = """
-            INSERT OR REPLACE INTO players (
+            INSERT INTO players (
                 player_id,
                 team_id,
                 player_name,
@@ -123,9 +93,12 @@ class PlayerRepository:
                 fouls_per_90,
                 updated_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(player_id, league_id, season) DO UPDATE SET
+                team_id = excluded.team_id,
+                player_name = excluded.player_name,
+                updated_at = excluded.updated_at
         """
 
-        # Convertimos la lista de diccionarios a una lista de tuplas respetando el orden exacto del SQL
         tuple_records = [
             (
                 p.get("player_id"),
@@ -150,34 +123,35 @@ class PlayerRepository:
             for i in range(0, len(tuple_records), chunk_size):
                 chunk = tuple_records[i:i + chunk_size]
                 cursor.executemany(query, chunk)
-            conn.commit()
             
-            
-    def get_players_by_team(self, team_id: int):
-        """Obtiene los jugadores de un equipo con sus métricas completas."""
+    def get_players_by_team(self, team_id: int, season: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Obtiene los jugadores de un equipo con sus métricas filtradas por temporada."""
         with self.db.get_connection() as conn:
             cursor = conn.cursor()
-            query = """
-                SELECT 
-                    player_id,
-                    team_id,
-                    player_name,
-                    league_id,
-                    season,
-                    minutes_played,
-                    fouls_committed,
-                    fouls_drawn,
-                    yellow_cards,
-                    red_cards,
-                    fouls_per_90,
-                    updated_at
-                FROM players 
-                WHERE team_id = ?;
-            """
-            cursor.execute(query, (team_id,))
+            if season:
+                query = """
+                    SELECT 
+                        player_id, team_id, player_name, league_id, season,
+                        minutes_played, fouls_committed, fouls_drawn,
+                        yellow_cards, red_cards, fouls_per_90, updated_at
+                    FROM players 
+                    WHERE team_id = ? AND season = ?
+                    ORDER BY fouls_committed DESC, minutes_played DESC;
+                """
+                cursor.execute(query, (team_id, season))
+            else:
+                query = """
+                    SELECT 
+                        player_id, team_id, player_name, league_id, season,
+                        minutes_played, fouls_committed, fouls_drawn,
+                        yellow_cards, red_cards, fouls_per_90, updated_at
+                    FROM players 
+                    WHERE team_id = ?
+                    ORDER BY fouls_committed DESC, minutes_played DESC;
+                """
+                cursor.execute(query, (team_id,))
             rows = cursor.fetchall()
 
-            # Mapeo explicito a diccionario para compatibilidad con la vista
             return [
                 {
                     "player_id": row[0],

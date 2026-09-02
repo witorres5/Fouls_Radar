@@ -1,131 +1,101 @@
 # controllers/fixture_controller.py
 from datetime import datetime
 import time
+import logging
 from config.constants import COLOMBIA_TZ
 from databases.connection import DatabaseManager
 from databases.fixture_repository import FixtureRepository
-from databases.betting_repository import BettingRepository
 from services.alert_services import AlertService
 from services.api_service import APIFootballService
-import streamlit as st
-import inspect
 
+logger = logging.getLogger("FoulsTracker.FixtureController")
+
+try:
+    import streamlit as st
+    cache_decorator = st.cache_data(ttl=600, show_spinner=False)
+except Exception:
+    def cache_decorator(func):
+        return func
 
 class FixtureController:
 
     @staticmethod
-    def sync_fixtures_and_stats(db_manager: DatabaseManager, league_id: int, season: int):
-        """Orquesta la obtención de partidos finalizados del día, guarda el fixture con sus totales y actualiza las estadísticas de jugadores."""
+    def sync_fixtures_and_stats(
+        db_manager: DatabaseManager, 
+        league_id: int, 
+        season: int, 
+        sync_all_season: bool = False
+    ):
+        """Orquesta la obtención de partidos finalizados y actualiza estadísticas de forma idempotente."""
         api_service = APIFootballService()
         fixture_repo = FixtureRepository(db_manager)
         
         current_time = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d %H:%M:%S")
-        today_str = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d") # Fecha de hoy exacta
+        today_str = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d")
         entity_name = f"fixtures_league_{league_id}_{season}"
         
-        # Obtener el marco (frame) del llamador (1 nivel arriba en la pila)
-        caller_frame = inspect.stack()[1]
-        nombre_funcion = caller_frame.function  # Nombre de la función
-        
-        # 1. Obtener partidos finalizados ('FT') exclusivamente del día de hoy
-        if nombre_funcion == "render_fixtures_view":
-            print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, temporada {season}...")
+        if sync_all_season:
+            logger.info(f"Obteniendo todos los partidos finalizados para liga {league_id}, temporada {season}...")
             fixtures = api_service.get_completed_fixtures_by_season(league_id, season)
-            print(f">>> DEBUG: Total de partidos finalizados en la temporada {season} encontrados: {len(fixtures)}")
         else:
-            print(f">>> DEBUG: Obteniendo partidos finalizados para la liga {league_id}, fecha {today_str}...")
+            logger.info(f"Obteniendo partidos finalizados de hoy para liga {league_id}, fecha {today_str}...")
             fixtures = api_service.get_completed_fixtures_by_date(league_id, season, today_str)
-            print(f">>> DEBUG: Total de partidos finalizados hoy encontrados: {len(fixtures)}")
         
         if not fixtures:
-            print(">>> ADVERTENCIA: No se encontraron partidos finalizados hoy para procesar.")
+            logger.info(f"No se encontraron partidos finalizados para procesar en liga {league_id}.")
 
         processed_fixtures = 0
         
-        # 2. Iterar cada partido para extraer estadísticas y registrar el fixture completo
         for fixture in fixtures:
             fixture_info = fixture.get("fixture", {})
             fixture_id = fixture_info.get("id")
             teams = fixture.get("teams", {})
-            referee = fixture_info.get("referee")
+            referee = fixture_info.get("referee") or "Árbitro no asignado"
             
             if not fixture_id:
                 continue
                 
             try:
-                # Obtener estadísticas detalladas (faltas, minutos, tarjetas) de los jugadores
                 player_stats_map = api_service.get_fixture_player_stats(fixture_id)
                 
-                # Calcular acumulados totales de faltas y tarjetas amarillas del partido
                 total_fouls = 0
                 total_yellow_cards = 0
-                player_stats_list = []  # Lista para guardado masivo en player_fixture_stats
+                player_stats_list = []
                 
                 if player_stats_map:
                     for p_id, p in player_stats_map.items():
                         if isinstance(p, dict):
-                            # --- Extracción de Faltas ---
-                            fouls_val = p.get("fouls_committed")
-                            if fouls_val is None:
-                                fouls_val = p.get("fouls", 0)
-                            if isinstance(fouls_val, dict):
-                                fouls_val = fouls_val.get("committed") or 0
+                            fouls_val = int(p.get("fouls_committed") or 0)
+                            drawn_val = int(p.get("fouls_drawn") or 0)
+                            yellow_val = int(p.get("yellow_cards") or 0)
+                            red_val = int(p.get("red_cards") or 0)
+                            minutes_val = int(p.get("minutes_played") or 0)
                             
-                            # --- Extracción de Tarjetas ---
-                            yellow_val = p.get("yellow_cards", 0)
-                            if isinstance(yellow_val, dict):
-                                yellow_val = yellow_val.get("yellow") or 0
+                            total_fouls += fouls_val
+                            total_yellow_cards += yellow_val
 
-                            red_val = p.get("red_cards", 0)
-                            if isinstance(red_val, dict):
-                                red_val = red_val.get("red") or 0
-                            
-                            total_fouls += int(fouls_val or 0)
-                            total_yellow_cards += int(yellow_val or 0)
-
-                            # --- Extracción flexible de player_name ---
-                            raw_name = p.get("player_name") or p.get("name")
-                            if not raw_name:
-                                p_obj = p.get("player")
-                                if isinstance(p_obj, str):
-                                    raw_name = p_obj
-                                elif isinstance(p_obj, dict):
-                                    raw_name = p_obj.get("name") or p_obj.get("player_name") or p_obj.get("short_name")
-
-                            if not raw_name or str(raw_name).strip().isdigit():
-                                player_name = f"Jugador {p_id}"
-                            else:
-                                player_name = str(raw_name).strip()
-
-                            # --- Extracción flexible de team_id ---
+                            raw_name = p.get("player_name") or f"Jugador {p_id}"
                             team_id = p.get("team_id")
-                            if team_id is None:
-                                t_obj = p.get("team")
-                                if isinstance(t_obj, (int, str)) and str(t_obj).isdigit():
-                                    team_id = int(t_obj)
-                                elif isinstance(t_obj, dict):
-                                    team_id = t_obj.get("id") or t_obj.get("team_id")
 
-                            # Estructurar fila para la tabla player_fixture_stats
                             player_stats_list.append((
                                 fixture_id,
-                                p_id if isinstance(p_id, int) else p.get("player_id"),
-                                player_name,
+                                p_id,
+                                str(raw_name).strip(),
                                 team_id,
-                                int(fouls_val or 0),
-                                int(yellow_val or 0),
-                                int(red_val or 0)
+                                minutes_val,
+                                fouls_val,
+                                drawn_val,
+                                yellow_val,
+                                red_val
                             ))
 
-                # Normalizar la fecha del partido a formato estricto YYYY-MM-DD
                 raw_date = fixture_info.get("date", "")
                 match_date = raw_date.split("T")[0] if "T" in raw_date else (raw_date[:10] if raw_date else today_str)
+                home_name = teams.get("home", {}).get("name", "Local")
+                away_name = teams.get("away", {}).get("name", "Visitante")
+                status = fixture_info.get("status", {}).get("short", "FT")
 
-                # Registrar o actualizar la información principal del partido en match_fixtures con sus acumulados
-                home_name = teams.get("home", {}).get("name")
-                away_name = teams.get("away", {}).get("name")
-                status = fixture_info.get("status", {}).get("short")
-
+                # Guardar información general del partido
                 fixture_repo.save_fixture_info(
                     fixture_id=fixture_id,
                     league_id=league_id,
@@ -139,31 +109,26 @@ class FixtureController:
                     referee=referee
                 )
 
-                if player_stats_map:
-                    # 1. Actualizar estadísticas globales del jugador en la base de datos
-                    fixture_repo.update_player_match_stats(player_stats_map, league_id, season)
-
-                    # 2. Guardar estadísticas detalladas por fixture individual
-                    if player_stats_list:
-                        BettingRepository.save_player_fixture_stats(db_manager, player_stats_list)
-
+                # Guardar y recalcular estadísticas individuales de forma idempotente
+                if player_stats_list:
+                    fixture_repo.save_and_recalculate_fixture_stats(
+                        fixture_id=fixture_id,
+                        league_id=league_id,
+                        season=season,
+                        player_stats_list=player_stats_list
+                    )
                     processed_fixtures += 1
-                    print(f">>> DEBUG: Fixture ID {fixture_id} procesado ({len(player_stats_map)} jugadores | Faltas: {total_fouls}, Tarjetas: {total_yellow_cards}).")
                 
-                # Pausa corta para cuidar el rate limit de la API
-                time.sleep(0.3)
+                time.sleep(0.2)
             except Exception as e:
-                print(f">>> ERROR procesando el fixture ID {fixture_id}: {e}")
+                logger.error(f"Error procesando fixture ID {fixture_id}: {e}")
 
-        # 3. Actualizar la marca de tiempo de sincronización
         fixture_repo.update_sync_timestamp(entity_name, current_time)
-        print(f">>> DEBUG: Sincronización de fixtures completada. Partidos procesados: {processed_fixtures}")
+        logger.info(f"Sincronización de fixtures completada. Partidos procesados: {processed_fixtures}")
         
-        # 4. EVALUACIÓN Y NOTIFICACIÓN TELEGRAM (Próximos partidos)
+        # Evaluación de apuestas para próximos partidos
         try:
-            print(">>> DEBUG: Evaluando probabilidades para enviar alertas a Telegram...")
             upcoming_fixtures = FixtureController.get_upcoming_fixtures_cached(league_id, season, days=3)
-
             if upcoming_fixtures:
                 team_ids = set()
                 for fix in upcoming_fixtures:
@@ -174,8 +139,6 @@ class FixtureController:
                         team_ids.add(away_id)
 
                 top_foulers_map = FixtureController.get_teams_top_foulers(db_manager, list(team_ids), season)
-                
-                # Disparar flujo seguro contra duplicados
                 AlertService.process_and_notify_fixtures(
                     upcoming_fixtures=upcoming_fixtures,
                     top_foulers_map=top_foulers_map,
@@ -183,28 +146,25 @@ class FixtureController:
                     league_id=league_id,
                     season=season
                 )
-                print(">>> DEBUG: Evaluación de alertas Telegram finalizada correctamente.")
         except Exception as e:
-            print(f">>> ERROR evaluando/enviando alertas Telegram: {e}")
+            logger.error(f"Error evaluando alertas: {e}")
         
         return True
     
     @staticmethod
-    def get_team_top_fouler(db_manager, team_id, season):
-        """Lógica para obtener el top jugador con faltas de un equipo."""
+    def get_team_top_fouler(db_manager: DatabaseManager, team_id: int, season: int) -> dict:
         repo = FixtureRepository(db_manager)
         return repo.get_top_fouler_for_team(team_id, season)
     
     @staticmethod
-    def get_competition_summary(db_manager, league_id, season):
-        """Orquesta la obtención del resumen de comportamiento de la competición."""
+    def get_competition_summary(db_manager: DatabaseManager, league_id: int, season: int):
         repo = FixtureRepository(db_manager)
         return repo.get_competition_summary(league_id, season)
     
     @staticmethod
-    # @st.cache_data(ttl=600)
+    @cache_decorator
     def get_upcoming_fixtures_cached(league_id: int, season: int, days: int = 3):
-        """Controla la llamada a la API con caché para evitar latencia de red repetitiva."""
+        """Controla la llamada a la API con caché para evitar latencia de red."""
         api_service = APIFootballService()
         try:
             return api_service.get_upcoming_fixtures(league_id, season, days=days)
@@ -212,14 +172,12 @@ class FixtureController:
             return []
         
     @staticmethod
-    def get_teams_top_foulers(db_manager, team_ids, season):
-        """Orquesta la obtención masiva del top de faltas por equipo."""
+    def get_teams_top_foulers(db_manager: DatabaseManager, team_ids: list, season: int):
         repo = FixtureRepository(db_manager)
         return repo.get_top_foulers_for_teams(team_ids, season)
     
     @staticmethod
-    def get_last_sync(db_manager,entity_name):
-        """Orquesta la obtención masiva del top de faltas por equipo."""
+    def get_last_sync(db_manager: DatabaseManager, entity_name: str):
         repo = FixtureRepository(db_manager)
         return repo.get_last_sync(entity_name)
     

@@ -1,79 +1,98 @@
+# utils/betting_engine.py
 import math
-from services.telegram_services import TelegramNotifier
+import logging
+from typing import Optional
+
+logger = logging.getLogger("FoulsTracker.BettingEngine")
 
 class BettingEngine:
 
     @staticmethod
-    def calculate_adjusted_prob(fouls_per_90: float, referee_factor: float = 1.0, threshold: float = 0.5) -> float:
-        """Calcula probabilidad de Poisson ajustada por el factor de rigurosidad del árbitro."""
-        if not fouls_per_90 or fouls_per_90 <= 0:
-            return 0.0
-
-        # Lambda ajustado por el árbitro
-        lam = (fouls_per_90 * referee_factor)
-
-        # P(X >= 1) = 1 - e^(-lambda)
-        prob = (1.0 - math.exp(-lam)) * 100
-        return round(prob, 1)
-
-    @classmethod
-    def evaluate_and_notify_fixture(cls, match_name: str, date_str: str, referee_name: str, home_player: dict, away_player: dict, referee_factor: float = 1.0):
-        """Evalúa jugadores de ambos equipos y notifica a Telegram si supera el 91%."""
+    def calculate_referee_factor(
+        ref_avg_fouls: float, 
+        league_avg_fouls: float, 
+        ref_matches_count: int, 
+        prior_weight: float = 5.0
+    ) -> float:
+        """
+        Calcula el factor de rigurosidad del árbitro usando contracción Bayesiana (Empirical Bayes)
+        para regularizar muestras pequeñas hacia el promedio de la liga.
+        """
+        if league_avg_fouls <= 0:
+            return 1.0
         
-        candidates = [
-            ("Local", home_player),
-            ("Visitante", away_player)
-        ]
+        if ref_matches_count <= 0 or ref_avg_fouls <= 0:
+            return 1.0
 
-        for side, player in candidates:
-            p_name = player.get("name", "Desconocido")
-            f90 = player.get("fouls_per_90", 0.0)
-            
-            prob = cls.calculate_adjusted_prob(f90, referee_factor=referee_factor, threshold=0.5)
-            print("-----------PROBABILIDAD----------------",prob)
-            if prob >= 91.0:
-                msg = (
-                    f"🚨 **¡ALERTA DE APUESTA DE ALTA PROBABILIDAD!** 🚨\n\n"
-                    f"⚽ **Partido:** {match_name}\n"
-                    f"📅 **Fecha:** {date_str}\n"
-                    f"👤 **Árbitro:** {referee_name} (Factor: x{referee_factor:.2f})\n\n"
-                    f"🏃‍♂️ **Jugador ({side}):** {p_name}\n"
-                    f"📊 **Promedio F/90:** {f90}\n"
-                    f"🔥 **Probabilidad (+0.5 faltas):** `{prob}%`"
-                )
-                TelegramNotifier.send_alert(msg)
-                
-    def evaluate_and_notify_high_prob(match_name: str, date_str: str, referee_name: str, referee_factor: float, player_info: dict, side: str):
-        """Evalúa a un jugador y notifica a Telegram si la probabilidad ajustada es >= 91%."""
-        print(player_info)
-        prob = player_info.get("prob", 0.0)
-        p_name = player_info.get("name", "Desconocido")
-        f90 = player_info.get("fouls_per_90", 0.0)
-        print("-----------PROBABILIDAD----2222------------",prob)
-        if prob >= 91.0:
-            alert_msg = (
-                f"🚨 **¡ALERTA DE APUESTA DE ALTA PROBABILIDAD!** 🚨\n\n"
-                f"⚽ **Partido:** {match_name}\n"
-                f"📅 **Fecha:** {date_str}\n"
-                f"👤 **Árbitro:** {referee_name} (Factor: x{referee_factor:.2f})\n\n"
-                f"🏃‍♂️ **Jugador ({side}):** {p_name}\n"
-                f"📊 **Promedio F/90:** {f90}\n"
-                f"🔥 **Probabilidad (+0.5 faltas):** `{prob}%`"
-            )
-            TelegramNotifier.send_alert(alert_msg)
-            
-    def calculate_player_over_fouls(fouls_per_90: float, referee_factor: float = 1.0, threshold: float = 0.5, expected_minutes: int = 90) -> float:
-        """Calcula la probabilidad Poisson ajustada por el factor de rigurosidad del árbitro."""
-        if not fouls_per_90 or fouls_per_90 <= 0:
+        # Media a posteriori contraída hacia la media de la liga
+        shrunk_ref_avg = (
+            (ref_matches_count * ref_avg_fouls) + (prior_weight * league_avg_fouls)
+        ) / (ref_matches_count + prior_weight)
+
+        return round(shrunk_ref_avg / league_avg_fouls, 3)
+
+    @staticmethod
+    def calculate_over_probability(
+        metric_rate_per_90: float, 
+        threshold: float = 0.5, 
+        expected_minutes: int = 85,
+        adjustment_factor: float = 1.0
+    ) -> float:
+        """
+        Calcula la probabilidad acumulada P(X > threshold) para cualquier umbral
+        usando un proceso de Poisson ajustado por minutos proyectados y factor de árbitro.
+        """
+        if metric_rate_per_90 <= 0 or expected_minutes <= 0:
             return 0.0
 
-        # Lambda esperado ajustado por el árbitro
-        lam = ((fouls_per_90 * expected_minutes) / 90.0) * referee_factor
-
+        lam = ((metric_rate_per_90 * expected_minutes) / 90.0) * adjustment_factor
         k_floor = math.floor(threshold)
-        prob_less_or_equal = 0.0
 
-        for i in range(k_floor + 1):
-            prob_less_or_equal += (math.exp(-lam) * (lam ** i)) / math.factorial(i)
+        # Sumatoria P(X <= k)
+        prob_less_or_equal = sum(
+            (math.exp(-lam) * (lam ** i)) / math.factorial(i) 
+            for i in range(k_floor + 1)
+        )
 
-        return round((1.0 - prob_less_or_equal) * 100, 1)
+        prob_over = max(0.0, min(1.0, 1.0 - prob_less_or_equal))
+        return round(prob_over * 100.0, 1)
+
+    @staticmethod
+    def calculate_player_over_fouls(
+        fouls_per_90: float, 
+        referee_factor: float = 1.0, 
+        threshold: float = 0.5, 
+        expected_minutes: int = 85
+    ) -> float:
+        """Alias para compatibilidad con código existente."""
+        return BettingEngine.calculate_over_probability(
+            metric_rate_per_90=fouls_per_90,
+            threshold=threshold,
+            expected_minutes=expected_minutes,
+            adjustment_factor=referee_factor
+        )
+
+    @staticmethod
+    def calculate_adjusted_prob(
+        fouls_per_90: float, 
+        referee_factor: float = 1.0, 
+        threshold: float = 0.5
+    ) -> float:
+        """Calcula probabilidad Poisson ajustada por árbitro para Over {threshold}."""
+        return BettingEngine.calculate_player_over_fouls(
+            fouls_per_90=fouls_per_90,
+            referee_factor=referee_factor,
+            threshold=threshold,
+            expected_minutes=85
+        )
+
+    @staticmethod
+    def calculate_fair_odds(probability_pct: float, bookmaker_margin: float = 0.06) -> float:
+        """Calcula cuotas simuladas realistas incorporando el margen comercial de la casa."""
+        if probability_pct <= 0:
+            return 1.85
+        
+        prob_decimal = probability_pct / 100.0
+        adjusted_prob = prob_decimal * (1.0 + bookmaker_margin)
+        fair_odd = 1.0 / adjusted_prob if adjusted_prob > 0 else 1.85
+        return round(max(1.10, fair_odd), 2)

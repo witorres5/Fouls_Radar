@@ -34,7 +34,10 @@ def main():
     selected_league_name = st.sidebar.selectbox("Selecciona una Liga", list(league_options.keys()))
     selected_league_id = league_options[selected_league_name]
     
-    season = st.sidebar.selectbox("Temporada", [CURRENT_SEASON, CURRENT_SEASON - 1], index=0)
+    from config.constants import get_current_season_for_league
+    def_season = get_current_season_for_league(selected_league_id)
+    season_options = [def_season, def_season - 1] if def_season != CURRENT_SEASON else [CURRENT_SEASON, CURRENT_SEASON - 1]
+    season = st.sidebar.selectbox("Temporada", season_options, index=0)
 
     st.sidebar.divider()
     st.sidebar.markdown("### Menú de Vistas")

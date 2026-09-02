@@ -1,6 +1,10 @@
 # scripts/send_notifications.py
 import os
+import sys
 import logging
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from databases.connection import DatabaseManager
 from services.telegram_services import send_telegram_message
 
@@ -14,21 +18,28 @@ def send_daily_report_and_alerts():
     with db_manager.get_connection() as conn:
         cursor = conn.cursor()
         
-        # 1. Alerta de Alta Probabilidad (> 95%) no notificadas
+        # 1. Alerta de Alta Probabilidad (>= 90%) no notificadas
         cursor.execute("""
-            SELECT match_name, market, probability, simulated_odds 
+            SELECT match_name, market, probability, odds, referee 
             FROM simulated_bets 
-            WHERE probability >= 0.95 AND notified_telegram = 0
+            WHERE probability >= 90.0 AND (notified_telegram = 0 OR notified_telegram IS NULL)
         """)
         high_profs = cursor.fetchall()
         
-        for match, market, prob, odds in high_profs:
+        for row in high_profs:
+            match = row[0]
+            market = row[1]
+            prob = float(row[2])
+            odds = float(row[3])
+            referee = row[4] if len(row) > 4 else "Árbitro no asignado"
+
             msg = (
-                f"🚨 *¡ALERTA DE ALTA CONFIABILIDAD (>95%)!* 🚨\n\n"
+                f"🚨 *¡ALERTA DE ALTA CONFIABILIDAD (≥90%)!* 🚨\n\n"
                 f"⚽ *Partido:* {match}\n"
+                f"👤 *Árbitro:* {referee}\n"
                 f"🎯 *Mercado:* {market}\n"
-                f"📈 *Probabilidad:* {prob * 100:.1f}%\n"
-                f"💰 *Cuota:* {odds}"
+                f"📈 *Probabilidad:* {prob:.1f}%\n"
+                f"💰 *Cuota:* {odds:.2f}"
             )
             if send_telegram_message(msg):
                 cursor.execute("""
@@ -38,19 +49,17 @@ def send_daily_report_and_alerts():
                 conn.commit()
 
         # 2. Resumen del día (Apuestas generadas, ganadas y perdidas)
-        # Puedes filtrar por la fecha actual si tienes una columna de timestamp, o un acumulado reciente
         cursor.execute("""
             SELECT status, COUNT(*) FROM simulated_bets 
             GROUP BY status
         """)
         summary = cursor.fetchall()
         
-        summary_text = "📊 *REPORTE DIARIO DE APUESTAS* 📊\n\n"
-        for status, count in summary:
-            summary_text += f"• *{status}:* {count}\n"
-            
-        # Enviamos el reporte periódico
-        send_telegram_message(summary_text)
+        if summary:
+            summary_text = "📊 *REPORTE GLOBAL DE APUESTAS* 📊\n\n"
+            for status, count in summary:
+                summary_text += f"• *{status}:* {count}\n"
+            send_telegram_message(summary_text)
 
     logging.info("Notificaciones y reportes enviados con éxito.")
 
