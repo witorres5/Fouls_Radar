@@ -269,30 +269,47 @@ class FixtureRepository:
         return result
 
     def get_competition_summary(self, league_id: int, season: int) -> pd.DataFrame:
-        """Obtiene el resumen ordenado de la competición para la vista."""
+        """Obtiene el resumen dinámico de la competición ordenado por Faltas/90 min."""
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
                 SELECT 
-                    player_name, 
-                    COALESCE(minutes_played, 0) AS minutes_played, 
-                    COALESCE(fouls_committed, 0) AS fouls_committed, 
-                    COALESCE(yellow_cards, 0) AS yellow_cards, 
-                    COALESCE(red_cards, 0) AS red_cards, 
-                    COALESCE(fouls_per_90, 0.0) AS fouls_per_90
-                FROM players 
-                WHERE CAST(league_id AS INTEGER) = CAST(? AS INTEGER) 
-                  AND CAST(season AS INTEGER) = CAST(? AS INTEGER) 
-                  AND minutes_played > 0
-                ORDER BY fouls_committed DESC
+                    pfs.player_name,
+                    SUM(COALESCE(pfs.minutes_played, 0)) AS total_minutes,
+                    SUM(COALESCE(pfs.fouls_committed, 0)) AS total_fouls,
+                    SUM(COALESCE(pfs.fouls_drawn, 0)) AS total_fouls_drawn,
+                    SUM(COALESCE(pfs.yellow_cards, 0)) AS total_yellows,
+                    SUM(COALESCE(pfs.red_cards, 0)) AS total_reds,
+                    ROUND(
+                        (CAST(SUM(COALESCE(pfs.fouls_committed, 0)) AS FLOAT) / 
+                        NULLIF(SUM(COALESCE(pfs.minutes_played, 0)), 0)) * 90, 2
+                    ) AS fouls_per_90
+                FROM player_fixture_stats pfs
+                JOIN match_fixtures mf ON pfs.fixture_id = mf.fixture_id
+                WHERE mf.league_id = ? 
+                  AND mf.season = ?
+                GROUP BY pfs.player_id, pfs.player_name
+                HAVING total_minutes >= 90
+                ORDER BY fouls_per_90 DESC
                 LIMIT 20
-            """, (league_id, season))
+            """, (int(league_id), int(season)))
+            
             rows = cursor.fetchall()
             
-        columns = ["Jugador", "Minutos", "Faltas Cometidas", "Tarjetas Amarillas", "Tarjetas Rojas", "Faltas por 90'"]
-        if rows:
-            return pd.DataFrame(rows, columns=columns)
-        return pd.DataFrame(columns=columns)
+        columns = [
+            "Jugador", 
+            "Minutos", 
+            "Faltas Cometidas", 
+            "Faltas Recibidas", 
+            "Tarjetas Amarillas", 
+            "Tarjetas Rojas", 
+            "Faltas por 90'"
+        ]
+        return pd.DataFrame(rows, columns=columns) if rows else pd.DataFrame(columns=columns)
+            columns = ["Jugador", "Minutos", "Faltas Cometidas", "Tarjetas Amarillas", "Tarjetas Rojas", "Faltas por 90'"]
+            if rows:
+                return pd.DataFrame(rows, columns=columns)
+            return pd.DataFrame(columns=columns)
 
     def get_team_drawn_fouls_avg(self, team_id: int, season: int) -> float:
         """
@@ -328,4 +345,4 @@ class FixtureRepository:
                   AND pfs.fouls_committed IS NOT NULL
             """, (min_minutes,))
             row = cursor.fetchone()
-            return int(row[0]) if row else 0
+            return int(row[0]) if row else 0
