@@ -15,13 +15,16 @@ class MatchAnalysisService:
         # 2. Promedio base acumulado (Lambda de Poisson)
         total_lambda = home_proj + away_proj
 
-        # 3. Ajuste opcional por sesgo de árbitro (base promedio 24 faltas/partido)
+        # 3. Ajuste por sesgo de árbitro usando get_referee_historical_stats
         referee_bias = 0.0
-        if self.referee_repo and referee_name:
-            ref_avg = self.referee_repo.get_referee_avg_fouls(referee_name)
-            if ref_avg > 0:
-                referee_bias = (ref_avg - 24.0) / 24.0
-                total_lambda *= (1.0 + referee_bias)
+        if self.referee_repo and referee_name and referee_name != "Árbitro no asignado":
+            try:
+                _, ref_avg, _ = self.referee_repo.get_referee_historical_stats(referee_name)
+                if ref_avg and ref_avg > 0:
+                    referee_bias = (ref_avg - 24.0) / 24.0
+                    total_lambda *= (1.0 + referee_bias)
+            except Exception:
+                pass
 
         # 4. Encontrar línea con probabilidad acumulada >= 85%
         safe_line = 10
