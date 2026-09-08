@@ -3,7 +3,10 @@ import streamlit as st
 from datetime import datetime
 from controllers.fixture_controller import FixtureController
 from databases.fixture_repository import FixtureRepository
+from databases.feature_repository import FeatureRepository
+from services.match_analysis_service import MatchAnalysisService
 from utils.betting_engine import BettingEngine
+
 
 def render_fixtures_view(db_manager, league_id, season):
     st.markdown("### ⚖️ Análisis de Partidos y Estadísticas Arbitrales")
@@ -11,6 +14,9 @@ def render_fixtures_view(db_manager, league_id, season):
     entity_name = f"fixtures_league_{league_id}_{season}"
     last_updated = FixtureController.get_last_sync(db_manager, entity_name)
     fixture_repo = FixtureRepository(db_manager)
+    feature_repo = FeatureRepository(db_manager)
+    analysis_service = MatchAnalysisService(feature_repo, fixture_repo)
+
     league_avg_fouls, _ = fixture_repo.get_league_averages(league_id, season)
 
     # Sección de sincronización
@@ -47,6 +53,7 @@ def render_fixtures_view(db_manager, league_id, season):
 
         for fix in upcoming_fixtures:
             fix_info = fix.get("fixture", {})
+            fixture_id = fix_info.get("id")
             teams = fix.get("teams", {})
             home = teams.get("home", {})
             away = teams.get("away", {})
@@ -114,6 +121,49 @@ def render_fixtures_view(db_manager, league_id, season):
                         st.caption(f"🎯 Prob. +0.5 faltas: {high_badge}**{prob_away}%**")
                     else:
                         st.caption("🎯 Prob. +0.5 faltas: **Sin datos**")
+
+                # Botón para activar el Análisis Profundo con PySpark
+                st.divider()
+                if st.button(f"🔍 Análisis Profundo (Spark)", key=f"btn_deep_{fixture_id}", use_container_width=True):
+                    current_state = st.session_state.get(f"show_analysis_{fixture_id}", False)
+                    st.session_state[f"show_analysis_{fixture_id}"] = not current_state
+
+                # Panel de Análisis desplegable
+                if st.session_state.get(f"show_analysis_{fixture_id}"):
+                    with st.spinner("⚡ Consultando Feature Store PySpark y evaluando distribución..."):
+                        analysis = analysis_service.analyze_fixture(
+                            fixture_id=fixture_id,
+                            home_team_id=home.get("id"),
+                            away_team_id=away.get("id"),
+                            season=season,
+                            referee_name=referee
+                        )
+
+                    st.markdown("#### 📊 Proyección Cuantitativa del Encuentro")
+
+                    k1, k2, k3, k4 = st.columns(4)
+                    k1.metric("Faltas Esperadas", f"{analysis['expected_fouls']}")
+                    k2.metric("Mercado Sugerido", f"{analysis['recommended_market']}")
+                    k3.metric("Probabilidad Modelo", f"{analysis['line_probability']}%")
+                    k4.metric("Cuota Mínima EV", f"@{analysis['min_odd']}")
+
+                    col_h, col_a = st.columns(2)
+                    with col_h:
+                        st.caption("🔥 **Racha Reciente Local (Top F90 - Últimos 5 partidos):**")
+                        if analysis["home_top_foulers"]:
+                            for p in analysis["home_top_foulers"]:
+                                st.write(f"• **{p['name']}**: {p['rolling_f90']} F90 *(en {p['matches']} PJ)*")
+                        else:
+                            st.write("Sin datos recientes en Spark.")
+
+                    with col_a:
+                        st.caption("🔥 **Racha Reciente Visitante (Top F90 - Últimos 5 partidos):**")
+                        if analysis["away_top_foulers"]:
+                            for p in analysis["away_top_foulers"]:
+                                st.write(f"• **{p['name']}**: {p['rolling_f90']} F90 *(en {p['matches']} PJ)*")
+                        else:
+                            st.write("Sin datos recientes en Spark.")
+
     else:
         st.info("Sin partidos en los próximos 3 días.")
 

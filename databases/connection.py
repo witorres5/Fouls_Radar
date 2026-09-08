@@ -18,6 +18,7 @@ try:
 except ImportError:
     st = None
 
+
 class DatabaseManager:
     def __init__(self, db_url: Optional[str] = None, auth_token: Optional[str] = None):
         self.db_url = db_url or self._resolve_db_url()
@@ -26,14 +27,34 @@ class DatabaseManager:
         self.init_performance_indexes()
 
     def _resolve_db_url(self) -> str:
-        if st and hasattr(st, "secrets") and "TURSO_DATABASE_URL" in st.secrets:
-            return st.secrets["TURSO_DATABASE_URL"]
-        return os.getenv("TURSO_DATABASE_URL", "local.db")
+        # 1. Prioridad: Variables de entorno (GitHub Actions, CLI, .env)
+        if url := os.getenv("TURSO_DATABASE_URL"):
+            return url
+
+        # 2. Intentar lectura segura desde Streamlit secrets (captura StreamlitSecretNotFoundError)
+        if st:
+            try:
+                if hasattr(st, "secrets") and "TURSO_DATABASE_URL" in st.secrets:
+                    return st.secrets["TURSO_DATABASE_URL"]
+            except Exception:
+                pass
+
+        return "local.db"
 
     def _resolve_auth_token(self) -> str:
-        if st and hasattr(st, "secrets") and "TURSO_AUTH_TOKEN" in st.secrets:
-            return st.secrets["TURSO_AUTH_TOKEN"]
-        return os.getenv("TURSO_AUTH_TOKEN", "")
+        # 1. Prioridad: Variables de entorno
+        if token := os.getenv("TURSO_AUTH_TOKEN"):
+            return token
+
+        # 2. Intentar lectura segura desde Streamlit secrets
+        if st:
+            try:
+                if hasattr(st, "secrets") and "TURSO_AUTH_TOKEN" in st.secrets:
+                    return st.secrets["TURSO_AUTH_TOKEN"]
+            except Exception:
+                pass
+
+        return ""
 
     @contextmanager
     def get_connection(self):
@@ -311,12 +332,10 @@ class DatabaseManager:
 
         has_it = False
         try:
-            # Comprobar PRIMARY KEY vía PRAGMA table_info (pk > 0 marca columnas PK)
             cursor.execute(f"PRAGMA table_info({table})")
             rows = cursor.fetchall()
             pk_cols = set()
             for r in rows:
-                # r = (cid, name, type, notnull, dflt_value, pk)
                 pk_val = r[5] if isinstance(r, (list, tuple)) else (r.get("pk", 0) if hasattr(r, "get") else 0)
                 name_val = r[1] if isinstance(r, (list, tuple)) else (r.get("name", "") if hasattr(r, "get") else "")
                 if pk_val and pk_val > 0:
@@ -327,7 +346,6 @@ class DatabaseManager:
                 has_it = True
 
             if not has_it:
-                # Comprobar UNIQUE indexes vía PRAGMA index_list + index_info
                 cursor.execute(f"PRAGMA index_list({table})")
                 idx_rows = cursor.fetchall()
                 for idx_r in idx_rows:
@@ -362,21 +380,8 @@ class DatabaseManager:
         """
         Upsert seguro compatible con Turso/libSQL incluso cuando la tabla fue creada
         sin PRIMARY KEY o UNIQUE constraint (tablas legacy).
-
-        Estrategia:
-          - Si la tabla TIENE el constraint → usa INSERT ... ON CONFLICT DO UPDATE (rápido).
-          - Si NO tiene el constraint      → usa DELETE + INSERT (compatible con schemas legacy).
-
-        Args:
-            cursor:      Cursor activo de la conexión.
-            table:       Nombre de la tabla.
-            key_cols:    Columnas que forman la clave única (p.ej. ('fixture_id', 'player_id')).
-            insert_cols: Todas las columnas a insertar (en el mismo orden que values).
-            values:      Tupla de valores para insert_cols.
-            update_cols: Columnas a actualizar en caso de conflicto (ignora las key_cols).
         """
         if self._has_unique_constraint(cursor, table, key_cols):
-            # Camino rápido: upsert nativo
             placeholders = ", ".join("?" * len(insert_cols))
             col_names = ", ".join(insert_cols)
             update_clause = ", ".join(f"{c} = excluded.{c}" for c in update_cols)
@@ -387,7 +392,6 @@ class DatabaseManager:
             )
             cursor.execute(sql, values)
         else:
-            # Camino seguro: DELETE por clave + INSERT fresco
             key_indices = [insert_cols.index(k) for k in key_cols]
             where_clause = " AND ".join(f"{k} = ?" for k in key_cols)
             key_values = tuple(values[i] for i in key_indices)
@@ -408,4 +412,4 @@ class DatabaseManager:
     ) -> None:
         """Ejecuta safe_upsert en lote para una lista de tuplas de valores."""
         for values in rows:
-            self.safe_upsert(cursor, table, key_cols, insert_cols, values, update_cols)
+            self.safe_upsert(cursor, table, key_cols, insert_cols, values, update_cols)
