@@ -306,10 +306,6 @@ class FixtureRepository:
             "Faltas por 90'"
         ]
         return pd.DataFrame(rows, columns=columns) if rows else pd.DataFrame(columns=columns)
-            columns = ["Jugador", "Minutos", "Faltas Cometidas", "Tarjetas Amarillas", "Tarjetas Rojas", "Faltas por 90'"]
-            if rows:
-                return pd.DataFrame(rows, columns=columns)
-            return pd.DataFrame(columns=columns)
 
     def get_team_drawn_fouls_avg(self, team_id: int, season: int) -> float:
         """
