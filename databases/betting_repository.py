@@ -182,7 +182,7 @@ class BettingRepository:
                     COALESCE(odds, simulated_odds, 1.80) AS odds, 
                     match_date
                 FROM simulated_bets
-                WHERE status = 'PENDIENTE' 
+                WHERE notified_telegram = 0 AND status = 'PENDIENTE' 
                   AND (match_date LIKE ? OR match_date IS NULL)
                   AND probability >= 90.0
                 ORDER BY probability DESC
@@ -264,3 +264,12 @@ class BettingRepository:
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.executemany(query, normalized_stats)
+            
+    @staticmethod
+    def mark_as_notified(db_manager: DatabaseManager, bet_id: int) -> bool:
+        """Marca una apuesta como notificada para prevenir duplicados futuros."""
+        query = "UPDATE simulated_bets SET notified_telegram = 1 WHERE id = ? AND notified_telegram = 0"
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute(query, (bet_id,))
+            return cursor.rowcount > 0

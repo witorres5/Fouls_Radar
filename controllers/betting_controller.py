@@ -268,14 +268,15 @@ class BettingController:
         message += f"📊 Total encontradas: {len(bets)}\n\n"
 
         for bet in bets:
-            _, match_name, market, referee, prob, odds, _ = bet
+
+            id,  match_name, market, referee, prob, odds, _ = bet
             message += f"⚽ **{match_name}**\n"
             message += f"👨‍⚖️ Árbitro: {referee}\n"
             message += f"🎯 Mercado: {market}\n"
             message += f"🔥 Probabilidad: {prob}%\n"
             message += f"💰 Cuota: {odds}\n"
             message += f"-----------------------------------\n"
-
+            BettingRepository.mark_as_notified(db_manager,id)
         return message
 
     @staticmethod
