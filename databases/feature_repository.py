@@ -88,3 +88,83 @@ class FeatureRepository:
             if row and row[0] is not None and row[0] > 0:
                 return float(row[0])
             return 0.0
+        
+    def get_matchup_frictions(self, home_team_id: int, away_team_id: int, season: int) -> list:
+        """
+        Calcula los Duelos de Alta Fricción cruzando:
+        1. Infractores Local (F90) vs Provocadores Visitante (FD90)
+        2. Infractores Visitante (F90) vs Provocadores Local (FD90)
+        """
+        query_committers = """
+            SELECT player_id, player_name, rolling_f90_l5
+            FROM player_spark_features
+            WHERE (team_id = ? OR player_id IN (SELECT player_id FROM players WHERE team_id = ?))
+              AND season = ?
+            ORDER BY rolling_f90_l5 DESC
+            LIMIT 2
+        """
+        
+        query_drawers = """
+            SELECT player_id, player_name, rolling_fd90_l5
+            FROM player_spark_features
+            WHERE (team_id = ? OR player_id IN (SELECT player_id FROM players WHERE team_id = ?))
+              AND season = ?
+            ORDER BY rolling_fd90_l5 DESC
+            LIMIT 2
+        """
+
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+
+            # Cruce 1: Infractores Local vs Provocadores Visitante
+            cursor.execute(query_committers, (home_team_id, home_team_id, season))
+            home_committers = cursor.fetchall()
+
+            cursor.execute(query_drawers, (away_team_id, away_team_id, season))
+            away_drawers = cursor.fetchall()
+
+            # Cruce 2: Infractores Visitante vs Provocadores Local
+            cursor.execute(query_committers, (away_team_id, away_team_id, season))
+            away_committers = cursor.fetchall()
+
+            cursor.execute(query_drawers, (home_team_id, home_team_id, season))
+            home_drawers = cursor.fetchall()
+
+            matchups = []
+
+            # Evaluar Cruce 1
+            for hc in home_committers:
+                for ad in away_drawers:
+                    f90 = float(hc[2]) if hc[2] else 0.0
+                    fd90 = float(ad[2]) if ad[2] else 0.0
+                    if f90 > 0 and fd90 > 0:
+                        friction_index = round(f90 * fd90, 2)
+                        matchups.append({
+                            "committer": hc[1],
+                            "committer_side": "Local",
+                            "committer_f90": f90,
+                            "drawer": ad[1],
+                            "drawer_side": "Visitante",
+                            "drawer_fd90": fd90,
+                            "friction_index": friction_index
+                        })
+
+            # Evaluar Cruce 2
+            for ac in away_committers:
+                for hd in home_drawers:
+                    f90 = float(ac[2]) if ac[2] else 0.0
+                    fd90 = float(hd[2]) if hd[2] else 0.0
+                    if f90 > 0 and fd90 > 0:
+                        friction_index = round(f90 * fd90, 2)
+                        matchups.append({
+                            "committer": ac[1],
+                            "committer_side": "Visitante",
+                            "committer_f90": f90,
+                            "drawer": hd[1],
+                            "drawer_side": "Local",
+                            "drawer_fd90": fd90,
+                            "friction_index": friction_index
+                        })
+
+            # Ordenar por el mayor Índice de Fricción
+            return sorted(matchups, key=lambda x: x["friction_index"], reverse=True)

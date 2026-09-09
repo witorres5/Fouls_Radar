@@ -41,6 +41,9 @@ class MatchAnalysisService:
         home_top = self.feature_repo.get_team_top_foulers(home_team_id, season, limit=2)
         away_top = self.feature_repo.get_team_top_foulers(away_team_id, season, limit=2)
 
+        # 6. Obtener Duelos Directos de Alta Fricción (Matchups)
+        matchups = self.feature_repo.get_matchup_frictions(home_team_id, away_team_id, season)
+
         return {
             "expected_fouls": round(total_lambda, 1),
             "referee_bias_pct": round(referee_bias * 100.0, 1),
@@ -49,5 +52,6 @@ class MatchAnalysisService:
             "recommended_market": f"Más de {safe_line - 0.5} Faltas Totales",
             "min_odd": round(1.0 / (top_prob / 100.0), 2) if top_prob > 0 else 1.01,
             "home_top_foulers": home_top,
-            "away_top_foulers": away_top
+            "away_top_foulers": away_top,
+            "top_matchups": matchups[:3]  # Los 3 duelos con mayor Índice de Fricción
         }

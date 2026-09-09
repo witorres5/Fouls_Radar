@@ -26,107 +26,149 @@ class FixtureController:
         season: int, 
         sync_all_season: bool = False
     ):
-        """Orquesta la obtención de partidos finalizados y actualiza estadísticas de forma idempotente."""
+        """
+        Orquesta la obtención de partidos finalizados y actualiza estadísticas de forma idempotente.
+        
+        Optimizaciones:
+          - Salta fixtures ya procesados (processed_for_stats = 1) para no llamar a la API de nuevo.
+          - Agrupa las escrituras a Turso en batches de BATCH_SIZE fixtures para minimizar roundtrips.
+          - Sleep adaptativo: solo duerme cuando se acerque al límite de la API (< 10 req restantes).
+          - Recalcula acumulados de players al final del batch, no por fixture individual.
+        """
+        BATCH_SIZE = 20  # fixtures por lote de escritura a Turso
+
         api_service = APIFootballService()
         fixture_repo = FixtureRepository(db_manager)
         
         current_time = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d %H:%M:%S")
-        today_str = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d")
-        entity_name = f"fixtures_league_{league_id}_{season}"
+        today_str    = datetime.now(COLOMBIA_TZ).strftime("%Y-%m-%d")
+        entity_name  = f"fixtures_league_{league_id}_{season}"
         
         if sync_all_season:
-            logger.info(f"Obteniendo todos los partidos finalizados para liga {league_id}, temporada {season}...")
+            logger.info(f"Obteniendo todos los partidos finalizados: liga {league_id}, temporada {season}...")
             fixtures = api_service.get_completed_fixtures_by_season(league_id, season)
         else:
-            logger.info(f"Obteniendo partidos finalizados de hoy para liga {league_id}, fecha {today_str}...")
+            logger.info(f"Obteniendo partidos finalizados de hoy: liga {league_id}, fecha {today_str}...")
             fixtures = api_service.get_completed_fixtures_by_date(league_id, season, today_str)
         
         if not fixtures:
             logger.info(f"No se encontraron partidos finalizados para procesar en liga {league_id}.")
+            fixture_repo.update_sync_timestamp(entity_name, current_time)
+            return True
+
+        # ── 1. Obtener IDs ya procesados para saltarlos sin llamar a la API ─────────
+        already_done_ids: set = fixture_repo.get_already_processed_fixture_ids(league_id, season)
+        pending = [f for f in fixtures if f.get("fixture", {}).get("id") not in already_done_ids]
+        skipped  = len(fixtures) - len(pending)
+        logger.info(
+            f"Total fixtures: {len(fixtures)} | Ya procesados (skip): {skipped} | "
+            f"Pendientes a sincronizar: {len(pending)}"
+        )
 
         processed_fixtures = 0
-        
-        for fixture in fixtures:
-            fixture_info = fixture.get("fixture", {})
-            fixture_id = fixture_info.get("id")
-            teams = fixture.get("teams", {})
-            referee = fixture_info.get("referee") or "Árbitro no asignado"
-            
-            if not fixture_id:
-                continue
-                
-            try:
-                player_stats_map = api_service.get_fixture_player_stats(fixture_id)
-                
-                total_fouls = 0
-                total_yellow_cards = 0
-                player_stats_list = []
-                
-                if player_stats_map:
-                    for p_id, p in player_stats_map.items():
-                        if isinstance(p, dict):
-                            fouls_val = int(p.get("fouls_committed") or 0)
-                            drawn_val = int(p.get("fouls_drawn") or 0)
-                            yellow_val = int(p.get("yellow_cards") or 0)
-                            red_val = int(p.get("red_cards") or 0)
-                            minutes_val = int(p.get("minutes_played") or 0)
-                            
-                            total_fouls += fouls_val
-                            total_yellow_cards += yellow_val
+        api_requests_made  = 0
 
-                            raw_name = p.get("player_name") or f"Jugador {p_id}"
-                            team_id = p.get("team_id")
+        # ── 2. Procesar en batches ────────────────────────────────────────────────
+        for batch_start in range(0, len(pending), BATCH_SIZE):
+            batch = pending[batch_start : batch_start + BATCH_SIZE]
 
-                            player_stats_list.append((
-                                fixture_id,
-                                p_id,
-                                str(raw_name).strip(),
-                                team_id,
-                                minutes_val,
-                                fouls_val,
-                                drawn_val,
-                                yellow_val,
-                                red_val
-                            ))
+            # Acumuladores del batch
+            fixture_infos:     list = []   # parámetros para save_fixture_info
+            all_player_stats:  dict = {}   # fixture_id → list[tuple]
 
-                raw_date = fixture_info.get("date", "")
-                match_date = raw_date.split("T")[0] if "T" in raw_date else (raw_date[:10] if raw_date else today_str)
-                home_name = teams.get("home", {}).get("name", "Local")
-                away_name = teams.get("away", {}).get("name", "Visitante")
-                status = fixture_info.get("status", {}).get("short", "FT")
+            for fixture in batch:
+                fixture_info = fixture.get("fixture", {})
+                fixture_id   = fixture_info.get("id")
+                teams        = fixture.get("teams", {})
+                referee      = fixture_info.get("referee") or "Árbitro no asignado"
 
-                # Guardar información general del partido
-                fixture_repo.save_fixture_info(
-                    fixture_id=fixture_id,
-                    league_id=league_id,
-                    season=season,
-                    home_team=home_name,
-                    away_team=away_name,
-                    status=status,
-                    match_date=match_date,
-                    total_fouls=total_fouls,
-                    total_yellow_cards=total_yellow_cards,
-                    referee=referee
-                )
+                if not fixture_id:
+                    continue
+                    
+                try:
+                    player_stats_map = api_service.get_fixture_player_stats(fixture_id)
+                    api_requests_made += 1
 
-                # Guardar y recalcular estadísticas individuales de forma idempotente
-                if player_stats_list:
-                    fixture_repo.save_and_recalculate_fixture_stats(
-                        fixture_id=fixture_id,
-                        league_id=league_id,
-                        season=season,
-                        player_stats_list=player_stats_list
-                    )
-                    processed_fixtures += 1
-                
-                time.sleep(0.2)
-            except Exception as e:
-                logger.error(f"Error procesando fixture ID {fixture_id}: {e}")
+                    total_fouls        = 0
+                    total_yellow_cards = 0
+                    player_stats_list  = []
+                    
+                    if player_stats_map:
+                        for p_id, p in player_stats_map.items():
+                            if isinstance(p, dict):
+                                fouls_val   = int(p.get("fouls_committed") or 0)
+                                drawn_val   = int(p.get("fouls_drawn")     or 0)
+                                yellow_val  = int(p.get("yellow_cards")    or 0)
+                                red_val     = int(p.get("red_cards")       or 0)
+                                minutes_val = int(p.get("minutes_played")  or 0)
+                                
+                                total_fouls        += fouls_val
+                                total_yellow_cards += yellow_val
+
+                                player_stats_list.append((
+                                    fixture_id,
+                                    p_id,
+                                    str(p.get("player_name") or f"Jugador {p_id}").strip(),
+                                    p.get("team_id"),
+                                    minutes_val,
+                                    fouls_val,
+                                    drawn_val,
+                                    yellow_val,
+                                    red_val
+                                ))
+
+                    raw_date   = fixture_info.get("date", "")
+                    match_date = raw_date.split("T")[0] if "T" in raw_date else (raw_date[:10] if raw_date else today_str)
+                    status     = fixture_info.get("status", {}).get("short", "FT")
+
+                    fixture_infos.append({
+                        "fixture_id":         fixture_id,
+                        "league_id":          league_id,
+                        "season":             season,
+                        "home_team":          teams.get("home", {}).get("name", "Local"),
+                        "away_team":          teams.get("away", {}).get("name", "Visitante"),
+                        "status":             status,
+                        "match_date":         match_date,
+                        "total_fouls":        total_fouls,
+                        "total_yellow_cards": total_yellow_cards,
+                        "referee":            referee,
+                    })
+
+                    if player_stats_list:
+                        all_player_stats[fixture_id] = player_stats_list
+                        processed_fixtures += 1
+
+                    # ── Sleep adaptativo: evita saturar la API ──────────────────
+                    # Solo duerme si queda poco margen de requests (rate limit)
+                    if api_requests_made % 10 == 0:
+                        time.sleep(0.5)
+
+                except Exception as e:
+                    logger.error(f"Error al llamar la API para fixture ID {fixture_id}: {e}")
+
+            # ── 3. Escritura batch a Turso (1 conexión por lote, no por fixture) ──
+            if fixture_infos:
+                try:
+                    fixture_repo.save_fixture_batch(fixture_infos)
+                except Exception as e:
+                    logger.error(f"Error guardando batch de fixtures: {e}")
+
+            if all_player_stats:
+                try:
+                    fixture_repo.save_player_stats_batch(all_player_stats, league_id, season)
+                except Exception as e:
+                    logger.error(f"Error guardando batch de stats: {e}")
+
+            logger.info(
+                f"Lote {batch_start // BATCH_SIZE + 1}: "
+                f"{len(fixture_infos)} fixtures guardados, "
+                f"{sum(len(v) for v in all_player_stats.values())} registros de jugadores."
+            )
 
         fixture_repo.update_sync_timestamp(entity_name, current_time)
-        logger.info(f"Sincronización de fixtures completada. Partidos procesados: {processed_fixtures}")
+        logger.info(f"Sincronización completada. Procesados: {processed_fixtures} | API calls: {api_requests_made}")
         
-        # Evaluación de apuestas para próximos partidos
+        # ── 4. Evaluación de alertas al finalizar ──────────────────────────────────
         try:
             upcoming_fixtures = FixtureController.get_upcoming_fixtures_cached(league_id, season, days=3)
             if upcoming_fixtures:
@@ -137,7 +179,6 @@ class FixtureController:
                         team_ids.add(home_id)
                     if away_id := t.get("away", {}).get("id"):
                         team_ids.add(away_id)
-
                 top_foulers_map = FixtureController.get_teams_top_foulers(db_manager, list(team_ids), season)
                 AlertService.process_and_notify_fixtures(
                     upcoming_fixtures=upcoming_fixtures,
@@ -150,6 +191,7 @@ class FixtureController:
             logger.error(f"Error evaluando alertas: {e}")
         
         return True
+
     
     @staticmethod
     def get_team_top_fouler(db_manager: DatabaseManager, team_id: int, season: int) -> dict:

@@ -6,7 +6,6 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 
-# Configurar ruta raíz para importar módulos del proyecto
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(BASE_DIR))
 
@@ -14,10 +13,9 @@ from databases.connection import DatabaseManager
 
 
 def run_spark_feature_engineering():
-    print("🚀 Conectando a la base de datos (Turso)...")
+    print("🚀 Conectando a Turso para Feature Store de Duelos...")
     db_manager = DatabaseManager()
 
-    # 1. Extraer datos históricos de partidos
     query = """
         SELECT 
             pfs.fixture_id, pfs.player_id, pfs.player_name, pfs.team_id,
@@ -34,7 +32,7 @@ def run_spark_feature_engineering():
         rows = cursor.fetchall()
 
     if not rows:
-        print("⚠️ No hay registros en player_fixture_stats dentro de Turso.")
+        print("⚠️ No hay datos suficientes en player_fixture_stats.")
         return
 
     cols = [
@@ -43,44 +41,41 @@ def run_spark_feature_engineering():
         "league_id", "season", "match_date", "referee_name"
     ]
     df_raw = pd.DataFrame(rows, columns=cols)
-    print(f"📊 {len(df_raw)} registros cargados desde Turso. Inicializando motor PySpark...")
 
-    # 2. Inicializar sesión local de PySpark
     spark = SparkSession.builder \
-        .appName("FoulsRadarFeatureStore") \
+        .appName("FoulsRadarMatchupStore") \
         .config("spark.driver.memory", "2g") \
         .getOrCreate()
 
     sdf = spark.createDataFrame(df_raw)
 
-    # 3. Ventanas Móviles por Jugador (Últimos 5 partidos)
+    # Ventanas por Jugador: Faltas Cometidas (F90) y Provocadas (FD90)
     player_window_all = Window.partitionBy("player_id").orderBy("match_date")
     player_window_l5 = player_window_all.rowsBetween(-4, 0)
 
     sdf_features = sdf \
         .withColumn("f90_match", (F.col("fouls_committed") / F.col("minutes_played")) * 90.0) \
+        .withColumn("fd90_match", (F.col("fouls_drawn") / F.col("minutes_played")) * 90.0) \
         .withColumn("rolling_f90_l5", F.avg("f90_match").over(player_window_l5)) \
+        .withColumn("rolling_fd90_l5", F.avg("fd90_match").over(player_window_l5)) \
         .withColumn("total_matches_played", F.count("fixture_id").over(player_window_all))
 
-    # 4. Seleccionar la foto más reciente por jugador y temporada
-    latest_player_window = Window.partitionBy("player_id", "season").orderBy(F.col("match_date").desc())
+    # Tomar la última foto del jugador por temporada
+    latest_window = Window.partitionBy("player_id", "season").orderBy(F.col("match_date").desc())
 
     final_features = sdf_features \
-        .withColumn("rn", F.row_number().over(latest_player_window)) \
+        .withColumn("rn", F.row_number().over(latest_window)) \
         .filter(F.col("rn") == 1) \
         .select(
             "player_id", "player_name", "team_id", "league_id", "season",
             F.round("rolling_f90_l5", 2).alias("rolling_f90_l5"),
+            F.round("rolling_fd90_l5", 2).alias("rolling_fd90_l5"),
             "total_matches_played"
         )
 
-    # 5. Convertir a Pandas y cerrar PySpark
     df_result = final_features.toPandas()
     spark.stop()
 
-    print("💾 Guardando features procesadas en Turso (tabla: player_spark_features)...")
-
-    # Estructurar tuplas con tipos nativos
     records = [
         (
             int(r["player_id"]), 
@@ -89,6 +84,7 @@ def run_spark_feature_engineering():
             int(r["league_id"]), 
             int(r["season"]), 
             float(r["rolling_f90_l5"]),
+            float(r["rolling_fd90_l5"]),
             int(r["total_matches_played"])
         )
         for r in df_result.to_dict(orient="records")
@@ -99,7 +95,6 @@ def run_spark_feature_engineering():
     with db_manager.get_connection() as conn:
         cursor = conn.cursor()
 
-        # Crear tabla de destino en Turso si no existe y confirmar DDL
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS player_spark_features (
                 player_id INTEGER,
@@ -108,27 +103,35 @@ def run_spark_feature_engineering():
                 league_id INTEGER,
                 season INTEGER,
                 rolling_f90_l5 REAL,
+                rolling_fd90_l5 REAL,
                 total_matches_played INTEGER,
                 PRIMARY KEY (player_id, season)
             )
         """)
+        
+        # Migración defensiva por si la columna rolling_fd90_l5 no existía
+        try:
+            cursor.execute("ALTER TABLE player_spark_features ADD COLUMN rolling_fd90_l5 REAL DEFAULT 0.0")
+        except Exception:
+            pass
+
         conn.commit()
 
-        # Inserción en micro-lotes con confirmación explícita por lote
         for i in range(0, len(records), BATCH_SIZE):
             batch = records[i:i + BATCH_SIZE]
             cursor.executemany("""
                 INSERT INTO player_spark_features (
                     player_id, player_name, team_id, league_id, season,
-                    rolling_f90_l5, total_matches_played
-                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                    rolling_f90_l5, rolling_fd90_l5, total_matches_played
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(player_id, season) DO UPDATE SET
                     rolling_f90_l5 = excluded.rolling_f90_l5,
+                    rolling_fd90_l5 = excluded.rolling_fd90_l5,
                     total_matches_played = excluded.total_matches_played
             """, batch)
             conn.commit()
 
-    print(f"✅ ¡Pipeline de PySpark completado! ({len(records)} registros guardados exitosamente)")
+    print(f"✅ Feature Store de Duelos actualizada ({len(records)} jugadores procesados).")
 
 
 if __name__ == "__main__":

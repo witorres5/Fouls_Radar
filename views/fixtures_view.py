@@ -164,6 +164,18 @@ def render_fixtures_view(db_manager, league_id, season):
                         else:
                             st.write("Sin datos recientes en Spark.")
 
+                    # Duelos Directos de Alta Fricción (Matchups)
+                    st.markdown("##### ⚔️ Duelos Directos de Alta Fricción")
+                    if analysis.get("top_matchups"):
+                        for m in analysis["top_matchups"]:
+                            st.warning(
+                                f"🔥 **{m['committer']}** ({m['committer_side']} - {m['committer_f90']} F90) vs "
+                                f"**{m['drawer']}** ({m['drawer_side']} - {m['drawer_fd90']} FD90) | "
+                                f"**Índice de Fricción:** `{m['friction_index']}`"
+                            )
+                    else:
+                        st.info("Sin datos suficientes para calcular duelos de alta fricción.")
+
     else:
         st.info("Sin partidos en los próximos 3 días.")
 
