@@ -1,0 +1,48 @@
+Hola. Necesitamos realizar un refactoring y ajuste de reglas de negocio en el motor de predicción y alertas de FoulsRadar (Python / PySpark / Streamlit) basándonos en los resultados del análisis backtesting de 160 apuestas reales.
+
+A continuación se detallan las 4 modificaciones específicas que debes implementar en la base del código:
+
+---
+
+### 1. Desactivar el Mercado de Tarjetas Amarillas
+- **Justificación:** El mercado de "Más de 4.5 Tarjetas Amarillas" presentó un Win Rate de 46.88% y un ROI de -17.91%. La varianza arbitral afecta negativamente el rendimiento.
+- **Acción:** 
+  - Modifica `services/alert_service.py` (o la función responsable de generar y evaluar apuestas simuladas) para omitir por completo las reglas de generación de apuestas para tarjetas.
+  - Mantén activos **únicamente** los mercados de "Faltas Totales (Equipo/Partido)" y "Jugador (+0.5 Faltas)".
+
+---
+
+### 2. Filtro Estricto de Cuotas Mínimas (Odds Floor >= 1.50)
+- **Justificación:** Las cuotas bajas (@1.10 a @1.20) generaron pérdidas severas (-$83 USD en un solo día). En cuotas @1.10 se requiere una efectividad > 90.9% 
+para mantener valor, pero el acierto real fue del 66.7%.
+
+- **Acción:**
+  - En `utils/betting_engine.py` y `services/alert_service.py`, agrega una validación explícita para rechazar cualquier oportunidad de apuesta cuya cuota 
+  ofrecida o simulada sea menor a `1.50` (`min_odds >= 1.50`).
+  - Asegúrate de que las apuestas simuladas guardadas en `simulated_bets` respeten este umbral.
+
+---
+
+### 3. Calibración Empírica de Probabilidades Poisson
+- **Justificación:** Existe sobreconfianza en la Distribución de Poisson: probabilidades predichas del 95%-100% realmente aciertan un 73.1%, 
+mientras que el rango 80%-85% solo acierta un 41.9%.
+
+- **Acción:**
+  - En `utils/betting_engine.py` o `services/match_analysis_service.py`, implementa una función de calibración empírica/platt scaling para ajustar la probabilidad Poisson proyectada antes de calcular la cuota justa.
+  - Aplicar un mapeo de ajuste lineal/logístico aproximado:
+    * Si $P_{raw} \ge 95\% \rightarrow P_{calibrated} = P_{raw} \times 0.76$
+    * Si $90\% \le P_{raw} < 95\% \rightarrow P_{calibrated} = P_{raw} \times 0.70$
+    * Si $85\% \le P_{raw} < 90\% \rightarrow P_{calibrated} = P_{raw} \times 0.67$
+    * Si $P_{raw} < 85\% \rightarrow$ Descartar por bajo valor esperativo.
+
+---
+
+### 4. Filtro Configurable por Rendimiento de Ligas (Whitelist/Blacklist)
+- **Justificación:** La Liga BetPlay Colombia (Liga 239) tiene un ROI de +31.13% (77.4% acierto), mientras que el Brasileirão (Liga 71) y torneos continentales (Liga 2, Liga 13) presentan ROI negativo por alta rotación de nóminas.
+- **Acción:**
+  - En la configuración del sistema o en `controllers/fixture_controller.py`, agrega una lista configurable de ligas habilitadas para alertas automáticas (`ALLOWED_LEAGUES_FOR_ALERTS`).
+  - Por defecto, excluye temporalmente la Liga 71 (Brasileirão Serie A) e incluye las ligas de alto desempeño verificado (239, 140, 39, 73, 88).
+
+---
+
+Por favor revisa los archivos involucrados (`utils/betting_engine.py`, `services/alert_service.py`, `services/match_analysis_service.py`, `controllers/fixture_controller.py`), aplica los cambios manteniendo el código limpio, bien tipado e idempotente, y confirma cuando esté listo para pruebas.

@@ -10,3 +10,4 @@ requests-cache
 pytz
 pyspark
 scipy
+joblib

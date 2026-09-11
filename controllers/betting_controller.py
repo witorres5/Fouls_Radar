@@ -71,9 +71,9 @@ class BettingController:
             if away_id:
                 opp_drawn_per_90 = fixture_repo.get_team_drawn_fouls_avg(away_id, season) or 0.25
 
-            # Calcular probabilidades con ML + fallback analítico
+            # Calcular probabilidades de Faltas Totales con ML + fallback analítico
+            # (Mercado de Tarjetas Amarillas desactivado para optimizar ROI y reducir varianza)
             foul_line = round(league_avg_fouls) - 0.5
-            card_line = round(league_avg_cards) - 0.5
 
             fouls_prob, used_ml_fouls = BettingEngine.calculate_ml_over_probability(
                 fouls_per_90=league_avg_fouls,
@@ -84,25 +84,11 @@ class BettingController:
                 league_avg_fouls=league_avg_fouls,
                 expected_minutes=90,
             )
-            cards_prob, used_ml_cards = BettingEngine.calculate_ml_over_probability(
-                fouls_per_90=league_avg_cards,
-                threshold=card_line,
-                opp_drawn_per_90=opp_drawn_per_90,
-                referee_factor=cards_ref_factor,
-                is_home=1,
-                league_avg_fouls=league_avg_cards,
-                expected_minutes=90,
-            )
 
-            if fouls_prob >= 80.0 or cards_prob >= 80.0:
-                if fouls_prob >= cards_prob:
-                    market = f"Más de {foul_line} Faltas Totales"
-                    prob = fouls_prob
-                    used_ml = used_ml_fouls
-                else:
-                    market = f"Más de {card_line} Tarjetas Amarillas"
-                    prob = cards_prob
-                    used_ml = used_ml_cards
+            if fouls_prob >= 80.0:
+                market = f"Más de {foul_line} Faltas Totales"
+                prob = fouls_prob
+                used_ml = used_ml_fouls
                 
                 simulated_odds = BettingEngine.calculate_fair_odds(prob, bookmaker_margin=0.06)
 
@@ -122,6 +108,7 @@ class BettingController:
                 })
 
         return high_prob_picks
+
 
 
     @staticmethod

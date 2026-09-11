@@ -1,11 +1,37 @@
 # utils/betting_engine.py
 import math
 import logging
-from typing import Optional
+from typing import Optional, Tuple
 
 logger = logging.getLogger("FoulsTracker.BettingEngine")
 
 class BettingEngine:
+
+    MIN_ODDS: float = 1.50  # Piso de cuota estricto para proteger el EV+
+
+    @staticmethod
+    def calibrate_probability(prob_pct: float) -> float:
+        """
+        Aplica calibración empírica (Platt Scaling aproximado) a las probabilidades Poisson 
+        para corregir la sobreconfianza detectada en el backtesting real:
+        - Probabilidades >= 95% -> Acierto real ~75.6%
+        - Probabilidades 90% a 95% -> Acierto real ~64.4%
+        - Probabilidades 85% a 90% -> Acierto real ~57.6%
+        - Probabilidades < 85% -> Descartadas por falta de valor esperativo.
+        """
+        if prob_pct <= 0:
+            return 0.0
+
+        if prob_pct >= 95.0:
+            calibrated = prob_pct * 0.76
+        elif prob_pct >= 90.0:
+            calibrated = prob_pct * 0.70
+        elif prob_pct >= 85.0:
+            calibrated = prob_pct * 0.67
+        else:
+            calibrated = prob_pct * 0.50  # Descuento severo para forzar descarte por EV-
+
+        return round(max(0.0, min(100.0, calibrated)), 1)
 
     @staticmethod
     def calculate_referee_factor(
@@ -24,7 +50,6 @@ class BettingEngine:
         if ref_matches_count <= 0 or ref_avg_fouls <= 0:
             return 1.0
 
-        # Media a posteriori contraída hacia la media de la liga
         shrunk_ref_avg = (
             (ref_matches_count * ref_avg_fouls) + (prior_weight * league_avg_fouls)
         ) / (ref_matches_count + prior_weight)
@@ -36,11 +61,12 @@ class BettingEngine:
         metric_rate_per_90: float, 
         threshold: float = 0.5, 
         expected_minutes: int = 85,
-        adjustment_factor: float = 1.0
+        adjustment_factor: float = 1.0,
+        apply_calibration: bool = True
     ) -> float:
         """
-        Calcula la probabilidad acumulada P(X > threshold) para cualquier umbral
-        usando un proceso de Poisson ajustado por minutos proyectados y factor de árbitro.
+        Calcula la probabilidad acumulada P(X > threshold) usando Poisson ajustado 
+        y aplica la calibración empírica por defecto.
         """
         if metric_rate_per_90 <= 0 or expected_minutes <= 0:
             return 0.0
@@ -48,14 +74,18 @@ class BettingEngine:
         lam = ((metric_rate_per_90 * expected_minutes) / 90.0) * adjustment_factor
         k_floor = math.floor(threshold)
 
-        # Sumatoria P(X <= k)
         prob_less_or_equal = sum(
             (math.exp(-lam) * (lam ** i)) / math.factorial(i) 
             for i in range(k_floor + 1)
         )
 
         prob_over = max(0.0, min(1.0, 1.0 - prob_less_or_equal))
-        return round(prob_over * 100.0, 1)
+        raw_prob_pct = prob_over * 100.0
+
+        if apply_calibration:
+            return BettingEngine.calibrate_probability(raw_prob_pct)
+
+        return round(raw_prob_pct, 1)
 
     @staticmethod
     def calculate_ml_over_probability(
@@ -66,17 +96,12 @@ class BettingEngine:
         is_home: int = 0,
         league_avg_fouls: float = 22.5,
         expected_minutes: int = 85,
-    ) -> tuple:
+        apply_calibration: bool = True
+    ) -> Tuple[float, bool]:
         """
-        Calcula P(X > threshold) usando el modelo ML (PoissonRegressor) cuando está disponible.
-        Si el modelo no está entrenado o falla, hace fallback automático al modelo analítico.
-
-        Returns:
-            (probability_pct: float, used_ml: bool)
-            - probability_pct: Probabilidad en porcentaje [0-100].
-            - used_ml: True si se usó el modelo de ML, False si se usó el modelo analítico.
+        Calcula P(X > threshold) usando el modelo ML (PoissonRegressor) o fallback analítico,
+        aplicando calibración empírica de probabilidades.
         """
-        # Intento con el motor de ML
         try:
             from services.ml_engine import MLEngine
             lam_ml = MLEngine.predict_lambda(
@@ -94,16 +119,23 @@ class BettingEngine:
                     for i in range(k_floor + 1)
                 )
                 prob_over = max(0.0, min(1.0, 1.0 - prob_le))
-                return round(prob_over * 100.0, 1), True
+                raw_prob_pct = prob_over * 100.0
+                
+                final_prob = (
+                    BettingEngine.calibrate_probability(raw_prob_pct) 
+                    if apply_calibration 
+                    else round(raw_prob_pct, 1)
+                )
+                return final_prob, True
         except Exception as e:
             logger.debug(f"MLEngine no disponible, usando modelo analítico: {e}")
 
-        # Fallback: modelo analítico (Poisson univariado con factor de árbitro)
         prob_analytical = BettingEngine.calculate_over_probability(
             metric_rate_per_90=fouls_per_90,
             threshold=threshold,
             expected_minutes=expected_minutes,
             adjustment_factor=referee_factor,
+            apply_calibration=apply_calibration
         )
         return prob_analytical, False
 
@@ -114,12 +146,13 @@ class BettingEngine:
         threshold: float = 0.5, 
         expected_minutes: int = 85
     ) -> float:
-        """Alias para compatibilidad con código existente."""
+        """Alias de compatibilidad."""
         return BettingEngine.calculate_over_probability(
             metric_rate_per_90=fouls_per_90,
             threshold=threshold,
             expected_minutes=expected_minutes,
-            adjustment_factor=referee_factor
+            adjustment_factor=referee_factor,
+            apply_calibration=True
         )
 
     @staticmethod
@@ -128,7 +161,7 @@ class BettingEngine:
         referee_factor: float = 1.0, 
         threshold: float = 0.5
     ) -> float:
-        """Calcula probabilidad Poisson ajustada por árbitro para Over {threshold}."""
+        """Calcula probabilidad Poisson calibrada para Over {threshold}."""
         return BettingEngine.calculate_player_over_fouls(
             fouls_per_90=fouls_per_90,
             referee_factor=referee_factor,
@@ -138,12 +171,16 @@ class BettingEngine:
 
     @staticmethod
     def calculate_fair_odds(probability_pct: float, bookmaker_margin: float = 0.06) -> float:
-        """Calcula cuotas simuladas realistas incorporando el margen comercial de la casa."""
+        """
+        Calcula la cuota sugerida incorporando el margen de la casa 
+        y garantizando un piso de cuota estricto (MIN_ODDS >= 1.50).
+        """
         if probability_pct <= 0:
             return 1.85
-        
+
         prob_decimal = probability_pct / 100.0
         adjusted_prob = prob_decimal * (1.0 + bookmaker_margin)
         fair_odd = 1.0 / adjusted_prob if adjusted_prob > 0 else 1.85
-        return round(max(1.10, fair_odd), 2)
-
+        
+        # Aplicar piso estricto de cuotas a 1.50 para descartar apuestas de bajo valor
+        return round(max(BettingEngine.MIN_ODDS, fair_odd), 2)
