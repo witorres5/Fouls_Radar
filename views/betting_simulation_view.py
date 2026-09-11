@@ -31,13 +31,25 @@ def render_betting_simulation_view(db_manager, league_id, season):
             st.warning("No hay suficientes partidos próximos que cumplan el filtro de >80% de probabilidad en este momento.")
 
     with tab2:
-        st.markdown("#### Historial de Apuestas Simuladas")
+        col_head, col_eval = st.columns([3, 1.5])
+        with col_head:
+            st.markdown("#### Historial de Apuestas Simuladas")
+        with col_eval:
+            if st.button("⚡ Evaluar Pendientes", key="btn_eval_sims", use_container_width=True):
+                with st.spinner("Evaluando pronósticos pendientes con resultados de partidos..."):
+                    res = BettingController.evaluate_pending_bets(db_manager, league_id, season)
+                if res.get("evaluated", 0) > 0:
+                    st.success(f"✅ ¡{res['evaluated']} pronósticos evaluados! (Ganados: {res['won']} | Perdidos: {res['lost']})")
+                    st.rerun()
+                else:
+                    st.info("No hay pronósticos con partidos finalizados pendientes de evaluar.")
+
         df_history = BettingController.get_history_df(db_manager, league_id, season)
 
         if not df_history.empty:
             st.dataframe(df_history, use_container_width=True)
             
-            # Botón de exportación a CSV (Punto 3)
+            # Botón de exportación a CSV
             csv_data = df_history.to_csv(index=False).encode('utf-8')
             st.download_button(
                 label="📥 Exportar Historial en CSV",
@@ -46,4 +58,4 @@ def render_betting_simulation_view(db_manager, league_id, season):
                 mime="text/csv"
             )
         else:
-            st.info("Aún no tienes apuestas simuladas registradas.")
+            st.info("Aún no tienes apuestas simuladas registradas.")

@@ -137,89 +137,176 @@ class BettingController:
 
     @staticmethod
     def get_history_df(db_manager, league_id: int, season: int) -> pd.DataFrame:
+        """Obtiene el historial de apuestas evaluando primero cualquier pendiente con resultado disponible."""
+        BettingController.evaluate_pending_bets(db_manager, league_id, season)
         repo = BettingRepository(db_manager)
         return repo.get_simulated_bets(league_id, season)
 
     @staticmethod
-    def evaluate_pending_bets(db_manager, league_id: int, season: int, today_str: str):
-        """Evalúa las apuestas pendientes con soporte exacto de fixture_id y parsing seguro."""
-        pending_bets = BettingRepository.get_pending_bets_by_date(db_manager, league_id, season, today_str)
+    def evaluate_pending_bets(
+        db_manager, 
+        league_id: Optional[int] = None, 
+        season: Optional[int] = None, 
+        today_str: Optional[str] = None
+    ) -> dict:
+        """
+        Evalúa y liquida todas las apuestas pendientes para partidos que ya han finalizado.
+        
+        Mejoras estructurales:
+          1. Sin restricción de fecha: evalúa todas las apuestas pendientes con resultados disponibles.
+          2. Clasificación universal de mercados (Partido vs Jugador, Faltas vs Tarjetas, Over vs Under).
+          3. Manejo de jugadores ausentes / suplentes (DNP): si el partido ya terminó y tiene estadísticas,
+             el jugador registra 0 faltas y la apuesta se liquida justamente.
+          4. Autocorrección de fixture_id si no estaba guardado en la apuesta.
+          5. Liquidación de partidos cancelados/anulados como 'ANULADA'.
+        """
+        pending_bets = BettingRepository.get_all_pending_bets(db_manager, league_id, season)
         if not pending_bets:
-            logger.debug(f"No hay apuestas pendientes para evaluar en fecha {today_str}.")
-            return
+            logger.debug("No hay apuestas pendientes para evaluar.")
+            return {"evaluated": 0, "won": 0, "lost": 0, "void": 0}
+
+        evaluated_count = 0
+        won_count = 0
+        lost_count = 0
+        void_count = 0
 
         for bet in pending_bets:
             bet_id = bet[0]
             match_name = bet[1]
             market = bet[2]
-            fixture_id_db = bet[3] if len(bet) > 3 else None
+            fixture_id_db = bet[3]
+            b_league = bet[4] if len(bet) > 4 else league_id
+            b_season = bet[5] if len(bet) > 5 else season
 
+            # 1. Obtener resultado del partido
             fixture = BettingRepository.get_fixture_result(
-                db_manager, match_name, league_id, season, fixture_id=fixture_id_db
+                db_manager, match_name, b_league, b_season, fixture_id=fixture_id_db
             )
             if not fixture:
                 continue
 
             fixture_id, status, total_fouls, total_yellow_cards = fixture
 
-            if status in ["FT", "Match Finished", "AET", "PEN"]:
-                won = None
-                market_lower = market.lower()
-                
-                # Extraer números de la línea evitando confundir con números del nombre
-                # Busca patrones de línea como +0.5, -1.5, 22.5
-                line_match = re.search(r"([+-]?\d+(?:\.\d+)?)", market)
+            # Backfill del fixture_id si estaba vacío
+            if fixture_id and not fixture_id_db:
+                try:
+                    BettingRepository.update_bet_fixture_id(db_manager, bet_id, fixture_id)
+                except Exception:
+                    pass
+
+            status_upper = (status or "").upper().strip()
+
+            # 2. Manejo de partidos cancelados o abandonados
+            if status_upper in ["CANC", "ABD", "AWD", "WO", "CANCELLED", "ABANDONED", "PST", "POSTPONED"]:
+                if status_upper in ["CANC", "ABD", "AWD", "WO", "CANCELLED", "ABANDONED"]:
+                    BettingRepository.update_bet_status(db_manager, bet_id, "ANULADA")
+                    void_count += 1
+                    evaluated_count += 1
+                    logger.info(f"Apuesta ID {bet_id} ({match_name}) marcada como ANULADA por partido cancelado/abandonado.")
+                continue
+
+            # 3. Evaluación de partidos finalizados
+            if status_upper in ["FT", "MATCH FINISHED", "AET", "PEN"]:
+                market_clean = market.strip()
+                market_lower = market_clean.lower()
+
+                # Dirección: Under vs Over
+                is_under = bool(re.search(r'\b(menos|under|<)\b', market_lower) or market_clean.startswith("-"))
+
+                # Extraer línea numérica precisa (ej. +0.5, >22.5, 3.5)
+                line_match = re.search(r'(?:más de|menos de|over|under|[><+-])\s*(\d+(?:\.\d+)?)', market_lower)
+                if not line_match:
+                    line_match = re.search(r'\b(\d+\.\d+)\b', market_lower) or re.search(r'\b(\d+)\b', market_lower)
+
                 if not line_match:
                     logger.warning(f"No se encontró línea numérica en mercado '{market}' (Bet ID: {bet_id}).")
                     continue
 
                 line_value = float(line_match.group(1))
-                is_under = "menos" in market_lower or "under" in market_lower
+                is_card_market = any(w in market_lower for w in ["tarjeta", "card", "amarilla", "yellow"])
 
-                is_global_fouls = "faltas totales" in market_lower or "total fouls" in market_lower
-                is_global_cards = "tarjetas amarillas" in market_lower or "yellow cards" in market_lower
+                # Detectar si es mercado de JUGADOR o de PARTIDO
+                target_player = None
+                if "(" in market_clean and ")" in market_clean:
+                    p1 = market_clean[:market_clean.find("(")].strip()
+                    p2 = market_clean[market_clean.find("(")+1:market_clean.find(")")].strip()
+                    if any(w in p2.lower() for w in ["falta", "foul", "tarjeta", "card", "+", "-", "over", "under", "más", "menos"]):
+                        target_player = p1
+                    elif any(w in p1.lower() for w in ["falta", "foul", "tarjeta", "card", "+", "-", "over", "under", "más", "menos"]):
+                        target_player = p2
+                elif " - " in market_clean:
+                    parts = market_clean.split(" - ")
+                    if any(w in parts[1].lower() for w in ["falta", "foul", "tarjeta", "card", "+", "-", "over", "under", "más", "menos"]):
+                        target_player = parts[0].strip()
+                    elif any(w in parts[0].lower() for w in ["falta", "foul", "tarjeta", "card", "+", "-", "over", "under", "más", "menos"]):
+                        target_player = parts[1].strip()
 
-                if is_global_fouls or is_global_cards:
-                    if is_global_fouls:
-                        actual_fouls = total_fouls or 0
-                        won = actual_fouls < line_value if is_under else actual_fouls > line_value
-                    elif is_global_cards:
-                        actual_cards = total_yellow_cards or 0
-                        won = actual_cards < line_value if is_under else actual_cards > line_value
-                else:
-                    # Extraer nombre del jugador
-                    if "(" in market:
-                        target_player = market.split("(")[0].strip()
-                    elif "-" in market:
-                        target_player = market.split("-")[0].strip()
-                    else:
-                        target_player = market.strip()
+                won = None
 
+                if target_player:
+                    # EVALUACIÓN DE JUGADOR
                     player_stats = BettingRepository.get_player_stats_by_fixture(
                         db_manager, fixture_id, target_player
                     )
+                    
+                    if player_stats is None:
+                        # Si no hay stats en BD para este fixture, intentar sincronizarlas on-demand desde la API
+                        has_stats = BettingRepository.fixture_has_player_stats(db_manager, fixture_id)
+                        if not has_stats:
+                            try:
+                                from services.api_service import APIFootballService
+                                api_service = APIFootballService()
+                                player_stats_map = api_service.get_fixture_player_stats(fixture_id)
+                                if player_stats_map:
+                                    raw_stats = [
+                                        (
+                                            fixture_id, pid, str(p.get("player_name", "")).strip(), p.get("team_id"),
+                                            int(p.get("minutes_played") or 0), int(p.get("fouls_committed") or 0),
+                                            int(p.get("fouls_drawn") or 0), int(p.get("yellow_cards") or 0), int(p.get("red_cards") or 0)
+                                        )
+                                        for pid, p in player_stats_map.items() if isinstance(p, dict)
+                                    ]
+                                    BettingRepository.save_player_fixture_stats(db_manager, raw_stats)
+                                    has_stats = True
+                                    # Reintentar búsqueda de estadísticas con los datos frescos
+                                    player_stats = BettingRepository.get_player_stats_by_fixture(
+                                        db_manager, fixture_id, target_player
+                                    )
+                            except Exception as sync_err:
+                                logger.debug(f"Error sincronizando stats on-demand para fixture {fixture_id}: {sync_err}")
 
-                    if player_stats:
-                        player_fouls = player_stats.get("fouls_committed", 0)
-                        player_cards = player_stats.get("yellow_cards", 0)
-
-                        if "tarjeta" in market_lower or "card" in market_lower:
-                            won = player_cards < line_value if is_under else player_cards > line_value
-                        else:
-                            won = player_fouls < line_value if is_under else player_fouls > line_value
+                    if player_stats is not None:
+                        actual_val = player_stats.get("yellow_cards", 0) if is_card_market else player_stats.get("fouls_committed", 0)
+                        won = (actual_val < line_value) if is_under else (actual_val > line_value)
                     else:
-                        logger.debug(f"Sin estadísticas de fixture aún para jugador '{target_player}' en fixture {fixture_id}.")
-                        continue
+                        # Si el partido está FT y ya se descargaron o verificaron las estadísticas del encuentro:
+                        # El jugador no cometió faltas (jugó 0 min, suplente o 0 faltas registradas)
+                        actual_val = 0
+                        won = (actual_val < line_value) if is_under else (actual_val > line_value)
+                else:
+                    # EVALUACIÓN DE PARTIDO COMPLETO
+                    actual_val = (total_yellow_cards or 0) if is_card_market else (total_fouls or 0)
+                    won = (actual_val < line_value) if is_under else (actual_val > line_value)
+
 
                 if won is not None:
                     new_status = "GANADA" if won else "PERDIDA"
                     BettingRepository.update_bet_status(db_manager, bet_id, new_status)
-                    logger.info(f"Apuesta ID {bet_id} ({market}) actualizada a {new_status}.")
+                    evaluated_count += 1
+                    if won:
+                        won_count += 1
+                    else:
+                        lost_count += 1
+                    logger.info(f"Apuesta ID {bet_id} ({match_name} | {market}) actualizada a {new_status}.")
+
+        return {"evaluated": evaluated_count, "won": won_count, "lost": lost_count, "void": void_count}
 
     @staticmethod
     def get_performance_metrics(db_manager, league_id: int, season: int) -> dict:
         """Calcula las métricas de rendimiento financiero y backtesting."""
+        BettingController.evaluate_pending_bets(db_manager, league_id, season)
         df = BettingRepository.get_evaluated_bets(db_manager, league_id, season)
+
 
         if df.empty:
             return {"has_data": False}

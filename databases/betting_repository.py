@@ -80,24 +80,41 @@ class BettingRepository:
         return pd.DataFrame()
 
     @staticmethod
-    def get_pending_bets_by_date(db_manager: DatabaseManager, league_id: int, season: int, today_str: str) -> list:
-        """Obtiene las apuestas pendientes para la fecha actual o general."""
+    def get_all_pending_bets(db_manager: DatabaseManager, league_id: Optional[int] = None, season: Optional[int] = None) -> list:
+        """
+        Obtiene TODAS las apuestas con estado 'PENDIENTE' sin restringir por fecha,
+        permitiendo evaluar partidos jugados en cualquier fecha pasada o reciente.
+        """
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            query = """
-                SELECT id, match_name, market, fixture_id
+            conditions = ["status = 'PENDIENTE'"]
+            params = []
+
+            if league_id is not None:
+                conditions.append("league_id = ?")
+                params.append(league_id)
+            if season is not None:
+                conditions.append("season = ?")
+                params.append(season)
+
+            where_clause = " AND ".join(conditions)
+            query = f"""
+                SELECT id, match_name, market, fixture_id, league_id, season, match_date
                 FROM simulated_bets 
-                WHERE status = 'PENDIENTE' 
-                  AND league_id = ? 
-                  AND season = ?
-                  AND (match_date LIKE ? OR match_date IS NULL OR match_date = '')
+                WHERE {where_clause}
+                ORDER BY match_date ASC, id ASC
             """
-            cursor.execute(query, (league_id, season, f'%{today_str}%'))
+            cursor.execute(query, tuple(params))
             return cursor.fetchall()
 
     @staticmethod
+    def get_pending_bets_by_date(db_manager: DatabaseManager, league_id: int, season: int, today_str: Optional[str] = None) -> list:
+        """Alias compatible que delega en get_all_pending_bets para evitar que apuestas queden atrapadas."""
+        return BettingRepository.get_all_pending_bets(db_manager, league_id, season)
+
+    @staticmethod
     def get_fixture_result(db_manager: DatabaseManager, match_name: str, league_id: int, season: int, fixture_id: Optional[int] = None):
-        """Busca el resultado del partido por fixture_id o coincidencia de nombres."""
+        """Busca el resultado del partido por fixture_id o coincidencia flexible de nombres."""
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
             
@@ -112,19 +129,38 @@ class BettingRepository:
                 if res:
                     return res
 
-            teams = match_name.split(" vs ") if " vs " in match_name else match_name.split(" - ")
+            # Limpieza y búsqueda por nombres de equipos
+            clean_name = match_name.replace(" - ", " vs ")
+            teams = clean_name.split(" vs ")
             if len(teams) == 2:
-                home_part, away_part = f"%{teams[0].strip()}%", f"%{teams[1].strip()}%"
+                home_raw, away_raw = teams[0].strip(), teams[1].strip()
+                # Quitar prefijos/sufijos comunes para maximizar match
+                strip_words = ["FC", "CF", "SC", "CD", "AC", "Club", "Atlético", "Atletico", "Real", "Deportivo"]
+                home_core = home_raw
+                away_core = away_raw
+                for w in strip_words:
+                    home_core = home_core.replace(w, "").strip()
+                    away_core = away_core.replace(w, "").strip()
+                
                 query = """
                     SELECT fixture_id, status, total_fouls, total_yellow_cards 
                     FROM match_fixtures 
                     WHERE league_id = ? 
                       AND season = ? 
-                      AND UPPER(home_team) LIKE UPPER(?)
-                      AND UPPER(away_team) LIKE UPPER(?)
+                      AND (
+                          (UPPER(home_team) LIKE UPPER(?) AND UPPER(away_team) LIKE UPPER(?))
+                          OR (UPPER(home_team) LIKE UPPER(?) AND UPPER(away_team) LIKE UPPER(?))
+                      )
                     LIMIT 1;
                 """
-                cursor.execute(query, (league_id, season, home_part, away_part))
+                cursor.execute(query, (
+                    league_id, season,
+                    f"%{home_raw}%", f"%{away_raw}%",
+                    f"%{home_core}%", f"%{away_core}%"
+                ))
+                res = cursor.fetchone()
+                if res:
+                    return res
             else:
                 query = """
                     SELECT fixture_id, status, total_fouls, total_yellow_cards 
@@ -135,8 +171,18 @@ class BettingRepository:
                     LIMIT 1;
                 """
                 cursor.execute(query, (league_id, season, f"%{match_name.strip()}%"))
+                res = cursor.fetchone()
+                if res:
+                    return res
                 
-            return cursor.fetchone()
+            return None
+
+    @staticmethod
+    def update_bet_fixture_id(db_manager: DatabaseManager, bet_id: int, fixture_id: int):
+        """Asocia el fixture_id exacto a una apuesta para acelerar evaluaciones futuras."""
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("UPDATE simulated_bets SET fixture_id = ? WHERE id = ?", (fixture_id, bet_id))
 
     @staticmethod
     def update_bet_status(db_manager: DatabaseManager, bet_id: int, new_status: str):
@@ -145,6 +191,16 @@ class BettingRepository:
             cursor.execute("""
                 UPDATE simulated_bets SET status = ? WHERE id = ?
             """, (new_status, bet_id))
+
+    @staticmethod
+    def fixture_has_player_stats(db_manager: DatabaseManager, fixture_id: int) -> bool:
+        """Verifica si un fixture ya tiene estadísticas individuales de jugadores registradas."""
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM player_fixture_stats WHERE fixture_id = ?", (fixture_id,))
+            row = cursor.fetchone()
+            return bool(row and row[0] > 0)
+
 
     @staticmethod
     def get_evaluated_bets(db_manager: DatabaseManager, league_id: int, season: int) -> pd.DataFrame:
@@ -191,42 +247,54 @@ class BettingRepository:
 
     @staticmethod
     def get_player_stats_by_fixture(db_manager: DatabaseManager, fixture_id: int, player_name: str) -> Optional[dict]:
-        """Obtiene las estadísticas de un jugador en un fixture."""
+        """
+        Obtiene las estadísticas de un jugador en un fixture con soporte para
+        nombres abreviados ('N. Kanté'), acentos ('Muñoz' vs 'Munoz') y búsquedas por apellido.
+        """
+        import unicodedata
+        
+        def strip_accents(s: str) -> str:
+            return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
+
+        clean_name = player_name.strip()
+        norm_name = strip_accents(clean_name).lower()
+
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            clean_name = player_name.strip()
-
+            
+            # 1. Búsqueda directa exacta/LIKE
             cursor.execute("""
-                SELECT 
-                    COALESCE(fouls_committed, 0) AS fouls_committed, 
-                    COALESCE(yellow_cards, 0) AS yellow_cards
+                SELECT player_name, COALESCE(fouls_committed, 0), COALESCE(yellow_cards, 0)
                 FROM player_fixture_stats
-                WHERE fixture_id = ? 
-                  AND UPPER(player_name) LIKE UPPER(?)
-                LIMIT 1
-            """, (fixture_id, f"%{clean_name}%"))
-            row = cursor.fetchone()
+                WHERE fixture_id = ?
+            """, (fixture_id,))
+            rows = cursor.fetchall()
+            
+            if not rows:
+                return None
 
-            if not row and ("." in clean_name or " " in clean_name):
-                surname = clean_name.split()[-1].replace(".", "").strip()
-                if len(surname) > 2:
-                    cursor.execute("""
-                        SELECT 
-                            COALESCE(fouls_committed, 0) AS fouls_committed, 
-                            COALESCE(yellow_cards, 0) AS yellow_cards
-                        FROM player_fixture_stats
-                        WHERE fixture_id = ? 
-                          AND UPPER(player_name) LIKE UPPER(?)
-                        LIMIT 1
-                    """, (fixture_id, f"%{surname}%"))
-                    row = cursor.fetchone()
+            # 2. Match exacto o por contención en memoria (quitando acentos y mayúsculas)
+            for r in rows:
+                db_pname = r[0] or ""
+                db_norm = strip_accents(db_pname).lower()
+                
+                # Match directo o subcadena
+                if norm_name in db_norm or db_norm in norm_name:
+                    return {"fouls_committed": r[1], "yellow_cards": r[2]}
 
-            if row:
-                return {
-                    "fouls_committed": row[0],
-                    "yellow_cards": row[1]
-                }
+            # 3. Match por apellido o palabras significativas (>= 3 letras)
+            # Ej: "N. Kanté" -> "kante", "Marc Bernal" -> "bernal", "V. Muñoz" -> "munoz"
+            words = [w.replace(".", "").replace("'", "").strip() for w in norm_name.split() if len(w.replace(".", "").strip()) >= 3]
+            if words:
+                # Priorizar la última palabra (apellido)
+                for w in reversed(words):
+                    for r in rows:
+                        db_norm = strip_accents(r[0] or "").lower()
+                        if w in db_norm:
+                            return {"fouls_committed": r[1], "yellow_cards": r[2]}
+
             return None
+
 
     @staticmethod
     def save_player_fixture_stats(db_manager: DatabaseManager, stats_list: list):

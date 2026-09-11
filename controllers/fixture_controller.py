@@ -189,8 +189,21 @@ class FixtureController:
                 )
         except Exception as e:
             logger.error(f"Error evaluando alertas: {e}")
+
+        # ── 5. Evaluación y liquidación de apuestas pendientes ─────────────────────
+        try:
+            from controllers.betting_controller import BettingController
+            eval_res = BettingController.evaluate_pending_bets(db_manager, league_id, season)
+            if eval_res.get("evaluated", 0) > 0:
+                logger.info(
+                    f"Apuestas liquidadas tras sincronización: {eval_res['evaluated']} "
+                    f"(Ganadas: {eval_res['won']}, Perdidas: {eval_res['lost']})"
+                )
+        except Exception as e:
+            logger.error(f"Error evaluando apuestas pendientes tras sincronización: {e}")
         
         return True
+
 
     
     @staticmethod
