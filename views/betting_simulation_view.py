@@ -1,34 +1,57 @@
 # views/betting_simulation_view.py
 import streamlit as st
 from controllers.betting_controller import BettingController
+from components.futuristic_ui import render_hologram_pick_card
 
 def render_betting_simulation_view(db_manager, league_id, season):
-    st.markdown("### 🤖 Módulo de Apuestas Simuladas (Alta Probabilidad >80%)")
-    st.info("Este módulo analiza el comportamiento arbitral y el volumen de faltas para sugerir pronósticos automatizados de alta confianza.")
+    st.markdown("""
+    <div style="margin-bottom: 16px;">
+        <h3 style="margin: 0; color: #00F5FF; font-family: 'Space Grotesk', sans-serif;">
+            🤖 SIMULADOR CUÁNTICO // PICKS DE ALTA CONFIANZA (&gt;80%)
+        </h3>
+        <p style="color: #8B949E; margin-top: 4px; font-size: 0.9rem;">
+            Motor probabilístico multidimensional que analiza rigurosidad arbitral, perfiles F90 y fricción de equipo.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-    tab1, tab2 = st.tabs(["💡 Picks Sugeridos (>80%)", "📊 Historial de Simulaciones"])
+    tab1, tab2 = st.tabs(["💡 PICKS DETECTADOS (&gt;80%)", "📊 HISTORIAL & LIQUIDACIONES"])
 
     with tab1:
-        st.markdown("#### Oportencias Detectadas para las Próximas Jornadas")
+        st.markdown("##### ⚡ Oportunidades Identificadas para las Próximas Jornadas")
         picks = BettingController.get_high_probability_bets(db_manager, league_id, season)
 
         if picks:
+            from databases.betting_repository import BettingRepository
+            betting_repo = BettingRepository(db_manager)
+
             for idx, pick in enumerate(picks):
-                with st.container(border=True):
-                    col1, col2, col3 = st.columns([2, 2, 1])
-                    with col1:
-                        st.markdown(f"**⚽ {pick['match_name']}**")
-                        st.caption(f"👤 Árbitro: {pick['referee']}")
-                    with col2:
-                        st.markdown(f"🎯 **Mercado:** {pick['market']}")
-                        st.markdown(f"🔥 **Probabilidad:** :green[**{pick['probability']}%**]")
-                    with col3:
-                        st.markdown(f"📈 **Cuota:** {pick['odds']}")
-                        if st.button("Simular Apuesta", key=f"sim_btn_{idx}Y"):
-                            BettingController.save_simulation(db_manager, pick)
-                            st.success("¡Apuesta guardada en el historial!")
+                col_card, col_action = st.columns([4, 1.2])
+                with col_card:
+                    render_hologram_pick_card(
+                        match_name=pick['match_name'],
+                        referee=pick['referee'],
+                        market=pick['market'],
+                        probability=pick['probability'],
+                        odds=pick['odds'],
+                        model_used=pick.get('model_used', '🤖 ML (PoissonRegressor)')
+                    )
+                with col_action:
+                    st.write("")
+                    st.write("")
+                    is_already_saved = betting_repo.exists_bet(league_id, season, pick['match_name'], pick['market'])
+                    if is_already_saved:
+                        st.button("✅ En Historial", key=f"sim_btn_{idx}Y", disabled=True, use_container_width=True)
+                    else:
+                        if st.button("💾 Simular", key=f"sim_btn_{idx}Y", use_container_width=True):
+                            with st.spinner("Registrando pronóstico en el historial..."):
+                                BettingController.save_simulation(db_manager, pick)
+                            st.toast(f"✅ ¡Pronóstico registrado para {pick['match_name']}!", icon="🎯")
+                            st.rerun()
         else:
-            st.warning("No hay suficientes partidos próximos que cumplan el filtro de >80% de probabilidad en este momento.")
+            st.warning("📡 No hay partidos próximos en los siguientes 3 días que superen el umbral de >80% de probabilidad.")
+
+
 
     with tab2:
         col_head, col_eval = st.columns([3, 1.5])
