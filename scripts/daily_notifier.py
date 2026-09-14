@@ -33,7 +33,7 @@ def main():
             TelegramNotifier.send_alert(message)
             logging.info("✅ Notificación enviada a Telegram con éxito.")
         else:
-            logging.info("ℹ️ Sin apuestas pendientes de prob >= 90% para el día de hoy.")
+            logging.info("ℹ️ Sin apuestas pendientes de prob >= 70% para el día de hoy.")
 
     except Exception as e:
         logging.error(f"❌ Error en el proceso de notificación: {e}")

@@ -18,7 +18,7 @@ def send_daily_report_and_alerts():
     with db_manager.get_connection() as conn:
         cursor = conn.cursor()
         
-        # 1. Alerta de Alta Probabilidad (>= 90%) no notificadas
+        # 1. Alerta de Alta Probabilidad (>= 70%) no notificadas
         cursor.execute("""
             SELECT match_name, market, probability, odds, referee 
             FROM simulated_bets 
@@ -34,7 +34,7 @@ def send_daily_report_and_alerts():
             referee = row[4] if len(row) > 4 else "Árbitro no asignado"
 
             msg = (
-                f"🚨 *¡ALERTA DE ALTA CONFIABILIDAD (≥90%)!* 🚨\n\n"
+                f"🚨 *¡ALERTA DE ALTA CONFIABILIDAD (≥70%)!* 🚨\n\n"
                 f"⚽ *Partido:* {match}\n"
                 f"👤 *Árbitro:* {referee}\n"
                 f"🎯 *Mercado:* {market}\n"

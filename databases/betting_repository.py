@@ -225,7 +225,7 @@ class BettingRepository:
 
     @staticmethod
     def get_high_prob_pending_bets_today(db_manager: DatabaseManager, today_str: str) -> list:
-        """Obtiene las apuestas pendientes de hoy con probabilidad >= 90%."""
+        """Obtiene las apuestas pendientes de hoy con probabilidad >= 70%."""
         with db_manager.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
@@ -240,7 +240,7 @@ class BettingRepository:
                 FROM simulated_bets
                 WHERE notified_telegram = 0 AND status = 'PENDIENTE' 
                   AND (match_date LIKE ? OR match_date IS NULL)
-                  AND probability >= 90.0
+                  AND probability >= 70.0
                 ORDER BY probability DESC
             """, (f"%{today_str}%",))
             return cursor.fetchall()

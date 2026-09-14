@@ -88,7 +88,7 @@ class AlertService:
             
             for side, player, prob in candidates:
                 # Al estar calibrada la probabilidad, una probabilidad >= 65.0% representa
-                # un jugador top de alto valor (equivalente a >90% sin calibrar)
+                # un jugador top de alto valor (equivalente a >70% sin calibrar)
                 if prob >= 65.0:
                     p_name = player.get("name")
                     f90 = player.get("fouls_per_90", 0.0)

@@ -337,7 +337,7 @@ class BettingController:
         if not bets:
             return None
 
-        message = f"🚨 **APUESTAS PENDIENTES DEL DÍA (Probabilidad ≥ 90%)** 🚨\n"
+        message = f"🚨 **APUESTAS PENDIENTES DEL DÍA (Probabilidad ≥ 70%)** 🚨\n"
         message += f"📅 Fecha: {today_str}\n"
         message += f"📊 Total encontradas: {len(bets)}\n\n"
 
