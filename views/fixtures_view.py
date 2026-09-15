@@ -9,16 +9,23 @@ from services.parlay_service import ParlayService
 from utils.betting_engine import BettingEngine
 
 
-def render_daily_parlay_card(db_manager, selected_league_id: int):
-    """Muestra la tarjeta interactiva con la propuesta de Parlay Diario (Max 3 por liga)."""
+def render_daily_parlay_card(db_manager, selected_league_id: int, season: int):
+    """Muestra la tarjeta interactiva con la propuesta de Parlay Diario Híbrido (Faltas + Goles Over 2.5)."""
     today_str = datetime.now().strftime("%Y-%m-%d")
     repo = FixtureRepository(db_manager)
 
-    # Obtener picks candidates y construir parlay mediante ParlayService
+    # 1. Obtener candidatos de Faltas
     picks = repo.get_top_daily_picks_by_league(selected_league_id, today_str, limit=3)
-    parlay = ParlayService.build_daily_league_parlay(picks)
+    
+    # 2. Obtener candidatos de Goles
+    goals_picks = []
+    if hasattr(repo, "get_top_daily_goals_picks_by_league"):
+        goals_picks = repo.get_top_daily_goals_picks_by_league(selected_league_id, today_str, season, limit=2)
 
-    with st.expander("🎯 **Parlay Sugerido del Día (Top 3 por Liga)**", expanded=True):
+    # 3. Construir parlay híbrido
+    parlay = ParlayService.build_daily_league_parlay(picks, goals_picks=goals_picks)
+
+    with st.expander("🎯 **Parlay Sugerido del Día (Top Híbrido por Liga)**", expanded=True):
         if not parlay or not parlay.get("legs"):
             st.info("ℹ️ No hay suficiente volumen de partidos o selecciones con valor EV+ suficientes para armar un parlay hoy en esta liga.")
             return
@@ -83,7 +90,7 @@ def render_fixtures_view(db_manager, league_id, season):
             st.rerun()
 
     # 2. Visualización Destacada del Parlay del Día
-    render_daily_parlay_card(db_manager, league_id)
+    render_daily_parlay_card(db_manager, league_id, season)
 
     st.markdown("### 📅 Próximos 3 Días")
 
@@ -188,13 +195,25 @@ def render_fixtures_view(db_manager, league_id, season):
                             referee_name=referee
                         )
 
+                        # Cálculo de probabilidad Over 2.5 Goles para el encuentro
+                        home_gf, home_gc = 1.2, 1.1
+                        away_gf, away_gc = 1.1, 1.2
+                        if hasattr(fixture_repo, "get_team_goals_averages"):
+                            home_gf, home_gc = fixture_repo.get_team_goals_averages(home.get("id"), season)
+                            away_gf, away_gc = fixture_repo.get_team_goals_averages(away.get("id"), season)
+
+                        lambda_home = (home_gf + away_gc) / 2.0
+                        lambda_away = (away_gf + home_gc) / 2.0
+                        prob_over25 = BettingEngine.calculate_over25_goals_probability(lambda_home, lambda_away)
+
                     st.markdown("#### 📊 Proyección Cuantitativa del Encuentro")
 
-                    k1, k2, k3, k4 = st.columns(4)
+                    k1, k2, k3, k4, k5 = st.columns(5)
                     k1.metric("Faltas Esperadas", f"{analysis['expected_fouls']}")
                     k2.metric("Mercado Sugerido", f"{analysis['recommended_market']}")
-                    k3.metric("Probabilidad Modelo", f"{analysis['line_probability']}%")
-                    k4.metric("Cuota Mínima EV", f"@{analysis['min_odd']}")
+                    k3.metric("Probabilidad Faltas", f"{analysis['line_probability']}%")
+                    k4.metric("Prob. Over 2.5 Goles", f"{prob_over25}%")
+                    k5.metric("Cuota Mínima EV", f"@{analysis['min_odd']}")
 
                     col_h, col_a = st.columns(2)
                     with col_h:
