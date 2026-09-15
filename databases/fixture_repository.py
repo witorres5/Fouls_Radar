@@ -511,3 +511,21 @@ class FixtureRepository:
                     break
                     
             return picks
+
+
+    def get_team_goals_averages(self, team_id: int, season: int) -> Tuple[float, float]:
+        """Calcula el promedio de goles anotados y encajados por partido de un equipo."""
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT 
+                    AVG(CASE WHEN pfs.team_id = ? THEN pfs.goals_scored ELSE 0 END) as gf,
+                    AVG(CASE WHEN pfs.team_id != ? THEN pfs.goals_scored ELSE 0 END) as gc
+                FROM player_fixture_stats pfs
+                JOIN match_fixtures mf ON pfs.fixture_id = mf.fixture_id
+                WHERE mf.season = ? AND mf.status IN ('FT', 'AET', 'PEN')
+            """, (team_id, team_id, season))
+            row = cursor.fetchone()
+            gf = float(row[0]) if (row and row[0] is not None) else 1.2
+            gc = float(row[1]) if (row and row[1] is not None) else 1.1
+            return round(gf, 2), round(gc, 2)
