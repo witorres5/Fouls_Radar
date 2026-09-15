@@ -460,3 +460,49 @@ class FixtureRepository:
             """, (min_minutes,))
             row = cursor.fetchone()
             return int(row[0]) if row else 0
+
+    def get_top_daily_picks_by_league(self, league_id: int, today_str: str, limit: int = 3) -> List[dict]:
+        """Obtiene las mejores N selecciones de hoy para una liga específica ordenadas por Faltas/90 o probabilidad."""
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            query = """
+                SELECT 
+                    mf.fixture_id,
+                    mf.home_team,
+                    mf.away_team,
+                    mf.match_date,
+                    mf.referee_name,
+                    p.player_id,
+                    p.player_name,
+                    p.fouls_per_90
+                FROM match_fixtures mf
+                JOIN players p ON (p.team_id = mf.home_team_id OR p.team_id = mf.away_team_id)
+                WHERE mf.league_id = ? 
+                  AND DATE(mf.match_date) = DATE(?)
+                  AND mf.status IN ('NS', 'TBD')
+                  AND p.fouls_per_90 >= 1.8
+                ORDER BY p.fouls_per_90 DESC
+            """
+            cursor.execute(query, (league_id, today_str))
+            rows = cursor.fetchall()
+            
+            # Formatear candidatos (evitando duplicar partido si hay varios jugadores destacados)
+            seen_fixtures = set()
+            picks = []
+            for r in rows:
+                fix_id = r[0]
+                if fix_id in seen_fixtures:
+                    continue
+                seen_fixtures.add(fix_id)
+                
+                picks.append({
+                    "fixture_id": fix_id,
+                    "match": f"{r[1]} vs {r[2]}",
+                    "player": r[6],
+                    "fouls_per_90": r[7],
+                    "referee": r[4]
+                })
+                if len(picks) == limit:
+                    break
+                    
+            return picks
