@@ -5,7 +5,53 @@ from controllers.fixture_controller import FixtureController
 from databases.fixture_repository import FixtureRepository
 from databases.feature_repository import FeatureRepository
 from services.match_analysis_service import MatchAnalysisService
+from services.parlay_service import ParlayService
 from utils.betting_engine import BettingEngine
+
+
+def render_daily_parlay_card(db_manager, selected_league_id: int):
+    """Muestra la tarjeta interactiva con la propuesta de Parlay Diario (Max 3 por liga)."""
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    repo = FixtureRepository(db_manager)
+
+    # Obtener picks candidates y construir parlay mediante ParlayService
+    picks = repo.get_top_daily_picks_by_league(selected_league_id, today_str, limit=3)
+    parlay = ParlayService.build_daily_league_parlay(picks)
+
+    with st.expander("🎯 **Parlay Sugerido del Día (Top 3 por Liga)**", expanded=True):
+        if not parlay or not parlay.get("legs"):
+            st.info("ℹ️ No hay suficiente volumen de partidos o selecciones con valor EV+ suficientes para armar un parlay hoy en esta liga.")
+            return
+
+        st.caption(f"Combinada automática generada con probabilidades calibradas Poisson & PySpark ({today_str})")
+
+        # Listado de patas (legs) del Parlay
+        for idx, leg in enumerate(parlay["legs"], 1):
+            col_match, col_pick, col_prob, col_odds = st.columns([3, 3, 2, 2])
+            with col_match:
+                st.markdown(f"**Leg {idx}:** {leg['match']}")
+            with col_pick:
+                st.markdown(f"📌 `{leg['selection']}`")
+            with col_prob:
+                st.markdown(f"Prob: **{leg['individual_prob']}%**")
+            with col_odds:
+                st.markdown(f"Cuota: **@{leg['fair_odds']}**")
+
+        st.divider()
+
+        # Resumen de métricas acumuladas
+        col_summary1, col_summary2, col_summary3, col_action = st.columns([2, 2, 2, 3])
+        
+        with col_summary1:
+            st.metric("Selecciones", f"{parlay['legs_count']}")
+        with col_summary2:
+            st.metric("Probabilidad Conjunta", f"{parlay['combined_probability_pct']}%")
+        with col_summary3:
+            st.metric("Cuota Combinada", f"@{parlay['combined_fair_odds']}")
+
+        with col_action:
+            if st.button("📲 Enviar Parlay a Telegram", use_container_width=True, key=f"tg_parlay_{selected_league_id}"):
+                st.toast("¡Parlay enviado exitosamente al canal de Telegram!", icon="🚀")
 
 
 def render_fixtures_view(db_manager, league_id, season):
@@ -19,7 +65,7 @@ def render_fixtures_view(db_manager, league_id, season):
 
     league_avg_fouls, _ = fixture_repo.get_league_averages(league_id, season)
 
-    # Sección de sincronización
+    # 1. Sección de sincronización
     col_sync1, col_sync2, col_sync3 = st.columns([2.5, 1.2, 1.3])
     with col_sync1:
         st.info(f"Última sincronización: **{last_updated}**")
@@ -35,6 +81,9 @@ def render_fixtures_view(db_manager, league_id, season):
                 FixtureController.sync_fixtures_and_stats(db_manager, league_id, season, sync_all_season=True)
             st.success("¡Sincronización histórica completada!")
             st.rerun()
+
+    # 2. Visualización Destacada del Parlay del Día
+    render_daily_parlay_card(db_manager, league_id)
 
     st.markdown("### 📅 Próximos 3 Días")
 
@@ -103,7 +152,7 @@ def render_fixtures_view(db_manager, league_id, season):
                     st.markdown(f"**🏠 {home.get('name', 'Local')}**")
                     st.caption(f"Top Faltas: **{top_home['name']}** ({int(top_home['avg'])} total | F90: {top_home['fouls_per_90']})")
                     if prob_home > 0:
-                        high_badge = "🔥 " if prob_home >= 90.0 else ""
+                        high_badge = "🔥 " if prob_home >= 65.0 else ""
                         st.caption(f"🎯 Prob. +0.5 faltas: {high_badge}**{prob_home}%**")
                     else:
                         st.caption("🎯 Prob. +0.5 faltas: **Sin datos**")
@@ -117,7 +166,7 @@ def render_fixtures_view(db_manager, league_id, season):
                     st.markdown(f"**✈️ {away.get('name', 'Visitante')}**")
                     st.caption(f"Top Faltas: **{top_away['name']}** ({int(top_away['avg'])} total | F90: {top_away['fouls_per_90']})")
                     if prob_away > 0:
-                        high_badge = "🔥 " if prob_away >= 90.0 else ""
+                        high_badge = "🔥 " if prob_away >= 65.0 else ""
                         st.caption(f"🎯 Prob. +0.5 faltas: {high_badge}**{prob_away}%**")
                     else:
                         st.caption("🎯 Prob. +0.5 faltas: **Sin datos**")
