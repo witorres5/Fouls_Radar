@@ -217,3 +217,34 @@ class BettingEngine:
             calibrated = prob_pct * 0.50
 
         return round(max(0.0, min(100.0, calibrated)), 1)
+
+    @staticmethod
+    def calculate_poisson_pmf(k: int, lambd: float) -> float:
+        """Calcula la función de masa de probabilidad de Poisson para k eventos."""
+        if lambd <= 0:
+            return 0.0
+        return (math.pow(lambd, k) * math.exp(-lambd)) / math.factorial(k)
+
+    @classmethod
+    def calculate_over25_goals_probability(cls, home_lambda: float, away_lambda: float) -> float:
+        """
+        Calcula la probabilidad exacta de que un partido tenga 3 o más goles (Over 2.5)
+        dadas las tasas de xG / goles esperados de cada equipo.
+        """
+        if home_lambda <= 0 or away_lambda <= 0:
+            return 0.0
+
+        # Suma de probabilidades de los marcadores con <= 2 goles:
+        # (0-0, 1-0, 0-1, 1-1, 2-0, 0-2)
+        under_25_prob = 0.0
+        for home_goals in range(3):
+            for away_goals in range(3 - home_goals):
+                p_home = cls.calculate_poisson_pmf(home_goals, home_lambda)
+                p_away = cls.calculate_poisson_pmf(away_goals, away_lambda)
+                under_25_prob += (p_home * p_away)
+
+        raw_over_prob = (1.0 - under_25_prob) * 100.0
+
+        # Calibración Platt Scaling para Goles
+        calibrated_prob = cls.calibrate_probability(raw_over_prob)
+        return round(calibrated_prob, 2)
