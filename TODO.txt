@@ -1,26 +1,6 @@
 Hola. Necesitamos realizar un refactoring y ajuste de reglas de negocio en el motor de predicción y alertas de FoulsRadar (Python / PySpark / Streamlit) basándonos en los resultados del análisis backtesting de 160 apuestas reales.
 
-A continuación se detallan las 4 modificaciones específicas que debes implementar en la base del código:
-
----
-
-### 1. Desactivar el Mercado de Tarjetas Amarillas
-- **Justificación:** El mercado de "Más de 4.5 Tarjetas Amarillas" presentó un Win Rate de 46.88% y un ROI de -17.91%. La varianza arbitral afecta negativamente el rendimiento.
-- **Acción:** 
-  - Modifica `services/alert_service.py` (o la función responsable de generar y evaluar apuestas simuladas) para omitir por completo las reglas de generación de apuestas para tarjetas.
-  - Mantén activos **únicamente** los mercados de "Faltas Totales (Equipo/Partido)" y "Jugador (+0.5 Faltas)".
-
----
-
-### 2. Filtro Estricto de Cuotas Mínimas (Odds Floor >= 1.50)
-- **Justificación:** Las cuotas bajas (@1.10 a @1.20) generaron pérdidas severas (-$83 USD en un solo día). En cuotas @1.10 se requiere una efectividad > 90.9% 
-para mantener valor, pero el acierto real fue del 66.7%.
-
-- **Acción:**
-  - En `utils/betting_engine.py` y `services/alert_service.py`, agrega una validación explícita para rechazar cualquier oportunidad de apuesta cuya cuota 
-  ofrecida o simulada sea menor a `1.50` (`min_odds >= 1.50`).
-  - Asegúrate de que las apuestas simuladas guardadas en `simulated_bets` respeten este umbral.
-
+A continuación se detallan las 2 modificaciones específicas que debes implementar en la base del código:
 ---
 
 ### 3. Calibración Empírica de Probabilidades Poisson

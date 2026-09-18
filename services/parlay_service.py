@@ -1,125 +1,119 @@
 # services/parlay_service.py
 import logging
-import math
 from typing import List, Dict, Optional
 from utils.betting_engine import BettingEngine
 
 logger = logging.getLogger("FoulsRadar.ParlayService")
 
+
 class ParlayService:
+    """Constructor único de parlay diario híbrido (Faltas + Over 2.5 Goles)."""
+
+    MAX_LEGS = 3
 
     @staticmethod
     def build_daily_league_parlay(
-        picks: List[dict], 
-        target_market: str = "Over 1.5 Faltas"
+        picks: List[dict],
+        goals_picks: Optional[List[dict]] = None,
+        target_market: str = "Over 0.5 Faltas",
+        fouls_line: float = 0.5,
+        min_prob_threshold: float = 52.0,
+        max_legs: int = 3,
     ) -> Optional[dict]:
         """
-        Construye un parlay combinando entre 1 y 3 selecciones de una misma liga.
-        Calcula la probabilidad acumulada y la cuota justa esperada.
+        Construye una combinada 1-3 legs con piso flexible EV+.
+
+        - `picks`: dicts con {match, player, fouls_per_90, referee?, referee_factor?,
+          expected_minutes?}. Prob Over `fouls_line` vía Poisson (raw) + 1 sola calibración.
+        - `goals_picks`: dicts con {match, home_xg, away_xg}. Prob Over 2.5 ya calibrada.
+        - `min_prob_threshold`: piso dinámico 52-65%. Default 52.0 para garantizar
+          generación en días con cuotas ajustadas.
         """
-        if not picks:
+        if not picks and not goals_picks:
             return None
 
-        legs = []
+        legs: List[Dict] = []
         combined_prob = 1.0
         combined_odds = 1.0
 
-        for item in picks:
-            # 1. Probabilidad individual calibrada (usando Poisson / Platt Scaler)
-            raw_prob = BettingEngine.calculate_over_probability(
-                metric_rate_per_90=item["fouls_per_90"],
-                target_line=1.5
-            )
-            calibrated_prob = BettingEngine.calibrate_probability(raw_prob)
-            
-            # Filtro de calidad (solo entra si pasa el floor ajustado)
-            if calibrated_prob < 65.0:
+        # 1. Picks de faltas (jugador Over X.5)
+        for item in (picks or []):
+            try:
+                f90 = float(item.get("fouls_per_90", 0.0) or 0.0)
+            except (TypeError, ValueError):
+                continue
+            if f90 <= 0:
                 continue
 
-            prob_decimal = calibrated_prob / 100.0
-            fair_odds = round(1.0 / prob_decimal, 2) if prob_decimal > 0 else 1.0
+            referee_factor = float(item.get("referee_factor", 1.0) or 1.0)
+            expected_minutes = int(item.get("expected_minutes", 85) or 85)
 
-            combined_prob *= prob_decimal
+            # Raw sin calibrar + UNA sola calibración (evita doble descuento).
+            raw_prob = BettingEngine.calculate_over_probability(
+                metric_rate_per_90=f90,
+                threshold=fouls_line,
+                expected_minutes=expected_minutes,
+                adjustment_factor=referee_factor,
+                apply_calibration=False,
+            )
+            calibrated_prob = BettingEngine.calibrate_probability(raw_prob)
+
+            if calibrated_prob < min_prob_threshold:
+                continue
+
+            prob_dec = calibrated_prob / 100.0
+            fair_odds = BettingEngine.calculate_fair_odds(calibrated_prob)
+            combined_prob *= prob_dec
             combined_odds *= fair_odds
 
             legs.append({
-                "match": item["match"],
-                "selection": f"{item['player']} - {target_market}",
-                "individual_prob": calibrated_prob,
-                "fair_odds": fair_odds
+                "match": item.get("match", "N/D"),
+                "selection": f"{item.get('player', 'N/D')} - {target_market}",
+                "individual_prob": round(calibrated_prob, 1),
+                "fair_odds": fair_odds,
             })
+            if len(legs) >= max_legs:
+                break
 
-        if not legs:
-            return None
+        # 2. Picks de goles (partido Over 2.5, ya calibrado internamente)
+        if goals_picks and len(legs) < max_legs:
+            for g in goals_picks:
+                try:
+                    home_lambda = float(g.get("home_xg", 0.0) or 0.0)
+                    away_lambda = float(g.get("away_xg", 0.0) or 0.0)
+                except (TypeError, ValueError):
+                    continue
+                if home_lambda <= 0 or away_lambda <= 0:
+                    continue
 
-        final_parlay_prob = round(combined_prob * 100.0, 2)
-        final_parlay_odds = round(combined_odds, 2)
+                prob = BettingEngine.calculate_over25_goals_probability(
+                    home_lambda, away_lambda
+                )
+                if prob < min_prob_threshold:
+                    continue
 
-        return {
-            "legs_count": len(legs),
-            "legs": legs,
-            "combined_probability_pct": final_parlay_prob,
-            "combined_fair_odds": final_parlay_odds,
-            "expected_value_flag": "EV+" if final_parlay_odds >= 1.50 else "NEUTRAL"
-        }
-
-    @staticmethod
-    def build_daily_league_parlay(picks: list, goals_picks: list = None) -> dict:
-        """
-        Construye una combinada diaria integrando selecciones de Faltas 
-        y Mercado Over 2.5 Goles si superan el umbral EV+ (65%).
-        """
-        legs = []
-        combined_prob = 1.0
-        combined_odds = 1.0
-
-        # 1. Procesar Picks de Faltas
-        for item in picks:
-            raw_prob = BettingEngine.calculate_over_probability(
-                metric_rate_per_90=item["fouls_per_90"], threshold=0.5
-            )
-            calibrated_prob = BettingEngine.calibrate_probability(raw_prob)
-
-            if calibrated_prob >= 65.0:
-                prob_dec = calibrated_prob / 100.0
-                fair_odds = round(1.0 / prob_dec, 2)
+                prob_dec = prob / 100.0
+                fair_odds = BettingEngine.calculate_fair_odds(prob)
                 combined_prob *= prob_dec
                 combined_odds *= fair_odds
 
                 legs.append({
-                    "match": item["match"],
-                    "selection": f"{item['player']} - Over 1.5 Faltas",
-                    "individual_prob": calibrated_prob,
-                    "fair_odds": fair_odds
+                    "match": g.get("match", "N/D"),
+                    "selection": "Partido - Over 2.5 Goles",
+                    "individual_prob": round(prob, 1),
+                    "fair_odds": fair_odds,
                 })
-
-        # 2. Procesar Picks de Goles (Over 2.5)
-        if goals_picks:
-            for g in goals_picks:
-                prob = BettingEngine.calculate_over25_goals_probability(
-                    home_lambda=g["home_xg"], away_lambda=g["away_xg"]
-                )
-
-                if prob >= 60.0:  # Umbral ajustado para Over 2.5
-                    prob_dec = prob / 100.0
-                    fair_odds = round(1.0 / prob_dec, 2)
-                    combined_prob *= prob_dec
-                    combined_odds *= fair_odds
-
-                    legs.append({
-                        "match": g["match"],
-                        "selection": "Partido - Over 2.5 Goles",
-                        "individual_prob": prob,
-                        "fair_odds": fair_odds
-                    })
+                if len(legs) >= max_legs:
+                    break
 
         if not legs:
             return None
 
+        legs = legs[:max_legs]
         return {
             "legs_count": len(legs),
             "legs": legs,
             "combined_probability_pct": round(combined_prob * 100.0, 2),
             "combined_fair_odds": round(combined_odds, 2),
-            "expected_value_flag": "EV+" if combined_odds >= 1.50 else "NEUTRAL"
+            "expected_value_flag": "EV+" if combined_odds >= 1.50 else "NEUTRAL",
         }

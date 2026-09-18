@@ -7,6 +7,7 @@
 .github
 .test/
 old/
+.opencode_context.md
 
 # --- BASES DE DATOS LOCALES ---
 # Ya migraste a Turso, no subas la DB local

@@ -1,68 +1,55 @@
 # jobs/retrain_feedback_loop.py
+"""
+Bucle de Retroalimentación: reentrena el calibrador Platt (Platt Scaling) con
+los resultados reales de `simulated_bets` (GANADA/PERDIDA).
+
+Delega toda la lógica en `services/calibration_service.CalibrationService`;
+este archivo queda como punto de entrada para cron / tareas programadas.
+
+Uso:  py jobs/retrain_feedback_loop.py [--c 1.0] [--min-samples 30]
+"""
 import sys
+import argparse
 import logging
+
 from pathlib import Path
-import numpy as np
-import pandas as pd
-from sklearn.linear_model import LogisticRegression
-import joblib
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.append(str(BASE_DIR))
+if str(BASE_DIR) not in sys.path:
+    sys.path.append(str(BASE_DIR))
 
 from databases.connection import DatabaseManager
+from services.calibration_service import CalibrationService, MIN_SAMPLES
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("FoulsRadar.FeedbackLoop")
 
-MODEL_DIR = BASE_DIR / "models"
-MODEL_DIR.mkdir(exist_ok=True)
-CALIBRATOR_PATH = MODEL_DIR / "platt_scaler.joblib"
 
-
-def run_feedback_calibration():
+def run_feedback_calibration(C: float = 1.0, min_samples: int = MIN_SAMPLES):
     logger.info("🔄 Iniciando Bucle de Retroalimentación desde 'simulated_bets'...")
     db_manager = DatabaseManager()
 
-    query = """
-        SELECT probability, status 
-        FROM simulated_bets 
-        WHERE status IN ('GANADA', 'PERDIDA')
-    """
+    result = CalibrationService.train(db_manager, C=C)
 
-    with db_manager.get_connection() as conn:
-        df = pd.read_sql_query(query, conn)
+    if not result["success"]:
+        logger.warning(
+            f"⚠️ {result.get('message', 'No se pudo reentrenar la calibración.')} "
+            f"Se requieren mínimo {min_samples} apuestas resueltas."
+        )
+        return result
 
-    if len(df) < 30:
-        logger.warning(f"⚠️ Muestra insuficiente ({len(df)} apuestas resueltas). Se requieren mínimo 30 para reentrenar calibración.")
-        return
-
-    # Convertir a target binario (GANADA = 1, PERDIDA = 0)
-    df["target"] = (df["status"] == "GANADA").astype(int)
-    
-    # Transformar probabilidad a Log-Odds (Logit) para el escalador Platt
-    probs = np.clip(df["probability"].values / 100.0, 1e-4, 1.0 - 1e-4)
-    logits = np.log(probs / (1.0 - probs)).reshape(-1, 1)
-    y = df["target"].values
-
-    # Entrenar modelo de calibración sobre los errores cometidos
-    calibrator = LogisticRegression(C=1.0, solver="lbfgs")
-    calibrator.fit(logits, y)
-
-    # Evaluar desempeño del ajuste
-    calibrated_probs = calibrator.predict_proba(logits)[:, 1] * 100.0
-    win_rate_real = (y.sum() / len(y)) * 100.0
-    avg_pred_old = df["probability"].mean()
-    avg_pred_new = calibrated_probs.mean()
-
-    logger.info(f"📊 Apuestas analizadas: {len(df)}")
-    logger.info(f"🎯 Win Rate real histórico: {win_rate_real:.2f}%")
-    logger.info(f"📉 Probabilidad promedio anterior: {avg_pred_old:.2f}% -> Nueva calibrada: {avg_pred_new:.2f}%")
-
-    # Guardar el calibrador actualizado
-    joblib.dump(calibrator, CALIBRATOR_PATH)
-    logger.info(f"✅ Calibrador dinámico actualizado en '{CALIBRATOR_PATH}'.")
+    logger.info("📊 Apuestas analizadas: %d", result["n_samples"])
+    logger.info("🎯 Win Rate real histórico: %.2f%%", result["win_rate_real"])
+    logger.info("📉 Prob. promedio anterior: %.2f%% -> Nueva calibrada: %.2f%%",
+                result["avg_pred_old"], result["avg_pred_new"])
+    logger.info("🎯 Brier Score: %.4f (más cercano a 0 = mejor)", result["brier"])
+    logger.info("✅ Calibrador dinámico actualizado en '%s'.", result["model_path"])
+    return result
 
 
 if __name__ == "__main__":
-    run_feedback_calibration()
+    parser = argparse.ArgumentParser(description="Reentrenar calibrador Platt.")
+    parser.add_argument("--c", type=float, default=1.0, help="Regularización C (default: 1.0)")
+    parser.add_argument("--min-samples", type=int, default=MIN_SAMPLES, help="Muestras mínimas (default: 30)")
+    args = parser.parse_args()
+    run_feedback_calibration(C=args.c, min_samples=args.min_samples)

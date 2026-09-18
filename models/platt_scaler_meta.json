@@ -1,0 +1,36 @@
+{
+  "n_samples": 229,
+  "win_rate_real": 56.33,
+  "avg_pred_old": 88.89,
+  "avg_pred_new": 56.33,
+  "brier": 0.2452,
+  "C": 1.0,
+  "trained_at": "2026-09-18 16:10:30",
+  "deciles": [
+    {
+      "range_predicted": 53.2,
+      "actual_win_rate": 54.3,
+      "samples": 46
+    },
+    {
+      "range_predicted": 54.4,
+      "actual_win_rate": 52.2,
+      "samples": 46
+    },
+    {
+      "range_predicted": 55.9,
+      "actual_win_rate": 54.5,
+      "samples": 44
+    },
+    {
+      "range_predicted": 57.4,
+      "actual_win_rate": 55.3,
+      "samples": 47
+    },
+    {
+      "range_predicted": 60.8,
+      "actual_win_rate": 65.2,
+      "samples": 46
+    }
+  ]
+}

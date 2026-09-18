@@ -375,3 +375,25 @@ class BettingController:
             return MLEngine.get_model_info()
         except Exception as e:
             return {"available": False, "message": str(e)}
+
+    @staticmethod
+    def train_calibrator(db_manager, C: float = 1.0, max_iter: int = 1000) -> dict:
+        """
+        Entrena el calibrador Platt (Platt Scaling) con apuestas evaluadas
+        (GANADA/PERDIDA). Retorna métricas: success, n_samples, brier, win_rate.
+        """
+        try:
+            from services.calibration_service import CalibrationService
+            return CalibrationService.train(db_manager, C=C, max_iter=max_iter)
+        except Exception as e:
+            logger.error(f"Error entrenando calibrador Platt: {e}")
+            return {"success": False, "message": str(e), "n_samples": 0}
+
+    @staticmethod
+    def get_calibrator_info() -> dict:
+        """Retorna el estado actual del calibrador Platt (disponibilidad y métricas)."""
+        try:
+            from services.calibration_service import CalibrationService
+            return CalibrationService.get_model_info()
+        except Exception as e:
+            return {"available": False, "message": str(e)}

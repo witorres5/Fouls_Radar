@@ -6,33 +6,13 @@ from pathlib import Path
 
 logger = logging.getLogger("FoulsTracker.BettingEngine")
 
+# Ruta única del calibrador Platt (entrenado en services/calibration_service.py).
+# La ruta apunta a models/platt_scaler.joblib; el servicio hace mkdir si falta.
+CALIBRATOR_PATH = Path(__file__).resolve().parent.parent / "models" / "platt_scaler.joblib"
+
 class BettingEngine:
 
     MIN_ODDS: float = 1.50  # Piso de cuota estricto para proteger el EV+
-
-    @staticmethod
-    def calibrate_probability(prob_pct: float) -> float:
-        """
-        Aplica calibración empírica (Platt Scaling aproximado) a las probabilidades Poisson 
-        para corregir la sobreconfianza detectada en el backtesting real:
-        - Probabilidades >= 95% -> Acierto real ~75.6%
-        - Probabilidades 90% a 95% -> Acierto real ~64.4%
-        - Probabilidades 85% a 90% -> Acierto real ~57.6%
-        - Probabilidades < 85% -> Descartadas por falta de valor esperativo.
-        """
-        if prob_pct <= 0:
-            return 0.0
-
-        if prob_pct >= 95.0:
-            calibrated = prob_pct * 0.76
-        elif prob_pct >= 90.0:
-            calibrated = prob_pct * 0.70
-        elif prob_pct >= 85.0:
-            calibrated = prob_pct * 0.67
-        else:
-            calibrated = prob_pct * 0.50  # Descuento severo para forzar descarte por EV-
-
-        return round(max(0.0, min(100.0, calibrated)), 1)
 
     @staticmethod
     def calculate_referee_factor(
@@ -187,26 +167,16 @@ class BettingEngine:
         return round(max(BettingEngine.MIN_ODDS, fair_odd), 2)
     
     @staticmethod
-    def calibrate_probability(prob_pct: float) -> float:
-        """Aplica el calibrador entrenado con apuestas reales si existe, o fallback a descuento empírico."""
+    def _empirical_calibration(prob_pct: float) -> float:
+        """Calibración empírica de backtesting (espacio 'publicado' de la plataforma).
+
+        - Probabilidades >= 95% -> x0.76 (Acierto real ~75.6%)
+        - Probabilidades 90% a 95% -> x0.70 (Acierto real ~64.4%)
+        - Probabilidades 85% a 90% -> x0.67 (Acierto real ~57.6%)
+        - Probabilidades < 85% -> x0.50 (descartadas por valor esperativo)
+        """
         if prob_pct <= 0:
             return 0.0
-
-        scaler_path = Path(__file__).resolve().parent.parent / "models" / "platt_scaler.joblib"
-
-        if scaler_path.exists():
-            try:
-                import joblib
-                import numpy as np
-                calibrator = joblib.load(scaler_path)
-                p_dec = np.clip(prob_pct / 100.0, 1e-4, 1.0 - 1e-4)
-                logit = np.array([[np.log(p_dec / (1.0 - p_dec))]])
-                calibrated_pct = calibrator.predict_proba(logit)[0, 1] * 100.0
-                return round(max(0.0, min(100.0, calibrated_pct)), 1)
-            except Exception as e:
-                logger.debug(f"Error aplicando calibrador guardado: {e}")
-
-        # Fallback si aún no hay suficiente historial para entrenar el calibrador
         if prob_pct >= 95.0:
             calibrated = prob_pct * 0.76
         elif prob_pct >= 90.0:
@@ -215,8 +185,42 @@ class BettingEngine:
             calibrated = prob_pct * 0.67
         else:
             calibrated = prob_pct * 0.50
-
         return round(max(0.0, min(100.0, calibrated)), 1)
+
+    @staticmethod
+    def calibrate_probability(prob_pct: float) -> float:
+        """
+        Calibración única en cadena, autoconsistente con el dataset de entrenamiento:
+
+          1. `_empirical_calibration(prob_pct)` -> probabilidad 'publicada' (el mismo
+             valor que quedó guardado en `simulated_bets.probability` históricamente).
+          2. Si existe `models/platt_scaler.joblib`, se aplica LogisticRegression sobre
+             logit(publicada) -> probabilidad calibrada con datos reales de resultados
+             (GANADA/PERDIDA). Si no existe el archivo, se devuelve la empírica.
+
+        NOTA: los motores (`calculate_over_probability`, `calculate_over25_goals_probability`)
+        ya invocan esta función internamente. No recalibrar su salida (evita doble descuento).
+        """
+        if prob_pct <= 0:
+            return 0.0
+
+        published_pct = BettingEngine._empirical_calibration(prob_pct)
+        if published_pct <= 0:
+            return 0.0
+
+        if CALIBRATOR_PATH.exists():
+            try:
+                import joblib
+                import numpy as np
+                calibrator = joblib.load(CALIBRATOR_PATH)
+                p_dec = np.clip(published_pct / 100.0, 1e-4, 1.0 - 1e-4)
+                logit = np.array([[np.log(p_dec / (1.0 - p_dec))]])
+                calibrated_pct = calibrator.predict_proba(logit)[0, 1] * 100.0
+                return round(max(0.0, min(100.0, calibrated_pct)), 1)
+            except Exception as e:
+                logger.debug(f"Error aplicando calibrador guardado: {e}")
+
+        return published_pct
 
     @staticmethod
     def calculate_poisson_pmf(k: int, lambd: float) -> float:

@@ -92,4 +92,47 @@ def render_backtesting_dashboard(db_manager, league_id, season):
         st.dataframe(
             df[['match_date', 'match_name', 'market', 'probability', 'odds', 'status', 'profit']], 
             use_container_width=True
-        )
+        )
+
+    # 5. Panel de Calibración Platt (Bucle de Retroalimentación)
+    st.markdown("---")
+    st.markdown("##### 🎚️ Calibración Platt Scaling (Retroalimentación Real)")
+    cal_info = BettingController.get_calibrator_info()
+
+    if cal_info.get("available"):
+        st.caption(
+            f"Entrenado: **{cal_info.get('trained_at', cal_info.get('last_modified'))}** "
+            f"| Muestras: **{cal_info.get('n_samples', 0)}** "
+            f"| Win Rate real: **{cal_info.get('win_rate_real', 0)}%** "
+            f"| Brier: **{cal_info.get('brier', 0)}**"
+        )
+        cur_col, btn_col = st.columns([2, 1])
+        with cur_col:
+            st.caption(f"Prob. promedio antes: {cal_info.get('avg_pred_old')}% → nueva: {cal_info.get('avg_pred_new')}%")
+        with btn_col:
+            if st.button("♻️ Reentrenar Calibrador", use_container_width=True, key="btn_retrain_calibrator"):
+                with st.spinner("Entrenando calibrador con resultados reales..."):
+                    r = BettingController.train_calibrator(db_manager)
+                if r.get("success"):
+                    st.success(f"Calibrador actualizado: {r['n_samples']} muestras | Brier {r['brier']}")
+                    st.rerun()
+                else:
+                    st.warning(r.get("message", "No se pudo reentrenar."))
+    else:
+        est_col, btn_col = st.columns([2, 1])
+        with est_col:
+            st.info(f"⚙️ Calibrador no entrenado. Se activa con apuestas evaluadas ({cal_info.get('message', '')})")
+        with btn_col:
+            if st.button("🎯 Entrenar Calibrador", use_container_width=True, key="btn_train_calibrator"):
+                with st.spinner("Entrenando calibrador Platt..."):
+                    r = BettingController.train_calibrator(db_manager)
+                if r.get("success"):
+                    st.success(f"Calibrador entrenado: {r['n_samples']} muestras | Win rate {r['win_rate_real']}% | Brier {r['brier']}")
+                    st.rerun()
+                else:
+                    st.error(r.get("message", "No se pudo entrenar el calibrador."))
+
+    deciles = cal_info.get("deciles")
+    if cal_info.get("available") and deciles:
+        with st.expander("📊 Curva de Calibración (Predicho vs Real por Quintil)"):
+            st.dataframe(deciles, use_container_width=True)

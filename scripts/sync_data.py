@@ -10,6 +10,7 @@ from config.constants import TARGET_LEAGUES, COLOMBIA_TZ, get_current_season_for
 from databases.connection import DatabaseManager
 from controllers.fixture_controller import FixtureController
 from controllers.betting_controller import BettingController
+from services.calibration_service import CalibrationService
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -19,6 +20,9 @@ def run_daily_sync():
         auth_token = os.environ.get("TURSO_AUTH_TOKEN", "")
         db_manager = DatabaseManager(db_url=db_url, auth_token=auth_token)
         logging.info("🔗 Conexión establecida con la base de datos.")
+
+        # 0. Re-hidratar el último calibrador Platt desde Turso (runner efímero)
+        CalibrationService.ensure_available(db_manager)
 
         today_str = datetime.now(COLOMBIA_TZ).strftime('%Y-%m-%d')
         logging.info(f"📅 Sincronizando partidos para el día de hoy: {today_str}")
@@ -46,6 +50,23 @@ def run_daily_sync():
                 logging.error(f"⚠️ Error sincronizando {league_name}: {sub_err}")
 
         logging.info("🎉 ¡Sincronización diaria completada con éxito!")
+
+        # 4. Bucle de retroalimentación: reentrenar calibrador Platt con los
+        #    resultados recién liquidados (GANADA/PERDIDA) y persistirlo en Turso.
+        try:
+            calibration_result = CalibrationService.train(db_manager)
+            if calibration_result.get("success"):
+                CalibrationService.persist_to_db(db_manager)
+                logging.info(
+                    f"🎯 Calibrador Platt reentrenado: "
+                    f"{calibration_result['n_samples']} muestras | "
+                    f"WinRate {calibration_result['win_rate_real']}% | "
+                    f"Brier {calibration_result['brier']} | Persistido en Turso."
+                )
+            else:
+                logging.info(f"📍 Calibración automática diferida: {calibration_result.get('message')}")
+        except Exception as cal_err:
+            logging.error(f"⚠️ Error en calibración automática: {cal_err}")
 
     except Exception as e:
         logging.error(f"❌ Error crítico en el proceso de sincronización: {e}")

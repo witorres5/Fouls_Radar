@@ -11,3 +11,4 @@ pytz
 pyspark
 scipy
 joblib
+scikit-learn

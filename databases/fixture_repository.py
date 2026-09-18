@@ -480,10 +480,11 @@ class FixtureRepository:
                 FROM match_fixtures mf
                 JOIN player_fixture_stats pfs ON mf.fixture_id = pfs.fixture_id
                 JOIN players p ON pfs.player_id = p.player_id AND p.league_id = mf.league_id AND p.season = mf.season
-                WHERE mf.league_id = ? 
+                WHERE mf.league_id = ?
                   AND DATE(mf.match_date) = DATE(?)
                   AND p.fouls_per_90 >= 1.5
                 ORDER BY p.fouls_per_90 DESC
+                LIMIT 20
             """
             try:
                 cursor.execute(query, (league_id, today_str))
@@ -514,18 +515,110 @@ class FixtureRepository:
 
 
     def get_team_goals_averages(self, team_id: int, season: int) -> Tuple[float, float]:
-        """Calcula el promedio de goles anotados y encajados por partido de un equipo."""
+        """
+        Promedio de goles anotados/encajados por partido de un equipo.
+        Esquema real SQLite/Turso (`player_fixture_stats`) no tiene columna
+        `goals_scored` ni `match_fixtures` guarda goles por equipo, por lo que
+        se retorna un fallback seguro (1.2/1.1) sin romper. Si el esquema
+        futuro incluye goles, se usa el cálculo real.
+        Idempotente: solo lectura.
+        """
+        DEFAULT_GF, DEFAULT_GC = 1.2, 1.1
+        try:
+            with self.db_manager.get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("PRAGMA table_info(player_fixture_stats)")
+                cols = {r[1] for r in cursor.fetchall()}
+                if "goals_scored" not in cols:
+                    return DEFAULT_GF, DEFAULT_GC
+                cursor.execute("""
+                    SELECT
+                        AVG(CASE WHEN pfs.team_id = ? THEN pfs.goals_scored ELSE 0 END) as gf,
+                        AVG(CASE WHEN pfs.team_id != ? THEN pfs.goals_scored ELSE 0 END) as gc
+                    FROM player_fixture_stats pfs
+                    JOIN match_fixtures mf ON pfs.fixture_id = mf.fixture_id
+                    WHERE mf.season = ? AND mf.status IN ('FT', 'AET', 'PEN')
+                """, (team_id, team_id, season))
+                row = cursor.fetchone()
+                gf = float(row[0]) if (row and row[0] is not None and row[0] > 0) else DEFAULT_GF
+                gc = float(row[1]) if (row and row[1] is not None and row[1] > 0) else DEFAULT_GC
+                return round(gf, 2), round(gc, 2)
+        except Exception as e:
+            logger.warning(f"get_team_goals_averages fallback por esquema: {e}")
+            return DEFAULT_GF, DEFAULT_GC
+
+    def get_top_daily_goals_picks_by_league(
+        self, league_id: int, today_str: str, season: int, limit: int = 2
+    ) -> List[dict]:
+        """
+        Candidatos Over 2.5 del día para una liga (lectura idempotente, SQLite-compatible).
+        Usa `match_fixtures` de hoy + lambdas estimadas vía `get_team_goals_averages`
+        con ventaja local. El filtrado EV+ (>= min_prob_threshold) lo hace
+        `ParlayService`, aquí solo se ordena por prob. Over 2.5 desc.
+        Requerido por `views/fixtures_view.py:render_daily_parlay_card`.
+        """
+        from utils.betting_engine import BettingEngine
+
         with self.db_manager.get_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute("""
-                SELECT 
-                    AVG(CASE WHEN pfs.team_id = ? THEN pfs.goals_scored ELSE 0 END) as gf,
-                    AVG(CASE WHEN pfs.team_id != ? THEN pfs.goals_scored ELSE 0 END) as gc
-                FROM player_fixture_stats pfs
-                JOIN match_fixtures mf ON pfs.fixture_id = mf.fixture_id
-                WHERE mf.season = ? AND mf.status IN ('FT', 'AET', 'PEN')
-            """, (team_id, team_id, season))
-            row = cursor.fetchone()
-            gf = float(row[0]) if (row and row[0] is not None) else 1.2
-            gc = float(row[1]) if (row and row[1] is not None) else 1.1
-            return round(gf, 2), round(gc, 2)
+            try:
+                cursor.execute("""
+                    SELECT fixture_id, home_team, away_team, match_date
+                    FROM match_fixtures
+                    WHERE league_id = ? AND DATE(match_date) = DATE(?)
+                    ORDER BY match_date ASC
+                    LIMIT ?
+                """, (league_id, today_str, limit * 3))
+                rows = cursor.fetchall()
+            except Exception as e:
+                logger.error(f"Error en get_top_daily_goals_picks_by_league: {e}")
+                return []
+
+        if not rows:
+            return []
+
+        # Sin IDs de equipo en match_fixtures (solo nombres), se resuelven lambdas
+        # base con fallback seguro + intento de lookup por nombre en `teams`.
+        team_id_by_name: dict = {}
+        try:
+            with self.db_manager.get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute(
+                    "SELECT name, team_id FROM teams WHERE league_id = ? AND season = ?",
+                    (league_id, season),
+                )
+                for name, tid in cursor.fetchall():
+                    if name:
+                        team_id_by_name[str(name).strip().lower()] = tid
+        except Exception:
+            pass
+
+        candidates: List[dict] = []
+        for r in rows:
+            fixture_id, home_name, away_name = r[0], r[1], r[2]
+            home_tid = team_id_by_name.get(str(home_name or "").strip().lower())
+            away_tid = team_id_by_name.get(str(away_name or "").strip().lower())
+
+            if home_tid is not None:
+                home_gf, home_gc = self.get_team_goals_averages(home_tid, season)
+            else:
+                home_gf, home_gc = 1.35, 1.15
+            if away_tid is not None:
+                away_gf, away_gc = self.get_team_goals_averages(away_tid, season)
+            else:
+                away_gf, away_gc = 1.15, 1.35
+
+            # Modelo bivariado simple con ventaja local, igual que la vista profunda.
+            home_lambda = round((home_gf + away_gc) / 2.0 + 0.10, 2)
+            away_lambda = round((away_gf + home_gc) / 2.0, 2)
+            prob = BettingEngine.calculate_over25_goals_probability(home_lambda, away_lambda)
+            candidates.append({
+                "fixture_id": fixture_id,
+                "match": f"{home_name} vs {away_name}",
+                "home_xg": home_lambda,
+                "away_xg": away_lambda,
+                "over25_prob": prob,
+            })
+
+        candidates.sort(key=lambda x: x["over25_prob"], reverse=True)
+        return candidates[:limit]
